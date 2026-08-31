@@ -1,151 +1,379 @@
-import os
-from weasyprint import HTML
-
-# Create HTML content for GitHub Guide
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <style>
-    @page {
-      size: A4;
-      margin: 15mm 12mm;
-      background-color: #f8fafc;
-    }
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
-      color: #0f172a;
-      background-color: #f8fafc;
-      font-size: 10.5pt;
-      line-height: 1.5;
-    }
-    .header {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      color: white;
-      padding: 20px 24px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-    .header h1 {
-      margin: 0 0 6px 0;
-      font-size: 20pt;
-      font-weight: 700;
-    }
-    .header p {
-      margin: 0;
-      color: #94a3b8;
-      font-size: 10pt;
-    }
-    .section {
-      background: white;
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid #e2e8f0;
-    }
-    h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 13pt;
-      color: #1e293b;
-      border-left: 4px solid #3b82f6;
-      padding-left: 10px;
-    }
-    ol, ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-    li:last-child {
-      margin-bottom: 0;
-    }
-    .code-block {
-      background-color: #0d1117;
-      color: #e6edf3;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 9pt;
-      margin: 6px 0;
-      line-height: 1.4;
-    }
-    .step-title {
-      font-weight: bold;
-      color: #2563eb;
-    }
-    .badge {
-      display: inline-block;
-      background: #dbeafe;
-      color: #1e40af;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 8.5pt;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單字背誦進度追蹤器</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        h2 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .date-selects {
+            display: flex;
+            gap: 5px;
+        }
+        select, input, button {
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        button:hover { background: var(--primary-hover); }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .stat-item {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+        .stat-label { font-size: 0.85rem; color: #64748b; }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        .calendar-day-header { font-weight: bold; padding: 5px; color: #64748b; }
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .calendar-day:hover { background: #e0e7ff; }
+        .calendar-day.has-data { background: #eef2ff; border-color: #818cf8; }
+        .count-badge { font-weight: bold; color: var(--primary); font-size: 10px; }
+    </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1>🚀 GitHub Pages 免費網頁託管教學</h1>
-    <p>將「單字背誦進度追蹤器」部署到 GitHub，隨時隨地開啟網頁打卡！</p>
-  </div>
+<div style="max-width: 1000px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center;">
+    <h1>📚 單字背誦進度追蹤器</h1>
+    <button onclick="clearAllData()" style="background: #ef4444;">清除所有紀錄 🗑️</button>
+</div>
 
-  <div class="section">
-    <h2>📌 為什麼要用 GitHub Pages？</h2>
-    <ul>
-      <li><span class="step-title">完全免費</span>：不需購買主機與網域。</li>
-      <li><span class="step-title">個人專屬網址</span>：發布後會獲得一個屬於你的專屬網址（例如：<code>https://username.github.io/vocab-tracker</code>）。</li>
-      <li><span class="step-title">跨裝置打卡</span>：不管是電腦、手機、平板，只要打開網址就能打卡紀錄！</li>
-    </ul>
-  </div>
+<div class="container">
+    <!-- 左側面板 -->
+    <div>
+        <div class="card">
+            <h2>⚡ 單字打卡</h2>
+            <div class="input-group">
+                <label>選擇日期：</label>
+                <div class="date-selects">
+                    <select id="yearSelect"></select>
+                    <select id="monthSelect"></select>
+                    <select id="daySelect"></select>
+                </div>
+                <label>背誦單字量：</label>
+                <input type="number" id="vocabCount" min="1" placeholder="輸入數量...">
+                <label>打卡模式：</label>
+                <select id="modeSelect">
+                    <option value="add">➕ 累加數量</option>
+                    <option value="overwrite">✏️ 直接修改(覆蓋)</option>
+                </select>
+                <button onclick="submitData()">紀錄單字 💾</button>
+            </div>
+        </div>
 
-  <div class="section">
-    <h2>🛠️ 步驟一：將程式碼儲存為檔案</h2>
-    <ol>
-      <li>把剛剛產生的 HTML 程式碼全部複製。</li>
-      <li>在電腦上建立一個資料夾（例如：<code>vocab-tracker</code>）。</li>
-      <li>在資料夾內建立一個名為 <code>index.html</code> 的文字檔，並把程式碼貼貼上去儲存。</li>
-    </ol>
-  </div>
+        <div class="card">
+            <h2>📊 學習統計</h2>
+            <div class="stat-grid">
+                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日累積</div></div>
+                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週累積</div></div>
+                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月累積</div></div>
+                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年累積</div></div>
+            </div>
+        </div>
+    </div>
 
-  <div class="section">
-    <h2>☁️ 步驟二：上傳至 GitHub</h2>
-    <ol>
-      <li>前往 <span class="step-title">GitHub.com</span> 並登入（若無帳號請先註冊）。</li>
-      <li>點擊右上角的 <span class="badge">+</span> 按鈕，選擇 <strong>New repository</strong>。</li>
-      <li>在 <strong>Repository name</strong> 輸入專案名稱（例如：<code>vocab-tracker</code>）。</li>
-      <li>設定改為 <strong>Public</strong>（公開），然後點擊 <strong>Create repository</strong>。</li>
-      <li>在專案頁面中，點擊 <strong>uploading an existing file</strong>（上傳現有檔案）。</li>
-      <li>將你的 <code>index.html</code> 拖曳上傳，最後點擊頁面下方的 <strong>Commit changes</strong>。</li>
-    </ol>
-  </div>
+    <!-- 右側面板 -->
+    <div>
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 id="calendarTitle" style="margin:0;">📅 月曆打卡紀錄</h2>
+                <div>
+                    <button onclick="changeMonth(-1)">◀</button>
+                    <button onclick="changeMonth(1)">▶</button>
+                </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
 
-  <div class="section">
-    <h2>🌐 步驟三：開啟 GitHub Pages 功能</h2>
-    <ol>
-      <li>在專案頁面上方點擊 <strong>Settings</strong>（設定）。</li>
-      <li>在左側選單找到並點擊 <strong>Pages</strong>。</li>
-      <li>在 <strong>Build and deployment</strong> 底下的 <strong>Branch</strong> 選項，將 <code>None</code> 改選為 <code>main</code>（或 <code>master</code>），然後點擊 <strong>Save</strong>。</li>
-      <li>等待 1~3 分鐘重新整理頁面，頂部就會出現你的專屬網址囉！🎉</li>
-    </ol>
-  </div>
+        <div class="card">
+            <h2>📈 趨勢圖表</h2>
+            <canvas id="trendChart" height="120"></canvas>
+        </div>
+    </div>
+</div>
 
+<script>
+    let vocabData = JSON.parse(localStorage.getItem('vocabData')) || {};
+    let currentDate = new Date();
+    let chartInstance = null;
+
+    function init() {
+        initDateDropdowns();
+        renderCalendar();
+        updateStats();
+        initChart();
+    }
+
+    function initDateDropdowns() {
+        const ySel = document.getElementById('yearSelect');
+        const mSel = document.getElementById('monthSelect');
+        const dSel = document.getElementById('daySelect');
+        const now = new Date();
+
+        ySel.innerHTML = ''; mSel.innerHTML = '';
+        for(let y = now.getFullYear() - 2; y <= now.getFullYear() + 2; y++) {
+            ySel.add(new Option(`${y}年`, y, false, y === now.getFullYear()));
+        }
+        for(let m = 1; m <= 12; m++) {
+            mSel.add(new Option(`${m}月`, m, false, m === (now.getMonth() + 1)));
+        }
+        updateDays();
+        dSel.value = now.getDate();
+
+        ySel.onchange = updateDays;
+        mSel.onchange = updateDays;
+    }
+
+    function updateDays() {
+        const y = parseInt(document.getElementById('yearSelect').value);
+        const m = parseInt(document.getElementById('monthSelect').value);
+        const dSel = document.getElementById('daySelect');
+        const daysInMonth = new Date(y, m, 0).getDate();
+        const currentVal = parseInt(dSel.value) || 1;
+        
+        dSel.innerHTML = '';
+        for(let d = 1; d <= daysInMonth; d++) {
+            dSel.add(new Option(`${d}日`, d, false, d === Math.min(currentVal, daysInMonth)));
+        }
+    }
+
+    function submitData() {
+        const y = document.getElementById('yearSelect').value;
+        const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
+        const d = String(document.getElementById('daySelect').value).padStart(2, '0');
+        const count = parseInt(document.getElementById('vocabCount').value);
+        const mode = document.getElementById('modeSelect').value;
+
+        if (!count || count <= 0) return alert('請輸入有效的單字數量！');
+
+        const dateStr = `${y}-${m}-${d}`;
+        if (mode === 'add') {
+            vocabData[dateStr] = (vocabData[dateStr] || 0) + count;
+        } else {
+            vocabData[dateStr] = count;
+        }
+
+        localStorage.setItem('vocabData', JSON.stringify(vocabData));
+        document.getElementById('vocabCount').value = '';
+        
+        renderCalendar();
+        updateStats();
+        updateChart();
+        alert(`已成功紀錄！${dateStr} 累積：${vocabData[dateStr]} 個單字`);
+    }
+
+    function renderCalendar() {
+        const grid = document.getElementById('calendarGrid');
+        grid.innerHTML = '';
+        const y = currentDate.getFullYear();
+        const m = currentDate.getMonth();
+
+        document.getElementById('calendarTitle').innerText = `📅 ${y}年 ${m + 1}月 打卡紀錄`;
+
+        const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+        weekDays.forEach(w => {
+            grid.innerHTML += `<div class="calendar-day-header">${w}</div>`;
+        });
+
+        const firstDay = new Date(y, m, 1).getDay();
+        const daysInMonth = new Date(y, m + 1, 0).getDate();
+
+        for(let i = 0; i < firstDay; i++) {
+            grid.innerHTML += `<div></div>`;
+        }
+
+        for(let d = 1; d <= daysInMonth; d++) {
+            const dateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+            const val = vocabData[dateStr];
+            const hasDataClass = val ? 'has-data' : '';
+            const badge = val ? `<div class="count-badge">+${val}</div>` : '';
+            
+            grid.innerHTML += `
+                <div class="calendar-day ${hasDataClass}" onclick="quickEdit('${dateStr}')">
+                    <span>${d}</span>
+                    ${badge}
+                </div>
+            `;
+        }
+    }
+
+    function quickEdit(dateStr) {
+        const current = vocabData[dateStr] || 0;
+        const input = prompt(`請輸入 ${dateStr} 的背誦單字數量（輸入 0 可刪除）：`, current);
+        if (input !== null) {
+            const val = parseInt(input);
+            if (isNaN(val) || val < 0) return alert('請輸入有效數字');
+            if (val === 0) delete vocabData[dateStr];
+            else vocabData[dateStr] = val;
+            
+            localStorage.setItem('vocabData', JSON.stringify(vocabData));
+            renderCalendar();
+            updateStats();
+            updateChart();
+        }
+    }
+
+    function changeMonth(delta) {
+        currentDate.setMonth(currentDate.getMonth() + delta);
+        renderCalendar();
+    }
+
+    function updateStats() {
+        const now = new Date();
+        const todayStr = formatDate(now);
+        
+        document.getElementById('statToday').innerText = vocabData[todayStr] || 0;
+
+        let weekSum = 0, monthSum = 0, yearSum = 0;
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth();
+
+        Object.keys(vocabData).forEach(dateKey => {
+            const [y, m, d] = dateKey.split('-').map(Number);
+            const val = vocabData[dateKey];
+            
+            if (y === currentYear) {
+                yearSum += val;
+                if (m === (currentMonth + 1)) monthSum += val;
+            }
+
+            const itemDate = new Date(y, m - 1, d);
+            const diffDays = Math.floor((now - itemDate) / (1000 * 60 * 60 * 24));
+            if (diffDays >= 0 && diffDays < 7) weekSum += val;
+        });
+
+        document.getElementById('statWeek').innerText = weekSum;
+        document.getElementById('statMonth').innerText = monthSum;
+        document.getElementById('statYear').innerText = yearSum;
+    }
+
+    function initChart() {
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        chartInstance = new Chart(ctx, {
+            type: 'line',
+            data: getChartData(),
+            options: { responsive: true, scales: { y: { beginAtZero: true } } }
+        });
+    }
+
+    function updateChart() {
+        if(chartInstance) {
+            chartInstance.data = getChartData();
+            chartInstance.update();
+        }
+    }
+
+    function getChartData() {
+        const labels = [];
+        const data = [];
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date();
+            d.setDate(d.getDate() - i);
+            const dateStr = formatDate(d);
+            labels.push(`${d.getMonth()+1}/${d.getDate()}`);
+            data.push(vocabData[dateStr] || 0);
+        }
+        return {
+            labels: labels,
+            datasets: [{
+                label: '近 7 天背誦量',
+                data: data,
+                borderColor: '#4f46e5',
+                backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                fill: true,
+                tension: 0.3
+            }]
+        };
+    }
+
+    function formatDate(date) {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const d = String(date.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+    }
+
+    function clearAllData() {
+        if (confirm('確定要清除所有背誦紀錄嗎？此動作無法復原喔！')) {
+            localStorage.removeItem('vocabData');
+            vocabData = {};
+            renderCalendar();
+            updateStats();
+            updateChart();
+        }
+    }
+
+    window.onload = init;
+</script>
 </body>
 </html>
-"""
-
-with open("github_pages_guide.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-HTML("github_pages_guide.html").write_pdf("GitHub_Pages_Deployment_Guide.pdf")
-print("PDF created successfully.")
