@@ -1,0 +1,151 @@
+import os
+from weasyprint import HTML
+
+# Create HTML content for GitHub Guide
+html_content = """<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @page {
+      size: A4;
+      margin: 15mm 12mm;
+      background-color: #f8fafc;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: #0f172a;
+      background-color: #f8fafc;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      margin: 0 0 6px 0;
+      font-size: 20pt;
+      font-weight: 700;
+    }
+    .header p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 10pt;
+    }
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #e2e8f0;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 13pt;
+      color: #1e293b;
+      border-left: 4px solid #3b82f6;
+      padding-left: 10px;
+    }
+    ol, ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+    .code-block {
+      background-color: #0d1117;
+      color: #e6edf3;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 9pt;
+      margin: 6px 0;
+      line-height: 1.4;
+    }
+    .step-title {
+      font-weight: bold;
+      color: #2563eb;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🚀 GitHub Pages 免費網頁託管教學</h1>
+    <p>將「單字背誦進度追蹤器」部署到 GitHub，隨時隨地開啟網頁打卡！</p>
+  </div>
+
+  <div class="section">
+    <h2>📌 為什麼要用 GitHub Pages？</h2>
+    <ul>
+      <li><span class="step-title">完全免費</span>：不需購買主機與網域。</li>
+      <li><span class="step-title">個人專屬網址</span>：發布後會獲得一個屬於你的專屬網址（例如：<code>https://username.github.io/vocab-tracker</code>）。</li>
+      <li><span class="step-title">跨裝置打卡</span>：不管是電腦、手機、平板，只要打開網址就能打卡紀錄！</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ 步驟一：將程式碼儲存為檔案</h2>
+    <ol>
+      <li>把剛剛產生的 HTML 程式碼全部複製。</li>
+      <li>在電腦上建立一個資料夾（例如：<code>vocab-tracker</code>）。</li>
+      <li>在資料夾內建立一個名為 <code>index.html</code> 的文字檔，並把程式碼貼貼上去儲存。</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>☁️ 步驟二：上傳至 GitHub</h2>
+    <ol>
+      <li>前往 <span class="step-title">GitHub.com</span> 並登入（若無帳號請先註冊）。</li>
+      <li>點擊右上角的 <span class="badge">+</span> 按鈕，選擇 <strong>New repository</strong>。</li>
+      <li>在 <strong>Repository name</strong> 輸入專案名稱（例如：<code>vocab-tracker</code>）。</li>
+      <li>設定改為 <strong>Public</strong>（公開），然後點擊 <strong>Create repository</strong>。</li>
+      <li>在專案頁面中，點擊 <strong>uploading an existing file</strong>（上傳現有檔案）。</li>
+      <li>將你的 <code>index.html</code> 拖曳上傳，最後點擊頁面下方的 <strong>Commit changes</strong>。</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>🌐 步驟三：開啟 GitHub Pages 功能</h2>
+    <ol>
+      <li>在專案頁面上方點擊 <strong>Settings</strong>（設定）。</li>
+      <li>在左側選單找到並點擊 <strong>Pages</strong>。</li>
+      <li>在 <strong>Build and deployment</strong> 底下的 <strong>Branch</strong> 選項，將 <code>None</code> 改選為 <code>main</code>（或 <code>master</code>），然後點擊 <strong>Save</strong>。</li>
+      <li>等待 1~3 分鐘重新整理頁面，頂部就會出現你的專屬網址囉！🎉</li>
+    </ol>
+  </div>
+
+</body>
+</html>
+"""
+
+with open("github_pages_guide.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+HTML("github_pages_guide.html").write_pdf("GitHub_Pages_Deployment_Guide.pdf")
+print("PDF created successfully.")
