@@ -69,6 +69,21 @@
             transition: background 0.2s;
         }
         button:hover { background: var(--primary-hover); }
+        .btn-group {
+            display: flex;
+            gap: 6px;
+        }
+        .btn-group button {
+            padding: 6px 12px;
+            font-size: 12px;
+            background: #e2e8f0;
+            color: #475569;
+            border-radius: 20px;
+        }
+        .btn-group button.active {
+            background: var(--primary);
+            color: white;
+        }
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -159,14 +174,20 @@
         </div>
 
         <div class="card">
-            <h2>📈 趨勢圖表</h2>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                <h2 style="margin:0;">🚀 背誦趨勢圖表</h2>
+                <div class="btn-group">
+                    <button id="btn-week" class="active" onclick="switchChartRange('week')">本週</button>
+                    <button id="btn-month" onclick="switchChartRange('month')">本月</button>
+                    <button id="btn-year" onclick="switchChartRange('year')">今年</button>
+                </div>
+            </div>
             <canvas id="trendChart" height="120"></canvas>
         </div>
     </div>
 </div>
 
 <script>
-    // 你的 Firebase 專屬金鑰
     const firebaseConfig = {
         apiKey: "AIzaSyD37inAxxk88gZzfnl1t3iiU4HnbwhW104",
         authDomain: "vocab-app-1c855.firebaseapp.com",
@@ -185,6 +206,7 @@
     let vocabData = {};
     let currentDate = new Date();
     let chartInstance = null;
+    let currentChartRange = 'week';
 
     function init() {
         initDateDropdowns();
@@ -337,12 +359,29 @@
         document.getElementById('statYear').innerText = yearSum;
     }
 
+    function switchChartRange(range) {
+        currentChartRange = range;
+        document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`btn-${range}`).classList.add('active');
+        updateChart();
+    }
+
     function initChart() {
         const ctx = document.getElementById('trendChart').getContext('2d');
         chartInstance = new Chart(ctx, {
-            type: 'line',
+            type: 'bar', // 改為柱狀圖
             data: getChartData(),
-            options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            options: { 
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: { 
+                    y: { beginAtZero: true, grid: { borderDash: [5, 5] } },
+                    x: { grid: { display: false } }
+                },
+                borderRadius: 6
+            }
         });
     }
 
@@ -356,22 +395,53 @@
     function getChartData() {
         const labels = [];
         const data = [];
-        for (let i = 6; i >= 0; i--) {
-            const d = new Date();
-            d.setDate(d.getDate() - i);
-            const dateStr = formatDate(d);
-            labels.push(`${d.getMonth()+1}/${d.getDate()}`);
-            data.push(vocabData[dateStr] || 0);
+        const now = new Date();
+
+        if (currentChartRange === 'week') {
+            // 本週：顯示近 7 天
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const dateStr = formatDate(d);
+                labels.push(`${d.getMonth()+1}/${d.getDate()}`);
+                data.push(vocabData[dateStr] || 0);
+            }
+        } else if (currentChartRange === 'month') {
+            // 本月：顯示這個月的所有天數
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+                labels.push(`${d}日`);
+                data.push(vocabData[dateStr] || 0);
+            }
+        } else if (currentChartRange === 'year') {
+            // 今年：顯示 1 ~ 12 個月的總和
+            const year = now.getFullYear();
+            const monthSums = new Array(12).fill(0);
+
+            Object.keys(vocabData).forEach(dateKey => {
+                const [y, m] = dateKey.split('-').map(Number);
+                if (y === year) {
+                    monthSums[m - 1] += vocabData[dateKey];
+                }
+            });
+
+            for (let m = 1; m <= 12; m++) {
+                labels.push(`${m}月`);
+                data.push(monthSums[m - 1]);
+            }
         }
+
         return {
             labels: labels,
             datasets: [{
-                label: '近 7 天背誦量',
+                label: '背誦數量',
                 data: data,
-                borderColor: '#4f46e5',
-                backgroundColor: 'rgba(79, 70, 229, 0.1)',
-                fill: true,
-                tension: 0.3
+                backgroundColor: '#6366f1',
+                hoverBackgroundColor: '#4338ca'
             }]
         };
     }
