@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>單字背誦進度追蹤器</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入 Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
     <style>
         :root {
             --primary: #4f46e5;
@@ -99,17 +103,17 @@
         .calendar-day:hover { background: #e0e7ff; }
         .calendar-day.has-data { background: #eef2ff; border-color: #818cf8; }
         .count-badge { font-weight: bold; color: var(--primary); font-size: 10px; }
+        .sync-status { font-size: 12px; color: #10b981; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div style="max-width: 1000px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center;">
     <h1>📚 單字背誦進度追蹤器</h1>
-    <button onclick="clearAllData()" style="background: #ef4444;">清除所有紀錄 🗑️</button>
+    <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
 </div>
 
 <div class="container">
-    <!-- 左側面板 -->
     <div>
         <div class="card">
             <h2>⚡ 單字打卡</h2>
@@ -142,7 +146,6 @@
         </div>
     </div>
 
-    <!-- 右側面板 -->
     <div>
         <div class="card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
@@ -163,15 +166,37 @@
 </div>
 
 <script>
-    let vocabData = JSON.parse(localStorage.getItem('vocabData')) || {};
+    // 你的 Firebase 專屬金鑰
+    const firebaseConfig = {
+        apiKey: "AIzaSyD37inAxxk88gZzfnl1t3iiU4HnbwhW104",
+        authDomain: "vocab-app-1c855.firebaseapp.com",
+        databaseURL: "https://vocab-app-1c855-default-rtdb.firebaseio.com",
+        projectId: "vocab-app-1c855",
+        storageBucket: "vocab-app-1c855.firebasestorage.app",
+        messagingSenderId: "642166474550",
+        appId: "1:642166474550:web:c397de3f1d8f0826d29597",
+        measurementId: "G-3CN17KSP9Z"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const vocabRef = db.ref('vocabData');
+
+    let vocabData = {};
     let currentDate = new Date();
     let chartInstance = null;
 
     function init() {
         initDateDropdowns();
-        renderCalendar();
-        updateStats();
         initChart();
+        
+        vocabRef.on('value', (snapshot) => {
+            vocabData = snapshot.val() || {};
+            renderCalendar();
+            updateStats();
+            updateChart();
+            document.getElementById('syncStatus').innerText = '☁️ 雲端同步完成';
+        });
     }
 
     function initDateDropdowns() {
@@ -217,19 +242,15 @@
         if (!count || count <= 0) return alert('請輸入有效的單字數量！');
 
         const dateStr = `${y}-${m}-${d}`;
+        let newCount = count;
         if (mode === 'add') {
-            vocabData[dateStr] = (vocabData[dateStr] || 0) + count;
-        } else {
-            vocabData[dateStr] = count;
+            newCount = (vocabData[dateStr] || 0) + count;
         }
 
-        localStorage.setItem('vocabData', JSON.stringify(vocabData));
-        document.getElementById('vocabCount').value = '';
-        
-        renderCalendar();
-        updateStats();
-        updateChart();
-        alert(`已成功紀錄！${dateStr} 累積：${vocabData[dateStr]} 個單字`);
+        vocabRef.child(dateStr).set(newCount).then(() => {
+            document.getElementById('vocabCount').value = '';
+            alert(`同步成功！${dateStr} 累積：${newCount} 個單字`);
+        });
     }
 
     function renderCalendar() {
@@ -273,13 +294,12 @@
         if (input !== null) {
             const val = parseInt(input);
             if (isNaN(val) || val < 0) return alert('請輸入有效數字');
-            if (val === 0) delete vocabData[dateStr];
-            else vocabData[dateStr] = val;
             
-            localStorage.setItem('vocabData', JSON.stringify(vocabData));
-            renderCalendar();
-            updateStats();
-            updateChart();
+            if (val === 0) {
+                vocabRef.child(dateStr).remove();
+            } else {
+                vocabRef.child(dateStr).set(val);
+            }
         }
     }
 
@@ -361,16 +381,6 @@
         const m = String(date.getMonth() + 1).padStart(2, '0');
         const d = String(date.getDate()).padStart(2, '0');
         return `${y}-${m}-${d}`;
-    }
-
-    function clearAllData() {
-        if (confirm('確定要清除所有背誦紀錄嗎？此動作無法復原喔！')) {
-            localStorage.removeItem('vocabData');
-            vocabData = {};
-            renderCalendar();
-            updateStats();
-            updateChart();
-        }
     }
 
     window.onload = init;
