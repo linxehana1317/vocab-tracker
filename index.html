@@ -274,7 +274,7 @@
         <div style="background:#f1f5f9; padding:12px; border-radius:8px; margin-bottom:15px;">
             <label style="font-weight:bold;">今日背誦總量：</label>
             <input type="number" id="modalCountInput" style="width:80px;" min="0">
-            <button onclick="saveModalCount()" style="padding:6px 12px;">儲存數量</button>
+            <button onclick="saveModalChanges()" style="padding:6px 12px;">儲存變更 💾</button>
         </div>
 
         <h4 id="formTitle">📖 新增詳細單字列表</h4>
@@ -295,7 +295,7 @@
             <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(可按住 ☰ 上下拖曳排序)</span></h4>
+        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(拖曳調整後，記得點「儲存變更」)</span></h4>
         <div id="wordListArea"></div>
     </div>
 </div>
@@ -336,6 +336,7 @@
     let chartInstance = null;
     let currentChartRange = 'week';
     let sortableInstance = null;
+    let currentTempWords = {}; // 暫存拖曳後的順序資料
 
     function init() {
         initDateDropdowns();
@@ -521,16 +522,27 @@
         document.getElementById('searchModal').style.display = 'none';
     }
 
-    function saveModalCount() {
+    // 同時儲存數量與最新拖曳過後的清單順序
+    function saveModalChanges() {
         const val = parseInt(document.getElementById('modalCountInput').value);
         if (isNaN(val) || val < 0) return alert('請輸入有效數量');
         
+        const updates = {};
+        // 1. 更新單字數量
         if (val === 0) {
-            vocabRef.child(selectedDateStr).remove();
+            updates[`vocabData/${selectedDateStr}`] = null;
         } else {
-            vocabRef.child(selectedDateStr).set(val);
+            updates[`vocabData/${selectedDateStr}`] = val;
         }
-        alert('修改成功！');
+
+        // 2. 更新最新拖曳的順序 (如有)
+        if (Object.keys(currentTempWords).length > 0) {
+            updates[`wordDetails/${selectedDateStr}`] = currentTempWords;
+        }
+
+        db.ref().update(updates).then(() => {
+            alert('儲存成功！(總數量與順序已同步雲端)');
+        });
     }
 
     function addOrUpdateWordDetail() {
@@ -589,6 +601,8 @@
         const dayWords = wordDetails[selectedDateStr] || {};
         const keys = Object.keys(dayWords);
 
+        currentTempWords = { ...dayWords };
+
         if (keys.length === 0) {
             area.innerHTML = '<div style="color:#94a3b8; font-size:13px; text-align:center;">尚無詳細單字資料，快來新增吧！</div>';
             return;
@@ -622,7 +636,8 @@
                 newOrderKeys.forEach(k => {
                     newOrderedWords[k] = dayWords[k];
                 });
-                wordListRef.child(selectedDateStr).set(newOrderedWords);
+                // 更新暫存中的順序，等待使用者按「儲存變更」
+                currentTempWords = newOrderedWords;
             }
         });
     }
