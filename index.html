@@ -6,6 +6,8 @@
     <title>單字背誦進度追蹤器</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入 HTML5 Drag and Drop 輔助套件 -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     <!-- 引入 Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -113,7 +115,6 @@
         .count-badge { font-weight: bold; color: var(--primary); font-size: 10px; }
         .sync-status { font-size: 12px; color: #10b981; font-weight: bold; }
 
-        /* 搜尋框樣式 */
         .search-box {
             position: relative;
             display: flex;
@@ -133,7 +134,6 @@
             border-color: var(--primary);
         }
 
-        /* 彈出視窗 (Modal) 樣式 */
         .modal {
             display: none;
             position: fixed;
@@ -148,7 +148,7 @@
             padding: 24px;
             border-radius: 12px;
             width: 90%;
-            max-width: 450px;
+            max-width: 480px;
             max-height: 85vh;
             overflow-y: auto;
         }
@@ -156,12 +156,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 12px;
+            padding: 10px 12px;
             background: #f8fafc;
             border: 1px solid var(--border);
             border-radius: 6px;
             margin-bottom: 6px;
+            cursor: grab;
         }
+        .word-item:active { cursor: grabbing; }
         .word-tag {
             background: #e0e7ff;
             color: #4338ca;
@@ -171,22 +173,22 @@
             font-weight: bold;
             margin: 0 4px;
         }
-        .delete-btn {
-            background: #ef4444;
-            color: white;
+        .action-btn {
             padding: 4px 8px;
             font-size: 12px;
             border-radius: 4px;
+            margin-left: 4px;
         }
+        .edit-btn { background: #f59e0b; color: white; }
+        .delete-btn { background: #ef4444; color: white; }
         .search-result-item {
             padding: 10px;
             border-bottom: 1px solid var(--border);
             cursor: pointer;
             transition: background 0.2s;
         }
-        .search-result-item:hover {
-            background: #f1f5f9;
-        }
+        .search-result-item:hover { background: #f1f5f9; }
+        .drag-handle { color: #94a3b8; margin-right: 8px; cursor: grab; }
     </style>
 </head>
 <body>
@@ -196,7 +198,6 @@
         <h1 style="margin:0;">📚 單字背誦進度追蹤器</h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
-    <!-- 右上角搜尋區域 -->
     <div class="search-box">
         <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋單字或翻譯..." onkeypress="handleSearchKey(event)">
         <button onclick="searchWord()" style="border-radius: 20px; padding: 8px 16px;">搜尋</button>
@@ -276,7 +277,7 @@
             <button onclick="saveModalCount()" style="padding:6px 12px;">儲存數量</button>
         </div>
 
-        <h4>📖 新增詳細單字列表</h4>
+        <h4 id="formTitle">📖 新增詳細單字列表</h4>
         <div class="input-group" style="background:#fff; border:1px solid #e2e8f0; padding:12px; border-radius:8px;">
             <input type="text" id="wordEnglish" placeholder="英文單字 (例如: happy)">
             <select id="wordPos">
@@ -287,12 +288,14 @@
                 <option value="prep.">prep. 介系詞</option>
                 <option value="conj.">conj. 連接詞</option>
                 <option value="pron.">pron. 代名詞</option>
+                <option value="suffix">suffix 字尾</option>
             </select>
             <input type="text" id="wordChinese" placeholder="中文翻譯 (例如: 開心的)">
-            <button onclick="addWordDetail()">➕ 新增至今天單字庫</button>
+            <button id="saveWordBtn" onclick="addOrUpdateWordDetail()">➕ 新增至今天單字庫</button>
+            <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單</h4>
+        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(可按住 ☰ 上下拖曳排序)</span></h4>
         <div id="wordListArea"></div>
     </div>
 </div>
@@ -328,9 +331,11 @@
     let vocabData = {};
     let wordDetails = {};
     let selectedDateStr = "";
+    let editingWordKey = null;
     let currentDate = new Date();
     let chartInstance = null;
     let currentChartRange = 'week';
+    let sortableInstance = null;
 
     function init() {
         initDateDropdowns();
@@ -441,6 +446,7 @@
 
     function openModal(dateStr) {
         selectedDateStr = dateStr;
+        resetWordForm();
         document.getElementById('modalDateTitle').innerText = `📅 ${dateStr} 詳細記錄`;
         document.getElementById('modalCountInput').value = vocabData[dateStr] || 0;
         document.getElementById('dayModal').style.display = 'flex';
@@ -450,6 +456,7 @@
     function closeModal() {
         document.getElementById('dayModal').style.display = 'none';
         selectedDateStr = "";
+        resetWordForm();
     }
 
     function handleSearchKey(e) {
@@ -526,18 +533,48 @@
         alert('修改成功！');
     }
 
-    function addWordDetail() {
+    function addOrUpdateWordDetail() {
         const eng = document.getElementById('wordEnglish').value.trim();
         const pos = document.getElementById('wordPos').value;
         const chi = document.getElementById('wordChinese').value.trim();
 
         if (!eng || !chi) return alert('請填寫完整單字與中文翻譯！');
 
-        const newWord = { english: eng, pos: pos, chinese: chi };
-        wordListRef.child(selectedDateStr).push(newWord).then(() => {
-            document.getElementById('wordEnglish').value = '';
-            document.getElementById('wordChinese').value = '';
-        });
+        const wordData = { english: eng, pos: pos, chinese: chi };
+
+        if (editingWordKey) {
+            wordListRef.child(selectedDateStr).child(editingWordKey).update(wordData).then(() => {
+                resetWordForm();
+            });
+        } else {
+            wordListRef.child(selectedDateStr).push(wordData).then(() => {
+                document.getElementById('wordEnglish').value = '';
+                document.getElementById('wordChinese').value = '';
+            });
+        }
+    }
+
+    function editWordDetail(key) {
+        const item = wordDetails[selectedDateStr][key];
+        if (!item) return;
+
+        editingWordKey = key;
+        document.getElementById('wordEnglish').value = item.english;
+        document.getElementById('wordPos').value = item.pos;
+        document.getElementById('wordChinese').value = item.chinese;
+
+        document.getElementById('formTitle').innerText = '✏️ 編輯單字';
+        document.getElementById('saveWordBtn').innerText = '💾 儲存修改';
+        document.getElementById('cancelEditBtn').style.display = 'inline-block';
+    }
+
+    function resetWordForm() {
+        editingWordKey = null;
+        document.getElementById('wordEnglish').value = '';
+        document.getElementById('wordChinese').value = '';
+        document.getElementById('formTitle').innerText = '📖 新增詳細單字列表';
+        document.getElementById('saveWordBtn').innerText = '➕ 新增至今天單字庫';
+        document.getElementById('cancelEditBtn').style.display = 'none';
     }
 
     function deleteWordDetail(key) {
@@ -560,15 +597,33 @@
         keys.forEach(key => {
             const item = dayWords[key];
             area.innerHTML += `
-                <div class="word-item">
+                <div class="word-item" data-id="${key}">
                     <div>
+                        <span class="drag-handle">☰</span>
                         <strong>${item.english}</strong>
                         <span class="word-tag">${item.pos}</span>
                         <span>${item.chinese}</span>
                     </div>
-                    <button class="delete-btn" onclick="deleteWordDetail('${key}')">刪除</button>
+                    <div>
+                        <button class="action-btn edit-btn" onclick="editWordDetail('${key}')">編輯 ✏️</button>
+                        <button class="action-btn delete-btn" onclick="deleteWordDetail('${key}')">刪除</button>
+                    </div>
                 </div>
             `;
+        });
+
+        if (sortableInstance) sortableInstance.destroy();
+        sortableInstance = new Sortable(area, {
+            animation: 150,
+            handle: '.drag-handle',
+            onEnd: function () {
+                const newOrderKeys = Array.from(area.querySelectorAll('.word-item')).map(el => el.getAttribute('data-id'));
+                const newOrderedWords = {};
+                newOrderKeys.forEach(k => {
+                    newOrderedWords[k] = dayWords[k];
+                });
+                wordListRef.child(selectedDateStr).set(newOrderedWords);
+            }
         });
     }
 
