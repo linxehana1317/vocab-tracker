@@ -35,6 +35,10 @@
             grid-template-columns: 1fr 2fr;
             gap: 20px;
         }
+        .full-width-card {
+            max-width: 1000px;
+            margin: 20px auto 0;
+        }
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
             .header-area { flex-direction: column; align-items: flex-start !important; gap: 10px; }
@@ -189,6 +193,36 @@
         }
         .search-result-item:hover { background: #f1f5f9; }
         .drag-handle { color: #94a3b8; margin-right: 8px; cursor: grab; }
+
+        /* 測驗區專用樣式 */
+        .quiz-option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 8px;
+            background: #f8fafc;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .quiz-option-btn:hover {
+            background: #e0e7ff;
+            border-color: #818cf8;
+        }
+        .quiz-option-btn.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d;
+            font-weight: bold;
+        }
+        .quiz-option-btn.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c;
+        }
     </style>
 </head>
 <body>
@@ -259,6 +293,72 @@
                 </div>
             </div>
             <canvas id="trendChart" height="120"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- 🧠 測驗練習區 -->
+<div class="full-width-card">
+    <div class="card">
+        <h2>🧠 測驗練習區</h2>
+        
+        <!-- 測驗設定介面 -->
+        <div id="quizSetupArea">
+            <p style="color:#64748b; margin-top:0;">自動抓取您資料庫中的所有單字進行測驗，快來考考自己的記憶力吧！</p>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px;">
+                <div>
+                    <label style="font-weight:bold; display:block; margin-bottom:5px;">題型：</label>
+                    <select id="quizTypeSelect">
+                        <option value="choice">🎯 四選一單選題</option>
+                        <option value="fill">✍️ 拼字填空題</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="font-weight:bold; display:block; margin-bottom:5px;">題數：</label>
+                    <select id="quizCountSelect">
+                        <option value="5">5 題</option>
+                        <option value="10" selected>10 題</option>
+                        <option value="20">20 題</option>
+                        <option value="all">全部單字</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="startQuiz()" style="font-size:16px; padding:10px 24px;">🚀 開始測驗</button>
+        </div>
+
+        <!-- 測驗進行中介面 -->
+        <div id="quizPlayArea" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #e2e8f0;">
+                <span id="quizProgress" style="font-weight:bold; color:var(--primary);">題目 1 / 10</span>
+                <span id="quizScore" style="color:#10b981; font-weight:bold;">得分：0</span>
+            </div>
+
+            <div style="background:#f1f5f9; padding:20px; border-radius:10px; text-align:center; margin-bottom:20px;">
+                <div id="quizPosTag" class="word-tag" style="display:inline-block; font-size:13px; margin-bottom:8px;">adj.</div>
+                <h2 id="quizQuestion" style="font-size:1.8rem; margin:5px 0; color:#1e293b;">中文題目顯示區</h2>
+            </div>
+
+            <!-- 四選一選項區 -->
+            <div id="quizChoiceOptions"></div>
+
+            <!-- 填空輸入區 -->
+            <div id="quizFillOption" style="display:none;">
+                <input type="text" id="quizFillInput" placeholder="請輸入正確的英文單字..." style="width:100%; box-sizing:border-box; margin-bottom:10px; font-size:16px; padding:12px;" onkeypress="handleQuizFillKey(event)">
+                <button onclick="submitFillAnswer()" style="width:100%; padding:12px; font-size:16px;">提交答案 ↵</button>
+            </div>
+
+            <div id="quizFeedback" style="margin-top:15px; font-weight:bold; text-align:center; font-size:16px; min-height:24px;"></div>
+            
+            <div style="text-align:right; margin-top:15px;">
+                <button id="nextQuizBtn" onclick="nextQuestion()" style="display:none; padding:8px 20px;">下一題 ➔</button>
+            </div>
+        </div>
+
+        <!-- 測驗結束介面 -->
+        <div id="quizResultArea" style="display:none; text-align:center; padding:20px 0;">
+            <h3 style="font-size:1.5rem; color:var(--primary); margin-top:0;">🎉 測驗完成！</h3>
+            <p id="quizFinalSummary" style="font-size:1.2rem; color:#334155;">您的得分：100 分 (正確率 100%)</p>
+            <button onclick="resetQuiz()" style="padding:10px 24px; font-size:15px;">🔄 再測驗一次</button>
         </div>
     </div>
 </div>
@@ -337,6 +437,14 @@
     let currentChartRange = 'week';
     let sortableInstance = null;
     let currentTempWords = {}; 
+
+    // 測驗系統相關變數
+    let allWordPool = [];
+    let quizQuestions = [];
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let currentQuizType = 'choice';
+    let isAnswered = false;
 
     function init() {
         initDateDropdowns();
@@ -527,14 +635,12 @@
         if (isNaN(val) || val < 0) return alert('請輸入有效數量');
         
         const updates = {};
-        // 1. 更新單字數量
         if (val === 0) {
             updates[`vocabData/${selectedDateStr}`] = null;
         } else {
             updates[`vocabData/${selectedDateStr}`] = val;
         }
 
-        // 2. 更新每個單字的新 order 權重
         if (currentTempWords && Object.keys(currentTempWords).length > 0) {
             Object.keys(currentTempWords).forEach(key => {
                 updates[`wordDetails/${selectedDateStr}/${key}`] = currentTempWords[key];
@@ -605,7 +711,6 @@
         area.innerHTML = '';
         const dayWords = wordDetails[selectedDateStr] || {};
         
-        // 依照 order 號碼進行從小到大排序
         const sortedKeys = Object.keys(dayWords).sort((a, b) => {
             const orderA = dayWords[a].order ?? 0;
             const orderB = dayWords[b].order ?? 0;
@@ -643,8 +748,6 @@
             handle: '.drag-handle',
             onEnd: function () {
                 const newOrderKeys = Array.from(area.querySelectorAll('.word-item')).map(el => el.getAttribute('data-id'));
-                
-                // 拖曳放開後，重新賦予 1, 2, 3... 號碼牌
                 newOrderKeys.forEach((k, index) => {
                     if (currentTempWords[k]) {
                         currentTempWords[k].order = index + 1;
@@ -775,6 +878,158 @@
         const m = String(date.getMonth() + 1).padStart(2, '0');
         const d = String(date.getDate()).padStart(2, '0');
         return `${y}-${m}-${d}`;
+    }
+
+    /* --- 🧠 測驗練習邏輯 --- */
+    function getAllWords() {
+        const pool = [];
+        Object.keys(wordDetails).forEach(dateStr => {
+            const dayWords = wordDetails[dateStr];
+            Object.keys(dayWords).forEach(key => {
+                pool.push(dayWords[key]);
+            });
+        });
+        return pool;
+    }
+
+    function startQuiz() {
+        allWordPool = getAllWords();
+        if (allWordPool.length === 0) {
+            return alert('您的資料庫目前沒有單字哦！請先新增一些單字再來測驗吧！😊');
+        }
+
+        currentQuizType = document.getElementById('quizTypeSelect').value;
+        const countOpt = document.getElementById('quizCountSelect').value;
+        
+        let targetCount = countOpt === 'all' ? allWordPool.length : parseInt(countOpt);
+        targetCount = Math.min(targetCount, allWordPool.length);
+
+        // 隨機洗牌抽題
+        const shuffled = [...allWordPool].sort(() => 0.5 - Math.random());
+        quizQuestions = shuffled.slice(0, targetCount);
+
+        currentQuizIndex = 0;
+        quizScore = 0;
+
+        document.getElementById('quizSetupArea').style.display = 'none';
+        document.getElementById('quizResultArea').style.display = 'none';
+        document.getElementById('quizPlayArea').style.display = 'block';
+
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        isAnswered = false;
+        document.getElementById('nextQuizBtn').style.display = 'none';
+        document.getElementById('quizFeedback').innerText = '';
+
+        const currentQ = quizQuestions[currentQuizIndex];
+        document.getElementById('quizProgress').innerText = `題目 ${currentQuizIndex + 1} / ${quizQuestions.length}`;
+        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
+        document.getElementById('quizPosTag').innerText = currentQ.pos || '詞性';
+        document.getElementById('quizQuestion').innerText = currentQ.chinese;
+
+        const choiceContainer = document.getElementById('quizChoiceOptions');
+        const fillContainer = document.getElementById('quizFillOption');
+
+        if (currentQuizType === 'choice') {
+            choiceContainer.style.display = 'block';
+            fillContainer.style.display = 'none';
+            choiceContainer.innerHTML = '';
+
+            // 生成四個選項 (包含正確答案與3個隨機干擾選項)
+            let options = [currentQ];
+            const otherWords = allWordPool.filter(w => w.english.toLowerCase() !== currentQ.english.toLowerCase());
+            const shuffledOthers = [...otherWords].sort(() => 0.5 - Math.random()).slice(0, 3);
+            options = options.concat(shuffledOthers).sort(() => 0.5 - Math.random());
+
+            options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option-btn';
+                btn.innerText = `${String.fromCharCode(65 + idx)}. ${opt.english}`;
+                btn.onclick = () => checkChoiceAnswer(opt.english, currentQ.english, btn);
+                choiceContainer.appendChild(btn);
+            });
+        } else {
+            choiceContainer.style.display = 'none';
+            fillContainer.style.display = 'block';
+            const input = document.getElementById('quizFillInput');
+            input.value = '';
+            input.disabled = false;
+            input.focus();
+        }
+    }
+
+    function checkChoiceAnswer(selected, correct, btnEl) {
+        if (isAnswered) return;
+        isAnswered = true;
+
+        const allBtns = document.querySelectorAll('.quiz-option-btn');
+        allBtns.forEach(b => {
+            if (b.innerText.includes(correct)) {
+                b.classList.add('correct');
+            }
+        });
+
+        if (selected.toLowerCase() === correct.toLowerCase()) {
+            quizScore += Math.round(100 / quizQuestions.length);
+            document.getElementById('quizFeedback').innerHTML = '<span style="color:#22c55e;">🎉 答對了！太棒了！</span>';
+        } else {
+            btnEl.classList.add('wrong');
+            document.getElementById('quizFeedback').innerHTML = `<span style="color:#ef4444;">❌ 答錯了！正確答案是：${correct}</span>`;
+        }
+
+        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
+        document.getElementById('nextQuizBtn').style.display = 'inline-block';
+    }
+
+    function handleQuizFillKey(e) {
+        if (e.key === 'Enter') submitFillAnswer();
+    }
+
+    function submitFillAnswer() {
+        if (isAnswered) return;
+        const input = document.getElementById('quizFillInput');
+        const userAns = input.value.trim().toLowerCase();
+        const currentQ = quizQuestions[currentQuizIndex];
+        const correct = currentQ.english.trim().toLowerCase();
+
+        if (!userAns) return alert('請輸入英文單字！');
+
+        isAnswered = true;
+        input.disabled = true;
+
+        if (userAns === correct) {
+            quizScore += Math.round(100 / quizQuestions.length);
+            document.getElementById('quizFeedback').innerHTML = '<span style="color:#22c55e;">🎉 完全正確！你太厲害了！</span>';
+        } else {
+            document.getElementById('quizFeedback').innerHTML = `<span style="color:#ef4444;">❌ 答錯了！正確拼字是：${currentQ.english}</span>`;
+        }
+
+        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
+        document.getElementById('nextQuizBtn').style.display = 'inline-block';
+    }
+
+    function nextQuestion() {
+        currentQuizIndex++;
+        if (currentQuizIndex < quizQuestions.length) {
+            renderQuestion();
+        } else {
+            showQuizResult();
+        }
+    }
+
+    function showQuizResult() {
+        document.getElementById('quizPlayArea').style.display = 'none';
+        document.getElementById('quizResultArea').style.display = 'block';
+
+        const rate = Math.round((quizScore / 100) * 100);
+        document.getElementById('quizFinalSummary').innerText = `您的總得分：${quizScore} 分 (答對 ${Math.round(quizScore / (100 / quizQuestions.length))} / ${quizQuestions.length} 題)`;
+    }
+
+    function resetQuiz() {
+        document.getElementById('quizResultArea').style.display = 'none';
+        document.getElementById('quizSetupArea').style.display = 'block';
     }
 
     window.onload = init;
