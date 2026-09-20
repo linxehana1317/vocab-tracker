@@ -27,6 +27,7 @@
             color: var(--text);
             margin: 0;
             padding: 20px;
+            scroll-behavior: smooth;
         }
         .container {
             max-width: 1000px;
@@ -194,6 +195,22 @@
         .search-result-item:hover { background: #f1f5f9; }
         .drag-handle { color: #94a3b8; margin-right: 8px; cursor: grab; }
 
+        /* 進度條與目標樣式 */
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e2e8f0;
+            border-radius: 10px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
         /* 測驗區專用樣式 */
         .quiz-option-btn {
             display: block;
@@ -268,6 +285,28 @@
                 <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月累積</div></div>
                 <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年累積</div></div>
             </div>
+
+            <!-- 🎯 目標設定與達成進度 -->
+            <h3 style="margin-top:20px; margin-bottom:10px; font-size:1.05rem; color:var(--primary);">🎯 學習目標設定</h3>
+            <div style="background:#f8fafc; border:1px solid var(--border); padding:12px; border-radius:8px; font-size:13px;">
+                <div style="margin-bottom:10px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                        <label style="font-weight:bold;">今日目標：</label>
+                        <input type="number" id="dailyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
+                    </div>
+                    <div id="dailyGoalText" style="color:#64748b;">已達成 0 / 0 個 (0%)</div>
+                    <div class="progress-bar-container"><div id="dailyProgressBar" class="progress-bar-fill"></div></div>
+                </div>
+
+                <div style="margin-top:12px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                        <label style="font-weight:bold;">本月目標：</label>
+                        <input type="number" id="monthlyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
+                    </div>
+                    <div id="monthlyGoalText" style="color:#64748b;">已達成 0 / 0 個 (0%)</div>
+                    <div class="progress-bar-container"><div id="monthlyProgressBar" class="progress-bar-fill"></div></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -298,13 +337,13 @@
 </div>
 
 <!-- 🧠 測驗練習區 -->
-<div class="full-width-card">
+<div class="full-width-card" id="quizSection">
     <div class="card">
         <h2>🧠 測驗練習區</h2>
         
         <!-- 測驗設定介面 -->
         <div id="quizSetupArea">
-            <p style="color:#64748b; margin-top:0;">自動抓取您資料庫中的所有單字進行測驗，快來考考自己的記憶力吧！</p>
+            <p id="quizSetupDesc" style="color:#64748b; margin-top:0;">自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！</p>
             <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px;">
                 <div>
                     <label style="font-weight:bold; display:block; margin-bottom:5px;">題型：</label>
@@ -324,6 +363,7 @@
                 </div>
             </div>
             <button onclick="startQuiz()" style="font-size:16px; padding:10px 24px;">🚀 開始測驗</button>
+            <button id="resetQuizFilterBtn" onclick="resetQuizFilter()" style="display:none; font-size:14px; padding:10px 16px; background:#64748b; margin-left:8px;">🔄 切換為全單字庫測驗</button>
         </div>
 
         <!-- 測驗進行中介面 -->
@@ -357,7 +397,7 @@
         <!-- 測驗結束介面 -->
         <div id="quizResultArea" style="display:none; text-align:center; padding:20px 0;">
             <h3 style="font-size:1.5rem; color:var(--primary); margin-top:0;">🎉 測驗完成！</h3>
-            <p id="quizFinalSummary" style="font-size:1.2rem; color:#334155;">您的得分：100 分 (正確率 100%)</p>
+            <p id="quizFinalSummary" style="font-size:1.2rem; color:#334155;">您的得分：100 分</p>
             <button onclick="resetQuiz()" style="padding:10px 24px; font-size:15px;">🔄 再測驗一次</button>
         </div>
     </div>
@@ -371,10 +411,13 @@
             <button onclick="closeModal()" style="background:#cbd5e1; color:#334155;">✖ 關閉</button>
         </div>
 
-        <div style="background:#f1f5f9; padding:12px; border-radius:8px; margin-bottom:15px;">
-            <label style="font-weight:bold;">今日背誦總量：</label>
-            <input type="number" id="modalCountInput" style="width:80px;" min="0">
-            <button onclick="saveModalChanges()" style="padding:6px 12px;">儲存變更 💾</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#f1f5f9; padding:12px; border-radius:8px; margin-bottom:15px;">
+            <div>
+                <label style="font-weight:bold;">今日背誦總量：</label>
+                <input type="number" id="modalCountInput" style="width:70px;" min="0">
+                <button onclick="saveModalChanges()" style="padding:6px 10px;">儲存 💾</button>
+            </div>
+            <button onclick="startQuizForSelectedDate()" style="background:#10b981; padding:6px 12px; font-size:13px;">🧠 測驗今日單字</button>
         </div>
 
         <h4 id="formTitle">📖 新增詳細單字列表</h4>
@@ -395,7 +438,7 @@
             <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(拖曳調整順序後，記得點「儲存變更」)</span></h4>
+        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(拖曳調整順序後，記得點「儲存」)</span></h4>
         <div id="wordListArea"></div>
     </div>
 </div>
@@ -427,9 +470,11 @@
     const db = firebase.database();
     const vocabRef = db.ref('vocabData');
     const wordListRef = db.ref('wordDetails');
+    const goalsRef = db.ref('goals');
 
     let vocabData = {};
     let wordDetails = {};
+    let goalsData = { daily: 10, monthly: 100 };
     let selectedDateStr = "";
     let editingWordKey = null;
     let currentDate = new Date();
@@ -440,6 +485,7 @@
 
     // 測驗系統相關變數
     let allWordPool = [];
+    let customQuizPool = null; // 當天單字測驗專用 Pool
     let quizQuestions = [];
     let currentQuizIndex = 0;
     let quizScore = 0;
@@ -461,6 +507,15 @@
         wordListRef.on('value', (snapshot) => {
             wordDetails = snapshot.val() || {};
             if (selectedDateStr) renderWordList();
+        });
+
+        goalsRef.on('value', (snapshot) => {
+            if (snapshot.val()) {
+                goalsData = snapshot.val();
+                document.getElementById('dailyGoalInput').value = goalsData.daily || 10;
+                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 100;
+            }
+            updateStats();
         });
     }
 
@@ -495,6 +550,14 @@
         for(let d = 1; d <= daysInMonth; d++) {
             dSel.add(new Option(`${d}日`, d, false, d === Math.min(currentVal, daysInMonth)));
         }
+    }
+
+    function saveGoals() {
+        const daily = parseInt(document.getElementById('dailyGoalInput').value) || 10;
+        const monthly = parseInt(document.getElementById('monthlyGoalInput').value) || 100;
+        goalsData = { daily, monthly };
+        goalsRef.set(goalsData);
+        updateStats();
     }
 
     function submitData() {
@@ -766,7 +829,8 @@
         const now = new Date();
         const todayStr = formatDate(now);
         
-        document.getElementById('statToday').innerText = vocabData[todayStr] || 0;
+        const todayVal = vocabData[todayStr] || 0;
+        document.getElementById('statToday').innerText = todayVal;
 
         let weekSum = 0, monthSum = 0, yearSum = 0;
         const currentYear = now.getFullYear();
@@ -789,6 +853,19 @@
         document.getElementById('statWeek').innerText = weekSum;
         document.getElementById('statMonth').innerText = monthSum;
         document.getElementById('statYear').innerText = yearSum;
+
+        // 計算目標完成率與更新進度條
+        const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 10;
+        const monthlyGoal = parseInt(document.getElementById('monthlyGoalInput').value) || goalsData.monthly || 100;
+
+        const dPct = Math.min(100, Math.round((todayVal / dailyGoal) * 100)) || 0;
+        const mPct = Math.min(100, Math.round((monthSum / monthlyGoal) * 100)) || 0;
+
+        document.getElementById('dailyGoalText').innerText = `已達成 ${todayVal} / ${dailyGoal} 個 (${dPct}%)`;
+        document.getElementById('dailyProgressBar').style.width = `${dPct}%`;
+
+        document.getElementById('monthlyGoalText').innerText = `已達成 ${monthSum} / ${monthlyGoal} 個 (${mPct}%)`;
+        document.getElementById('monthlyProgressBar').style.width = `${mPct}%`;
     }
 
     function switchChartRange(range) {
@@ -892,20 +969,48 @@
         return pool;
     }
 
+    // 當日單字直接測驗
+    function startQuizForSelectedDate() {
+        const dayWordsObj = wordDetails[selectedDateStr] || {};
+        const dayWords = Object.keys(dayWordsObj).map(k => dayWordsObj[k]);
+
+        if (dayWords.length === 0) {
+            return alert(`📅 ${selectedDateStr} 這一天尚無詳細單字可以測驗哦！`);
+        }
+
+        customQuizPool = dayWords;
+        closeModal();
+
+        // 滾動到測驗區
+        document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('quizSetupDesc').innerHTML = `📌 正在進行 <strong>📅 ${selectedDateStr}</strong> 的專屬單字測驗（共 ${dayWords.length} 個單字）`;
+        document.getElementById('resetQuizFilterBtn').style.display = 'inline-block';
+        resetQuiz();
+    }
+
+    function resetQuizFilter() {
+        customQuizPool = null;
+        document.getElementById('quizSetupDesc').innerText = '自動抓取您資料庫中的所有單字進行測驗，快來考考自己的記憶力吧！';
+        document.getElementById('resetQuizFilterBtn').style.display = 'none';
+        resetQuiz();
+    }
+
     function startQuiz() {
         allWordPool = getAllWords();
-        if (allWordPool.length === 0) {
+        const targetPool = customQuizPool || allWordPool;
+
+        if (targetPool.length === 0) {
             return alert('您的資料庫目前沒有單字哦！請先新增一些單字再來測驗吧！😊');
         }
 
         currentQuizType = document.getElementById('quizTypeSelect').value;
         const countOpt = document.getElementById('quizCountSelect').value;
         
-        let targetCount = countOpt === 'all' ? allWordPool.length : parseInt(countOpt);
-        targetCount = Math.min(targetCount, allWordPool.length);
+        let targetCount = countOpt === 'all' ? targetPool.length : parseInt(countOpt);
+        targetCount = Math.min(targetCount, targetPool.length);
 
         // 隨機洗牌抽題
-        const shuffled = [...allWordPool].sort(() => 0.5 - Math.random());
+        const shuffled = [...targetPool].sort(() => 0.5 - Math.random());
         quizQuestions = shuffled.slice(0, targetCount);
 
         currentQuizIndex = 0;
@@ -937,7 +1042,6 @@
             fillContainer.style.display = 'none';
             choiceContainer.innerHTML = '';
 
-            // 生成四個選項 (包含正確答案與3個隨機干擾選項)
             let options = [currentQ];
             const otherWords = allWordPool.filter(w => w.english.toLowerCase() !== currentQ.english.toLowerCase());
             const shuffledOthers = [...otherWords].sort(() => 0.5 - Math.random()).slice(0, 3);
@@ -1023,12 +1127,12 @@
         document.getElementById('quizPlayArea').style.display = 'none';
         document.getElementById('quizResultArea').style.display = 'block';
 
-        const rate = Math.round((quizScore / 100) * 100);
         document.getElementById('quizFinalSummary').innerText = `您的總得分：${quizScore} 分 (答對 ${Math.round(quizScore / (100 / quizQuestions.length))} / ${quizQuestions.length} 題)`;
     }
 
     function resetQuiz() {
         document.getElementById('quizResultArea').style.display = 'none';
+        document.getElementById('quizPlayArea').style.display = 'none';
         document.getElementById('quizSetupArea').style.display = 'block';
     }
 
