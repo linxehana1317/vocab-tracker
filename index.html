@@ -114,9 +114,41 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
         .calendar-day:hover { background: #e0e7ff; }
         .calendar-day.has-data { background: #eef2ff; border-color: #818cf8; }
+        
+        /* 高級感反光卡片樣式 ✨ */
+        .calendar-day.mastered {
+            border: 1.5px solid #6366f1;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+        }
+        .calendar-day.mastered::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.7) 50%,
+                transparent 70%
+            );
+            transform: rotate(25deg);
+            animation: shine 4s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            20% { transform: translateX(100%) rotate(25deg); }
+            100% { transform: translateX(100%) rotate(25deg); }
+        }
+
         .count-badge { font-weight: bold; color: var(--primary); font-size: 10px; }
         .sync-status { font-size: 12px; color: #10b981; font-weight: bold; }
 
@@ -184,8 +216,15 @@
             border-radius: 4px;
             margin-left: 4px;
         }
-        .edit-btn { background: #f59e0b; color: white; }
+        /* 淡藍色統一色調按鈕 🎨 */
+        .edit-btn { 
+            background: #3b82f6; 
+            color: white; 
+            transition: background 0.2s;
+        }
+        .edit-btn:hover { background: #2563eb; }
         .delete-btn { background: #ef4444; color: white; }
+        
         .search-result-item {
             padding: 10px;
             border-bottom: 1px solid var(--border);
@@ -248,7 +287,7 @@
     <div>
         <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
             📚 單字背誦進度追蹤器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.11</span>
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.12</span>
         </h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
@@ -424,7 +463,10 @@
 <div class="modal" id="dayModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-            <h3 id="modalDateTitle" style="margin:0; color:var(--primary);">📅 日期詳細內容</h3>
+            <div>
+                <h3 id="modalDateTitle" style="margin:0; color:var(--primary);">📅 日期詳細內容</h3>
+                <span id="quizCountBadge" style="font-size:12px; color:#64748b; font-weight:bold;">測驗紀錄：已測驗 0 次</span>
+            </div>
             <button onclick="closeModal()" style="background:#cbd5e1; color:#334155;">✖ 關閉</button>
         </div>
 
@@ -488,9 +530,11 @@
     const vocabRef = db.ref('vocabData');
     const wordListRef = db.ref('wordDetails');
     const goalsRef = db.ref('goals');
+    const quizStatsRef = db.ref('quizStats');
 
     let vocabData = {};
     let wordDetails = {};
+    let quizStatsData = {};
     let goalsData = { daily: 10, monthly: 100 };
     let selectedDateStr = "";
     let editingWordKey = null;
@@ -503,6 +547,7 @@
     // 測驗系統相關變數
     let allWordPool = [];
     let customQuizPool = null; 
+    let activeQuizDate = null; // 當前正在測驗的特定日期
     let quizQuestions = [];
     let currentQuizIndex = 0;
     let quizScore = 0;
@@ -524,6 +569,12 @@
         wordListRef.on('value', (snapshot) => {
             wordDetails = snapshot.val() || {};
             if (selectedDateStr) renderWordList();
+        });
+
+        quizStatsRef.on('value', (snapshot) => {
+            quizStatsData = snapshot.val() || {};
+            renderCalendar();
+            if (selectedDateStr) updateQuizModalBadge();
         });
 
         goalsRef.on('value', (snapshot) => {
@@ -624,8 +675,12 @@
             const hasDataClass = val ? 'has-data' : '';
             const badge = val ? `<div class="count-badge">+${val}</div>` : '';
             
+            // 判斷是否為精通狀態 (測驗超過 7 次且得分/正確率 >= 80%)
+            const stat = quizStatsData[dateStr] || { count: 0, bestScore: 0 };
+            const isMastered = (stat.count >= 7 && stat.bestScore >= 80) ? 'mastered' : '';
+
             grid.innerHTML += `
-                <div class="calendar-day ${hasDataClass}" onclick="openModal('${dateStr}')">
+                <div class="calendar-day ${hasDataClass} ${isMastered}" onclick="openModal('${dateStr}')">
                     <span>${d}</span>
                     ${badge}
                 </div>
@@ -633,11 +688,17 @@
         }
     }
 
+    function updateQuizModalBadge() {
+        const stat = quizStatsData[selectedDateStr] || { count: 0, bestScore: 0 };
+        document.getElementById('quizCountBadge').innerText = `測驗紀錄：已測驗 ${stat.count} 次 (最高得分 ${stat.bestScore}分)`;
+    }
+
     function openModal(dateStr) {
         selectedDateStr = dateStr;
         resetWordForm();
         document.getElementById('modalDateTitle').innerText = `📅 ${dateStr} 詳細記錄`;
         document.getElementById('modalCountInput').value = vocabData[dateStr] || 0;
+        updateQuizModalBadge();
         document.getElementById('dayModal').style.display = 'flex';
         renderWordList();
     }
@@ -985,7 +1046,6 @@
         return pool;
     }
 
-    // 切換是否顯示指定日期選擇器
     function toggleQuizDatePicker() {
         const range = document.getElementById('quizRangeSelect').value;
         const box = document.getElementById('quizDatePickerBox');
@@ -995,7 +1055,6 @@
         }
     }
 
-    // 根據選擇的時間範圍抓取單字
     function getWordsByRange(range) {
         const pool = [];
         const now = new Date();
@@ -1032,7 +1091,6 @@
         return pool;
     }
 
-    // 當日單字直接測驗
     function startQuizForSelectedDate() {
         const dayWordsObj = wordDetails[selectedDateStr] || {};
         const dayWords = Object.keys(dayWordsObj).map(k => dayWordsObj[k]);
@@ -1042,6 +1100,7 @@
         }
 
         customQuizPool = dayWords;
+        activeQuizDate = selectedDateStr;
         closeModal();
 
         document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
@@ -1052,6 +1111,7 @@
 
     function resetQuizFilter() {
         customQuizPool = null;
+        activeQuizDate = null;
         document.getElementById('quizSetupDesc').innerText = '自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！';
         document.getElementById('resetQuizFilterBtn').style.display = 'none';
         resetQuiz();
@@ -1072,7 +1132,6 @@
         let targetCount = countOpt === 'all' ? targetPool.length : parseInt(countOpt);
         targetCount = Math.min(targetCount, targetPool.length);
 
-        // 隨機洗牌抽題
         const shuffled = [...targetPool].sort(() => 0.5 - Math.random());
         quizQuestions = shuffled.slice(0, targetCount);
 
@@ -1191,6 +1250,17 @@
         document.getElementById('quizResultArea').style.display = 'block';
 
         document.getElementById('quizFinalSummary').innerText = `您的總得分：${quizScore} 分 (答對 ${Math.round(quizScore / (100 / quizQuestions.length))} / ${quizQuestions.length} 題)`;
+
+        // 紀錄特定日期的測驗次數與最高得分
+        const targetDate = activeQuizDate || formatDate(new Date());
+        const currentStat = quizStatsData[targetDate] || { count: 0, bestScore: 0 };
+        const newCount = currentStat.count + 1;
+        const newBestScore = Math.max(currentStat.bestScore, quizScore);
+
+        quizStatsRef.child(targetDate).set({
+            count: newCount,
+            bestScore: newBestScore
+        });
     }
 
     function resetQuiz() {
