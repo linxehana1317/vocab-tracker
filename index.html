@@ -122,7 +122,6 @@
         .calendar-day:hover { background: #e0e7ff; }
         .calendar-day.has-data { background: #eef2ff; border-color: #818cf8; }
         
-        /* 高級感反光卡片樣式 ✨ */
         .calendar-day.mastered {
             border: 1.5px solid #6366f1;
             box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
@@ -208,7 +207,7 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 6px;
             flex: 1;
             min-width: 0;
             word-break: break-word;
@@ -234,18 +233,24 @@
             border-radius: 4px;
             white-space: nowrap;
         }
-        .audio-btn {
+        /* 合併後的發音與拖曳控制按鈕 🔊☰ */
+        .drag-audio-btn {
             background: #e0e7ff;
             color: #4338ca;
             padding: 4px 8px;
-            border-radius: 50%;
-            cursor: pointer;
+            border-radius: 16px;
+            cursor: grab;
             border: none;
             flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 12px;
+            transition: background 0.2s;
         }
-        .audio-btn:hover { background: #c7d2fe; }
-        
-        /* 淡藍色統一色調按鈕 🎨 */
+        .drag-audio-btn:hover { background: #c7d2fe; }
+        .drag-audio-btn:active { cursor: grabbing; }
+
         .edit-btn { 
             background: #3b82f6; 
             color: white; 
@@ -261,9 +266,7 @@
             transition: background 0.2s;
         }
         .search-result-item:hover { background: #f1f5f9; }
-        .drag-handle { color: #94a3b8; margin-right: 4px; cursor: grab; flex-shrink: 0; }
 
-        /* 進度條與目標樣式 */
         .progress-bar-container {
             width: 100%;
             background-color: #e2e8f0;
@@ -279,7 +282,6 @@
             transition: width 0.4s ease;
         }
 
-        /* 測驗區專用樣式 */
         .quiz-option-btn {
             display: block;
             width: 100%;
@@ -316,7 +318,7 @@
     <div>
         <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
             📚 單字記錄器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.25</span>
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.0</span>
         </h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
@@ -357,7 +359,6 @@
                 <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年累積</div></div>
             </div>
 
-            <!-- 🎯 目標設定與達成進度 -->
             <h3 style="margin-top:20px; margin-bottom:10px; font-size:1.05rem; color:var(--primary);">🎯 學習目標設定</h3>
             <div style="background:#f8fafc; border:1px solid var(--border); padding:12px; border-radius:8px; font-size:13px;">
                 <div style="margin-bottom:10px;">
@@ -407,12 +408,10 @@
     </div>
 </div>
 
-<!-- 🧠 測驗練習區 -->
 <div class="full-width-card" id="quizSection">
     <div class="card">
         <h2>🧠 測驗練習區</h2>
         
-        <!-- 測驗設定介面 -->
         <div id="quizSetupArea">
             <p id="quizSetupDesc" style="color:#64748b; margin-top:0;">自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！</p>
             <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px; align-items:flex-end;">
@@ -451,7 +450,6 @@
             <button id="resetQuizFilterBtn" onclick="resetQuizFilter()" style="display:none; font-size:14px; padding:10px 16px; background:#64748b; margin-left:8px;">🔄 切換為全單字庫測驗</button>
         </div>
 
-        <!-- 測驗進行中介面 -->
         <div id="quizPlayArea" style="display:none;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #e2e8f0;">
                 <span id="quizProgress" style="font-weight:bold; color:var(--primary);">題目 1 / 10</span>
@@ -463,10 +461,8 @@
                 <h2 id="quizQuestion" style="font-size:1.8rem; margin:5px 0; color:#1e293b;">中文題目顯示區</h2>
             </div>
 
-            <!-- 四選一選項區 -->
             <div id="quizChoiceOptions"></div>
 
-            <!-- 填空輸入區 -->
             <div id="quizFillOption" style="display:none;">
                 <input type="text" id="quizFillInput" placeholder="請輸入正確的英文單字..." style="width:100%; box-sizing:border-box; margin-bottom:10px; font-size:16px; padding:12px;" onkeypress="handleQuizFillKey(event)">
                 <button onclick="submitFillAnswer()" style="width:100%; padding:12px; font-size:16px;">提交答案 ↵</button>
@@ -479,7 +475,6 @@
             </div>
         </div>
 
-        <!-- 測驗結束介面 -->
         <div id="quizResultArea" style="display:none; text-align:center; padding:20px 0;">
             <h3 style="font-size:1.5rem; color:var(--primary); margin-top:0;">🎉 測驗完成！</h3>
             <p id="quizFinalSummary" style="font-size:1.2rem; color:#334155;">您的得分：100 分</p>
@@ -488,7 +483,6 @@
     </div>
 </div>
 
-<!-- 點擊日期彈出的詳細視窗 -->
 <div class="modal" id="dayModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
@@ -526,12 +520,11 @@
             <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(點 🔊 聽發音，拖曳可調整順序)</span></h4>
+        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(長按或拖曳 ☰ 鍵可調整順序)</span></h4>
         <div id="wordListArea"></div>
     </div>
 </div>
 
-<!-- 搜尋結果彈出視窗 -->
 <div class="modal" id="searchModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
@@ -573,11 +566,9 @@
     let sortableInstance = null;
     let currentTempWords = {}; 
 
-    // 慶祝彩帶狀態紀錄
     let hasTriggeredDailyConfetti = false;
     let hasTriggeredMonthlyConfetti = false;
 
-    // 測驗系統相關變數
     let allWordPool = [];
     let customQuizPool = null; 
     let activeQuizDate = null;
@@ -653,7 +644,6 @@
         }
     }
 
-    // 🔊 發音功能 (Text-to-Speech)
     function speakWord(text) {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
@@ -721,7 +711,6 @@
             const hasDataClass = val ? 'has-data' : '';
             const badge = val ? `<div class="count-badge">+${val}</div>` : '';
             
-            // 判斷精通狀態：測驗 >= 7 次 且 通過 >= 5 次
             const stat = quizStatsData[dateStr] || { count: 0, passCount: 0 };
             const isMastered = (stat.count >= 7 && (stat.passCount || 0) >= 5) ? 'mastered' : '';
 
@@ -916,8 +905,9 @@
             area.innerHTML += `
                 <div class="word-item" data-id="${key}">
                     <div class="word-info">
-                        <span class="drag-handle">☰</span>
-                        <button class="audio-btn" onclick="speakWord('${item.english}')" title="發音">🔊</button>
+                        <button class="drag-audio-btn drag-handle" onclick="speakWord('${item.english}')" title="點擊發音 / 拖曳排序">
+                            ☰ 🔊
+                        </button>
                         <strong>${item.english}</strong>
                         <span class="word-tag">${item.pos}</span>
                         <span>${item.chinese}</span>
@@ -982,8 +972,9 @@
         const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 10;
         const monthlyGoal = parseInt(document.getElementById('monthlyGoalInput').value) || goalsData.monthly || 100;
 
-        const dPct = Math.min(100, Math.round((todayVal / dailyGoal) * 100)) || 0;
-        const mPct = Math.min(100, Math.round((monthSum / monthlyGoal) * 100)) || 0;
+        // 計算達成率 (若目標或累積為 0，直接為 0%，避免 0/0=NaN 錯誤)
+        const dPct = (dailyGoal > 0 && todayVal > 0) ? Math.min(100, Math.round((todayVal / dailyGoal) * 100)) : 0;
+        const mPct = (monthlyGoal > 0 && monthSum > 0) ? Math.min(100, Math.round((monthSum / monthlyGoal) * 100)) : 0;
 
         document.getElementById('dailyGoalText').innerText = `已達成 ${todayVal} / ${dailyGoal} 個 (${dPct}%)`;
         document.getElementById('dailyProgressBar').style.width = `${dPct}%`;
@@ -991,11 +982,12 @@
         document.getElementById('monthlyGoalText').innerText = `已達成 ${monthSum} / ${monthlyGoal} 個 (${mPct}%)`;
         document.getElementById('monthlyProgressBar').style.width = `${mPct}%`;
 
-        if (dPct >= 100 && !hasTriggeredDailyConfetti && todayVal > 0) {
+        // 嚴格保險：目標 > 0 且累積單字 > 0 且達標時才噴彩帶
+        if (dailyGoal > 0 && todayVal >= dailyGoal && !hasTriggeredDailyConfetti) {
             hasTriggeredDailyConfetti = true;
             triggerConfetti();
         }
-        if (mPct >= 100 && !hasTriggeredMonthlyConfetti && monthSum > 0) {
+        if (monthlyGoal > 0 && monthSum >= monthlyGoal && !hasTriggeredMonthlyConfetti) {
             hasTriggeredMonthlyConfetti = true;
             triggerConfetti();
         }
