@@ -6,11 +6,8 @@
     <title>單字記錄器</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- 引入 HTML5 Drag and Drop 輔助套件 -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-    <!-- 引入 Confetti 彩帶慶祝特效 -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <!-- 引入 Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
@@ -233,7 +230,6 @@
             border-radius: 4px;
             white-space: nowrap;
         }
-        /* 合併後的發音與拖曳控制按鈕 🔊☰ */
         .drag-audio-btn {
             background: #e0e7ff;
             color: #4338ca;
@@ -318,7 +314,7 @@
     <div>
         <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
             📚 單字記錄器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.27</span>
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.28</span>
         </h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
@@ -366,7 +362,7 @@
                         <label style="font-weight:bold;">今日目標：</label>
                         <input type="number" id="dailyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
                     </div>
-                    <div id="dailyGoalText" style="color:#64748b;">已達成 0 / 0 個 (0%)</div>
+                    <div id="dailyGoalText" style="color:#64748b;">已達成 0 / 15 個 (0%)</div>
                     <div class="progress-bar-container"><div id="dailyProgressBar" class="progress-bar-fill"></div></div>
                 </div>
 
@@ -375,7 +371,7 @@
                         <label style="font-weight:bold;">本月目標：</label>
                         <input type="number" id="monthlyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
                     </div>
-                    <div id="monthlyGoalText" style="color:#64748b;">已達成 0 / 0 個 (0%)</div>
+                    <div id="monthlyGoalText" style="color:#64748b;">已達成 0 / 200 個 (0%)</div>
                     <div class="progress-bar-container"><div id="monthlyProgressBar" class="progress-bar-fill"></div></div>
                 </div>
             </div>
@@ -557,7 +553,8 @@
     let vocabData = {};
     let wordDetails = {};
     let quizStatsData = {};
-    let goalsData = { daily: 10, monthly: 100 };
+    // 預設改成 15 天 / 200 月
+    let goalsData = { daily: 15, monthly: 200 };
     let selectedDateStr = "";
     let editingWordKey = null;
     let currentDate = new Date();
@@ -565,9 +562,6 @@
     let currentChartRange = 'week';
     let sortableInstance = null;
     let currentTempWords = {}; 
-
-    let hasTriggeredDailyConfetti = false;
-    let hasTriggeredMonthlyConfetti = false;
 
     let allWordPool = [];
     let customQuizPool = null; 
@@ -604,8 +598,11 @@
         goalsRef.on('value', (snapshot) => {
             if (snapshot.val()) {
                 goalsData = snapshot.val();
-                document.getElementById('dailyGoalInput').value = goalsData.daily || 10;
-                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 100;
+                document.getElementById('dailyGoalInput').value = goalsData.daily || 15;
+                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 200;
+            } else {
+                document.getElementById('dailyGoalInput').value = 15;
+                document.getElementById('monthlyGoalInput').value = 200;
             }
             updateStats();
         });
@@ -657,13 +654,14 @@
     }
 
     function saveGoals() {
-        const daily = parseInt(document.getElementById('dailyGoalInput').value) || 10;
-        const monthly = parseInt(document.getElementById('monthlyGoalInput').value) || 100;
+        const daily = parseInt(document.getElementById('dailyGoalInput').value) || 15;
+        const monthly = parseInt(document.getElementById('monthlyGoalInput').value) || 200;
         goalsData = { daily, monthly };
         goalsRef.set(goalsData);
         updateStats();
     }
 
+    // 手動按下「紀錄單字 💾」時的邏輯
     function submitData() {
         const y = document.getElementById('yearSelect').value;
         const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
@@ -674,14 +672,26 @@
         if (!count || count <= 0) return alert('請輸入有效的單字數量！');
 
         const dateStr = `${y}-${m}-${d}`;
+        let oldVal = vocabData[dateStr] || 0;
         let newCount = count;
         if (mode === 'add') {
-            newCount = (vocabData[dateStr] || 0) + count;
+            newCount = oldVal + count;
         }
+
+        const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 15;
 
         vocabRef.child(dateStr).set(newCount).then(() => {
             document.getElementById('vocabCount').value = '';
             alert(`同步成功！${dateStr} 累積：${newCount} 個單字`);
+
+            // 檢查是否噴彩帶 (只有在新增後「剛好/超過目標」且「今天尚未噴過」時觸發)
+            const todayStr = formatDate(new Date());
+            const lastConfettiDate = localStorage.getItem('lastConfettiDate');
+
+            if (dateStr === todayStr && newCount >= dailyGoal && lastConfettiDate !== todayStr) {
+                triggerConfetti();
+                localStorage.setItem('lastConfettiDate', todayStr); // 註記今天已噴過
+            }
         });
     }
 
@@ -969,10 +979,9 @@
         document.getElementById('statMonth').innerText = monthSum;
         document.getElementById('statYear').innerText = yearSum;
 
-        const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 10;
-        const monthlyGoal = parseInt(document.getElementById('monthlyGoalInput').value) || goalsData.monthly || 100;
+        const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 15;
+        const monthlyGoal = parseInt(document.getElementById('monthlyGoalInput').value) || goalsData.monthly || 200;
 
-        // 計算達成率 (若目標或累積為 0，直接為 0%，避免 0/0=NaN 錯誤)
         const dPct = (dailyGoal > 0 && todayVal > 0) ? Math.min(100, Math.round((todayVal / dailyGoal) * 100)) : 0;
         const mPct = (monthlyGoal > 0 && monthSum > 0) ? Math.min(100, Math.round((monthSum / monthlyGoal) * 100)) : 0;
 
@@ -981,16 +990,6 @@
 
         document.getElementById('monthlyGoalText').innerText = `已達成 ${monthSum} / ${monthlyGoal} 個 (${mPct}%)`;
         document.getElementById('monthlyProgressBar').style.width = `${mPct}%`;
-
-        // 嚴格保險：目標 > 0 且累積單字 > 0 且達標時才噴彩帶
-        if (dailyGoal > 0 && todayVal >= dailyGoal && !hasTriggeredDailyConfetti) {
-            hasTriggeredDailyConfetti = true;
-            triggerConfetti();
-        }
-        if (monthlyGoal > 0 && monthSum >= monthlyGoal && !hasTriggeredMonthlyConfetti) {
-            hasTriggeredMonthlyConfetti = true;
-            triggerConfetti();
-        }
     }
 
     function triggerConfetti() {
@@ -1092,7 +1091,6 @@
         return `${y}-${m}-${d}`;
     }
 
-    /* --- 🧠 測驗練習邏輯 --- */
     function getAllWords() {
         const pool = [];
         Object.keys(wordDetails).forEach(dateStr => {
