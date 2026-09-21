@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字背誦進度追蹤器</title>
+    <title>單字記錄器</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- 引入 HTML5 Drag and Drop 輔助套件 -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <!-- 引入 Confetti 彩帶慶祝特效 -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <!-- 引入 Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -216,6 +218,17 @@
             border-radius: 4px;
             margin-left: 4px;
         }
+        .audio-btn {
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 4px 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+            cursor: pointer;
+            border: none;
+        }
+        .audio-btn:hover { background: #c7d2fe; }
+        
         /* 淡藍色統一色調按鈕 🎨 */
         .edit-btn { 
             background: #3b82f6; 
@@ -286,8 +299,8 @@
 <div class="header-area" style="max-width: 1000px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
         <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
-            📚 單字背誦進度追蹤器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.12</span>
+            📚 單字記錄器 
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.13</span>
         </h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
@@ -465,7 +478,7 @@
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
             <div>
                 <h3 id="modalDateTitle" style="margin:0; color:var(--primary);">📅 日期詳細內容</h3>
-                <span id="quizCountBadge" style="font-size:12px; color:#64748b; font-weight:bold;">測驗紀錄：已測驗 0 次</span>
+                <span id="quizCountBadge" style="font-size:12px; color:#64748b; font-weight:bold;">測驗紀錄：已測驗 0 次 / 通過 0 次</span>
             </div>
             <button onclick="closeModal()" style="background:#cbd5e1; color:#334155;">✖ 關閉</button>
         </div>
@@ -497,7 +510,7 @@
             <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(拖曳調整順序後，記得點「儲存」)</span></h4>
+        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(點 🔊 聽發音，拖曳可調整順序)</span></h4>
         <div id="wordListArea"></div>
     </div>
 </div>
@@ -544,10 +557,14 @@
     let sortableInstance = null;
     let currentTempWords = {}; 
 
+    // 慶祝彩帶狀態紀錄
+    let hasTriggeredDailyConfetti = false;
+    let hasTriggeredMonthlyConfetti = false;
+
     // 測驗系統相關變數
     let allWordPool = [];
     let customQuizPool = null; 
-    let activeQuizDate = null; // 當前正在測驗的特定日期
+    let activeQuizDate = null;
     let quizQuestions = [];
     let currentQuizIndex = 0;
     let quizScore = 0;
@@ -620,6 +637,19 @@
         }
     }
 
+    // 🔊 發音功能 (Text-to-Speech)
+    function speakWord(text) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel(); // 停止先前的聲音
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert('您的瀏覽器不支援語音朗讀功能');
+        }
+    }
+
     function saveGoals() {
         const daily = parseInt(document.getElementById('dailyGoalInput').value) || 10;
         const monthly = parseInt(document.getElementById('monthlyGoalInput').value) || 100;
@@ -675,9 +705,9 @@
             const hasDataClass = val ? 'has-data' : '';
             const badge = val ? `<div class="count-badge">+${val}</div>` : '';
             
-            // 判斷是否為精通狀態 (測驗超過 7 次且得分/正確率 >= 80%)
-            const stat = quizStatsData[dateStr] || { count: 0, bestScore: 0 };
-            const isMastered = (stat.count >= 7 && stat.bestScore >= 80) ? 'mastered' : '';
+            // 判斷精通狀態：測驗 >= 7 次 且 通過 >= 5 次
+            const stat = quizStatsData[dateStr] || { count: 0, passCount: 0 };
+            const isMastered = (stat.count >= 7 && (stat.passCount || 0) >= 5) ? 'mastered' : '';
 
             grid.innerHTML += `
                 <div class="calendar-day ${hasDataClass} ${isMastered}" onclick="openModal('${dateStr}')">
@@ -689,8 +719,8 @@
     }
 
     function updateQuizModalBadge() {
-        const stat = quizStatsData[selectedDateStr] || { count: 0, bestScore: 0 };
-        document.getElementById('quizCountBadge').innerText = `測驗紀錄：已測驗 ${stat.count} 次 (最高得分 ${stat.bestScore}分)`;
+        const stat = quizStatsData[selectedDateStr] || { count: 0, passCount: 0 };
+        document.getElementById('quizCountBadge').innerText = `測驗紀錄：已測驗 ${stat.count} 次 / 通過 ${stat.passCount || 0} 次`;
     }
 
     function openModal(dateStr) {
@@ -871,6 +901,7 @@
                 <div class="word-item" data-id="${key}">
                     <div>
                         <span class="drag-handle">☰</span>
+                        <button class="audio-btn" onclick="speakWord('${item.english}')" title="發音">🔊</button>
                         <strong>${item.english}</strong>
                         <span class="word-tag">${item.pos}</span>
                         <span>${item.chinese}</span>
@@ -943,6 +974,27 @@
 
         document.getElementById('monthlyGoalText').innerText = `已達成 ${monthSum} / ${monthlyGoal} 個 (${mPct}%)`;
         document.getElementById('monthlyProgressBar').style.width = `${mPct}%`;
+
+        // 🎉 達標灑花慶祝特效 Trigger
+        if (dPct >= 100 && !hasTriggeredDailyConfetti && todayVal > 0) {
+            hasTriggeredDailyConfetti = true;
+            triggerConfetti();
+        }
+        if (mPct >= 100 && !hasTriggeredMonthlyConfetti && monthSum > 0) {
+            hasTriggeredMonthlyConfetti = true;
+            triggerConfetti();
+        }
+    }
+
+    // 🎉 慶祝彩帶特效函式
+    function triggerConfetti() {
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
     }
 
     function switchChartRange(range) {
@@ -1251,16 +1303,21 @@
 
         document.getElementById('quizFinalSummary').innerText = `您的總得分：${quizScore} 分 (答對 ${Math.round(quizScore / (100 / quizQuestions.length))} / ${quizQuestions.length} 題)`;
 
-        // 紀錄特定日期的測驗次數與最高得分
+        // 紀錄特定日期的總測驗次數與通過次數 (得分 >= 80 視為通過)
         const targetDate = activeQuizDate || formatDate(new Date());
-        const currentStat = quizStatsData[targetDate] || { count: 0, bestScore: 0 };
+        const currentStat = quizStatsData[targetDate] || { count: 0, passCount: 0 };
         const newCount = currentStat.count + 1;
-        const newBestScore = Math.max(currentStat.bestScore, quizScore);
+        const isPassed = quizScore >= 80;
+        const newPassCount = (currentStat.passCount || 0) + (isPassed ? 1 : 0);
 
         quizStatsRef.child(targetDate).set({
             count: newCount,
-            bestScore: newBestScore
+            passCount: newPassCount
         });
+
+        if (isPassed) {
+            triggerConfetti();
+        }
     }
 
     function resetQuiz() {
