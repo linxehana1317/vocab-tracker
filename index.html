@@ -246,9 +246,9 @@
 
 <div class="header-area" style="max-width: 1000px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-       <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
+        <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
             📚 單字背誦進度追蹤器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.10</span>
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.11</span>
         </h1>
         <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
     </div>
@@ -347,7 +347,21 @@
         <!-- 測驗設定介面 -->
         <div id="quizSetupArea">
             <p id="quizSetupDesc" style="color:#64748b; margin-top:0;">自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！</p>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px;">
+            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px; align-items:flex-end;">
+                <div>
+                    <label style="font-weight:bold; display:block; margin-bottom:5px;">測驗範圍：</label>
+                    <select id="quizRangeSelect" onchange="toggleQuizDatePicker()">
+                        <option value="all">🌐 全部單字庫</option>
+                        <option value="today">📅 僅限今天</option>
+                        <option value="week">📆 僅限本週</option>
+                        <option value="month">🗓️ 僅限本月</option>
+                        <option value="customDate">📌 指定日期</option>
+                    </select>
+                </div>
+                <div id="quizDatePickerBox" style="display:none;">
+                    <label style="font-weight:bold; display:block; margin-bottom:5px;">選擇日期：</label>
+                    <input type="date" id="quizCustomDateInput" style="padding:8px;">
+                </div>
                 <div>
                     <label style="font-weight:bold; display:block; margin-bottom:5px;">題型：</label>
                     <select id="quizTypeSelect">
@@ -488,7 +502,7 @@
 
     // 測驗系統相關變數
     let allWordPool = [];
-    let customQuizPool = null; // 當天單字測驗專用 Pool
+    let customQuizPool = null; 
     let quizQuestions = [];
     let currentQuizIndex = 0;
     let quizScore = 0;
@@ -857,7 +871,6 @@
         document.getElementById('statMonth').innerText = monthSum;
         document.getElementById('statYear').innerText = yearSum;
 
-        // 計算目標完成率與更新進度條
         const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 10;
         const monthlyGoal = parseInt(document.getElementById('monthlyGoalInput').value) || goalsData.monthly || 100;
 
@@ -972,6 +985,53 @@
         return pool;
     }
 
+    // 切換是否顯示指定日期選擇器
+    function toggleQuizDatePicker() {
+        const range = document.getElementById('quizRangeSelect').value;
+        const box = document.getElementById('quizDatePickerBox');
+        box.style.display = range === 'customDate' ? 'block' : 'none';
+        if (range === 'customDate' && !document.getElementById('quizCustomDateInput').value) {
+            document.getElementById('quizCustomDateInput').value = formatDate(new Date());
+        }
+    }
+
+    // 根據選擇的時間範圍抓取單字
+    function getWordsByRange(range) {
+        const pool = [];
+        const now = new Date();
+        const todayStr = formatDate(now);
+
+        Object.keys(wordDetails).forEach(dateStr => {
+            const dayWords = wordDetails[dateStr];
+            let isMatch = false;
+
+            if (range === 'all') {
+                isMatch = true;
+            } else if (range === 'today') {
+                isMatch = (dateStr === todayStr);
+            } else if (range === 'week') {
+                const [y, m, d] = dateStr.split('-').map(Number);
+                const itemDate = new Date(y, m - 1, d);
+                const diffDays = Math.floor((now - itemDate) / (1000 * 60 * 60 * 24));
+                isMatch = (diffDays >= 0 && diffDays < 7);
+            } else if (range === 'month') {
+                const [y, m] = dateStr.split('-').map(Number);
+                isMatch = (y === now.getFullYear() && m === (now.getMonth() + 1));
+            } else if (range === 'customDate') {
+                const selectedDate = document.getElementById('quizCustomDateInput').value;
+                isMatch = (dateStr === selectedDate);
+            }
+
+            if (isMatch && dayWords) {
+                Object.keys(dayWords).forEach(key => {
+                    pool.push(dayWords[key]);
+                });
+            }
+        });
+
+        return pool;
+    }
+
     // 當日單字直接測驗
     function startQuizForSelectedDate() {
         const dayWordsObj = wordDetails[selectedDateStr] || {};
@@ -984,7 +1044,6 @@
         customQuizPool = dayWords;
         closeModal();
 
-        // 滾動到測驗區
         document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
         document.getElementById('quizSetupDesc').innerHTML = `📌 正在進行 <strong>📅 ${selectedDateStr}</strong> 的專屬單字測驗（共 ${dayWords.length} 個單字）`;
         document.getElementById('resetQuizFilterBtn').style.display = 'inline-block';
@@ -993,17 +1052,18 @@
 
     function resetQuizFilter() {
         customQuizPool = null;
-        document.getElementById('quizSetupDesc').innerText = '自動抓取您資料庫中的所有單字進行測驗，快來考考自己的記憶力吧！';
+        document.getElementById('quizSetupDesc').innerText = '自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！';
         document.getElementById('resetQuizFilterBtn').style.display = 'none';
         resetQuiz();
     }
 
     function startQuiz() {
         allWordPool = getAllWords();
-        const targetPool = customQuizPool || allWordPool;
+        const range = document.getElementById('quizRangeSelect').value;
+        const targetPool = customQuizPool || getWordsByRange(range);
 
         if (targetPool.length === 0) {
-            return alert('您的資料庫目前沒有單字哦！請先新增一些單字再來測驗吧！😊');
+            return alert('所選的範圍內目前沒有單字可供測驗哦！請先新增單字或更換篩選條件！😊');
         }
 
         currentQuizType = document.getElementById('quizTypeSelect').value;
