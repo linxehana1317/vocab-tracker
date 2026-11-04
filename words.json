@@ -27,7 +27,7 @@
       ],
       "root": "字根字尾解析：前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
       "phrases": [
-        { "phrase": "accept an invitation", "meaning": "接受邀請", sentence: "Thank you for accepting our invitation.", translation: "謝謝你接受我們的邀請。" }
+        { "phrase": "accept an invitation", "meaning": "接受邀請", "sentence": "Thank you for accepting our invitation.", "translation": "謝謝你接受我們的邀請。" }
       ]
     }
   ],
