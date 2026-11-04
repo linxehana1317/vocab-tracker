@@ -304,9 +304,9 @@
             <div class="input-group">
                 <label style="font-size: 13px; font-weight: 500; color: var(--muted);">選擇日期：</label>
                 <div class="date-selects">
-                    <select id="yearSelect"></select>
-                    <select id="monthSelect"></select>
-                    <select id="daySelect"></select>
+                    <select id="yearSelect" onchange="updateModalButtonState()"></select>
+                    <select id="monthSelect" onchange="updateModalButtonState()"></select>
+                    <select id="daySelect" onchange="updateModalButtonState()"></select>
                 </div>
                 <label style="font-size: 13px; font-weight: 500; color: var(--muted);">背誦單字數量：</label>
                 <input type="number" id="vocabCount" min="1" placeholder="輸入數量...">
@@ -428,7 +428,7 @@
 
         <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:24px;">
             <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-            <button onclick="markCardAsStudied()">標記為今日已背誦 (+1)</button>
+            <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
         </div>
     </div>
 </div>
@@ -459,9 +459,11 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     const vocabRef = db.ref('vocabData');
+    const studiedWordsRef = db.ref('studiedWords');
     const goalsRef = db.ref('goals');
 
     let vocabData = {};
+    let studiedWordsData = {};
     let goalsData = { daily: 15, monthly: 200 };
     let currentDate = new Date(2026, 10, 1); // 2026-11-01 base
     let chartInstance = null;
@@ -627,6 +629,13 @@
             document.getElementById('syncStatus').innerText = '雲端同步中';
         });
 
+        studiedWordsRef.on('value', (snapshot) => {
+            studiedWordsData = snapshot.val() || {};
+            if (activeCardData) {
+                updateModalButtonState();
+            }
+        });
+
         goalsRef.on('value', (snapshot) => {
             if (snapshot.val()) {
                 goalsData = snapshot.val();
@@ -670,6 +679,7 @@
         for(let d = 1; d <= daysInMonth; d++) {
             dSel.add(new Option(`${d}日`, d, false, d === Math.min(currentVal, daysInMonth)));
         }
+        updateModalButtonState();
     }
 
     function selectLevel(level) {
@@ -744,7 +754,27 @@
             phraseArea.innerHTML = '<span style="color:var(--muted);">無</span>';
         }
 
+        updateModalButtonState();
         document.getElementById('cardDetailModal').style.display = 'flex';
+    }
+
+    function updateModalButtonState() {
+        if (!activeCardData) return;
+        const y = document.getElementById('yearSelect').value;
+        const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
+        const d = String(document.getElementById('daySelect').value).padStart(2, '0');
+        const dateStr = `${y}-${m}-${d}`;
+
+        const isStudied = studiedWordsData[dateStr] && studiedWordsData[dateStr][activeCardData.word];
+        const btn = document.getElementById('modalStudiedBtn');
+
+        if (isStudied) {
+            btn.innerText = "已標記 (點擊可取消)";
+            btn.style.background = "#059669";
+        } else {
+            btn.innerText = "標記為今日已背誦 (+1)";
+            btn.style.background = "var(--primary)";
+        }
     }
 
     function closeCardModal() {
@@ -762,26 +792,41 @@
         }
     }
 
-    // 修正：確實抓取上方「每日紀錄」所選的日期進行打卡加總，使日曆即時更新
-    function markCardAsStudied() {
+    // 支援切換狀態（標記或取消標記）的邏輯
+    function toggleCardStudied() {
+        if (!activeCardData) return;
         const y = document.getElementById('yearSelect').value;
         const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
         const d = String(document.getElementById('daySelect').value).padStart(2, '0');
         const dateStr = `${y}-${m}-${d}`;
-        
+        const wordKey = activeCardData.word;
+
+        const currentStatus = studiedWordsData[dateStr] && studiedWordsData[dateStr][wordKey];
         let oldVal = vocabData[dateStr] || 0;
-        let newCount = oldVal + 1;
+        let newCount;
 
-        vocabRef.child(dateStr).set(newCount).then(() => {
-            alert(`已成功記錄！日期 ${dateStr} 目前總計：${newCount} 個單字`);
-            
-            const todayStr = '2026-11-01';
-            const lastConfettiDate = localStorage.getItem('lastConfettiDate');
-            const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || 15;
+        const updates = {};
+        if (currentStatus) {
+            // 已存在，取消標記
+            newCount = Math.max(0, oldVal - 1);
+            updates[`studiedWords/${dateStr}/${wordKey}`] = null;
+        } else {
+            // 未標記，新增標記
+            newCount = oldVal + 1;
+            updates[`studiedWords/${dateStr}/${wordKey}`] = true;
+        }
+        updates[`vocabData/${dateStr}`] = newCount;
 
-            if (dateStr === todayStr && newCount >= dailyGoal && lastConfettiDate !== todayStr) {
-                triggerConfetti();
-                localStorage.setItem('lastConfettiDate', todayStr);
+        db.ref().update(updates).then(() => {
+            if (!currentStatus) {
+                const todayStr = '2026-11-01';
+                const lastConfettiDate = localStorage.getItem('lastConfettiDate');
+                const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || 15;
+
+                if (dateStr === todayStr && newCount >= dailyGoal && lastConfettiDate !== todayStr) {
+                    triggerConfetti();
+                    localStorage.setItem('lastConfettiDate', todayStr);
+                }
             }
             closeCardModal();
         });
@@ -863,6 +908,7 @@
         document.getElementById('monthSelect').value = parseInt(m);
         updateDays();
         document.getElementById('daySelect').value = parseInt(d);
+        updateModalButtonState();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
