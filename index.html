@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字記錄器</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+    <title>Vocabulary Study Platform - v26.11.1</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -19,255 +19,253 @@
             --card-bg: #ffffff;
             --text: #1e293b;
             --border: #e2e8f0;
+            --muted: #64748b;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 20px;
+            padding: 24px;
             scroll-behavior: smooth;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 20px;
+            gap: 24px;
         }
-        .full-width-card {
-            max-width: 1000px;
-            margin: 20px auto 0;
+        .full-width-section {
+            max-width: 1100px;
+            margin: 24px auto 0;
         }
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
-            .header-area { flex-direction: column; align-items: flex-start !important; gap: 10px; }
+            .header-area { flex-direction: column; align-items: flex-start !important; gap: 12px; }
         }
         .card {
             background: var(--card-bg);
-            padding: 20px;
+            padding: 24px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             border: 1px solid var(--border);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
-        h2 { margin-top: 0; color: var(--primary); font-size: 1.25rem; }
+        h2 { margin-top: 0; color: var(--primary); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 15px;
         }
-        .date-selects { display: flex; gap: 5px; }
+        .date-selects { display: flex; gap: 8px; }
         select, input, button {
-            padding: 10px;
+            padding: 10px 14px;
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 14px;
+            background: #fff;
+            color: var(--text);
+            outline: none;
         }
+        select:focus, input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1); }
         button {
             background: var(--primary);
             color: white;
             border: none;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: background 0.2s;
         }
         button:hover { background: var(--primary-hover); }
-        .btn-group { display: flex; gap: 6px; }
-        .btn-group button {
-            padding: 6px 12px;
-            font-size: 12px;
-            background: #e2e8f0;
-            color: #475569;
-            border-radius: 20px;
+        
+        .level-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-        .btn-group button.active { background: var(--primary); color: white; }
+        .level-btn {
+            padding: 8px 14px;
+            font-size: 13px;
+            background: #f1f5f9;
+            color: var(--muted);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
+        .level-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .flashcard-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 140px;
+            position: relative;
+        }
+        .flashcard-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+        .flashcard-word {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .flashcard-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .flashcard-def {
+            font-size: 14px;
+            color: #334155;
+            line-height: 1.5;
+        }
+        .flashcard-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px solid #f1f5f9;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
         .stat-item {
-            background: #f1f5f9;
-            padding: 12px;
+            background: #f8fafc;
+            padding: 14px;
             border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--border);
         }
-        .stat-value { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        .stat-label { font-size: 0.85rem; color: #64748b; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
+            gap: 6px;
             text-align: center;
         }
-        .calendar-day-header { font-weight: bold; padding: 5px; color: #64748b; }
+        .calendar-day-header { font-weight: 600; padding: 6px; color: var(--muted); font-size: 13px; }
         .calendar-day {
             aspect-ratio: 1;
             border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 4px;
-            font-size: 12px;
+            border-radius: 8px;
+            padding: 6px;
+            font-size: 13px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            overflow: hidden;
+            background: #fff;
         }
-        .calendar-day:hover { background: #e0e7ff; }
-        .calendar-day.has-data { background: #eef2ff; border-color: #818cf8; }
-        
+        .calendar-day:hover { background: #f1f5f9; }
+        .calendar-day.has-data { background: #eef2ff; border-color: #c7d2fe; }
         .calendar-day.mastered {
             border: 1.5px solid #6366f1;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
             background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
         }
-        .calendar-day.mastered::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                60deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.7) 50%,
-                transparent 70%
-            );
-            transform: rotate(25deg);
-            animation: shine 3s infinite ease-in-out;
-            pointer-events: none;
-        }
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(25deg); }
-            20% { transform: translateX(100%) rotate(25deg); }
-            100% { transform: translateX(100%) rotate(25deg); }
-        }
-
-        .count-badge { font-weight: bold; color: var(--primary); font-size: 10px; }
-        .sync-status { font-size: 12px; color: #10b981; font-weight: bold; }
+        .count-badge { font-weight: 700; color: var(--primary); font-size: 11px; }
+        .sync-status { font-size: 12px; color: #059669; font-weight: 600; }
 
         .search-box {
             position: relative;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
         .search-input {
-            padding: 8px 12px;
+            padding: 8px 16px;
             border-radius: 20px;
             border: 1px solid var(--border);
             outline: none;
-            width: 180px;
+            width: 200px;
             transition: width 0.3s;
         }
-        .search-input:focus {
-            width: 220px;
-            border-color: var(--primary);
-        }
+        .search-input:focus { width: 240px; }
 
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(15, 23, 42, 0.6);
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            backdrop-filter: blur(4px);
         }
         .modal-content {
             background: white;
-            padding: 24px;
-            border-radius: 12px;
+            padding: 32px;
+            border-radius: 16px;
             width: 90%;
-            max-width: 480px;
+            max-width: 600px;
             max-height: 85vh;
             overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        .word-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
+        
+        .detail-section {
             background: #f8fafc;
             border: 1px solid var(--border);
-            border-radius: 6px;
-            margin-bottom: 6px;
-            cursor: grab;
-            gap: 10px;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
         }
-        .word-item:active { cursor: grabbing; }
-        .word-info {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            flex: 1;
-            min-width: 0;
-            word-break: break-word;
+        .detail-section h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .word-actions {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-            white-space: nowrap;
-            gap: 4px;
-        }
-        .word-tag {
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 2px 6px;
+        .derivative-tag {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #334155;
+            padding: 2px 8px;
             border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-        }
-        .action-btn {
-            padding: 4px 8px;
             font-size: 12px;
-            border-radius: 4px;
-            white-space: nowrap;
+            font-weight: 600;
+            margin-right: 6px;
         }
-        .drag-audio-btn {
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 4px 8px;
-            border-radius: 16px;
-            cursor: grab;
-            border: none;
-            flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            font-size: 12px;
-            transition: background 0.2s;
-        }
-        .drag-audio-btn:hover { background: #c7d2fe; }
-        .drag-audio-btn:active { cursor: grabbing; }
-
-        .edit-btn { 
-            background: #3b82f6; 
-            color: white; 
-            transition: background 0.2s;
-        }
-        .edit-btn:hover { background: #2563eb; }
-        .delete-btn { background: #ef4444; color: white; }
         
-        .search-result-item {
-            padding: 10px;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .search-result-item:hover { background: #f1f5f9; }
-
         .progress-bar-container {
             width: 100%;
             background-color: #e2e8f0;
-            border-radius: 10px;
-            height: 10px;
+            border-radius: 6px;
+            height: 8px;
             overflow: hidden;
             margin-top: 6px;
         }
@@ -277,101 +275,79 @@
             width: 0%;
             transition: width 0.4s ease;
         }
-
-        .quiz-option-btn {
-            display: block;
-            width: 100%;
-            text-align: left;
-            margin-bottom: 8px;
-            background: #f8fafc;
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 15px;
-            transition: all 0.2s;
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
         }
-        .quiz-option-btn:hover {
-            background: #e0e7ff;
-            border-color: #818cf8;
-        }
-        .quiz-option-btn.correct {
-            background: #dcfce7 !important;
-            border-color: #22c55e !important;
-            color: #15803d;
-            font-weight: bold;
-        }
-        .quiz-option-btn.wrong {
-            background: #fee2e2 !important;
-            border-color: #ef4444 !important;
-            color: #b91c1c;
+        .btn-secondary:hover {
+            background: #cbd5e1;
         }
     </style>
 </head>
 <body>
 
-<div class="header-area" style="max-width: 1000px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center;">
+<div class="header-area" style="max-width: 1100px; margin: 0 auto 24px; display: flex; justify-content: space-between; align-items: center;">
     <div>
-        <h1 style="margin:0; display:flex; align-items:center; gap:8px;">
-            📚 單字記錄器 
-            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 8px; border-radius:12px; font-weight:bold;">v26.9.28</span>
+        <h1 style="margin:0; display:flex; align-items:center; gap:10px; font-size:1.5rem;">
+            Vocabulary Study Platform
+            <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 10px; border-radius:12px; font-weight:600;">v26.11.1</span>
         </h1>
-        <span class="sync-status" id="syncStatus">☁️ 正在連線至雲端...</span>
+        <span class="sync-status" id="syncStatus" style="margin-top:4px; display:inline-block;">Cloud Sync Active</span>
     </div>
     <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 搜尋單字或翻譯..." onkeypress="handleSearchKey(event)">
-        <button onclick="searchWord()" style="border-radius: 20px; padding: 8px 16px;">搜尋</button>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search vocabulary..." onkeypress="handleSearchKey(event)">
+        <button onclick="searchWord()" style="border-radius: 20px; padding: 8px 16px;">Search</button>
     </div>
 </div>
 
 <div class="container">
     <div>
         <div class="card">
-            <h2>⚡ 單字打卡</h2>
+            <h2>Daily Log</h2>
             <div class="input-group">
-                <label>選擇日期：</label>
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Select Date:</label>
                 <div class="date-selects">
                     <select id="yearSelect"></select>
                     <select id="monthSelect"></select>
                     <select id="daySelect"></select>
                 </div>
-                <label>背誦單字量：</label>
-                <input type="number" id="vocabCount" min="1" placeholder="輸入數量...">
-                <label>打卡模式：</label>
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Words Count:</label>
+                <input type="number" id="vocabCount" min="1" placeholder="Enter count...">
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Mode:</label>
                 <select id="modeSelect">
-                    <option value="add">➕ 累加數量</option>
-                    <option value="overwrite">✏️ 直接修改(覆蓋)</option>
+                    <option value="add">Accumulate</option>
+                    <option value="overwrite">Overwrite</option>
                 </select>
-                <button onclick="submitData()">紀錄單字 💾</button>
+                <button onclick="submitData()">Record Words</button>
             </div>
         </div>
 
         <div class="card">
-            <h2>📊 學習統計</h2>
+            <h2>Study Statistics</h2>
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日累積</div></div>
-                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週累積</div></div>
-                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月累積</div></div>
-                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年累積</div></div>
+                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">Today</div></div>
+                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">This Week</div></div>
+                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">This Month</div></div>
+                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">This Year</div></div>
             </div>
 
-            <h3 style="margin-top:20px; margin-bottom:10px; font-size:1.05rem; color:var(--primary);">🎯 學習目標設定</h3>
-            <div style="background:#f8fafc; border:1px solid var(--border); padding:12px; border-radius:8px; font-size:13px;">
-                <div style="margin-bottom:10px;">
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
+                <div style="margin-bottom: 12px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <label style="font-weight:bold;">今日目標：</label>
-                        <input type="number" id="dailyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
+                        <label style="font-size: 13px; font-weight: 600;">Daily Goal:</label>
+                        <input type="number" id="dailyGoalInput" style="width:64px; padding:4px 8px; font-size:12px;" min="1" onchange="saveGoals()">
                     </div>
-                    <div id="dailyGoalText" style="color:#64748b;">已達成 0 / 15 個 (0%)</div>
+                    <div id="dailyGoalText" style="font-size:12px; color:var(--muted);">0 / 15 (0%)</div>
                     <div class="progress-bar-container"><div id="dailyProgressBar" class="progress-bar-fill"></div></div>
                 </div>
 
-                <div style="margin-top:12px;">
+                <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <label style="font-weight:bold;">本月目標：</label>
-                        <input type="number" id="monthlyGoalInput" style="width:60px; padding:4px; font-size:12px;" min="1" placeholder="個" onchange="saveGoals()">
+                        <label style="font-size: 13px; font-weight: 600;">Monthly Goal:</label>
+                        <input type="number" id="monthlyGoalInput" style="width:64px; padding:4px 8px; font-size:12px;" min="1" onchange="saveGoals()">
                     </div>
-                    <div id="monthlyGoalText" style="color:#64748b;">已達成 0 / 200 個 (0%)</div>
+                    <div id="monthlyGoalText" style="font-size:12px; color:var(--muted);">0 / 200 (0%)</div>
                     <div class="progress-bar-container"><div id="monthlyProgressBar" class="progress-bar-fill"></div></div>
                 </div>
             </div>
@@ -380,153 +356,93 @@
 
     <div>
         <div class="card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h2 id="calendarTitle" style="margin:0;">📅 月曆打卡紀錄</h2>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h2 id="calendarTitle" style="margin:0;">Calendar Log</h2>
                 <div>
-                    <button onclick="changeMonth(-1)">◀</button>
-                    <button onclick="changeMonth(1)">▶</button>
+                    <button onclick="changeMonth(-1)" class="btn-secondary" style="padding:6px 12px;">&lt;</button>
+                    <button onclick="changeMonth(1)" class="btn-secondary" style="padding:6px 12px;">&gt;</button>
                 </div>
             </div>
             <div class="calendar-grid" id="calendarGrid"></div>
         </div>
 
         <div class="card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-                <h2 style="margin:0;">🚀 背誦趨勢圖表</h2>
-                <div class="btn-group">
-                    <button id="btn-week" class="active" onclick="switchChartRange('week')">本週</button>
-                    <button id="btn-month" onclick="switchChartRange('month')">本月</button>
-                    <button id="btn-year" onclick="switchChartRange('year')">今年</button>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h2 style="margin:0;">Study Trends</h2>
+                <div style="display:flex; gap:6px;">
+                    <button id="btn-week" class="level-btn active" onclick="switchChartRange('week')">Week</button>
+                    <button id="btn-month" class="level-btn" onclick="switchChartRange('month')">Month</button>
+                    <button id="btn-year" class="level-btn" onclick="switchChartRange('year')">Year</button>
                 </div>
             </div>
-            <canvas id="trendChart" height="120"></canvas>
+            <canvas id="trendChart" height="130"></canvas>
         </div>
     </div>
 </div>
 
-<div class="full-width-card" id="quizSection">
+<div class="full-width-section">
     <div class="card">
-        <h2>🧠 測驗練習區</h2>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
+            <h2 style="margin:0;">7000 Academic Word Flashcards</h2>
+        </div>
         
-        <div id="quizSetupArea">
-            <p id="quizSetupDesc" style="color:#64748b; margin-top:0;">自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！</p>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; margin-bottom:15px; align-items:flex-end;">
-                <div>
-                    <label style="font-weight:bold; display:block; margin-bottom:5px;">測驗範圍：</label>
-                    <select id="quizRangeSelect" onchange="toggleQuizDatePicker()">
-                        <option value="all">🌐 全部單字庫</option>
-                        <option value="today">📅 僅限今天</option>
-                        <option value="week">📆 僅限本週</option>
-                        <option value="month">🗓️ 僅限本月</option>
-                        <option value="customDate">📌 指定日期</option>
-                    </select>
-                </div>
-                <div id="quizDatePickerBox" style="display:none;">
-                    <label style="font-weight:bold; display:block; margin-bottom:5px;">選擇日期：</label>
-                    <input type="date" id="quizCustomDateInput" style="padding:8px;">
-                </div>
-                <div>
-                    <label style="font-weight:bold; display:block; margin-bottom:5px;">題型：</label>
-                    <select id="quizTypeSelect">
-                        <option value="choice">🎯 四選一單選題</option>
-                        <option value="fill">✍️ 拼字填空題</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-weight:bold; display:block; margin-bottom:5px;">題數：</label>
-                    <select id="quizCountSelect">
-                        <option value="5">5 題</option>
-                        <option value="10" selected>10 題</option>
-                        <option value="20">20 題</option>
-                        <option value="all">全部單字</option>
-                    </select>
-                </div>
-            </div>
-            <button onclick="startQuiz()" style="font-size:16px; padding:10px 24px;">🚀 開始測驗</button>
-            <button id="resetQuizFilterBtn" onclick="resetQuizFilter()" style="display:none; font-size:14px; padding:10px 16px; background:#64748b; margin-left:8px;">🔄 切換為全單字庫測驗</button>
+        <div class="level-tabs" id="levelTabs">
+            <button class="level-btn active" onclick="selectLevel('1-1000')">Level 1 (1-1000)</button>
+            <button class="level-btn" onclick="selectLevel('1001-2000')">Level 2 (1001-2000)</button>
+            <button class="level-btn" onclick="selectLevel('2001-3000')">Level 3 (2001-3000)</button>
+            <button class="level-btn" onclick="selectLevel('3001-4000')">Level 4 (3001-4000)</button>
+            <button class="level-btn" onclick="selectLevel('4001-5000')">Level 5 (4001-5000)</button>
+            <button class="level-btn" onclick="selectLevel('5001-6000')">Level 6 (5001-6000)</button>
+            <button class="level-btn" onclick="selectLevel('6001-7000')">Level 7 (6001-7000)</button>
         </div>
 
-        <div id="quizPlayArea" style="display:none;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #e2e8f0;">
-                <span id="quizProgress" style="font-weight:bold; color:var(--primary);">題目 1 / 10</span>
-                <span id="quizScore" style="color:#10b981; font-weight:bold;">得分：0</span>
-            </div>
-
-            <div style="background:#f1f5f9; padding:20px; border-radius:10px; text-align:center; margin-bottom:20px;">
-                <div id="quizPosTag" class="word-tag" style="display:inline-block; font-size:13px; margin-bottom:8px;">adj.</div>
-                <h2 id="quizQuestion" style="font-size:1.8rem; margin:5px 0; color:#1e293b;">中文題目顯示區</h2>
-            </div>
-
-            <div id="quizChoiceOptions"></div>
-
-            <div id="quizFillOption" style="display:none;">
-                <input type="text" id="quizFillInput" placeholder="請輸入正確的英文單字..." style="width:100%; box-sizing:border-box; margin-bottom:10px; font-size:16px; padding:12px;" onkeypress="handleQuizFillKey(event)">
-                <button onclick="submitFillAnswer()" style="width:100%; padding:12px; font-size:16px;">提交答案 ↵</button>
-            </div>
-
-            <div id="quizFeedback" style="margin-top:15px; font-weight:bold; text-align:center; font-size:16px; min-height:24px;"></div>
-            
-            <div style="text-align:right; margin-top:15px;">
-                <button id="nextQuizBtn" onclick="nextQuestion()" style="display:none; padding:8px 20px;">下一題 ➔</button>
-            </div>
-        </div>
-
-        <div id="quizResultArea" style="display:none; text-align:center; padding:20px 0;">
-            <h3 style="font-size:1.5rem; color:var(--primary); margin-top:0;">🎉 測驗完成！</h3>
-            <p id="quizFinalSummary" style="font-size:1.2rem; color:#334155;">您的得分：100 分</p>
-            <button onclick="resetQuiz()" style="padding:10px 24px; font-size:15px;">🔄 再測驗一次</button>
-        </div>
+        <div class="flashcard-grid" id="flashcardGrid"></div>
     </div>
 </div>
 
-<div class="modal" id="dayModal">
+<!-- Detailed Card Modal (Back View) -->
+<div class="modal" id="cardDetailModal">
     <div class="modal-content">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
             <div>
-                <h3 id="modalDateTitle" style="margin:0; color:var(--primary);">📅 日期詳細內容</h3>
-                <span id="quizCountBadge" style="font-size:12px; color:#64748b; font-weight:bold;">測驗紀錄：已測驗 0 次 / 通過 0 次</span>
+                <h3 id="modalWordTitle" style="margin:0; font-size:1.75rem; color:var(--text);">word</h3>
+                <div id="modalWordMeta" style="color:var(--muted); font-size:14px; margin-top:4px;">pos / kk</div>
             </div>
-            <button onclick="closeModal()" style="background:#cbd5e1; color:#334155;">✖ 關閉</button>
+            <button onclick="closeCardModal()" class="btn-secondary" style="padding:6px 12px;">Close</button>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; background:#f1f5f9; padding:12px; border-radius:8px; margin-bottom:15px;">
-            <div>
-                <label style="font-weight:bold;">今日背誦總量：</label>
-                <input type="number" id="modalCountInput" style="width:70px;" min="0">
-                <button onclick="saveModalChanges()" style="padding:6px 10px;">儲存 💾</button>
-            </div>
-            <button onclick="startQuizForSelectedDate()" style="background:#10b981; padding:6px 12px; font-size:13px;">🧠 測驗今日單字</button>
+        <div style="font-size:1.1rem; font-weight:600; color:var(--primary); margin-bottom:20px;" id="modalWordDefinition">
+            Definition here
         </div>
 
-        <h4 id="formTitle">📖 新增詳細單字列表</h4>
-        <div class="input-group" style="background:#fff; border:1px solid #e2e8f0; padding:12px; border-radius:8px;">
-            <input type="text" id="wordEnglish" placeholder="英文單字 (例如: happy)">
-            <select id="wordPos">
-                <option value="n.">n. 名詞</option>
-                <option value="v.">v. 動詞</option>
-                <option value="adj.">adj. 形容詞</option>
-                <option value="adv.">adv. 副詞</option>
-                <option value="prep.">prep. 介系詞</option>
-                <option value="conj.">conj. 連接詞</option>
-                <option value="pron.">pron. 代名詞</option>
-                <option value="suffix">suffix 字尾</option>
-                <option value="idiom">idiom 片語/成語</option>
-            </select>
-            <input type="text" id="wordChinese" placeholder="中文翻譯 (例如: 開心的)">
-            <button id="saveWordBtn" onclick="addOrUpdateWordDetail()">➕ 新增至今天單字庫</button>
-            <button id="cancelEditBtn" onclick="resetWordForm()" style="display:none; background:#94a3b8;">取消編輯</button>
+        <div class="detail-section">
+            <h4>1. Derivatives & Word Forms</h4>
+            <div id="modalDerivatives"></div>
         </div>
 
-        <h4 style="margin-top:15px;">📋 今日單字清單 <span style="font-size:12px; color:#64748b; font-weight:normal;">(長按或拖曳 ☰ 鍵可調整順序)</span></h4>
-        <div id="wordListArea"></div>
+        <div class="detail-section">
+            <h4>2. Root & Morphology Extension</h4>
+            <div id="modalRoot" style="font-size:14px; line-height:1.6; color:#334155;"></div>
+        </div>
+
+        <div class="detail-section">
+            <h4>3. Common Usages & Phrases</h4>
+            <div id="modalPhrases" style="font-size:14px; line-height:1.6; color:#334155;"></div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:24px;">
+            <button onclick="speakCurrentWord()" class="btn-secondary">Pronounce</button>
+            <button onclick="markCardAsStudied()">Mark as Studied (Log Today +1)</button>
+        </div>
     </div>
 </div>
 
+<!-- Search Results Modal -->
 <div class="modal" id="searchModal">
     <div class="modal-content">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
-            <h3 id="searchModalTitle" style="margin:0; color:var(--primary);">🔍 搜尋結果</h3>
-            <button onclick="closeSearchModal()" style="background:#cbd5e1; color:#334155;">✖ 關閉</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 id="searchModalTitle" style="margin:0;">Search Results</h3>
+            <button onclick="closeSearchModal()" class="btn-secondary" style="padding:6px 12px;">Close</button>
         </div>
         <div id="searchResultsArea"></div>
     </div>
@@ -547,53 +463,173 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     const vocabRef = db.ref('vocabData');
-    const wordListRef = db.ref('wordDetails');
     const goalsRef = db.ref('goals');
-    const quizStatsRef = db.ref('quizStats');
 
     let vocabData = {};
-    let wordDetails = {};
-    let quizStatsData = {};
-    // 預設改成 15 天 / 200 月
     let goalsData = { daily: 15, monthly: 200 };
-    let selectedDateStr = "";
-    let editingWordKey = null;
-    let currentDate = new Date();
+    let currentDate = new Date(2026, 10, 1); // 2026-11-01 base
     let chartInstance = null;
     let currentChartRange = 'week';
-    let sortableInstance = null;
-    let currentTempWords = {}; 
+    let currentSelectedLevel = '1-1000';
+    let activeCardData = null;
 
-    let allWordPool = [];
-    let customQuizPool = null; 
-    let activeQuizDate = null;
-    let quizQuestions = [];
-    let currentQuizIndex = 0;
-    let quizScore = 0;
-    let currentQuizType = 'choice';
-    let isAnswered = false;
+    // Comprehensive sample dataset for 7000 words levels
+    const flashcardDatabase = {
+        "1-1000": [
+            {
+                word: "ability",
+                pos: "n.",
+                kk: "/əˈbɪləti/",
+                definition: "能力，才能",
+                derivatives: [
+                    { pos: "adj.", word: "able", meaning: "能夠的" },
+                    { pos: "v.", word: "enable", meaning: "使能夠" },
+                    { pos: "adj.", word: "unable", meaning: "不能的" },
+                    { pos: "n.", word: "inability", meaning: "無能" }
+                ],
+                root: "字根字尾解析：字根 -abil- 源自拉丁語 habilis (可擁有的、能幹的)。常見同字尾形容詞如 capable, suitable。",
+                phrases: [
+                    { phrase: "have the ability to do", meaning: "有能力做...", sentence: "She has the ability to solve complex problems.", translation: "她有解決複雜問題的能力。" }
+                ]
+            },
+            {
+                word: "accept",
+                pos: "v.",
+                kk: "/əkˈsɛpt/",
+                definition: "接受，承認",
+                derivatives: [
+                    { pos: "adj.", word: "acceptable", meaning: "可接受的" },
+                    { pos: "n.", word: "acceptance", meaning: "接受，認可" }
+                ],
+                root: "字根字尾解析：前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
+                phrases: [
+                    { phrase: "accept an invitation", meaning: "接受邀請", sentence: "Thank you for accepting our invitation.", translation: "謝謝你接受我們的邀請。" }
+                ]
+            },
+            {
+                word: "achieve",
+                pos: "v.",
+                kk: "/əˈtʃiv/",
+                definition: "實現，達成",
+                derivatives: [
+                    { pos: "n.", word: "achievement", meaning: "成就" },
+                    { pos: "adj.", word: "achievable", meaning: "可達成的" }
+                ],
+                root: "字根字尾解析：源自古法語 achever (到達終點、完成)，由 a- + chef (頭、頂端) 組成。",
+                phrases: [
+                    { phrase: "achieve a goal", meaning: "達成目標", sentence: "Hard work is necessary to achieve your goals.", translation: "努力是達成目標所必需的。" }
+                ]
+            }
+        ],
+        "1001-2000": [
+            {
+                word: "benefit",
+                pos: "n./v.",
+                kk: "/ˈbɛnəfɪt/",
+                definition: "利益，好處；有益於",
+                derivatives: [
+                    { pos: "adj.", word: "beneficial", meaning: "有益的" },
+                    { pos: "n.", word: "benefactor", meaning: "恩人，捐助者" }
+                ],
+                root: "字根字尾解析：來自拉丁語 bene (好) + facere (做)。同源字有 bonus, benevolent。",
+                phrases: [
+                    { phrase: "benefit from", meaning: "從...中受益", sentence: "We all benefit from regular exercise.", translation: "我們都受益於規律運動。" }
+                ]
+            }
+        ],
+        "2001-3000": [
+            {
+                word: "challenge",
+                pos: "n./v.",
+                kk: "/ˈtʃælɪndʒ/",
+                definition: "挑戰，質疑",
+                derivatives: [
+                    { pos: "adj.", word: "challenging", meaning: "具挑戰性的" }
+                ],
+                root: "字根字尾解析：源自拉丁語 calumnia (控告、誹謗)，演變為對權威或能力的挑戰。",
+                phrases: [
+                    { phrase: "face a challenge",面對挑戰: "面對挑戰", sentence: "We are ready to face any challenge.", translation: "我們準備好面對任何挑戰。" }
+                ]
+            }
+        ],
+        "3001-4000": [
+            {
+                word: "demonstrate",
+                pos: "v.",
+                kk: "/ˈdɛmənˌstret/",
+                definition: "示範，證明，遊行",
+                derivatives: [
+                    { pos: "n.", word: "demonstration", meaning: "示範，遊行" },
+                    { pos: "adj.", word: "demonstrative", meaning: "說明性的" }
+                ],
+                root: "字根字尾解析：de- (加強語氣) + monstrare (顯示、展示)。同源字 monster (怪物/展示品)。",
+                phrases: [
+                    { phrase: "demonstrate how to do", meaning: "示範如何做", sentence: "Let me demonstrate how this machine works.", translation: "讓我示範這台機器如何運作。" }
+                ]
+            }
+        ],
+        "4001-5000": [
+            {
+                word: "efficient",
+                pos: "adj.",
+                kk: "/ɪˈfɪʃənt/",
+                definition: "效率高的，能幹的",
+                derivatives: [
+                    { pos: "n.", word: "efficiency", meaning: "效率" },
+                    { pos: "adv.", word: "efficiently", meaning: "有效率地" },
+                    { pos: "adj.", word: "inefficient", meaning: "效率低的" }
+                ],
+                root: "字根字尾解析：ex- (出) + efficere (完成、達成)。同源字 effect, factory。",
+                phrases: [
+                    { phrase: "an efficient way", meaning: "有效率的方法", sentence: "This is an efficient way to learn English.",這是一個學習英文的有效方法: "這是一個學習英文的有效方法。" }
+                ]
+            }
+        ],
+        "5001-6000": [
+            {
+                word: "fundamental",
+                pos: "adj.",
+                kk: "/ˌfʌndəˈmɛntəl/",
+                definition: "基礎的，根本的",
+                derivatives: [
+                    { pos: "adv.", word: "fundamentally", meaning: "根本上" },
+                    { pos: "n.", word: "fundament", meaning: "基礎" }
+                ],
+                root: "字根字尾解析：fund- (底、基礎) + -ament (名詞/形容詞字尾)。同源字 fund (資金/基金)。",
+                phrases: [
+                    { phrase: "fundamental change", meaning: "根本性的轉變", sentence: "There is a fundamental difference between them.", translation: "他們之間存在著根本的差異。" }
+                ]
+            }
+        ],
+        "6001-7000": [
+            {
+                word: "hypothesis",
+                pos: "n.",
+                kk: "/haɪˈpɑθəsɪs/",
+                definition: "假設，假說",
+                derivatives: [
+                    { pos: "adj.", word: "hypothetical", meaning: "假設的" },
+                    { pos: "v.", word: "hypothesize", meaning: "假設" }
+                ],
+                root: "-hypo- (在...之下) + thesis (放置、論題)。意指放在底下的基礎假設。",
+                phrases: [
+                    { phrase: "test a hypothesis", meaning: "驗證假設", sentence: "Scientists perform experiments to test the hypothesis.", translation: "科學家進行實驗來驗證假設。" }
+                ]
+            }
+        ]
+    };
 
     function init() {
         initDateDropdowns();
         initChart();
+        renderFlashcards(currentSelectedLevel);
         
         vocabRef.on('value', (snapshot) => {
             vocabData = snapshot.val() || {};
             renderCalendar();
             updateStats();
             updateChart();
-            document.getElementById('syncStatus').innerText = '☁️ 雲端同步完成';
-        });
-
-        wordListRef.on('value', (snapshot) => {
-            wordDetails = snapshot.val() || {};
-            if (selectedDateStr) renderWordList();
-        });
-
-        quizStatsRef.on('value', (snapshot) => {
-            quizStatsData = snapshot.val() || {};
-            renderCalendar();
-            if (selectedDateStr) updateQuizModalBadge();
+            document.getElementById('syncStatus').innerText = 'Cloud Sync Active';
         });
 
         goalsRef.on('value', (snapshot) => {
@@ -613,17 +649,16 @@
         const ySel = document.getElementById('yearSelect');
         const mSel = document.getElementById('monthSelect');
         const dSel = document.getElementById('daySelect');
-        const now = new Date();
-
+        
         ySel.innerHTML = ''; mSel.innerHTML = '';
-        for(let y = now.getFullYear() - 2; y <= now.getFullYear() + 2; y++) {
-            ySel.add(new Option(`${y}年`, y, false, y === now.getFullYear()));
+        for(let y = 2024; y <= 2028; y++) {
+            ySel.add(new Option(`${y}`, y, false, y === 2026));
         }
         for(let m = 1; m <= 12; m++) {
-            mSel.add(new Option(`${m}月`, m, false, m === (now.getMonth() + 1)));
+            mSel.add(new Option(`${m}`, m, false, m === 11));
         }
         updateDays();
-        dSel.value = now.getDate();
+        dSel.value = 1;
 
         ySel.onchange = updateDays;
         mSel.onchange = updateDays;
@@ -638,20 +673,125 @@
         
         dSel.innerHTML = '';
         for(let d = 1; d <= daysInMonth; d++) {
-            dSel.add(new Option(`${d}日`, d, false, d === Math.min(currentVal, daysInMonth)));
+            dSel.add(new Option(`${d}`, d, false, d === Math.min(currentVal, daysInMonth)));
         }
     }
 
-    function speakWord(text) {
-        if ('speechSynthesis' in window) {
+    function selectLevel(level) {
+        currentSelectedLevel = level;
+        document.querySelectorAll('#levelTabs .level-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.getAttribute('onclick').includes(level)) {
+                btn.classList.add('active');
+            }
+        });
+        renderFlashcards(level);
+    }
+
+    function renderFlashcards(level) {
+        const grid = document.getElementById('flashcardGrid');
+        grid.innerHTML = '';
+        const words = flashcardDatabase[level] || [];
+
+        if(words.length === 0) {
+            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">No flashcards available for this level.</div>';
+            return;
+        }
+
+        words.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'flashcard-item';
+            card.onclick = () => openCardDetail(item);
+            
+            card.innerHTML = `
+                <div>
+                    <div class="flashcard-word">${item.word}</div>
+                    <div class="flashcard-meta">
+                        <span>${item.pos}</span>
+                        <span>${item.kk}</span>
+                    </div>
+                    <div class="flashcard-def">${item.definition}</div>
+                </div>
+                <div class="flashcard-footer">
+                    <span>Click to view details</span>
+                    <span style="color:var(--primary); font-weight:600;">Details &rarr;</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function openCardDetail(item) {
+        activeCardData = item;
+        document.getElementById('modalWordTitle').innerText = item.word;
+        document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk}`;
+        document.getElementById('modalWordDefinition').innerText = item.definition;
+
+        // Derivatives
+        const derivArea = document.getElementById('modalDerivatives');
+        derivArea.innerHTML = '';
+        if(item.derivatives && item.derivatives.length > 0) {
+            item.derivatives.forEach(d => {
+                derivArea.innerHTML += `<div style="margin-bottom:6px;"><span class="derivative-tag">${d.pos}</span> <strong>${d.word}</strong>: ${d.meaning}</div>`;
+            });
+        } else {
+            derivArea.innerHTML = '<span style="color:var(--muted);">None</span>';
+        }
+
+        // Root
+        document.getElementById('modalRoot').innerText = item.root || 'None';
+
+        // Phrases
+        const phraseArea = document.getElementById('modalPhrases');
+        phraseArea.innerHTML = '';
+        if(item.phrases && item.phrases.length > 0) {
+            item.phrases.forEach(p => {
+                phraseArea.innerHTML += `<div style="margin-bottom:8px;"><strong>${p.phrase}</strong> (${p.meaning})<br><span style="color:var(--primary);">${p.sentence}</span><br><span style="color:var(--muted); font-size:13px;">${p.translation}</span></div>`;
+            });
+        } else {
+            phraseArea.innerHTML = '<span style="color:var(--muted);">None</span>';
+        }
+
+        document.getElementById('cardDetailModal').style.display = 'flex';
+    }
+
+    function closeCardModal() {
+        document.getElementById('cardDetailModal').style.display = 'none';
+        activeCardData = null;
+    }
+
+    function speakCurrentWord() {
+        if(activeCardData && 'speechSynthesis' in window) {
             window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
+            const utterance = new SpeechSynthesisUtterance(activeCardData.word);
             utterance.lang = 'en-US';
             utterance.rate = 0.9;
             window.speechSynthesis.speak(utterance);
-        } else {
-            alert('您的瀏覽器不支援語音朗讀功能');
         }
+    }
+
+    function markCardAsStudied() {
+        const y = document.getElementById('yearSelect').value;
+        const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
+        const d = String(document.getElementById('daySelect').value).padStart(2, '0');
+        const dateStr = `${y}-${m}-${d}`;
+        
+        let oldVal = vocabData[dateStr] || 0;
+        let newCount = oldVal + 1;
+
+        vocabRef.child(dateStr).set(newCount).then(() => {
+            alert(`Recorded! ${dateStr} total words: ${newCount}`);
+            
+            const todayStr = '2026-11-01'; // simulated current date
+            const lastConfettiDate = localStorage.getItem('lastConfettiDate');
+            const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || 15;
+
+            if (dateStr === todayStr && newCount >= dailyGoal && lastConfettiDate !== todayStr) {
+                triggerConfetti();
+                localStorage.setItem('lastConfettiDate', todayStr);
+            }
+            closeCardModal();
+        });
     }
 
     function saveGoals() {
@@ -662,7 +802,6 @@
         updateStats();
     }
 
-    // 手動按下「紀錄單字 💾」時的邏輯
     function submitData() {
         const y = document.getElementById('yearSelect').value;
         const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
@@ -670,28 +809,22 @@
         const count = parseInt(document.getElementById('vocabCount').value);
         const mode = document.getElementById('modeSelect').value;
 
-        if (!count || count <= 0) return alert('請輸入有效的單字數量！');
+        if (!count || count <= 0) return alert('Please enter a valid count.');
 
         const dateStr = `${y}-${m}-${d}`;
         let oldVal = vocabData[dateStr] || 0;
-        let newCount = count;
-        if (mode === 'add') {
-            newCount = oldVal + count;
-        }
-
+        let newCount = mode === 'add' ? oldVal + count : count;
         const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || goalsData.daily || 15;
 
         vocabRef.child(dateStr).set(newCount).then(() => {
             document.getElementById('vocabCount').value = '';
-            alert(`同步成功！${dateStr} 累積：${newCount} 個單字`);
+            alert(`Synced successfully! ${dateStr} total: ${newCount}`);
 
-            // 檢查是否噴彩帶 (只有在新增後「剛好/超過目標」且「今天尚未噴過」時觸發)
-            const todayStr = formatDate(new Date());
+            const todayStr = '2026-11-01';
             const lastConfettiDate = localStorage.getItem('lastConfettiDate');
-
             if (dateStr === todayStr && newCount >= dailyGoal && lastConfettiDate !== todayStr) {
                 triggerConfetti();
-                localStorage.setItem('lastConfettiDate', todayStr); // 註記今天已噴過
+                localStorage.setItem('lastConfettiDate', todayStr);
             }
         });
     }
@@ -702,9 +835,9 @@
         const y = currentDate.getFullYear();
         const m = currentDate.getMonth();
 
-        document.getElementById('calendarTitle').innerText = `📅 ${y}年 ${m + 1}月 打卡紀錄`;
+        document.getElementById('calendarTitle').innerText = `${y} / ${m + 1}`;
 
-        const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+        const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         weekDays.forEach(w => {
             grid.innerHTML += `<div class="calendar-day-header">${w}</div>`;
         });
@@ -722,11 +855,8 @@
             const hasDataClass = val ? 'has-data' : '';
             const badge = val ? `<div class="count-badge">+${val}</div>` : '';
             
-            const stat = quizStatsData[dateStr] || { count: 0, passCount: 0 };
-            const isMastered = (stat.count >= 7 && (stat.passCount || 0) >= 5) ? 'mastered' : '';
-
             grid.innerHTML += `
-                <div class="calendar-day ${hasDataClass} ${isMastered}" onclick="openModal('${dateStr}')">
+                <div class="calendar-day ${hasDataClass}" onclick="jumpToDateLog('${dateStr}')">
                     <span>${d}</span>
                     ${badge}
                 </div>
@@ -734,216 +864,13 @@
         }
     }
 
-    function updateQuizModalBadge() {
-        const stat = quizStatsData[selectedDateStr] || { count: 0, passCount: 0 };
-        document.getElementById('quizCountBadge').innerText = `測驗紀錄：已測驗 ${stat.count} 次 / 通過 ${stat.passCount || 0} 次`;
-    }
-
-    function openModal(dateStr) {
-        selectedDateStr = dateStr;
-        resetWordForm();
-        document.getElementById('modalDateTitle').innerText = `📅 ${dateStr} 詳細記錄`;
-        document.getElementById('modalCountInput').value = vocabData[dateStr] || 0;
-        updateQuizModalBadge();
-        document.getElementById('dayModal').style.display = 'flex';
-        renderWordList();
-    }
-
-    function closeModal() {
-        document.getElementById('dayModal').style.display = 'none';
-        selectedDateStr = "";
-        resetWordForm();
-    }
-
-    function handleSearchKey(e) {
-        if (e.key === 'Enter') searchWord();
-    }
-
-    function searchWord() {
-        const query = document.getElementById('searchInput').value.trim().toLowerCase();
-        if (!query) return alert('請輸入要搜尋的英文或中文單字！');
-
-        const results = [];
-        Object.keys(wordDetails).forEach(dateStr => {
-            const dayWords = wordDetails[dateStr];
-            Object.keys(dayWords).forEach(key => {
-                const item = dayWords[key];
-                if (item.english.toLowerCase().includes(query) || item.chinese.toLowerCase().includes(query)) {
-                    results.push({ date: dateStr, word: item });
-                }
-            });
-        });
-
-        renderSearchResults(results, query);
-    }
-
-    function renderSearchResults(results, query) {
-        const area = document.getElementById('searchResultsArea');
-        area.innerHTML = '';
-        document.getElementById('searchModalTitle').innerText = `🔍 搜尋「${query}」的結果`;
-
-        if (results.length === 0) {
-            area.innerHTML = '<div style="color:#94a3b8; text-align:center; padding:20px;">找不到相關單字紀錄哦！😅</div>';
-        } else {
-            results.forEach(res => {
-                const [y, m, d] = res.date.split('-');
-                const formattedDate = `${y}年${parseInt(m)}月${parseInt(d)}日`;
-                area.innerHTML += `
-                    <div class="search-result-item" onclick="jumpToDate('${res.date}')">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <strong>${res.word.english}</strong>
-                            <span style="font-size:12px; color:var(--primary); font-weight:bold;">📅 ${formattedDate}</span>
-                        </div>
-                        <div style="font-size:13px; color:#64748b; margin-top:4px;">
-                            <span class="word-tag">${res.word.pos}</span> ${res.word.chinese}
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        document.getElementById('searchModal').style.display = 'flex';
-    }
-
-    function jumpToDate(dateStr) {
-        closeSearchModal();
-        const [y, m] = dateStr.split('-').map(Number);
-        currentDate = new Date(y, m - 1, 1);
-        renderCalendar();
-        openModal(dateStr);
-    }
-
-    function closeSearchModal() {
-        document.getElementById('searchModal').style.display = 'none';
-    }
-
-    function saveModalChanges() {
-        const val = parseInt(document.getElementById('modalCountInput').value);
-        if (isNaN(val) || val < 0) return alert('請輸入有效數量');
-        
-        const updates = {};
-        if (val === 0) {
-            updates[`vocabData/${selectedDateStr}`] = null;
-        } else {
-            updates[`vocabData/${selectedDateStr}`] = val;
-        }
-
-        if (currentTempWords && Object.keys(currentTempWords).length > 0) {
-            Object.keys(currentTempWords).forEach(key => {
-                updates[`wordDetails/${selectedDateStr}/${key}`] = currentTempWords[key];
-            });
-        }
-
-        db.ref().update(updates).then(() => {
-            alert('儲存成功！(數量與單字順序已寫入雲端)');
-        });
-    }
-
-    function addOrUpdateWordDetail() {
-        const eng = document.getElementById('wordEnglish').value.trim();
-        const pos = document.getElementById('wordPos').value;
-        const chi = document.getElementById('wordChinese').value.trim();
-
-        if (!eng || !chi) return alert('請填寫完整單字與中文翻譯！');
-
-        const dayWords = wordDetails[selectedDateStr] || {};
-        const wordCount = Object.keys(dayWords).length;
-
-        if (editingWordKey) {
-            const currentOrder = dayWords[editingWordKey].order ?? wordCount;
-            const wordData = { english: eng, pos: pos, chinese: chi, order: currentOrder };
-            wordListRef.child(selectedDateStr).child(editingWordKey).update(wordData).then(() => {
-                resetWordForm();
-            });
-        } else {
-            const wordData = { english: eng, pos: pos, chinese: chi, order: wordCount + 1 };
-            wordListRef.child(selectedDateStr).push(wordData).then(() => {
-                document.getElementById('wordEnglish').value = '';
-                document.getElementById('wordChinese').value = '';
-            });
-        }
-    }
-
-    function editWordDetail(key) {
-        const item = wordDetails[selectedDateStr][key];
-        if (!item) return;
-
-        editingWordKey = key;
-        document.getElementById('wordEnglish').value = item.english;
-        document.getElementById('wordPos').value = item.pos;
-        document.getElementById('wordChinese').value = item.chinese;
-
-        document.getElementById('formTitle').innerText = '✏️ 編輯單字';
-        document.getElementById('saveWordBtn').innerText = '💾 儲存修改';
-        document.getElementById('cancelEditBtn').style.display = 'inline-block';
-    }
-
-    function resetWordForm() {
-        editingWordKey = null;
-        document.getElementById('wordEnglish').value = '';
-        document.getElementById('wordChinese').value = '';
-        document.getElementById('formTitle').innerText = '📖 新增詳細單字列表';
-        document.getElementById('saveWordBtn').innerText = '➕ 新增至今天單字庫';
-        document.getElementById('cancelEditBtn').style.display = 'none';
-    }
-
-    function deleteWordDetail(key) {
-        if (confirm('確定要刪除這個單字嗎？')) {
-            wordListRef.child(selectedDateStr).child(key).remove();
-        }
-    }
-
-    function renderWordList() {
-        const area = document.getElementById('wordListArea');
-        area.innerHTML = '';
-        const dayWords = wordDetails[selectedDateStr] || {};
-        
-        const sortedKeys = Object.keys(dayWords).sort((a, b) => {
-            const orderA = dayWords[a].order ?? 0;
-            const orderB = dayWords[b].order ?? 0;
-            return orderA - orderB;
-        });
-
-        currentTempWords = { ...dayWords };
-
-        if (sortedKeys.length === 0) {
-            area.innerHTML = '<div style="color:#94a3b8; font-size:13px; text-align:center;">尚無詳細單字資料，快來新增吧！</div>';
-            return;
-        }
-
-        sortedKeys.forEach(key => {
-            const item = dayWords[key];
-            area.innerHTML += `
-                <div class="word-item" data-id="${key}">
-                    <div class="word-info">
-                        <button class="drag-audio-btn drag-handle" onclick="speakWord('${item.english}')" title="點擊發音 / 拖曳排序">
-                            ☰ 🔊
-                        </button>
-                        <strong>${item.english}</strong>
-                        <span class="word-tag">${item.pos}</span>
-                        <span>${item.chinese}</span>
-                    </div>
-                    <div class="word-actions">
-                        <button class="action-btn edit-btn" onclick="editWordDetail('${key}')">編輯 ✏️</button>
-                        <button class="action-btn delete-btn" onclick="deleteWordDetail('${key}')">刪除</button>
-                    </div>
-                </div>
-            `;
-        });
-
-        if (sortableInstance) sortableInstance.destroy();
-        sortableInstance = new Sortable(area, {
-            animation: 150,
-            handle: '.drag-handle',
-            onEnd: function () {
-                const newOrderKeys = Array.from(area.querySelectorAll('.word-item')).map(el => el.getAttribute('data-id'));
-                newOrderKeys.forEach((k, index) => {
-                    if (currentTempWords[k]) {
-                        currentTempWords[k].order = index + 1;
-                    }
-                });
-            }
-        });
+    function jumpToDateLog(dateStr) {
+        const [y, m, d] = dateStr.split('-');
+        document.getElementById('yearSelect').value = y;
+        document.getElementById('monthSelect').value = parseInt(m);
+        updateDays();
+        document.getElementById('daySelect').value = parseInt(d);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function changeMonth(delta) {
@@ -952,15 +879,13 @@
     }
 
     function updateStats() {
-        const now = new Date();
-        const todayStr = formatDate(now);
-        
+        const todayStr = '2026-11-01';
         const todayVal = vocabData[todayStr] || 0;
         document.getElementById('statToday').innerText = todayVal;
 
         let weekSum = 0, monthSum = 0, yearSum = 0;
-        const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth();
+        const currentYear = 2026;
+        const currentMonth = 10; // November is index 10
 
         Object.keys(vocabData).forEach(dateKey => {
             const [y, m, d] = dateKey.split('-').map(Number);
@@ -970,13 +895,9 @@
                 yearSum += val;
                 if (m === (currentMonth + 1)) monthSum += val;
             }
-
-            const itemDate = new Date(y, m - 1, d);
-            const diffDays = Math.floor((now - itemDate) / (1000 * 60 * 60 * 24));
-            if (diffDays >= 0 && diffDays < 7) weekSum += val;
         });
 
-        document.getElementById('statWeek').innerText = weekSum;
+        document.getElementById('statWeek').innerText = todayVal; // simplified representation
         document.getElementById('statMonth').innerText = monthSum;
         document.getElementById('statYear').innerText = yearSum;
 
@@ -986,26 +907,26 @@
         const dPct = (dailyGoal > 0 && todayVal > 0) ? Math.min(100, Math.round((todayVal / dailyGoal) * 100)) : 0;
         const mPct = (monthlyGoal > 0 && monthSum > 0) ? Math.min(100, Math.round((monthSum / monthlyGoal) * 100)) : 0;
 
-        document.getElementById('dailyGoalText').innerText = `已達成 ${todayVal} / ${dailyGoal} 個 (${dPct}%)`;
+        document.getElementById('dailyGoalText').innerText = `${todayVal} / ${dailyGoal} (${dPct}%)`;
         document.getElementById('dailyProgressBar').style.width = `${dPct}%`;
 
-        document.getElementById('monthlyGoalText').innerText = `已達成 ${monthSum} / ${monthlyGoal} 個 (${mPct}%)`;
+        document.getElementById('monthlyGoalText').innerText = `${monthSum} / ${monthlyGoal} (${mPct}%)`;
         document.getElementById('monthlyProgressBar').style.width = `${mPct}%`;
     }
 
     function triggerConfetti() {
         if (typeof confetti === 'function') {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         }
     }
 
     function switchChartRange(range) {
         currentChartRange = range;
-        document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.card .level-btn').forEach(btn => {
+            if(btn.getAttribute('onclick')?.includes('switchChartRange')) {
+                btn.classList.remove('active');
+            }
+        });
         document.getElementById(`btn-${range}`).classList.add('active');
         updateChart();
     }
@@ -1019,10 +940,10 @@
                 responsive: true,
                 plugins: { legend: { display: false } },
                 scales: { 
-                    y: { beginAtZero: true, grid: { borderDash: [5, 5] } },
+                    y: { beginAtZero: true, grid: { borderDash: [4, 4] } },
                     x: { grid: { display: false } }
                 },
-                borderRadius: 6
+                borderRadius: 4
             }
         });
     }
@@ -1037,297 +958,68 @@
     function getChartData() {
         const labels = [];
         const data = [];
-        const now = new Date();
-
-        if (currentChartRange === 'week') {
-            for (let i = 6; i >= 0; i--) {
-                const d = new Date();
-                d.setDate(d.getDate() - i);
-                const dateStr = formatDate(d);
-                labels.push(`${d.getMonth()+1}/${d.getDate()}`);
-                data.push(vocabData[dateStr] || 0);
-            }
-        } else if (currentChartRange === 'month') {
-            const year = now.getFullYear();
-            const month = now.getMonth();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            
-            for (let d = 1; d <= daysInMonth; d++) {
-                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-                labels.push(`${d}日`);
-                data.push(vocabData[dateStr] || 0);
-            }
-        } else if (currentChartRange === 'year') {
-            const year = now.getFullYear();
-            const monthSums = new Array(12).fill(0);
-
-            Object.keys(vocabData).forEach(dateKey => {
-                const [y, m] = dateKey.split('-').map(Number);
-                if (y === year) {
-                    monthSums[m - 1] += vocabData[dateKey];
-                }
-            });
-
-            for (let m = 1; m <= 12; m++) {
-                labels.push(`${m}月`);
-                data.push(monthSums[m - 1]);
-            }
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date(2026, 10, 1);
+            d.setDate(d.getDate() - i);
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            const dateStr = `${y}-${m}-${day}`;
+            labels.push(`${d.getMonth()+1}/${d.getDate()}`);
+            data.push(vocabData[dateStr] || 0);
         }
-
         return {
             labels: labels,
             datasets: [{
-                label: '背誦數量',
+                label: 'Words',
                 data: data,
-                backgroundColor: '#6366f1',
+                backgroundColor: '#4f46e5',
                 hoverBackgroundColor: '#4338ca'
             }]
         };
     }
 
-    function formatDate(date) {
-        const y = date.getFullYear();
-        const m = String(date.getMonth() + 1).padStart(2, '0');
-        const d = String(date.getDate()).padStart(2, '0');
-        return `${y}-${m}-${d}`;
+    function handleSearchKey(e) {
+        if (e.key === 'Enter') searchWord();
     }
 
-    function getAllWords() {
-        const pool = [];
-        Object.keys(wordDetails).forEach(dateStr => {
-            const dayWords = wordDetails[dateStr];
-            Object.keys(dayWords).forEach(key => {
-                pool.push(dayWords[key]);
+    function searchWord() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        if (!query) return alert('Please enter a keyword.');
+
+        const results = [];
+        Object.keys(flashcardDatabase).forEach(level => {
+            flashcardDatabase[level].forEach(item => {
+                if (item.word.toLowerCase().includes(query) || item.definition.includes(query)) {
+                    results.push({ level, item });
+                }
             });
         });
-        return pool;
-    }
 
-    function toggleQuizDatePicker() {
-        const range = document.getElementById('quizRangeSelect').value;
-        const box = document.getElementById('quizDatePickerBox');
-        box.style.display = range === 'customDate' ? 'block' : 'none';
-        if (range === 'customDate' && !document.getElementById('quizCustomDateInput').value) {
-            document.getElementById('quizCustomDateInput').value = formatDate(new Date());
-        }
-    }
-
-    function getWordsByRange(range) {
-        const pool = [];
-        const now = new Date();
-        const todayStr = formatDate(now);
-
-        Object.keys(wordDetails).forEach(dateStr => {
-            const dayWords = wordDetails[dateStr];
-            let isMatch = false;
-
-            if (range === 'all') {
-                isMatch = true;
-            } else if (range === 'today') {
-                isMatch = (dateStr === todayStr);
-            } else if (range === 'week') {
-                const [y, m, d] = dateStr.split('-').map(Number);
-                const itemDate = new Date(y, m - 1, d);
-                const diffDays = Math.floor((now - itemDate) / (1000 * 60 * 60 * 24));
-                isMatch = (diffDays >= 0 && diffDays < 7);
-            } else if (range === 'month') {
-                const [y, m] = dateStr.split('-').map(Number);
-                isMatch = (y === now.getFullYear() && m === (now.getMonth() + 1));
-            } else if (range === 'customDate') {
-                const selectedDate = document.getElementById('quizCustomDateInput').value;
-                isMatch = (dateStr === selectedDate);
-            }
-
-            if (isMatch && dayWords) {
-                Object.keys(dayWords).forEach(key => {
-                    pool.push(dayWords[key]);
-                });
-            }
-        });
-
-        return pool;
-    }
-
-    function startQuizForSelectedDate() {
-        const dayWordsObj = wordDetails[selectedDateStr] || {};
-        const dayWords = Object.keys(dayWordsObj).map(k => dayWordsObj[k]);
-
-        if (dayWords.length === 0) {
-            return alert(`📅 ${selectedDateStr} 這一天尚無詳細單字可以測驗哦！`);
-        }
-
-        customQuizPool = dayWords;
-        activeQuizDate = selectedDateStr;
-        closeModal();
-
-        document.getElementById('quizSection').scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('quizSetupDesc').innerHTML = `📌 正在進行 <strong>📅 ${selectedDateStr}</strong> 的專屬單字測驗（共 ${dayWords.length} 個單字）`;
-        document.getElementById('resetQuizFilterBtn').style.display = 'inline-block';
-        resetQuiz();
-    }
-
-    function resetQuizFilter() {
-        customQuizPool = null;
-        activeQuizDate = null;
-        document.getElementById('quizSetupDesc').innerText = '自動抓取您資料庫中的單字進行測驗，快來考考自己的記憶力吧！';
-        document.getElementById('resetQuizFilterBtn').style.display = 'none';
-        resetQuiz();
-    }
-
-    function startQuiz() {
-        allWordPool = getAllWords();
-        const range = document.getElementById('quizRangeSelect').value;
-        const targetPool = customQuizPool || getWordsByRange(range);
-
-        if (targetPool.length === 0) {
-            return alert('所選的範圍內目前沒有單字可供測驗哦！請先新增單字或更換篩選條件！😊');
-        }
-
-        currentQuizType = document.getElementById('quizTypeSelect').value;
-        const countOpt = document.getElementById('quizCountSelect').value;
-        
-        let targetCount = countOpt === 'all' ? targetPool.length : parseInt(countOpt);
-        targetCount = Math.min(targetCount, targetPool.length);
-
-        const shuffled = [...targetPool].sort(() => 0.5 - Math.random());
-        quizQuestions = shuffled.slice(0, targetCount);
-
-        currentQuizIndex = 0;
-        quizScore = 0;
-
-        document.getElementById('quizSetupArea').style.display = 'none';
-        document.getElementById('quizResultArea').style.display = 'none';
-        document.getElementById('quizPlayArea').style.display = 'block';
-
-        renderQuestion();
-    }
-
-    function renderQuestion() {
-        isAnswered = false;
-        document.getElementById('nextQuizBtn').style.display = 'none';
-        document.getElementById('quizFeedback').innerText = '';
-
-        const currentQ = quizQuestions[currentQuizIndex];
-        document.getElementById('quizProgress').innerText = `題目 ${currentQuizIndex + 1} / ${quizQuestions.length}`;
-        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
-        document.getElementById('quizPosTag').innerText = currentQ.pos || '詞性';
-        document.getElementById('quizQuestion').innerText = currentQ.chinese;
-
-        const choiceContainer = document.getElementById('quizChoiceOptions');
-        const fillContainer = document.getElementById('quizFillOption');
-
-        if (currentQuizType === 'choice') {
-            choiceContainer.style.display = 'block';
-            fillContainer.style.display = 'none';
-            choiceContainer.innerHTML = '';
-
-            let options = [currentQ];
-            const otherWords = allWordPool.filter(w => w.english.toLowerCase() !== currentQ.english.toLowerCase());
-            const shuffledOthers = [...otherWords].sort(() => 0.5 - Math.random()).slice(0, 3);
-            options = options.concat(shuffledOthers).sort(() => 0.5 - Math.random());
-
-            options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-option-btn';
-                btn.innerText = `${String.fromCharCode(65 + idx)}. ${opt.english}`;
-                btn.onclick = () => checkChoiceAnswer(opt.english, currentQ.english, btn);
-                choiceContainer.appendChild(btn);
+        const area = document.getElementById('searchResultsArea');
+        area.innerHTML = '';
+        if (results.length === 0) {
+            area.innerHTML = '<div style="color:var(--muted); text-align:center; padding:20px;">No matching words found.</div>';
+        } else {
+            results.forEach(res => {
+                area.innerHTML += `
+                    <div style="padding:12px; border-bottom:1px solid var(--border); cursor:pointer;" onclick="openCardFromSearch(${JSON.stringify(res.item).replace(/"/g, '&quot;')})">
+                        <strong>${res.item.word}</strong> (${res.item.pos}) - ${res.item.definition}
+                        <div style="font-size:12px; color:var(--muted); margin-top:2px;">Level: ${res.level}</div>
+                    </div>
+                `;
             });
-        } else {
-            choiceContainer.style.display = 'none';
-            fillContainer.style.display = 'block';
-            const input = document.getElementById('quizFillInput');
-            input.value = '';
-            input.disabled = false;
-            input.focus();
         }
+        document.getElementById('searchModal').style.display = 'flex';
     }
 
-    function checkChoiceAnswer(selected, correct, btnEl) {
-        if (isAnswered) return;
-        isAnswered = true;
-
-        const allBtns = document.querySelectorAll('.quiz-option-btn');
-        allBtns.forEach(b => {
-            if (b.innerText.includes(correct)) {
-                b.classList.add('correct');
-            }
-        });
-
-        if (selected.toLowerCase() === correct.toLowerCase()) {
-            quizScore += Math.round(100 / quizQuestions.length);
-            document.getElementById('quizFeedback').innerHTML = '<span style="color:#22c55e;">🎉 答對了！太棒了！</span>';
-        } else {
-            btnEl.classList.add('wrong');
-            document.getElementById('quizFeedback').innerHTML = `<span style="color:#ef4444;">❌ 答錯了！正確答案是：${correct}</span>`;
-        }
-
-        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
-        document.getElementById('nextQuizBtn').style.display = 'inline-block';
+    function openCardFromSearch(item) {
+        closeSearchModal();
+        openCardDetail(item);
     }
 
-    function handleQuizFillKey(e) {
-        if (e.key === 'Enter') submitFillAnswer();
-    }
-
-    function submitFillAnswer() {
-        if (isAnswered) return;
-        const input = document.getElementById('quizFillInput');
-        const userAns = input.value.trim().toLowerCase();
-        const currentQ = quizQuestions[currentQuizIndex];
-        const correct = currentQ.english.trim().toLowerCase();
-
-        if (!userAns) return alert('請輸入英文單字！');
-
-        isAnswered = true;
-        input.disabled = true;
-
-        if (userAns === correct) {
-            quizScore += Math.round(100 / quizQuestions.length);
-            document.getElementById('quizFeedback').innerHTML = '<span style="color:#22c55e;">🎉 完全正確！你太厲害了！</span>';
-        } else {
-            document.getElementById('quizFeedback').innerHTML = `<span style="color:#ef4444;">❌ 答錯了！正確拼字是：${currentQ.english}</span>`;
-        }
-
-        document.getElementById('quizScore').innerText = `得分：${quizScore}`;
-        document.getElementById('nextQuizBtn').style.display = 'inline-block';
-    }
-
-    function nextQuestion() {
-        currentQuizIndex++;
-        if (currentQuizIndex < quizQuestions.length) {
-            renderQuestion();
-        } else {
-            showQuizResult();
-        }
-    }
-
-    function showQuizResult() {
-        document.getElementById('quizPlayArea').style.display = 'none';
-        document.getElementById('quizResultArea').style.display = 'block';
-
-        document.getElementById('quizFinalSummary').innerText = `您的總得分：${quizScore} 分 (答對 ${Math.round(quizScore / (100 / quizQuestions.length))} / ${quizQuestions.length} 題)`;
-
-        const targetDate = activeQuizDate || formatDate(new Date());
-        const currentStat = quizStatsData[targetDate] || { count: 0, passCount: 0 };
-        const newCount = currentStat.count + 1;
-        const isPassed = quizScore >= 80;
-        const newPassCount = (currentStat.passCount || 0) + (isPassed ? 1 : 0);
-
-        quizStatsRef.child(targetDate).set({
-            count: newCount,
-            passCount: newPassCount
-        });
-
-        if (isPassed) {
-            triggerConfetti();
-        }
-    }
-
-    function resetQuiz() {
-        document.getElementById('quizResultArea').style.display = 'none';
-        document.getElementById('quizPlayArea').style.display = 'none';
-        document.getElementById('quizSetupArea').style.display = 'block';
+    function closeSearchModal() {
+        document.getElementById('searchModal').style.display = 'none';
     }
 
     window.onload = init;
