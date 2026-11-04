@@ -470,26 +470,28 @@
     let currentChartRange = 'week';
     let currentSelectedLevel = '1-1000';
     let activeCardData = null;
-    let flashcardDatabase = {}; // 從 words.json 動態載入
+    
+    // ⚠️ 完全清空預設內建單字！只依賴外部 words.json 動態載入
+    let flashcardDatabase = {};
 
-    // 自動從同目錄的 words.json 載入單字庫
     async function loadWordsFromCloud() {
         try {
-            const response = await fetch('words.json');
-            if (!response.ok) throw new Error('無法讀取 words.json');
+            // 加上時間戳記，避免瀏覽器快取舊資料
+            const response = await fetch('words.json?v=' + new Date().getTime());
+            if (!response.ok) throw new Error('無法讀取 words.json 檔案');
             flashcardDatabase = await response.json();
             renderFlashcards(currentSelectedLevel);
-            console.log('單字庫已成功從雲端載入！');
+            console.log('單字庫已成功從 words.json 載入！');
         } catch (error) {
             console.error('載入單字庫失敗:', error);
-            document.getElementById('flashcardGrid').innerHTML = '<div style="color:var(--muted); padding:20px;">載入單字庫失敗，請確認 words.json 是否存在。</div>';
+            document.getElementById('flashcardGrid').innerHTML = '<div style="color:var(--muted); padding:20px;">載入單字庫失敗，請確認 words.json 檔案是否存在且格式正確。</div>';
         }
     }
 
     function init() {
         initDateDropdowns();
         initChart();
-        loadWordsFromCloud(); // 👈 啟動時讀取外部 JSON
+        loadWordsFromCloud(); // 啟動時向伺服器抓取 words.json
         
         vocabRef.on('value', (snapshot) => {
             vocabData = snapshot.val() || {};
