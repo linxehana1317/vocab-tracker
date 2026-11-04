@@ -1,0 +1,40 @@
+{
+  "1-1000": [
+    {
+      "word": "ability",
+      "pos": "n.",
+      "kk": "/əˈbɪləti/",
+      "definition": "能力，才能",
+      "derivatives": [
+        { "pos": "adj.", "word": "able", "meaning": "能夠的" },
+        { "pos": "v.", "word": "enable", "meaning": "使能夠" },
+        { "pos": "adj.", "word": "unable", "meaning": "不能的" },
+        { "pos": "n.", "word": "inability", "meaning": "無能" }
+      ],
+      "root": "字根字尾解析：字根 -abil- 源自拉丁語 habilis (可擁有的、能幹的)。常見同字尾形容詞如 capable, suitable。",
+      "phrases": [
+        { "phrase": "have the ability to do", "meaning": "有能力做...", "sentence": "She has the ability to solve complex problems.", "translation": "她有解決複雜問題的能力。" }
+      ]
+    },
+    {
+      "word": "accept",
+      "pos": "v.",
+      "kk": "/əkˈsɛpt/",
+      "definition": "接受，承認",
+      "derivatives": [
+        { "pos": "adj.", "word": "acceptable", "meaning": "可接受的" },
+        { "pos": "n.", "word": "acceptance", "meaning": "接受，認可" }
+      ],
+      "root": "字根字尾解析：前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
+      "phrases": [
+        { "phrase": "accept an invitation", "meaning": "接受邀請", sentence: "Thank you for accepting our invitation.", translation: "謝謝你接受我們的邀請。" }
+      ]
+    }
+  ],
+  "1001-2000": [],
+  "2001-3000": [],
+  "3001-4000": [],
+  "4001-5000": [],
+  "5001-6000": [],
+  "6001-7000": []
+}
