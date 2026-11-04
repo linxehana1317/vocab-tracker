@@ -11,7 +11,7 @@
         { "pos": "adj.", "word": "unable", "meaning": "不能的" },
         { "pos": "n.", "word": "inability", "meaning": "無能" }
       ],
-      "root": "字根字尾解析：字根 -abil- 源自拉丁語 habilis (可擁有的、能幹的)。常見同字尾形容詞如 capable, suitable。",
+      "root": "字根 -abil- 源自拉丁語 habilis (可擁有的、能幹的)。常見同字尾形容詞如 capable, suitable。",
       "phrases": [
         { "phrase": "have the ability to do", "meaning": "有能力做...", "sentence": "She has the ability to solve complex problems.", "translation": "她有解決複雜問題的能力。" }
       ]
@@ -25,9 +25,251 @@
         { "pos": "adj.", "word": "acceptable", "meaning": "可接受的" },
         { "pos": "n.", "word": "acceptance", "meaning": "接受，認可" }
       ],
-      "root": "字根字尾解析：前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
+      "root": "前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
       "phrases": [
         { "phrase": "accept an invitation", "meaning": "接受邀請", "sentence": "Thank you for accepting our invitation.", "translation": "謝謝你接受我們的邀請。" }
+      ]
+    },
+    {
+      "word": "achieve",
+      "pos": "v.",
+      "kk": "/əˈtʃiv/",
+      "definition": "實現，達成",
+      "derivatives": [
+        { "pos": "n.", "word": "achievement", "meaning": "成就" },
+        { "pos": "adj.", "word": "achievable", "meaning": "可達成的" }
+      ],
+      "root": "源自古法語 achever (到達終點)，由 a- + chef (頭、頂端) 組成。",
+      "phrases": [
+        { "phrase": "achieve a goal", "meaning": "達成目標", "sentence": "Hard work is necessary to achieve your goals.", "translation": "努力是達成目標所必需的。" }
+      ]
+    },
+    {
+      "word": "active",
+      "pos": "adj.",
+      "kk": "/ˈæktɪv/",
+      "definition": "活躍的，積極的",
+      "derivatives": [
+        { "pos": "v.", "word": "act", "meaning": "行動，扮演" },
+        { "pos": "n.", "word": "activity", "meaning": "活動" },
+        { "pos": "adv.", "word": "actively", "meaning": "積極地" }
+      ],
+      "root": "字根 act- 源自拉丁語 agere (做、驅動)。同源字有 action, actor。",
+      "phrases": [
+        { "phrase": "take an active part in", "meaning": "積極參與...", "sentence": "He takes an active part in school clubs.", "translation": "他積極參與學校社團。" }
+      ]
+    },
+    {
+      "word": "advantage",
+      "pos": "n.",
+      "kk": "/ədˈvæntɪdʒ/",
+      "definition": "優點，優勢",
+      "derivatives": [
+        { "pos": "adj.", "word": "advantageous", "meaning": "有利的" },
+        { "pos": "n.", "word": "disadvantage", "meaning": "缺點，不利條件" }
+      ],
+      "root": "前綴 ad- (向) + avant (前面)。原意為走在前面、佔據優勢。",
+      "phrases": [
+        { "phrase": "take advantage of", "meaning": "利用，佔便宜", "sentence": "You should take advantage of this opportunity.", "translation": "你應該好好利用這個機會。" }
+      ]
+    },
+    {
+      "word": "advice",
+      "pos": "n.",
+      "kk": "/ədˈvaɪs/",
+      "definition": "建議，忠告",
+      "derivatives": [
+        { "pos": "v.", "word": "advise", "meaning": "勸告，建議" },
+        { "pos": "n.", "word": "adviser", "meaning": "顧問" }
+      ],
+      "root": "前綴 ad- + vis (看、看法)，原意為「提供個人的看法給對方」。",
+      "phrases": [
+        { "phrase": "give someone advice", "meaning": "給某人建議", "sentence": "Thank you for your valuable advice.", "translation": "謝謝你寶貴的建議。" }
+      ]
+    },
+    {
+      "word": "affect",
+      "pos": "v.",
+      "kk": "/əˈfɛkt/",
+      "definition": "影響",
+      "derivatives": [
+        { "pos": "n.", "word": "affection", "meaning": "喜愛，情感" },
+        { "pos": "adj.", "word": "affectionate", "meaning": "充滿深情的" }
+      ],
+      "root": "前綴 af- (to) + fect (做、發生)。意指對...產生作用或影響。",
+      "phrases": [
+        { "phrase": "be affected by", "meaning": "受...影響", "sentence": "Our travel plans were affected by the bad weather.", "translation": "我們的旅遊計畫受惡劣天氣影響。" }
+      ]
+    },
+    {
+      "word": "afford",
+      "pos": "v.",
+      "kk": "/əˈfɔrd/",
+      "definition": "負擔得起，提供",
+      "derivatives": [
+        { "pos": "adj.", "word": "affordable", "meaning": "負擔得起的" }
+      ],
+      "root": "源自古英語 geforthian (向前推進、完成)。",
+      "phrases": [
+        { "phrase": "can afford to do", "meaning": "負擔得起...", "sentence": "We can't afford to make any mistakes.", "translation": "我們負擔不起任何錯誤。" }
+      ]
+    },
+    {
+      "word": "agree",
+      "pos": "v.",
+      "kk": "/əˈɡri/",
+      "definition": "同意，意見一致",
+      "derivatives": [
+        { "pos": "n.", "word": "agreement", "meaning": "同意，協議" },
+        { "pos": "adj.", "word": "agreeable", "meaning": "令人愉快的，合意的" }
+      ],
+      "root": "前綴 a- + 來自拉丁語 gratus (令人滿意的、受歡迎的)。",
+      "phrases": [
+        { "phrase": "agree with someone", "meaning": "同意某人", "sentence": "I agree with your opinion on this matter.", "translation": "我同意你對這件事的看法。" }
+      ]
+    },
+    {
+      "word": "allow",
+      "pos": "v.",
+      "kk": "/əˈlaʊ/",
+      "definition": "允許，准許",
+      "derivatives": [
+        { "pos": "n.", "word": "allowance", "meaning": "津貼，零用錢" }
+      ],
+      "root": "源自古法語 alouer (配置、分配)。",
+      "phrases": [
+        { "phrase": "allow someone to do", "meaning": "允許某人做...", "sentence": "Smoking is not allowed in the building.", "translation": "大樓內禁止吸菸。" }
+      ]
+    },
+    {
+      "word": "amaze",
+      "pos": "v.",
+      "kk": "/əˈmez/",
+      "definition": "使驚奇，使驚嘆",
+      "derivatives": [
+        { "pos": "adj.", "word": "amazing", "meaning": "令人驚嘆的" },
+        { "pos": "adj.", "word": "amazed", "meaning": "感到驚奇的" },
+        { "pos": "n.", "word": "amazement", "meaning": "驚奇，驚異" }
+      ],
+      "root": "前綴 a- + maze (迷宮、困惑)。原意為使人像進入迷宮般目瞪口呆。",
+      "phrases": [
+        { "phrase": "be amazed at/by", "meaning": "對...感到驚奇", "sentence": "Everyone was amazed by her performance.", "translation": "大家對她的表演感到驚奇。" }
+      ]
+    },
+    {
+      "word": "ambition",
+      "pos": "n.",
+      "kk": "/æmˈbɪʃən/",
+      "definition": "野心，抱負",
+      "derivatives": [
+        { "pos": "adj.", "word": "ambitious", "meaning": "有野心的，抱負不凡的" }
+      ],
+      "root": "拉丁語 ambi- (周圍) + it- (走)。原指古羅馬時期候選人到處走動拉票的企圖心。",
+      "phrases": [
+        { "phrase": "achieve one's ambition", "meaning": "實現抱負", "sentence": "His ambition is to become a doctor.", translation: "他的抱負是成為一名醫生。" }
+      ]
+    },
+    {
+      "word": "amount",
+      "pos": "n./v.",
+      "kk": "/əˈmaʊnt/",
+      "definition": "數量，金額；總計達",
+      "derivatives": [],
+      "root": "前綴 a- (to) + mount (山、上升)。原意為上升達到的總額。",
+      "phrases": [
+        { "phrase": "a large amount of", "meaning": "大量的(不可數)", "sentence": "They spent a large amount of money on the project.", translation: "他們在這個專案上花了大量的錢。" }
+      ]
+    },
+    {
+      "word": "analyze",
+      "pos": "v.",
+      "kk": "/ˈænəlˌaɪz/",
+      "definition": "分析",
+      "derivatives": [
+        { "pos": "n.", "word": "analysis", "meaning": "分析(單數)" },
+        { "pos": "adj.", "word": "analytical", "meaning": "分析的" }
+      ],
+      "root": "前綴 ana- (解開、拆解) + lyze (分解)。",
+      "phrases": [
+        { "phrase": "analyze data", "meaning": "分析資料", "sentence": "Scientists analyze data to find results.", translation: "科學家分析資料以尋求結果。" }
+      ]
+    },
+    {
+      "word": "ancient",
+      "pos": "adj.",
+      "kk": "/ˈenʃənt/",
+      "definition": "古老的，古代的",
+      "derivatives": [],
+      "root": "源自拉丁語 ante (在...之前)。意指很久以前的。",
+      "phrases": [
+        { "phrase": "ancient history", "meaning": "古代歷史", "sentence": "Egypt is famous for its ancient history.", translation: "埃及以其古老的歷史聞名。" }
+      ]
+    },
+    {
+      "word": "announce",
+      "pos": "v.",
+      "kk": "/əˈnaʊns/",
+      "definition": "宣佈，宣告",
+      "derivatives": [
+        { "pos": "n.", "word": "announcement", "meaning": "公告，通知" },
+        { "pos": "n.", "word": "announcer", "meaning": "播音員，宣告者" }
+      ],
+      "root": "前綴 an- (to) + nounce (報告、宣佈)。同源字有 pronounce, denounce。",
+      "phrases": [
+        { "phrase": "announce the results", "meaning": "宣佈結果", "sentence": "The teacher will announce the test results tomorrow.", translation: "老師明天會宣佈考試結果。" }
+      ]
+    },
+    {
+      "word": "anxious",
+      "pos": "adj.",
+      "kk": "/ˈæŋkʃəs/",
+      "definition": "焦慮的，渴望的",
+      "derivatives": [
+        { "pos": "n.", "word": "anxiety", "meaning": "焦慮，不安" },
+        { "pos": "adv.", "word": "anxiously", "meaning": "焦慮地" }
+      ],
+      "root": "字根 angst- (壓迫、緊掐)。同源字有 anger。",
+      "phrases": [
+        { "phrase": "be anxious about", "meaning": "對...感到焦慮", "sentence": "She is anxious about her exam results.", translation: "她對自己的考試成績感到焦慮。" }
+      ]
+    },
+    {
+      "word": "apologize",
+      "pos": "v.",
+      "kk": "/əˈpɑləˌdʒaɪz/",
+      "definition": "道歉",
+      "derivatives": [
+        { "pos": "n.", "word": "apology", "meaning": "道歉" }
+      ],
+      "root": "前綴 apo- (遠離、辯解) + log (說話)。原意為辯解，演變為承認錯誤並致歉。",
+      "phrases": [
+        { "phrase": "apologize to someone for something", "meaning": "因某事向某人道歉", "sentence": "He apologized to her for being late.", translation: "他因遲到而向她道歉。" }
+      ]
+    },
+    {
+      "word": "apparent",
+      "pos": "adj.",
+      "kk": "/əˈpærənt/",
+      "definition": "顯而易見的，表面上的",
+      "derivatives": [
+        { "pos": "adv.", "word": "apparently", "meaning": "顯然地" }
+      ],
+      "root": "前綴 ap- (to) + par (出現、看見)。意指一目瞭然的。",
+      "phrases": [
+        { "phrase": "for no apparent reason", "meaning": "不知為何，無緣無故地", "sentence": "The machine stopped working for no apparent reason.", translation: "這台機器不知為何停止運作了。" }
+      ]
+    },
+    {
+      "word": "appeal",
+      "pos": "v./n.",
+      "kk": "/əˈpil/",
+      "definition": "吸引，呼籲，上訴",
+      "derivatives": [
+        { "pos": "adj.", "word": "appealing", "meaning": "有吸引力的" }
+      ],
+      "root": "前綴 ap- (to) + peal/pel (驅使、呼喊)。",
+      "phrases": [
+        { "phrase": "appeal to someone", "meaning": "對某人有吸引力；向某人呼籲", "sentence": "The movie appeals to people of all ages.", translation: "這部電影吸引了各個年齡層的人。" }
       ]
     }
   ],
