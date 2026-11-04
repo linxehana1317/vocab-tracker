@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vocabulary Study Platform - v26.11.1</title>
+    <title>單字學習平台 - v26.11.1</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
@@ -191,10 +191,6 @@
         }
         .calendar-day:hover { background: #f1f5f9; }
         .calendar-day.has-data { background: #eef2ff; border-color: #c7d2fe; }
-        .calendar-day.mastered {
-            border: 1.5px solid #6366f1;
-            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-        }
         .count-badge { font-weight: 700; color: var(--primary); font-size: 11px; }
         .sync-status { font-size: 12px; color: #059669; font-weight: 600; }
 
@@ -290,52 +286,52 @@
 <div class="header-area" style="max-width: 1100px; margin: 0 auto 24px; display: flex; justify-content: space-between; align-items: center;">
     <div>
         <h1 style="margin:0; display:flex; align-items:center; gap:10px; font-size:1.5rem;">
-            Vocabulary Study Platform
+            單字學習平台
             <span style="font-size:12px; background:#e0e7ff; color:#4338ca; padding:2px 10px; border-radius:12px; font-weight:600;">v26.11.1</span>
         </h1>
-        <span class="sync-status" id="syncStatus" style="margin-top:4px; display:inline-block;">Cloud Sync Active</span>
+        <span class="sync-status" id="syncStatus" style="margin-top:4px; display:inline-block;">雲端同步中</span>
     </div>
     <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="Search vocabulary..." onkeypress="handleSearchKey(event)">
-        <button onclick="searchWord()" style="border-radius: 20px; padding: 8px 16px;">Search</button>
+        <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." onkeypress="handleSearchKey(event)">
+        <button onclick="searchWord()" style="border-radius: 20px; padding: 8px 16px;">搜尋</button>
     </div>
 </div>
 
 <div class="container">
     <div>
         <div class="card">
-            <h2>Daily Log</h2>
+            <h2>每日紀錄</h2>
             <div class="input-group">
-                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Select Date:</label>
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">選擇日期：</label>
                 <div class="date-selects">
                     <select id="yearSelect"></select>
                     <select id="monthSelect"></select>
                     <select id="daySelect"></select>
                 </div>
-                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Words Count:</label>
-                <input type="number" id="vocabCount" min="1" placeholder="Enter count...">
-                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">Mode:</label>
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">背誦單字數量：</label>
+                <input type="number" id="vocabCount" min="1" placeholder="輸入數量...">
+                <label style="font-size: 13px; font-weight: 500; color: var(--muted);">模式：</label>
                 <select id="modeSelect">
-                    <option value="add">Accumulate</option>
-                    <option value="overwrite">Overwrite</option>
+                    <option value="add">累加數量</option>
+                    <option value="overwrite">覆蓋數量</option>
                 </select>
-                <button onclick="submitData()">Record Words</button>
+                <button onclick="submitData()">記錄單字</button>
             </div>
         </div>
 
         <div class="card">
-            <h2>Study Statistics</h2>
+            <h2>學習統計</h2>
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">Today</div></div>
-                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">This Week</div></div>
-                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">This Month</div></div>
-                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">This Year</div></div>
+                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日</div></div>
+                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週</div></div>
+                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月</div></div>
+                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年</div></div>
             </div>
 
             <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
                 <div style="margin-bottom: 12px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <label style="font-size: 13px; font-weight: 600;">Daily Goal:</label>
+                        <label style="font-size: 13px; font-weight: 600;">每日目標：</label>
                         <input type="number" id="dailyGoalInput" style="width:64px; padding:4px 8px; font-size:12px;" min="1" onchange="saveGoals()">
                     </div>
                     <div id="dailyGoalText" style="font-size:12px; color:var(--muted);">0 / 15 (0%)</div>
@@ -344,7 +340,7 @@
 
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                        <label style="font-size: 13px; font-weight: 600;">Monthly Goal:</label>
+                        <label style="font-size: 13px; font-weight: 600;">每月目標：</label>
                         <input type="number" id="monthlyGoalInput" style="width:64px; padding:4px 8px; font-size:12px;" min="1" onchange="saveGoals()">
                     </div>
                     <div id="monthlyGoalText" style="font-size:12px; color:var(--muted);">0 / 200 (0%)</div>
@@ -357,7 +353,7 @@
     <div>
         <div class="card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                <h2 id="calendarTitle" style="margin:0;">Calendar Log</h2>
+                <h2 id="calendarTitle" style="margin:0;">日曆打卡</h2>
                 <div>
                     <button onclick="changeMonth(-1)" class="btn-secondary" style="padding:6px 12px;">&lt;</button>
                     <button onclick="changeMonth(1)" class="btn-secondary" style="padding:6px 12px;">&gt;</button>
@@ -368,11 +364,11 @@
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                <h2 style="margin:0;">Study Trends</h2>
+                <h2 style="margin:0;">學習趨勢</h2>
                 <div style="display:flex; gap:6px;">
-                    <button id="btn-week" class="level-btn active" onclick="switchChartRange('week')">Week</button>
-                    <button id="btn-month" class="level-btn" onclick="switchChartRange('month')">Month</button>
-                    <button id="btn-year" class="level-btn" onclick="switchChartRange('year')">Year</button>
+                    <button id="btn-week" class="level-btn active" onclick="switchChartRange('week')">週</button>
+                    <button id="btn-month" class="level-btn" onclick="switchChartRange('month')">月</button>
+                    <button id="btn-year" class="level-btn" onclick="switchChartRange('year')">年</button>
                 </div>
             </div>
             <canvas id="trendChart" height="130"></canvas>
@@ -383,7 +379,7 @@
 <div class="full-width-section">
     <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:12px;">
-            <h2 style="margin:0;">7000 Academic Word Flashcards</h2>
+            <h2 style="margin:0;">7000 大考核心單字卡</h2>
         </div>
         
         <div class="level-tabs" id="levelTabs">
@@ -400,7 +396,7 @@
     </div>
 </div>
 
-<!-- Detailed Card Modal (Back View) -->
+<!-- 單字詳細資料彈跳視窗 (背面) -->
 <div class="modal" id="cardDetailModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
@@ -408,41 +404,41 @@
                 <h3 id="modalWordTitle" style="margin:0; font-size:1.75rem; color:var(--text);">word</h3>
                 <div id="modalWordMeta" style="color:var(--muted); font-size:14px; margin-top:4px;">pos / kk</div>
             </div>
-            <button onclick="closeCardModal()" class="btn-secondary" style="padding:6px 12px;">Close</button>
+            <button onclick="closeCardModal()" class="btn-secondary" style="padding:6px 12px;">關閉</button>
         </div>
 
         <div style="font-size:1.1rem; font-weight:600; color:var(--primary); margin-bottom:20px;" id="modalWordDefinition">
-            Definition here
+            中文定義
         </div>
 
         <div class="detail-section">
-            <h4>1. Derivatives & Word Forms</h4>
+            <h4>1. 衍伸單字與詞性變化</h4>
             <div id="modalDerivatives"></div>
         </div>
 
         <div class="detail-section">
-            <h4>2. Root & Morphology Extension</h4>
+            <h4>2. 核心字根與構詞延伸</h4>
             <div id="modalRoot" style="font-size:14px; line-height:1.6; color:#334155;"></div>
         </div>
 
         <div class="detail-section">
-            <h4>3. Common Usages & Phrases</h4>
+            <h4>3. 常見用法與片語例句</h4>
             <div id="modalPhrases" style="font-size:14px; line-height:1.6; color:#334155;"></div>
         </div>
 
         <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:24px;">
-            <button onclick="speakCurrentWord()" class="btn-secondary">Pronounce</button>
-            <button onclick="markCardAsStudied()">Mark as Studied (Log Today +1)</button>
+            <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
+            <button onclick="markCardAsStudied()">標記為今日已背誦 (+1)</button>
         </div>
     </div>
 </div>
 
-<!-- Search Results Modal -->
+<!-- 搜尋結果彈跳視窗 -->
 <div class="modal" id="searchModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-            <h3 id="searchModalTitle" style="margin:0;">Search Results</h3>
-            <button onclick="closeSearchModal()" class="btn-secondary" style="padding:6px 12px;">Close</button>
+            <h3 id="searchModalTitle" style="margin:0;">搜尋結果</h3>
+            <button onclick="closeSearchModal()" class="btn-secondary" style="padding:6px 12px;">關閉</button>
         </div>
         <div id="searchResultsArea"></div>
     </div>
@@ -473,7 +469,6 @@
     let currentSelectedLevel = '1-1000';
     let activeCardData = null;
 
-    // Comprehensive sample dataset for 7000 words levels
     const flashcardDatabase = {
         "1-1000": [
             {
@@ -548,7 +543,7 @@
                 ],
                 root: "字根字尾解析：源自拉丁語 calumnia (控告、誹謗)，演變為對權威或能力的挑戰。",
                 phrases: [
-                    { phrase: "face a challenge",面對挑戰: "面對挑戰", sentence: "We are ready to face any challenge.", translation: "我們準備好面對任何挑戰。" }
+                    { phrase: "face a challenge", meaning: "面對挑戰", sentence: "We are ready to face any challenge.", translation: "我們準備好面對任何挑戰。" }
                 ]
             }
         ],
@@ -581,7 +576,7 @@
                 ],
                 root: "字根字尾解析：ex- (出) + efficere (完成、達成)。同源字 effect, factory。",
                 phrases: [
-                    { phrase: "an efficient way", meaning: "有效率的方法", sentence: "This is an efficient way to learn English.",這是一個學習英文的有效方法: "這是一個學習英文的有效方法。" }
+                    { phrase: "an efficient way", meaning: "有效率的方法", sentence: "This is an efficient way to learn English.", translation: "這是一個學習英文的有效方法。" }
                 ]
             }
         ],
@@ -629,7 +624,7 @@
             renderCalendar();
             updateStats();
             updateChart();
-            document.getElementById('syncStatus').innerText = 'Cloud Sync Active';
+            document.getElementById('syncStatus').innerText = '雲端同步中';
         });
 
         goalsRef.on('value', (snapshot) => {
@@ -652,10 +647,10 @@
         
         ySel.innerHTML = ''; mSel.innerHTML = '';
         for(let y = 2024; y <= 2028; y++) {
-            ySel.add(new Option(`${y}`, y, false, y === 2026));
+            ySel.add(new Option(`${y}年`, y, false, y === 2026));
         }
         for(let m = 1; m <= 12; m++) {
-            mSel.add(new Option(`${m}`, m, false, m === 11));
+            mSel.add(new Option(`${m}月`, m, false, m === 11));
         }
         updateDays();
         dSel.value = 1;
@@ -673,7 +668,7 @@
         
         dSel.innerHTML = '';
         for(let d = 1; d <= daysInMonth; d++) {
-            dSel.add(new Option(`${d}`, d, false, d === Math.min(currentVal, daysInMonth)));
+            dSel.add(new Option(`${d}日`, d, false, d === Math.min(currentVal, daysInMonth)));
         }
     }
 
@@ -694,7 +689,7 @@
         const words = flashcardDatabase[level] || [];
 
         if(words.length === 0) {
-            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">No flashcards available for this level.</div>';
+            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此級距目前尚無單字。</div>';
             return;
         }
 
@@ -713,8 +708,8 @@
                     <div class="flashcard-def">${item.definition}</div>
                 </div>
                 <div class="flashcard-footer">
-                    <span>Click to view details</span>
-                    <span style="color:var(--primary); font-weight:600;">Details &rarr;</span>
+                    <span>點擊查看詳細資訊</span>
+                    <span style="color:var(--primary); font-weight:600;">詳細內容 &rarr;</span>
                 </div>
             `;
             grid.appendChild(card);
@@ -727,7 +722,6 @@
         document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk}`;
         document.getElementById('modalWordDefinition').innerText = item.definition;
 
-        // Derivatives
         const derivArea = document.getElementById('modalDerivatives');
         derivArea.innerHTML = '';
         if(item.derivatives && item.derivatives.length > 0) {
@@ -735,13 +729,11 @@
                 derivArea.innerHTML += `<div style="margin-bottom:6px;"><span class="derivative-tag">${d.pos}</span> <strong>${d.word}</strong>: ${d.meaning}</div>`;
             });
         } else {
-            derivArea.innerHTML = '<span style="color:var(--muted);">None</span>';
+            derivArea.innerHTML = '<span style="color:var(--muted);">無</span>';
         }
 
-        // Root
-        document.getElementById('modalRoot').innerText = item.root || 'None';
+        document.getElementById('modalRoot').innerText = item.root || '無';
 
-        // Phrases
         const phraseArea = document.getElementById('modalPhrases');
         phraseArea.innerHTML = '';
         if(item.phrases && item.phrases.length > 0) {
@@ -749,7 +741,7 @@
                 phraseArea.innerHTML += `<div style="margin-bottom:8px;"><strong>${p.phrase}</strong> (${p.meaning})<br><span style="color:var(--primary);">${p.sentence}</span><br><span style="color:var(--muted); font-size:13px;">${p.translation}</span></div>`;
             });
         } else {
-            phraseArea.innerHTML = '<span style="color:var(--muted);">None</span>';
+            phraseArea.innerHTML = '<span style="color:var(--muted);">無</span>';
         }
 
         document.getElementById('cardDetailModal').style.display = 'flex';
@@ -770,6 +762,7 @@
         }
     }
 
+    // 修正：確實抓取上方「每日紀錄」所選的日期進行打卡加總，使日曆即時更新
     function markCardAsStudied() {
         const y = document.getElementById('yearSelect').value;
         const m = String(document.getElementById('monthSelect').value).padStart(2, '0');
@@ -780,9 +773,9 @@
         let newCount = oldVal + 1;
 
         vocabRef.child(dateStr).set(newCount).then(() => {
-            alert(`Recorded! ${dateStr} total words: ${newCount}`);
+            alert(`已成功記錄！日期 ${dateStr} 目前總計：${newCount} 個單字`);
             
-            const todayStr = '2026-11-01'; // simulated current date
+            const todayStr = '2026-11-01';
             const lastConfettiDate = localStorage.getItem('lastConfettiDate');
             const dailyGoal = parseInt(document.getElementById('dailyGoalInput').value) || 15;
 
@@ -809,7 +802,7 @@
         const count = parseInt(document.getElementById('vocabCount').value);
         const mode = document.getElementById('modeSelect').value;
 
-        if (!count || count <= 0) return alert('Please enter a valid count.');
+        if (!count || count <= 0) return alert('請輸入有效的單字數量。');
 
         const dateStr = `${y}-${m}-${d}`;
         let oldVal = vocabData[dateStr] || 0;
@@ -818,7 +811,7 @@
 
         vocabRef.child(dateStr).set(newCount).then(() => {
             document.getElementById('vocabCount').value = '';
-            alert(`Synced successfully! ${dateStr} total: ${newCount}`);
+            alert(`雲端同步成功！${dateStr} 總數：${newCount}`);
 
             const todayStr = '2026-11-01';
             const lastConfettiDate = localStorage.getItem('lastConfettiDate');
@@ -835,9 +828,9 @@
         const y = currentDate.getFullYear();
         const m = currentDate.getMonth();
 
-        document.getElementById('calendarTitle').innerText = `${y} / ${m + 1}`;
+        document.getElementById('calendarTitle').innerText = `${y}年 ${m + 1}月`;
 
-        const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
         weekDays.forEach(w => {
             grid.innerHTML += `<div class="calendar-day-header">${w}</div>`;
         });
@@ -883,9 +876,9 @@
         const todayVal = vocabData[todayStr] || 0;
         document.getElementById('statToday').innerText = todayVal;
 
-        let weekSum = 0, monthSum = 0, yearSum = 0;
+        let yearSum = 0, monthSum = 0;
         const currentYear = 2026;
-        const currentMonth = 10; // November is index 10
+        const currentMonth = 10;
 
         Object.keys(vocabData).forEach(dateKey => {
             const [y, m, d] = dateKey.split('-').map(Number);
@@ -897,7 +890,7 @@
             }
         });
 
-        document.getElementById('statWeek').innerText = todayVal; // simplified representation
+        document.getElementById('statWeek').innerText = todayVal;
         document.getElementById('statMonth').innerText = monthSum;
         document.getElementById('statYear').innerText = yearSum;
 
@@ -971,7 +964,7 @@
         return {
             labels: labels,
             datasets: [{
-                label: 'Words',
+                label: '單字量',
                 data: data,
                 backgroundColor: '#4f46e5',
                 hoverBackgroundColor: '#4338ca'
@@ -985,7 +978,7 @@
 
     function searchWord() {
         const query = document.getElementById('searchInput').value.trim().toLowerCase();
-        if (!query) return alert('Please enter a keyword.');
+        if (!query) return alert('請輸入搜尋關鍵字。');
 
         const results = [];
         Object.keys(flashcardDatabase).forEach(level => {
@@ -999,13 +992,13 @@
         const area = document.getElementById('searchResultsArea');
         area.innerHTML = '';
         if (results.length === 0) {
-            area.innerHTML = '<div style="color:var(--muted); text-align:center; padding:20px;">No matching words found.</div>';
+            area.innerHTML = '<div style="color:var(--muted); text-align:center; padding:20px;">找不到符合的單字。</div>';
         } else {
             results.forEach(res => {
                 area.innerHTML += `
                     <div style="padding:12px; border-bottom:1px solid var(--border); cursor:pointer;" onclick="openCardFromSearch(${JSON.stringify(res.item).replace(/"/g, '&quot;')})">
                         <strong>${res.item.word}</strong> (${res.item.pos}) - ${res.item.definition}
-                        <div style="font-size:12px; color:var(--muted); margin-top:2px;">Level: ${res.level}</div>
+                        <div style="font-size:12px; color:var(--muted); margin-top:2px;">級距：Level ${res.level}</div>
                     </div>
                 `;
             });
