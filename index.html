@@ -470,61 +470,26 @@
     let currentChartRange = 'week';
     let currentSelectedLevel = '1-1000';
     let activeCardData = null;
+    let flashcardDatabase = {}; // 從 words.json 動態載入
 
-   // 1. 改為動態變數
-    let flashcardDatabase = {};
-
-    // 2. 新增從雲端 / words.json 抓取單字的函式
+    // 自動從同目錄的 words.json 載入單字庫
     async function loadWordsFromCloud() {
         try {
             const response = await fetch('words.json');
-            if (!response.ok) throw new Error('無法讀取 words.json 檔案');
+            if (!response.ok) throw new Error('無法讀取 words.json');
             flashcardDatabase = await response.json();
             renderFlashcards(currentSelectedLevel);
-            console.log('單字庫已成功從雲端/外部載入！');
+            console.log('單字庫已成功從雲端載入！');
         } catch (error) {
             console.error('載入單字庫失敗:', error);
+            document.getElementById('flashcardGrid').innerHTML = '<div style="color:var(--muted); padding:20px;">載入單字庫失敗，請確認 words.json 是否存在。</div>';
         }
     }
 
-    // 3. 在 init() 初始化時呼叫它
     function init() {
         initDateDropdowns();
         initChart();
-        loadWordsFromCloud(); // 👈 啟動時自動去抓取雲端/外接單字檔
-        
-        vocabRef.on('value', (snapshot) => {
-            vocabData = snapshot.val() || {};
-            renderCalendar();
-            updateStats();
-            updateChart();
-            document.getElementById('syncStatus').innerText = '雲端同步中';
-        });
-
-        studiedWordsRef.on('value', (snapshot) => {
-            studiedWordsData = snapshot.val() || {};
-            if (activeCardData) {
-                updateModalButtonState();
-            }
-        });
-
-        goalsRef.on('value', (snapshot) => {
-            if (snapshot.val()) {
-                goalsData = snapshot.val();
-                document.getElementById('dailyGoalInput').value = goalsData.daily || 15;
-                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 200;
-            } else {
-                document.getElementById('dailyGoalInput').value = 15;
-                document.getElementById('monthlyGoalInput').value = 200;
-            }
-            updateStats();
-        });
-    }
-
-    function init() {
-        initDateDropdowns();
-        initChart();
-        renderFlashcards(currentSelectedLevel);
+        loadWordsFromCloud(); // 👈 啟動時讀取外部 JSON
         
         vocabRef.on('value', (snapshot) => {
             vocabData = snapshot.val() || {};
@@ -697,7 +662,6 @@
         }
     }
 
-    // 支援切換狀態（標記或取消標記）的邏輯
     function toggleCardStudied() {
         if (!activeCardData) return;
         const y = document.getElementById('yearSelect').value;
@@ -712,11 +676,9 @@
 
         const updates = {};
         if (currentStatus) {
-            // 已存在，取消標記
             newCount = Math.max(0, oldVal - 1);
             updates[`studiedWords/${dateStr}/${wordKey}`] = null;
         } else {
-            // 未標記，新增標記
             newCount = oldVal + 1;
             updates[`studiedWords/${dateStr}/${wordKey}`] = true;
         }
