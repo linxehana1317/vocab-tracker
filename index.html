@@ -471,150 +471,55 @@
     let currentSelectedLevel = '1-1000';
     let activeCardData = null;
 
-    const flashcardDatabase = {
-        "1-1000": [
-            {
-                word: "ability",
-                pos: "n.",
-                kk: "/əˈbɪləti/",
-                definition: "能力，才能",
-                derivatives: [
-                    { pos: "adj.", word: "able", meaning: "能夠的" },
-                    { pos: "v.", word: "enable", meaning: "使能夠" },
-                    { pos: "adj.", word: "unable", meaning: "不能的" },
-                    { pos: "n.", word: "inability", meaning: "無能" }
-                ],
-                root: "字根字尾解析：字根 -abil- 源自拉丁語 habilis (可擁有的、能幹的)。常見同字尾形容詞如 capable, suitable。",
-                phrases: [
-                    { phrase: "have the ability to do", meaning: "有能力做...", sentence: "She has the ability to solve complex problems.", translation: "她有解決複雜問題的能力。" }
-                ]
-            },
-            {
-                word: "accept",
-                pos: "v.",
-                kk: "/əkˈsɛpt/",
-                definition: "接受，承認",
-                derivatives: [
-                    { pos: "adj.", word: "acceptable", meaning: "可接受的" },
-                    { pos: "n.", word: "acceptance", meaning: "接受，認可" }
-                ],
-                root: "字根字尾解析：前綴 ac- (to) + 字根 cept (拿取、接收)。同字根有 receive, perceive。",
-                phrases: [
-                    { phrase: "accept an invitation", meaning: "接受邀請", sentence: "Thank you for accepting our invitation.", translation: "謝謝你接受我們的邀請。" }
-                ]
-            },
-            {
-                word: "achieve",
-                pos: "v.",
-                kk: "/əˈtʃiv/",
-                definition: "實現，達成",
-                derivatives: [
-                    { pos: "n.", word: "achievement", meaning: "成就" },
-                    { pos: "adj.", word: "achievable", meaning: "可達成的" }
-                ],
-                root: "字根字尾解析：源自古法語 achever (到達終點、完成)，由 a- + chef (頭、頂端) 組成。",
-                phrases: [
-                    { phrase: "achieve a goal", meaning: "達成目標", sentence: "Hard work is necessary to achieve your goals.", translation: "努力是達成目標所必需的。" }
-                ]
+   // 1. 改為動態變數
+    let flashcardDatabase = {};
+
+    // 2. 新增從雲端 / words.json 抓取單字的函式
+    async function loadWordsFromCloud() {
+        try {
+            const response = await fetch('words.json');
+            if (!response.ok) throw new Error('無法讀取 words.json 檔案');
+            flashcardDatabase = await response.json();
+            renderFlashcards(currentSelectedLevel);
+            console.log('單字庫已成功從雲端/外部載入！');
+        } catch (error) {
+            console.error('載入單字庫失敗:', error);
+        }
+    }
+
+    // 3. 在 init() 初始化時呼叫它
+    function init() {
+        initDateDropdowns();
+        initChart();
+        loadWordsFromCloud(); // 👈 啟動時自動去抓取雲端/外接單字檔
+        
+        vocabRef.on('value', (snapshot) => {
+            vocabData = snapshot.val() || {};
+            renderCalendar();
+            updateStats();
+            updateChart();
+            document.getElementById('syncStatus').innerText = '雲端同步中';
+        });
+
+        studiedWordsRef.on('value', (snapshot) => {
+            studiedWordsData = snapshot.val() || {};
+            if (activeCardData) {
+                updateModalButtonState();
             }
-        ],
-        "1001-2000": [
-            {
-                word: "benefit",
-                pos: "n./v.",
-                kk: "/ˈbɛnəfɪt/",
-                definition: "利益，好處；有益於",
-                derivatives: [
-                    { pos: "adj.", word: "beneficial", meaning: "有益的" },
-                    { pos: "n.", word: "benefactor", meaning: "恩人，捐助者" }
-                ],
-                root: "字根字尾解析：來自拉丁語 bene (好) + facere (做)。同源字有 bonus, benevolent。",
-                phrases: [
-                    { phrase: "benefit from", meaning: "從...中受益", sentence: "We all benefit from regular exercise.", translation: "我們都受益於規律運動。" }
-                ]
+        });
+
+        goalsRef.on('value', (snapshot) => {
+            if (snapshot.val()) {
+                goalsData = snapshot.val();
+                document.getElementById('dailyGoalInput').value = goalsData.daily || 15;
+                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 200;
+            } else {
+                document.getElementById('dailyGoalInput').value = 15;
+                document.getElementById('monthlyGoalInput').value = 200;
             }
-        ],
-        "2001-3000": [
-            {
-                word: "challenge",
-                pos: "n./v.",
-                kk: "/ˈtʃælɪndʒ/",
-                definition: "挑戰，質疑",
-                derivatives: [
-                    { pos: "adj.", word: "challenging", meaning: "具挑戰性的" }
-                ],
-                root: "字根字尾解析：源自拉丁語 calumnia (控告、誹謗)，演變為對權威或能力的挑戰。",
-                phrases: [
-                    { phrase: "face a challenge", meaning: "面對挑戰", sentence: "We are ready to face any challenge.", translation: "我們準備好面對任何挑戰。" }
-                ]
-            }
-        ],
-        "3001-4000": [
-            {
-                word: "demonstrate",
-                pos: "v.",
-                kk: "/ˈdɛmənˌstret/",
-                definition: "示範，證明，遊行",
-                derivatives: [
-                    { pos: "n.", word: "demonstration", meaning: "示範，遊行" },
-                    { pos: "adj.", word: "demonstrative", meaning: "說明性的" }
-                ],
-                root: "字根字尾解析：de- (加強語氣) + monstrare (顯示、展示)。同源字 monster (怪物/展示品)。",
-                phrases: [
-                    { phrase: "demonstrate how to do", meaning: "示範如何做", sentence: "Let me demonstrate how this machine works.", translation: "讓我示範這台機器如何運作。" }
-                ]
-            }
-        ],
-        "4001-5000": [
-            {
-                word: "efficient",
-                pos: "adj.",
-                kk: "/ɪˈfɪʃənt/",
-                definition: "效率高的，能幹的",
-                derivatives: [
-                    { pos: "n.", word: "efficiency", meaning: "效率" },
-                    { pos: "adv.", word: "efficiently", meaning: "有效率地" },
-                    { pos: "adj.", word: "inefficient", meaning: "效率低的" }
-                ],
-                root: "字根字尾解析：ex- (出) + efficere (完成、達成)。同源字 effect, factory。",
-                phrases: [
-                    { phrase: "an efficient way", meaning: "有效率的方法", sentence: "This is an efficient way to learn English.", translation: "這是一個學習英文的有效方法。" }
-                ]
-            }
-        ],
-        "5001-6000": [
-            {
-                word: "fundamental",
-                pos: "adj.",
-                kk: "/ˌfʌndəˈmɛntəl/",
-                definition: "基礎的，根本的",
-                derivatives: [
-                    { pos: "adv.", word: "fundamentally", meaning: "根本上" },
-                    { pos: "n.", word: "fundament", meaning: "基礎" }
-                ],
-                root: "字根字尾解析：fund- (底、基礎) + -ament (名詞/形容詞字尾)。同源字 fund (資金/基金)。",
-                phrases: [
-                    { phrase: "fundamental change", meaning: "根本性的轉變", sentence: "There is a fundamental difference between them.", translation: "他們之間存在著根本的差異。" }
-                ]
-            }
-        ],
-        "6001-7000": [
-            {
-                word: "hypothesis",
-                pos: "n.",
-                kk: "/haɪˈpɑθəsɪs/",
-                definition: "假設，假說",
-                derivatives: [
-                    { pos: "adj.", word: "hypothetical", meaning: "假設的" },
-                    { pos: "v.", word: "hypothesize", meaning: "假設" }
-                ],
-                root: "-hypo- (在...之下) + thesis (放置、論題)。意指放在底下的基礎假設。",
-                phrases: [
-                    { phrase: "test a hypothesis", meaning: "驗證假設", sentence: "Scientists perform experiments to test the hypothesis.", translation: "科學家進行實驗來驗證假設。" }
-                ]
-            }
-        ]
-    };
+            updateStats();
+        });
+    }
 
     function init() {
         initDateDropdowns();
