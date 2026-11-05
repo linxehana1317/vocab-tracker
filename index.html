@@ -3,395 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>7000 大考核心單字學習平台 - v26.11.1</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --muted: #64748b;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
         }
-        /* Custom Scrollbar for horizontal card slider */
-        .card-slider::-webkit-scrollbar {
-            height: 8px;
+
+        /* 左側邊欄 */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            border-right: 1px solid var(--border);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-shrink: 0;
         }
-        .card-slider::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 4px;
+        .logo-area { margin-bottom: 24px; }
+        .logo-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .version-badge { font-size: 11px; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
+        .sync-status { font-size: 12px; color: #059669; font-weight: 600; margin-top: 4px; display: block; }
+        
+        .nav-group { display: flex; flex-direction: column; gap: 6px; }
+        .nav-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .card-slider::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
+        .nav-item:hover { background: #f1f5f9; color: var(--text); }
+        .nav-item.active { background: #eef2ff; color: var(--primary); font-weight: 600; border-color: #c7d2fe; }
+
+        /* 右側主面板 */
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 32px;
         }
-        .card-slider::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
         }
+        .search-box {
+            display: flex;
+            gap: 8px;
+        }
+        .search-input {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            outline: none;
+            width: 220px;
+            font-size: 14px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+        h2 { margin-top: 0; color: var(--primary); font-size: 1.15rem; font-weight: 600; margin-bottom: 16px; }
+
+        /* 單字卡每行 4 個的動態網格 */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 1200px) { .flashcard-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .flashcard-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .flashcard-item {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 130px;
+        }
+        .flashcard-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+        .flashcard-word { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .flashcard-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+        .flashcard-def { font-size: 14px; color: #334155; line-height: 1.4; }
+
+        /* 統計數據與日曆 */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 24px;
+        }
+        .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .stat-item { background: #f8fafc; padding: 12px; border-radius: 8px; text-align: center; border: 1px solid var(--border); }
+        .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.8rem; color: var(--muted); }
+
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+        .calendar-day-header { font-weight: 600; padding: 6px; color: var(--muted); font-size: 12px; }
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+        }
+        .calendar-day.has-data { background: #eef2ff; border-color: #c7d2fe; }
+        .count-badge { font-weight: 700; color: var(--primary); font-size: 11px; }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        button:hover { background: var(--primary-hover); }
+        .btn-secondary { background: #e2e8f0; color: #475569; }
+        .btn-secondary:hover { background: #cbd5e1; }
+
+        /* 彈窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+        .modal-content {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 580px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .detail-section {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .detail-section h4 { margin: 0 0 8px; font-size: 0.85rem; color: var(--primary); text-transform: uppercase; }
     </style>
 </head>
-<body class="h-screen flex overflow-hidden">
+<body>
 
-    <!-- 左側邊欄 Sidebar -->
-    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col justify-between shrink-0 z-20">
-        <div>
-            <!-- Brand Logo -->
-            <div class="p-6 border-b border-slate-100 flex items-center justify-between">
-                <div>
-                    <h1 class="text-lg font-bold text-indigo-600 tracking-tight">VOCAB MASTER</h1>
-                    <p class="text-xs text-slate-400 mt-0.5">7000 核心單字庫</p>
-                </div>
-                <span class="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-semibold border border-indigo-100">v26.11</span>
+<!-- 左側選單 -->
+<div class="sidebar">
+    <div>
+        <div class="logo-area">
+            <div class="logo-title">
+                單字庫平台
+                <span class="version-badge">v26.11.1</span>
             </div>
-
-            <!-- Level Selectors -->
-            <div class="p-4">
-                <p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">單字級距選單</p>
-                <nav class="space-y-1" id="levelSidebarMenu">
-                    <button onclick="selectLevel('1-1000')" data-level="1-1000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 1 (1-1000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-1-1000">0</span>
-                    </button>
-                    <button onclick="selectLevel('1001-2000')" data-level="1001-2000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 2 (1001-2000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-1001-2000">0</span>
-                    </button>
-                    <button onclick="selectLevel('2001-3000')" data-level="2001-3000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 3 (2001-3000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-2001-3000">0</span>
-                    </button>
-                    <button onclick="selectLevel('3001-4000')" data-level="3001-4000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 4 (3001-4000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-3001-4000">0</span>
-                    </button>
-                    <button onclick="selectLevel('5001-6000')" data-level="5001-6000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 5 (4001-5000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-4001-5000">0</span>
-                    </button>
-                    <button onclick="selectLevel('5001-6000')" data-level="5001-6000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 6 (5001-6000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-5001-6000">0</span>
-                    </button>
-                    <button onclick="selectLevel('6001-7000')" data-level="6001-7000" class="level-nav-btn w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">
-                        <span>Level 7 (6001-7000)</span>
-                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full level-count" id="count-6001-7000">0</span>
-                    </button>
-                </nav>
-            </div>
+            <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
 
-        <!-- Sidebar Footer Action -->
-        <div class="p-4 border-t border-slate-100 space-y-2">
-            <button onclick="openAddWordModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm py-2.5 px-4 rounded-lg transition-colors shadow-sm flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                手動新增單字
-            </button>
-            <button onclick="exportUpdatedJson()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                匯出 words.json
-            </button>
-        </div>
-    </aside>
-
-    <!-- 右側主要內容區 Main Content Area -->
-    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
-        <!-- Top Navigation Bar -->
-        <header class="bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between sticky top-0 z-10">
-            <div class="flex items-center gap-4">
-                <h2 id="currentLevelTitle" class="text-lg font-bold text-slate-800">Level 1 (1-1000)</h2>
-                <span id="syncStatus" class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    雲端同步中
-                </span>
-            </div>
-
-            <!-- Header Right Controls -->
-            <div class="flex items-center gap-3">
-                <div class="relative">
-                    <input type="text" id="searchInput" onkeypress="handleSearchKey(event)" placeholder="搜尋單字或中文..." class="w-64 pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
-                    <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </div>
-                <button onclick="searchWord()" class="bg-slate-800 hover:bg-slate-900 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">搜尋</button>
-            </div>
-        </header>
-
-        <!-- Main Body Content Container -->
-        <div class="p-8 space-y-8 max-w-7xl w-full mx-auto">
-
-            <!-- 1. 單字卡區段 (每行四個，可橫向滾動) -->
-            <section class="space-y-3">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 class="text-base font-bold text-slate-800">單字卡卡庫</h3>
-                        <p class="text-xs text-slate-500">向右滑動檢視更多單字卡，點擊查看詳細資訊</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="scrollSlider(-300)" class="p-1.5 rounded-md border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        </button>
-                        <button onclick="scrollSlider(300)" class="p-1.5 rounded-md border border-slate-200 text-slate-600 hover:bg-slate-100 transition-colors">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Horizontal Scroll Slider for 4-column Grid -->
-                <div id="cardSlider" class="card-slider flex gap-4 overflow-x-auto pb-4 pt-1 snap-x">
-                    <!-- Dynamic Flashcards Rendered Here -->
-                </div>
-            </section>
-
-            <!-- 2. 統計與學習趨勢圖表區 -->
-            <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Summary Stats Card -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
-                    <h3 class="text-base font-bold text-slate-800">學習統計與目標</h3>
-                    
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 text-center">
-                            <p class="text-xs text-slate-400 font-medium">今日背誦</p>
-                            <p id="statToday" class="text-2xl font-bold text-indigo-600 mt-1">0</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 text-center">
-                            <p class="text-xs text-slate-400 font-medium">本月累積</p>
-                            <p id="statMonth" class="text-2xl font-bold text-slate-700 mt-1">0</p>
-                        </div>
-                    </div>
-
-                    <!-- Goals & Progress Bars -->
-                    <div class="space-y-4 pt-2">
-                        <div>
-                            <div class="flex justify-between items-center text-xs mb-1.5">
-                                <span class="font-medium text-slate-600">每日目標</span>
-                                <div class="flex items-center gap-1">
-                                    <input type="number" id="dailyGoalInput" min="1" class="w-12 text-right border border-slate-200 rounded px-1 py-0.5 text-xs" onchange="saveGoals()">
-                                    <span id="dailyGoalText" class="text-slate-400">/ 15</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                                <div id="dailyProgressBar" class="bg-indigo-600 h-full w-0 transition-all duration-500"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="flex justify-between items-center text-xs mb-1.5">
-                                <span class="font-medium text-slate-600">每月目標</span>
-                                <div class="flex items-center gap-1">
-                                    <input type="number" id="monthlyGoalInput" min="1" class="w-12 text-right border border-slate-200 rounded px-1 py-0.5 text-xs" onchange="saveGoals()">
-                                    <span id="monthlyGoalText" class="text-slate-400">/ 200</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                                <div id="monthlyProgressBar" class="bg-indigo-500 h-full w-0 transition-all duration-500"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trend Chart Section -->
-                <div class="lg:col-span-2 bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                    <div class="flex items-center justify-between">
-                        <h3 class="text-base font-bold text-slate-800">學習趨勢圖表</h3>
-                        <div class="flex bg-slate-100 p-1 rounded-lg gap-1 text-xs">
-                            <button id="btn-chart-week" onclick="switchChartRange('week')" class="px-3 py-1 rounded-md font-medium text-slate-600 transition-all">週</button>
-                            <button id="btn-chart-month" onclick="switchChartRange('month')" class="px-3 py-1 rounded-md font-medium text-slate-600 transition-all">月</button>
-                            <button id="btn-chart-year" onclick="switchChartRange('year')" class="px-3 py-1 rounded-md font-medium text-slate-600 transition-all">年</button>
-                        </div>
-                    </div>
-                    <div class="h-56 relative">
-                        <canvas id="trendChart"></canvas>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 3. 日曆打卡區段 -->
-            <section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h3 id="calendarTitle" class="text-base font-bold text-slate-800">2026年 11月 日曆打卡</h3>
-                        <p class="text-xs text-slate-400">點擊任意日期即可查看當日背誦細節與進行單字測驗</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <button onclick="changeMonth(-1)" class="px-3 py-1.5 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50 transition-colors">&lt; 上個月</button>
-                        <button onclick="changeMonth(1)" class="px-3 py-1.5 border border-slate-200 rounded-lg text-sm text-slate-600 hover:bg-slate-50 transition-colors">下個月 &gt;</button>
-                    </div>
-                </div>
-
-                <!-- Calendar Grid -->
-                <div id="calendarGrid" class="grid grid-cols-7 gap-2 text-center">
-                    <!-- Rendered by JS -->
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <!-- Modal 1: 單字卡詳細背面 (Card Detail Modal) -->
-    <div id="cardDetailModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
-            <div class="flex items-start justify-between border-b border-slate-100 pb-4">
-                <div>
-                    <h3 id="modalWordTitle" class="text-2xl font-bold text-slate-800">ability</h3>
-                    <p id="modalWordMeta" class="text-sm font-medium text-indigo-600 mt-1">n. | /əˈbɪləti/</p>
-                </div>
-                <button onclick="closeModal('cardDetailModal')" class="text-slate-400 hover:text-slate-600 text-xl font-bold p-1">&times;</button>
-            </div>
-
-            <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-4 text-indigo-900 font-semibold text-lg" id="modalWordDefinition">
-                能力，才能
-            </div>
-
-            <!-- 背面 3 大項細節 -->
-            <div class="space-y-4">
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">1. 衍生單字與詞性變化</h4>
-                    <div id="modalDerivatives" class="text-sm space-y-1.5 text-slate-700"></div>
-                </div>
-
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">2. 核心字根與構詞延伸解析</h4>
-                    <p id="modalRoot" class="text-sm leading-relaxed text-slate-600"></p>
-                </div>
-
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">3. 常見用法與片語例句</h4>
-                    <div id="modalPhrases" class="text-sm space-y-2 text-slate-700"></div>
-                </div>
-            </div>
-
-            <div class="flex justify-between items-center pt-2">
-                <button onclick="speakCurrentWord()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm rounded-lg transition-colors flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                    發音
-                </button>
-                <button id="modalStudiedBtn" onclick="toggleCardStudied()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm rounded-lg transition-colors">
-                    標記為今日已背誦 (+1)
-                </button>
-            </div>
+        <div style="font-size:12px; font-weight:600; color:var(--muted); margin-bottom:8px; padding-left:4px;">單字級距分類</div>
+        <div class="nav-group" id="levelNavGroup">
+            <div class="nav-item active" onclick="switchLevel('1-1000', 'level1.json', this)">Level 1 (1-1000)</div>
+            <div class="nav-item" onclick="switchLevel('1001-2000', 'level2.json', this)">Level 2 (1001-2000)</div>
+            <div class="nav-item" onclick="switchLevel('2001-3000', 'level3.json', this)">Level 3 (2001-3000)</div>
+            <div class="nav-item" onclick="switchLevel('3001-4000', 'level4.json', this)">Level 4 (3001-4000)</div>
+            <div class="nav-item" onclick="switchLevel('4001-5000', 'level5.json', this)">Level 5 (4001-5000)</div>
+            <div class="nav-item" onclick="switchLevel('5001-6000', 'level6.json', this)">Level 6 (5001-6000)</div>
+            <div class="nav-item" onclick="switchLevel('6001-7000', 'level7.json', this)">Level 7 (6001-7000)</div>
         </div>
     </div>
 
-    <!-- Modal 2: 日期明細與測驗彈窗 (Date Detail & Quiz Modal) -->
-    <div id="dateDetailModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-6 max-h-[85vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 id="dateModalTitle" class="text-lg font-bold text-slate-800">2026-11-01 背誦紀錄</h3>
-                <button onclick="closeModal('dateDetailModal')" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
-            </div>
+    <button onclick="openAddWordModal()" style="width:100%;">+ 手動新增單字</button>
+</div>
 
-            <!-- List of words studied on this date -->
-            <div class="space-y-2">
-                <p class="text-xs font-semibold text-slate-400 uppercase">當日背誦單字清單</p>
-                <div id="dateWordList" class="divide-y divide-slate-100 border border-slate-200 rounded-xl overflow-hidden max-h-48 overflow-y-auto">
-                    <!-- Dynamic -->
-                </div>
-            </div>
+<!-- 右側主要區域 -->
+<div class="main-content">
+    <div class="header-bar">
+        <h1 style="margin:0; font-size:1.4rem;" id="currentLevelTitle">Level 1 (1-1000)</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." onkeypress="handleSearchKey(event)">
+            <button onclick="searchWord()">搜尋</button>
+        </div>
+    </div>
 
-            <!-- Quiz Entry Action -->
-            <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 flex items-center justify-between">
+    <!-- 單字卡排版區 -->
+    <div class="card">
+        <div class="flashcard-grid" id="flashcardGrid"></div>
+    </div>
+
+    <!-- 數據與日曆 -->
+    <div class="dashboard-grid">
+        <div class="card">
+            <h2>學習統計</h2>
+            <div class="stat-grid">
+                <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日</div></div>
+                <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週</div></div>
+                <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月</div></div>
+                <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <h2 id="calendarTitle" style="margin:0;">日曆打卡記錄</h2>
                 <div>
-                    <p class="text-sm font-bold text-indigo-900">檢測學習成效</p>
-                    <p class="text-xs text-indigo-600">針對當天背誦的單字進行快速測驗</p>
+                    <button onclick="changeMonth(-1)" class="btn-secondary">&lt;</button>
+                    <button onclick="changeMonth(1)" class="btn-secondary">&gt;</button>
                 </div>
-                <button onclick="startQuizForDate()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors">
-                    開始當日測驗
-                </button>
             </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
         </div>
     </div>
 
-    <!-- Modal 3: 單字測驗彈窗 (Quiz Interface) -->
-    <div id="quizModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full" id="quizProgressText">第 1 / 5 題</span>
-                <button onclick="closeModal('quizModal')" class="text-slate-400 hover:text-slate-600 font-bold">&times;</button>
-            </div>
-
-            <div class="text-center space-y-2">
-                <p class="text-xs text-slate-400 font-medium">請選擇正確的中文定義：</p>
-                <h4 id="quizQuestionWord" class="text-2xl font-bold text-slate-800">ability</h4>
-            </div>
-
-            <div id="quizOptionsArea" class="space-y-2.5">
-                <!-- Options rendered here -->
+    <!-- 趨勢圖 -->
+    <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h2 style="margin:0;">學習趨勢分析</h2>
+            <div style="display:flex; gap:6px;">
+                <button id="btn-week" onclick="switchChartRange('week')">週</button>
+                <button id="btn-month" class="btn-secondary" onclick="switchChartRange('month')">月</button>
+                <button id="btn-year" class="btn-secondary" onclick="switchChartRange('year')">年</button>
             </div>
         </div>
+        <canvas id="trendChart" height="100"></canvas>
     </div>
+</div>
 
-    <!-- Modal 4: 手動新增單字彈窗 (Add Custom Word Modal) -->
-    <div id="addWordModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="text-lg font-bold text-slate-800">手動新增單字卡</h3>
-                <button onclick="closeModal('addWordModal')" class="text-slate-400 hover:text-slate-600 font-bold">&times;</button>
+<!-- 背面詳細資料視窗 -->
+<div class="modal" id="cardDetailModal">
+    <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
+            <div>
+                <h3 id="modalWordTitle" style="margin:0; font-size:1.6rem;">word</h3>
+                <div id="modalWordMeta" style="color:var(--muted); font-size:13px; margin-top:4px;">pos / kk</div>
             </div>
+            <button onclick="closeCardModal()" class="btn-secondary">關閉</button>
+        </div>
 
-            <form id="addWordForm" onsubmit="handleCustomWordSubmit(event)" class="space-y-3 text-sm">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">目標級距</label>
-                    <select id="addLevel" class="w-full border border-slate-200 rounded-lg p-2 bg-white">
-                        <option value="1-1000">Level 1 (1-1000)</option>
-                        <option value="1001-2000">Level 2 (1001-2000)</option>
-                        <option value="2001-3000">Level 3 (2001-3000)</option>
-                        <option value="3001-4000">Level 4 (3001-4000)</option>
-                        <option value="4001-5000">Level 5 (4001-5000)</option>
-                        <option value="5001-6000">Level 6 (5001-6000)</option>
-                        <option value="6001-7000">Level 7 (6001-7000)</option>
-                    </select>
-                </div>
+        <div style="font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:16px;" id="modalWordDefinition">
+            中文定義
+        </div>
 
-                <div class="grid grid-cols-3 gap-2">
-                    <div class="col-span-2">
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">英文單字 *</label>
-                        <input type="text" id="addWord" required placeholder="如: example" class="w-full border border-slate-200 rounded-lg p-2">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">詞性 *</label>
-                        <input type="text" id="addPos" required placeholder="如: n." class="w-full border border-slate-200 rounded-lg p-2">
-                    </div>
-                </div>
+        <div class="detail-section">
+            <h4>1. 衍伸單字與詞性變化</h4>
+            <div id="modalDerivatives"></div>
+        </div>
 
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">KK 音標</label>
-                        <input type="text" id="addKK" placeholder="如: /ˈæktɪv/" class="w-full border border-slate-200 rounded-lg p-2">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-600 mb-1">中文釋義 *</label>
-                        <input type="text" id="addDef" required placeholder="如: 範例" class="w-full border border-slate-200 rounded-lg p-2">
-                    </div>
-                </div>
+        <div class="detail-section">
+            <h4>2. 核心字根與構詞延伸</h4>
+            <div id="modalRoot"></div>
+        </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">字根延伸解析</label>
-                    <textarea id="addRoot" rows="2" placeholder="如: 字根 ex- (出) + ample..." class="w-full border border-slate-200 rounded-lg p-2"></textarea>
-                </div>
+        <div class="detail-section">
+            <h4>3. 常用片語與例句</h4>
+            <div id="modalPhrases"></div>
+        </div>
 
-                <div class="border-t border-slate-100 pt-3 flex justify-end gap-2">
-                    <button type="button" onclick="closeModal('addWordModal')" class="px-4 py-2 border border-slate-200 text-slate-600 rounded-lg">取消</button>
-                    <button type="submit" class="px-5 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700">新增儲存</button>
-                </div>
-            </form>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
+            <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
+            <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
         </div>
     </div>
-
-    <!-- Modal 5: 搜尋結果彈窗 -->
-    <div id="searchModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 max-h-[80vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                <h3 class="text-base font-bold text-slate-800">搜尋結果</h3>
-                <button onclick="closeModal('searchModal')" class="text-slate-400 font-bold">&times;</button>
-            </div>
-            <div id="searchResultsArea" class="divide-y divide-slate-100"></div>
-        </div>
-    </div>
+</div>
 
 <script>
-    // Firebase Realtime Database Configuration
     const firebaseConfig = {
         apiKey: "AIzaSyD37inAxxk88gZzfnl1t3iiU4HnbwhW104",
         authDomain: "vocab-app-1c855.firebaseapp.com",
@@ -405,253 +336,128 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     const vocabRef = db.ref('vocabData');
-    const studiedWordsRef = db.ref('studiedWords');
-    const goalsRef = db.ref('goals');
 
-    // Global App States
-    let flashcardDatabase = {}; // Loaded entirely from external words.json
+    let currentLevelData = [];
     let vocabData = {};
-    let studiedWordsData = {};
-    let goalsData = { daily: 15, monthly: 200 };
-    let currentDate = new Date();
-    let currentSelectedLevel = '1-1000';
-    let activeCardData = null;
+    let currentDate = new Date(2026, 10, 1);
     let chartInstance = null;
-    let currentChartRange = 'week';
-    let activeDateStrForQuiz = null;
+    let activeCardData = null;
 
-    // Load dynamic vocabulary database from external words.json
-    async function loadWordsFromCloud() {
+    async function fetchLevelData(jsonFileName) {
         try {
-            const response = await fetch('words.json?v=' + new Date().getTime());
-            if (!response.ok) throw new Error('無法讀取 words.json');
-            flashcardDatabase = await response.json();
-            updateLevelCounts();
-            renderFlashcards(currentSelectedLevel);
-        } catch (error) {
-            console.error('載入單字庫失敗:', error);
-            document.getElementById('cardSlider').innerHTML = `
-                <div class="w-full py-12 text-center text-slate-400 border border-dashed border-slate-200 rounded-xl">
-                    無法載入外部 words.json 檔案，請確認 words.json 是否已存在於專案目錄中。
-                </div>`;
+            const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
+            if (!res.ok) throw new Error('讀取失敗');
+            currentLevelData = await res.json();
+            renderCards();
+        } catch (err) {
+            console.error(err);
+            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}，請確認檔案是否存在。</div>`;
         }
     }
 
-    function init() {
-        initChart();
-        loadWordsFromCloud();
-
-        // Realtime sync for studied records & counts
-        vocabRef.on('value', (snapshot) => {
-            vocabData = snapshot.val() || {};
-            renderCalendar();
-            updateStats();
-            updateChart();
-        });
-
-        studiedWordsRef.on('value', (snapshot) => {
-            studiedWordsData = snapshot.val() || {};
-            if (activeCardData) updateModalButtonState();
-        });
-
-        goalsRef.on('value', (snapshot) => {
-            if (snapshot.val()) {
-                goalsData = snapshot.val();
-                document.getElementById('dailyGoalInput').value = goalsData.daily || 15;
-                document.getElementById('monthlyGoalInput').value = goalsData.monthly || 200;
-            } else {
-                document.getElementById('dailyGoalInput').value = 15;
-                document.getElementById('monthlyGoalInput').value = 200;
-            }
-            updateStats();
-        });
+    function switchLevel(title, fileName, element) {
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        element.classList.add('active');
+        document.getElementById('currentLevelTitle').innerText = `Level ${title}`;
+        fetchLevelData(fileName);
     }
 
-    function updateLevelCounts() {
-        const levels = ['1-1000', '1001-2000', '2001-3000', '3001-4000', '4001-5000', '5001-6000', '6001-7000'];
-        levels.forEach(lvl => {
-            const el = document.getElementById(`count-${lvl}`);
-            if (el) el.innerText = (flashcardDatabase[lvl] || []).length;
-        });
-    }
-
-    function selectLevel(level) {
-        currentSelectedLevel = level;
-        document.getElementById('currentLevelTitle').innerText = `Level ${level.replace('-', ' (')}級距)`;
-        
-        document.querySelectorAll('.level-nav-btn').forEach(btn => {
-            if (btn.getAttribute('data-level') === level) {
-                btn.classList.add('bg-indigo-50', 'text-indigo-600', 'font-bold');
-                btn.classList.remove('text-slate-600');
-            } else {
-                btn.classList.remove('bg-indigo-50', 'text-indigo-600', 'font-bold');
-                btn.classList.add('text-slate-600');
-            }
-        });
-        renderFlashcards(level);
-    }
-
-    // Render 4-column flashcards grid with horizontal scroll support
-    function renderFlashcards(level) {
-        const slider = document.getElementById('cardSlider');
-        slider.innerHTML = '';
-        const words = flashcardDatabase[level] || [];
-
-        if (words.length === 0) {
-            slider.innerHTML = `
-                <div class="w-full py-12 text-center text-slate-400 border border-dashed border-slate-200 rounded-xl">
-                    該級距目前尚無單字資料。
-                </div>`;
+    function renderCards() {
+        const grid = document.getElementById('flashcardGrid');
+        grid.innerHTML = '';
+        if (currentLevelData.length === 0) {
+            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此分類目前無單字。</div>';
             return;
         }
 
-        words.forEach(item => {
+        currentLevelData.forEach(item => {
             const card = document.createElement('div');
-            card.className = "min-w-[260px] w-[calc(25%-12px)] snap-start bg-white border border-slate-200 hover:border-indigo-300 hover:shadow-lg rounded-xl p-5 cursor-pointer transition-all flex flex-col justify-between shrink-0 space-y-4 group";
+            card.className = 'flashcard-item';
             card.onclick = () => openCardDetail(item);
-
             card.innerHTML = `
-                <div class="space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">${item.pos || 'n.'}</span>
-                        <span class="text-xs text-slate-400">${item.kk || ''}</span>
-                    </div>
-                    <h4 class="text-xl font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">${item.word}</h4>
-                    <p class="text-sm text-slate-600 line-clamp-2">${item.definition}</p>
-                </div>
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-                    <span>點擊翻開詳細</span>
-                    <span class="text-indigo-600 font-semibold group-hover:translate-x-1 transition-transform">&rarr;</span>
+                <div>
+                    <div class="flashcard-word">${item.word}</div>
+                    <div class="flashcard-meta">${item.pos} | ${item.kk}</div>
+                    <div class="flashcard-def">${item.definition}</div>
                 </div>
             `;
-            slider.appendChild(card);
+            grid.appendChild(card);
         });
-    }
-
-    function scrollSlider(amount) {
-        document.getElementById('cardSlider').scrollBy({ left: amount, behavior: 'smooth' });
     }
 
     function openCardDetail(item) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
-        document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk || ''}`;
+        document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk}`;
         document.getElementById('modalWordDefinition').innerText = item.definition;
 
-        // 1. Derivatives
         const derivArea = document.getElementById('modalDerivatives');
         derivArea.innerHTML = '';
-        if (item.derivatives && item.derivatives.length > 0) {
+        if(item.derivatives && item.derivatives.length > 0) {
             item.derivatives.forEach(d => {
-                derivArea.innerHTML += `<div><span class="font-semibold text-slate-500">[${d.pos}]</span> <strong>${d.word}</strong>: ${d.meaning}</div>`;
+                derivArea.innerHTML += `<div><strong>${d.word}</strong> (${d.pos}): ${d.meaning}</div>`;
             });
-        } else {
-            derivArea.innerHTML = '<span class="text-slate-400">尚無衍生字資料</span>';
-        }
+        } else derivArea.innerText = '無';
 
-        // 2. Root
-        document.getElementById('modalRoot').innerText = item.root || '尚無字根解析資料';
+        document.getElementById('modalRoot').innerText = item.root || '無';
 
-        // 3. Phrases
         const phraseArea = document.getElementById('modalPhrases');
         phraseArea.innerHTML = '';
-        if (item.phrases && item.phrases.length > 0) {
+        if(item.phrases && item.phrases.length > 0) {
             item.phrases.forEach(p => {
-                phraseArea.innerHTML += `
-                    <div>
-                        <p class="font-medium text-slate-800">${p.phrase} <span class="text-slate-500 font-normal">(${p.meaning})</span></p>
-                        <p class="text-xs text-indigo-600 mt-0.5">${p.sentence || ''}</p>
-                        <p class="text-xs text-slate-400">${p.translation || ''}</p>
-                    </div>`;
+                phraseArea.innerHTML += `<div><strong>${p.phrase}</strong> (${p.meaning})<br><span style="color:var(--primary);">${p.sentence}</span></div>`;
             });
-        } else {
-            phraseArea.innerHTML = '<span class="text-slate-400">尚無常見片語資料</span>';
-        }
+        } else phraseArea.innerText = '無';
 
-        updateModalButtonState();
-        openModal('cardDetailModal');
+        document.getElementById('cardDetailModal').style.display = 'flex';
     }
 
-    function getTodayStr() {
-        const d = new Date();
-        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    }
+    function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
-    function updateModalButtonState() {
-        if (!activeCardData) return;
-        const todayStr = getTodayStr();
-        const isStudied = studiedWordsData[todayStr] && studiedWordsData[todayStr][activeCardData.word];
-        const btn = document.getElementById('modalStudiedBtn');
-
-        if (isStudied) {
-            btn.innerText = "今日已完成背誦 (點擊取消)";
-            btn.className = "px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm rounded-lg transition-colors";
-        } else {
-            btn.innerText = "標記為今日已背誦 (+1)";
-            btn.className = "px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm rounded-lg transition-colors";
+    function speakCurrentWord() {
+        if(activeCardData && 'speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(activeCardData.word);
+            u.lang = 'en-US';
+            window.speechSynthesis.speak(u);
         }
     }
 
-    function toggleCardStudied() {
-        if (!activeCardData) return;
-        const todayStr = getTodayStr();
-        const wordKey = activeCardData.word;
-        const isStudied = studiedWordsData[todayStr] && studiedWordsData[todayStr][wordKey];
-
-        let oldVal = vocabData[todayStr] || 0;
-        let newCount = isStudied ? Math.max(0, oldVal - 1) : oldVal + 1;
-
-        const updates = {};
-        if (isStudied) {
-            updates[`studiedWords/${todayStr}/${wordKey}`] = null;
-        } else {
-            updates[`studiedWords/${todayStr}/${wordKey}`] = true;
-        }
-        updates[`vocabData/${todayStr}`] = newCount;
-
-        db.ref().update(updates).then(() => {
-            closeModal('cardDetailModal');
+    function init() {
+        fetchLevelData('level1.json');
+        initChart();
+        vocabRef.on('value', snap => {
+            vocabData = snap.val() || {};
+            renderCalendar();
+            updateStats();
+            updateChart();
         });
     }
 
-    function speakCurrentWord() {
-        if (activeCardData && 'speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(activeCardData.word);
-            utterance.lang = 'en-US';
-            window.speechSynthesis.speak(utterance);
-        }
-    }
-
-    // Calendar Render
     function renderCalendar() {
         const grid = document.getElementById('calendarGrid');
         grid.innerHTML = '';
-        const y = currentDate.getFullYear();
-        const m = currentDate.getMonth();
+        const y = currentDate.getFullYear(), m = currentDate.getMonth();
+        document.getElementById('calendarTitle').innerText = `${y}年 ${m + 1}月`;
 
-        document.getElementById('calendarTitle').innerText = `${y}年 ${m + 1}月 日曆打卡`;
-
-        const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
-        weekDays.forEach(w => {
-            grid.innerHTML += `<div class="text-xs font-semibold text-slate-400 py-2">${w}</div>`;
+        ['日','一','二','三','四','五','六'].forEach(w => {
+            grid.innerHTML += `<div class="calendar-day-header">${w}</div>`;
         });
 
         const firstDay = new Date(y, m, 1).getDay();
-        const daysInMonth = new Date(y, m + 1, 0).getDate();
+        const days = new Date(y, m + 1, 0).getDate();
 
-        for (let i = 0; i < firstDay; i++) grid.innerHTML += `<div></div>`;
+        for(let i = 0; i < firstDay; i++) grid.innerHTML += `<div></div>`;
 
-        for (let d = 1; d <= daysInMonth; d++) {
+        for(let d = 1; d <= days; d++) {
             const dateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const count = vocabData[dateStr] || 0;
-            const hasData = count > 0;
-
+            const val = vocabData[dateStr];
             grid.innerHTML += `
-                <div onclick="openDateDetail('${dateStr}')" class="aspect-square border ${hasData ? 'border-indigo-200 bg-indigo-50/60' : 'border-slate-100 bg-slate-50/50'} rounded-xl p-1.5 flex flex-col justify-between cursor-pointer hover:border-indigo-400 transition-all">
-                    <span class="text-xs font-medium text-slate-600 text-left">${d}</span>
-                    ${hasData ? `<span class="text-xs font-bold text-indigo-600 text-right">+${count}</span>` : ''}
-                </div>`;
+                <div class="calendar-day ${val ? 'has-data' : ''}">
+                    <span>${d}</span>
+                    ${val ? `<div class="count-badge">+${val}</div>` : ''}
+                </div>
+            `;
         }
     }
 
@@ -660,289 +466,20 @@
         renderCalendar();
     }
 
-    function openDateDetail(dateStr) {
-        activeDateStrForQuiz = dateStr;
-        document.getElementById('dateModalTitle').innerText = `${dateStr} 背誦紀錄`;
-        
-        const wordList = document.getElementById('dateWordList');
-        wordList.innerHTML = '';
-
-        const studiedMap = studiedWordsData[dateStr] || {};
-        const wordKeys = Object.keys(studiedMap);
-
-        if (wordKeys.length === 0) {
-            wordList.innerHTML = `<div class="p-4 text-center text-xs text-slate-400">該日無詳細單字打卡標記。</div>`;
-        } else {
-            wordKeys.forEach(wKey => {
-                wordList.innerHTML += `
-                    <div class="p-3 bg-white text-sm font-medium text-slate-700 flex justify-between items-center">
-                        <span>${wKey}</span>
-                        <span class="text-xs text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded font-semibold">已背誦</span>
-                    </div>`;
-            });
-        }
-
-        openModal('dateDetailModal');
-    }
-
-    // Quiz Functionality
-    let quizQuestions = [];
-    let currentQuizIndex = 0;
-
-    function startQuizForDate() {
-        closeModal('dateDetailModal');
-        const studiedMap = studiedWordsData[activeDateStrForQuiz] || {};
-        const wordKeys = Object.keys(studiedMap);
-
-        if (wordKeys.length === 0) {
-            alert('當天無單字紀錄可供測驗！');
-            return;
-        }
-
-        quizQuestions = wordKeys.map(w => {
-            // Find definition from current database
-            let def = "未知定義";
-            Object.values(flashcardDatabase).flat().forEach(item => {
-                if (item.word === w) def = item.definition;
-            });
-            return { word: w, definition: def };
-        });
-
-        currentQuizIndex = 0;
-        showQuizQuestion();
-        openModal('quizModal');
-    }
-
-    function showQuizQuestion() {
-        if (currentQuizIndex >= quizQuestions.length) {
-            alert('測驗完成！太棒了！');
-            closeModal('quizModal');
-            return;
-        }
-
-        const q = quizQuestions[currentQuizIndex];
-        document.getElementById('quizProgressText').innerText = `第 ${currentQuizIndex + 1} / ${quizQuestions.length} 題`;
-        document.getElementById('quizQuestionWord').innerText = q.word;
-
-        // Generate options (1 correct, 3 random decoys)
-        const allDefs = Object.values(flashcardDatabase).flat().map(i => i.definition);
-        let options = [q.definition];
-
-        while (options.length < 4 && allDefs.length > options.length) {
-            const randomDef = allDefs[Math.floor(Math.random() * allDefs.length)];
-            if (!options.includes(randomDef)) options.push(randomDef);
-        }
-        options.sort(() => Math.random() - 0.5);
-
-        const area = document.getElementById('quizOptionsArea');
-        area.innerHTML = '';
-        options.forEach(opt => {
-            area.innerHTML += `
-                <button onclick="handleAnswer('${opt === q.definition}')" class="w-full text-left p-3 border border-slate-200 hover:border-indigo-500 hover:bg-indigo-50 rounded-xl text-sm font-medium text-slate-700 transition-all">
-                    ${opt}
-                </button>`;
-        });
-    }
-
-    function handleAnswer(isCorrect) {
-        if (isCorrect === 'true') {
-            alert('回答正確！');
-        } else {
-            alert('答錯囉，再接再勵！');
-        }
-        currentQuizIndex++;
-        showQuizQuestion();
-    }
-
-    // Custom Word Add & JSON Export
-    function openAddWordModal() { openModal('addWordModal'); }
-
-    function handleCustomWordSubmit(e) {
-        e.preventDefault();
-        const lvl = document.getElementById('addLevel').value;
-        const newWordObj = {
-            word: document.getElementById('addWord').value.trim(),
-            pos: document.getElementById('addPos').value.trim(),
-            kk: document.getElementById('addKK').value.trim(),
-            definition: document.getElementById('addDef').value.trim(),
-            root: document.getElementById('addRoot').value.trim(),
-            derivatives: [],
-            phrases: []
-        };
-
-        if (!flashcardDatabase[lvl]) flashcardDatabase[lvl] = [];
-        flashcardDatabase[lvl].unshift(newWordObj);
-
-        updateLevelCounts();
-        if (currentSelectedLevel === lvl) renderFlashcards(lvl);
-
-        closeModal('addWordModal');
-        document.getElementById('addWordForm').reset();
-        alert('單字已順利新增至本地預覽！如需永久儲存請點擊左下角「匯出 words.json」覆蓋至 GitHub。');
-    }
-
-    function exportUpdatedJson() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(flashcardDatabase, null, 2));
-        const downloadAnchor = document.createElement('a');
-        downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", "words.json");
-        document.body.appendChild(downloadAnchor);
-        downloadAnchor.click();
-        downloadAnchor.remove();
-    }
-
-    // Stats & Goals
     function updateStats() {
-        const todayStr = getTodayStr();
-        const todayCount = vocabData[todayStr] || 0;
-        document.getElementById('statToday').innerText = todayCount;
-
-        let monthSum = 0;
-        const curY = new Date().getFullYear();
-        const curM = new Date().getMonth() + 1;
-
-        Object.keys(vocabData).forEach(dKey => {
-            const [y, m] = dKey.split('-').map(Number);
-            if (y === curY && m === curM) monthSum += vocabData[dKey];
-        });
-
-        document.getElementById('statMonth').innerText = monthSum;
-
-        const dGoal = parseInt(document.getElementById('dailyGoalInput').value) || 15;
-        const mGoal = parseInt(document.getElementById('monthlyGoalInput').value) || 200;
-
-        document.getElementById('dailyGoalText').innerText = `/ ${dGoal}`;
-        document.getElementById('dailyProgressBar').style.width = `${Math.min(100, (todayCount / dGoal) * 100)}%`;
-
-        document.getElementById('monthlyGoalText').innerText = `/ ${mGoal}`;
-        document.getElementById('monthlyProgressBar').style.width = `${Math.min(100, (monthSum / mGoal) * 100)}%`;
+        document.getElementById('statToday').innerText = vocabData['2026-11-01'] || 0;
     }
 
-    function saveGoals() {
-        const daily = parseInt(document.getElementById('dailyGoalInput').value) || 15;
-        const monthly = parseInt(document.getElementById('monthlyGoalInput').value) || 200;
-        goalsRef.set({ daily, monthly });
-    }
-
-    // Chart.js Setup
     function initChart() {
         const ctx = document.getElementById('trendChart').getContext('2d');
         chartInstance = new Chart(ctx, {
             type: 'bar',
-            data: getChartData(),
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, grid: { borderDash: [4, 4] } },
-                    x: { grid: { display: false } }
-                }
-            }
+            data: { labels: ['10/26','10/27','10/28','10/29','10/30','10/31','11/01'], datasets: [{ data: [0,0,0,0,0,0,0], backgroundColor: '#4f46e5' }] },
+            options: { plugins: { legend: { display: false } } }
         });
     }
-
-    function switchChartRange(range) {
-        currentChartRange = range;
-        ['week', 'month', 'year'].forEach(r => {
-            const btn = document.getElementById(`btn-chart-${r}`);
-            if (r === range) {
-                btn.className = "px-3 py-1 rounded-md font-medium bg-white text-indigo-600 shadow-sm";
-            } else {
-                btn.className = "px-3 py-1 rounded-md font-medium text-slate-600 hover:text-slate-900";
-            }
-        });
-        updateChart();
-    }
-
-    function updateChart() {
-        if (chartInstance) {
-            chartInstance.data = getChartData();
-            chartInstance.update();
-        }
-    }
-
-    function getChartData() {
-        const labels = [];
-        const data = [];
-        const count = currentChartRange === 'week' ? 7 : (currentChartRange === 'month' ? 30 : 12);
-
-        for (let i = count - 1; i >= 0; i--) {
-            const d = new Date();
-            if (currentChartRange === 'year') {
-                d.setMonth(d.getMonth() - i);
-                labels.push(`${d.getMonth() + 1}月`);
-                // Sum month data
-                let sum = 0;
-                const targetY = d.getFullYear();
-                const targetM = d.getMonth() + 1;
-                Object.keys(vocabData).forEach(k => {
-                    const [y, m] = k.split('-').map(Number);
-                    if (y === targetY && m === targetM) sum += vocabData[k];
-                });
-                data.push(sum);
-            } else {
-                d.setDate(d.getDate() - i);
-                const dStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                labels.push(`${d.getMonth() + 1}/${d.getDate()}`);
-                data.push(vocabData[dStr] || 0);
-            }
-        }
-
-        return {
-            labels: labels,
-            datasets: [{
-                data: data,
-                backgroundColor: '#4f46e5',
-                borderRadius: 6
-            }]
-        };
-    }
-
-    // Modal Helpers
-    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-
-    // Search
-    function handleSearchKey(e) { if (e.key === 'Enter') searchWord(); }
-    function searchWord() {
-        const q = document.getElementById('searchInput').value.trim().toLowerCase();
-        if (!q) return;
-
-        const results = [];
-        Object.keys(flashcardDatabase).forEach(lvl => {
-            (flashcardDatabase[lvl] || []).forEach(item => {
-                if (item.word.toLowerCase().includes(q) || item.definition.includes(q)) {
-                    results.push(item);
-                }
-            });
-        });
-
-        const area = document.getElementById('searchResultsArea');
-        area.innerHTML = '';
-        if (results.length === 0) {
-            area.innerHTML = `<div class="p-4 text-center text-xs text-slate-400">找不到符合「${q}」的單字</div>`;
-        } else {
-            results.forEach(item => {
-                area.innerHTML += `
-                    <div onclick="openCardDetailFromSearch('${item.word}')" class="p-3 hover:bg-slate-50 cursor-pointer flex justify-between items-center">
-                        <div>
-                            <p class="font-bold text-slate-800 text-sm">${item.word} <span class="text-xs font-normal text-slate-400">(${item.pos})</span></p>
-                            <p class="text-xs text-slate-600">${item.definition}</p>
-                        </div>
-                        <span class="text-xs text-indigo-600 font-semibold">&rarr;</span>
-                    </div>`;
-            });
-        }
-        openModal('searchModal');
-    }
-
-    function openCardDetailFromSearch(wordStr) {
-        closeModal('searchModal');
-        Object.values(flashcardDatabase).flat().forEach(item => {
-            if (item.word === wordStr) openCardDetail(item);
-        });
-    }
+    function updateChart() {}
+    function switchChartRange() {}
 
     window.onload = init;
 </script>
