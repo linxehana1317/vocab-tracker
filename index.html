@@ -294,12 +294,17 @@
                 </div>
             </div>
 
-            <div class="card" style="margin-bottom:0;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                    <h2 style="margin:0;">學習趨勢分析</h2>
-                </div>
-                <canvas id="trendChart" height="110"></canvas>
-            </div>
+           <div class="card" style="margin-bottom:0;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h2 style="margin:0;">學習趨勢分析</h2>
+        <div style="display:flex; gap:6px;">
+            <button id="btn-week" onclick="switchChartRange('week')">週</button>
+            <button id="btn-month" class="btn-secondary" onclick="switchChartRange('month')">月</button>
+            <button id="btn-year" class="btn-secondary" onclick="switchChartRange('year')">年</button>
+        </div>
+    </div>
+    <canvas id="trendChart" height="110"></canvas>
+</div>
         </div>
 
         <!-- 右側：日曆打卡 -->
