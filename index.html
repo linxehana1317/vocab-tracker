@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.4</title>
+    <title>7000 大考核心單字學習平台 - v26.11.1</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -33,7 +33,6 @@
             overflow: hidden;
         }
 
-        /* 左側邊欄 */
         .sidebar {
             width: 260px;
             background: #ffffff;
@@ -43,13 +42,14 @@
             flex-direction: column;
             justify-content: space-between;
             flex-shrink: 0;
+            overflow-y: auto;
         }
-        .logo-area { margin-bottom: 24px; }
+        .logo-area { margin-bottom: 20px; }
         .logo-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
         .version-badge { font-size: 11px; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
         .sync-status { font-size: 12px; color: #059669; font-weight: 600; margin-top: 4px; display: block; }
         
-        .nav-group { display: flex; flex-direction: column; gap: 6px; }
+        .nav-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
         .nav-item {
             padding: 10px 14px;
             border-radius: 8px;
@@ -66,7 +66,6 @@
         .nav-item:hover { background: #f1f5f9; color: var(--text); }
         .nav-item.active { background: #eef2ff; color: var(--primary); font-weight: 600; border-color: #c7d2fe; }
 
-        /* 右側主面板 (外側捲動) */
         .main-content {
             flex: 1;
             overflow-y: auto;
@@ -99,7 +98,6 @@
         }
         h2 { margin-top: 0; color: var(--primary); font-size: 1.15rem; font-weight: 600; margin-bottom: 16px; }
 
-        /* 單字卡專屬 4*4 檢視容器 (內部捲動) */
         .flashcard-scroll-container {
             max-height: 520px;
             overflow-y: auto;
@@ -130,7 +128,6 @@
             background-color: var(--studied-bg);
             border-color: #c7d2fe;
         }
-        /* 答對超過 4 次的反光特效 */
         .flashcard-item.mastered::after {
             content: '';
             position: absolute;
@@ -153,7 +150,6 @@
         .flashcard-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
         .flashcard-def { font-size: 14px; color: #334155; line-height: 1.4; }
 
-        /* 統計與日曆並排區塊 */
         .dashboard-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -181,6 +177,7 @@
             flex-direction: column;
             justify-content: space-between;
             background: #fff;
+            cursor: pointer;
         }
         .calendar-day.has-data { background: #eef2ff; border-color: #c7d2fe; }
         .count-badge { font-weight: 700; color: var(--primary); font-size: 11px; }
@@ -198,8 +195,9 @@
         button:hover { background: var(--primary-hover); }
         .btn-secondary { background: #e2e8f0; color: #475569; }
         .btn-secondary:hover { background: #cbd5e1; }
+        .btn-danger { background: #ef4444; }
+        .btn-danger:hover { background: #dc2626; }
 
-        /* 通用彈窗 */
         .modal {
             display: none;
             position: fixed;
@@ -221,7 +219,7 @@
         }
         .form-group { margin-bottom: 14px; }
         .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--muted); }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group select {
             width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; outline: none;
         }
         .detail-section {
@@ -243,7 +241,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.4</span>
+                <span class="version-badge">v26.11.1</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -258,6 +256,12 @@
             <div class="nav-item" onclick="switchLevel('5001-6000', 'level6.json', this)">Level 6 (5001-6000)</div>
             <div class="nav-item" onclick="switchLevel('6001-7000', 'level7.json', this)">Level 7 (6001-7000)</div>
         </div>
+
+        <div style="font-size:12px; font-weight:600; color:var(--muted); margin:16px 0 8px 4px;">測驗區塊</div>
+        <div class="nav-group">
+            <div class="nav-item" onclick="switchMainView('vocab', this)">單字瀏覽與管理</div>
+            <div class="nav-item" onclick="switchMainView('test', this)">字彙測驗系統</div>
+        </div>
     </div>
 
     <button onclick="openAddWordModal()" style="width:100%;">+ 手動新增單字</button>
@@ -265,60 +269,106 @@
 
 <!-- 右側主要區域 -->
 <div class="main-content">
-    <div class="header-bar">
-        <h1 style="margin:0; font-size:1.4rem;" id="currentLevelTitle">Level 1 (1-1000)</h1>
-        <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." oninput="searchWord()">
-            <button onclick="searchWord()">搜尋</button>
+    
+    <!-- 視圖 1: 單字瀏覽與學習面板 -->
+    <div id="vocabView">
+        <div class="header-bar">
+            <h1 style="margin:0; font-size:1.4rem;" id="currentLevelTitle">Level 1 (1-1000)</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." oninput="searchWord()">
+                <button onclick="searchWord()">搜尋</button>
+            </div>
         </div>
-    </div>
 
-    <!-- 單字卡固定高度滾動框 (約 4*4 顯示區) -->
-    <div class="card">
-        <div class="flashcard-scroll-container">
-            <div class="flashcard-grid" id="flashcardGrid"></div>
+        <!-- 單字卡固定高度滾動框 (4*4 顯示區) -->
+        <div class="card">
+            <div class="flashcard-scroll-container">
+                <div class="flashcard-grid" id="flashcardGrid"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- 統計、趨勢與日曆同排配置 -->
-    <div class="dashboard-row">
-        <!-- 左側：學習統計 + 趨勢分析 -->
-        <div class="stat-trend-wrapper">
-            <div class="card" style="margin-bottom:0;">
-                <h2>學習統計</h2>
-                <div class="stat-grid">
-                    <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日</div></div>
-                    <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週</div></div>
-                    <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月</div></div>
-                    <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年</div></div>
+        <!-- 統計、趨勢與日曆同排配置 -->
+        <div class="dashboard-row">
+            <div class="stat-trend-wrapper">
+                <div class="card" style="margin-bottom:0;">
+                    <h2>學習統計</h2>
+                    <div class="stat-grid">
+                        <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年</div></div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-bottom:0;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                        <h2 style="margin:0;">學習趨勢分析</h2>
+                        <div style="display:flex; gap:6px;">
+                            <button id="btn-week" onclick="switchChartRange('week')">週</button>
+                            <button id="btn-month" class="btn-secondary" onclick="switchChartRange('month')">月</button>
+                            <button id="btn-year" class="btn-secondary" onclick="switchChartRange('year')">年</button>
+                        </div>
+                    </div>
+                    <canvas id="trendChart" height="110"></canvas>
                 </div>
             </div>
 
-           <div class="card" style="margin-bottom:0;">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h2 style="margin:0;">學習趨勢分析</h2>
-        <div style="display:flex; gap:6px;">
-            <button id="btn-week" onclick="switchChartRange('week')">週</button>
-            <button id="btn-month" class="btn-secondary" onclick="switchChartRange('month')">月</button>
-            <button id="btn-year" class="btn-secondary" onclick="switchChartRange('year')">年</button>
+            <div class="card" style="margin-bottom:0; height:fit-content;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <h2 id="calendarTitle" style="margin:0;">日曆打卡記錄</h2>
+                    <div>
+                        <button onclick="changeMonth(-1)" class="btn-secondary">&lt;</button>
+                        <button onclick="changeMonth(1)" class="btn-secondary">&gt;</button>
+                    </div>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
         </div>
     </div>
-    <canvas id="trendChart" height="110"></canvas>
-</div>
-        </div>
 
-        <!-- 右側：日曆打卡 -->
-        <div class="card" style="margin-bottom:0; height:fit-content;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                <h2 id="calendarTitle" style="margin:0;">日曆打卡記錄</h2>
-                <div>
-                    <button onclick="changeMonth(-1)" class="btn-secondary">&lt;</button>
-                    <button onclick="changeMonth(1)" class="btn-secondary">&gt;</button>
+    <!-- 視圖 2: 測驗系統面板 -->
+    <div id="testView" style="display:none;">
+        <div class="header-bar">
+            <h1 style="margin:0; font-size:1.4rem;">字彙測驗系統</h1>
+        </div>
+        <div class="card">
+            <h2>測驗設定</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                    <label>題型選擇</label>
+                    <select id="testType">
+                        <option value="choice">選擇題 (英翻中)</option>
+                        <option value="fill">填空題 (拼寫測試)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>題數設定</label>
+                    <select id="testCount">
+                        <option value="5">5題</option>
+                        <option value="10" selected>10題</option>
+                        <option value="20">20題</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>範圍來源</label>
+                    <select id="testSource" onchange="toggleTestSource()">
+                        <option value="level">依照目前等級範圍</option>
+                        <option value="date">依照指定打卡日期範圍</option>
+                    </select>
+                </div>
+                <div class="form-group" id="dateRangeGroup" style="display:none;">
+                    <label>指定日期 (YYYY-MM-DD)</label>
+                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-01">
                 </div>
             </div>
-            <div class="calendar-grid" id="calendarGrid"></div>
+            <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
+        </div>
+
+        <div class="card" id="testCardArea" style="display:none;">
+            <div id="testContainer"></div>
         </div>
     </div>
+
 </div>
 
 <!-- 單字詳細資料彈窗 -->
@@ -349,9 +399,23 @@
             <div id="modalPhrases"></div>
         </div>
 
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
-            <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-            <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+            <button onclick="deleteCurrentWord()" class="btn-danger">刪除此單字</button>
+            <div style="display:flex; gap:8px;">
+                <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
+                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 日曆日期明細彈窗 -->
+<div class="modal" id="dayDetailModal">
+    <div class="modal-content">
+        <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
+        <div id="dayDetailList" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
+        <div style="display:flex; justify-content:flex-end;">
+            <button onclick="closeDayModal()" class="btn-secondary">關閉</button>
         </div>
     </div>
 </div>
@@ -402,16 +466,19 @@
     const db = firebase.database();
     const vocabRef = db.ref('vocabData');
     const studiedRef = db.ref('studiedWords');
-    const statsRef = db.ref('testStats'); // 用於記錄測試答對次數
+    const statsRef = db.ref('testStats');
+    const dayWordsRef = db.ref('dayWords'); // 記錄每天背誦的單字陣列
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
     let vocabData = {};
     let studiedWords = {};
     let testStats = {};
+    let dayWordsData = {};
     let currentDate = new Date(2026, 10, 1);
     let chartInstance = null;
     let activeCardData = null;
+    let currentChartRange = 'week';
 
     async function fetchLevelData(jsonFileName) {
         currentFileName = jsonFileName;
@@ -428,9 +495,22 @@
 
     function switchLevel(title, fileName, element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-        element.classList.add('active');
+        if (element) element.classList.add('active');
         document.getElementById('currentLevelTitle').innerText = `Level ${title}`;
         fetchLevelData(fileName);
+    }
+
+    function switchMainView(viewName, element) {
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        if (element) element.classList.add('active');
+
+        if (viewName === 'vocab') {
+            document.getElementById('vocabView').style.display = 'block';
+            document.getElementById('testView').style.display = 'none';
+        } else if (viewName === 'test') {
+            document.getElementById('vocabView').style.display = 'none';
+            document.getElementById('testView').style.display = 'block';
+        }
     }
 
     function renderCards(dataList) {
@@ -506,24 +586,34 @@
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
+    function deleteCurrentWord() {
+        if (!activeCardData) return;
+        if (!confirm(`確定要刪除單字 "${activeCardData.word}" 嗎？`)) return;
+        
+        currentLevelData = currentLevelData.filter(i => i.word !== activeCardData.word);
+        renderCards(currentLevelData);
+        closeCardModal();
+        alert('已從目前清單中刪除！');
+    }
+
     function toggleCardStudied() {
         if (!activeCardData) return;
         const word = activeCardData.word;
-        const todayStr = '2026-11-01'; // 依照目前模擬系統日期
+        const todayStr = '2026-11-01';
 
         const currentStatus = !!studiedWords[word];
         const newStatus = !currentStatus;
 
-        // 更新雲端已背誦清單
         studiedRef.child(word).set(newStatus);
 
-        // 同步更新當日打卡計數
         let currentCount = vocabData[todayStr] || 0;
         if (newStatus) {
             currentCount++;
             confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+            dayWordsRef.child(todayStr).child(word).set(activeCardData.definition);
         } else {
             currentCount = Math.max(0, currentCount - 1);
+            dayWordsRef.child(todayStr).child(word).remove();
         }
         vocabRef.child(todayStr).set(currentCount);
 
@@ -549,7 +639,7 @@
         currentLevelData.push(newObj);
         renderCards(currentLevelData);
         closeAddWordModal();
-        alert(`已成功新增 "${word}" 至當前清單！(記得將此 JSON 備份更新至 ${currentFileName})`);
+        alert(`已成功新增 "${word}" 至當前清單！`);
     }
 
     function speakCurrentWord() {
@@ -565,7 +655,6 @@
         fetchLevelData('level1.json');
         initChart();
 
-        // 監聽 Firebase 資料同步
         vocabRef.on('value', snap => {
             vocabData = snap.val() || {};
             renderCalendar();
@@ -581,6 +670,10 @@
         statsRef.on('value', snap => {
             testStats = snap.val() || {};
             renderCards(currentLevelData);
+        });
+
+        dayWordsRef.on('value', snap => {
+            dayWordsData = snap.val() || {};
         });
     }
 
@@ -603,7 +696,7 @@
             const dateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
             const val = vocabData[dateStr];
             grid.innerHTML += `
-                <div class="calendar-day ${val ? 'has-data' : ''}">
+                <div class="calendar-day ${val ? 'has-data' : ''}" onclick="showDayDetails('${dateStr}')">
                     <span>${d}</span>
                     ${val ? `<div class="count-badge">+${val}</div>` : ''}
                 </div>
@@ -616,43 +709,53 @@
         renderCalendar();
     }
 
-function updateStats() {
-    let todayStr = '2026-11-01';
-    let todayCount = vocabData[todayStr] || 0;
-    let weekCount = 0;
-    let monthCount = 0;
-    let yearCount = 0;
+    function showDayDetails(dateStr) {
+        document.getElementById('dayDetailTitle').innerText = `${dateStr} 打卡記錄`;
+        const listDiv = document.getElementById('dayDetailList');
+        listDiv.innerHTML = '';
 
-    for (const [dateStr, val] of Object.entries(vocabData)) {
-        if (typeof val === 'number') {
-            // 計算今年 (以 2026 為例)
-            if (dateStr.startsWith('2026')) {
-                yearCount += val;
-            }
-            // 計算本月 (以 2026-11 為例)
-            if (dateStr.startsWith('2026-11')) {
-                monthCount += val;
-            }
-            // 計算本週或當日
-            if (dateStr === todayStr) {
-                weekCount += val; // 可根據需要擴充本週跨天邏輯
+        const wordsObj = dayWordsData[dateStr];
+        if (!wordsObj || Object.keys(wordsObj).length === 0) {
+            listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
+        } else {
+            for (const [w, def] of Object.entries(wordsObj)) {
+                listDiv.innerHTML += `<div style="padding: 6px 0; border-bottom: 1px solid var(--border);"><strong>${w}</strong>: ${def}</div>`;
             }
         }
+        document.getElementById('dayDetailModal').style.display = 'flex';
     }
 
-    document.getElementById('statToday').innerText = todayCount;
-    document.getElementById('statWeek').innerText = weekCount;
-    document.getElementById('statMonth').innerText = monthCount;
-    document.getElementById('statYear').innerText = yearCount;
-}
+    function closeDayModal() {
+        document.getElementById('dayDetailModal').style.display = 'none';
+    }
+
+    function updateStats() {
+        let todayStr = '2026-11-01';
+        let todayCount = vocabData[todayStr] || 0;
+        let weekCount = todayCount;
+        let monthCount = 0;
+        let yearCount = 0;
+
+        for (const [dateStr, val] of Object.entries(vocabData)) {
+            if (typeof val === 'number') {
+                if (dateStr.startsWith('2026')) yearCount += val;
+                if (dateStr.startsWith('2026-11')) monthCount += val;
+            }
+        }
+
+        document.getElementById('statToday').innerText = todayCount;
+        document.getElementById('statWeek').innerText = weekCount;
+        document.getElementById('statMonth').innerText = monthCount;
+        document.getElementById('statYear').innerText = yearCount;
+    }
 
     function initChart() {
         const ctx = document.getElementById('trendChart').getContext('2d');
         chartInstance = new Chart(ctx, {
             type: 'bar',
             data: { 
-                labels: ['10/26','10/27','10/28','10/29','10/30','10/31','11/01'], 
-                datasets: [{ data: [0,0,0,0,0,0,3], backgroundColor: '#4f46e5' }] 
+                labels: [], 
+                datasets: [{ data: [], backgroundColor: '#4f46e5' }] 
             },
             options: { 
                 responsive: true,
@@ -660,14 +763,152 @@ function updateStats() {
                 scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
             }
         });
+        updateChart();
+    }
+
+    function switchChartRange(range) {
+        currentChartRange = range;
+        ['week', 'month', 'year'].forEach(r => {
+            const btn = document.getElementById(`btn-${r}`);
+            if (r === range) {
+                btn.className = ''; 
+            } else {
+                btn.className = 'btn-secondary'; 
+            }
+        });
+        updateChart();
     }
 
     function updateChart() {
         if (!chartInstance) return;
-        const todayStr = '2026-11-01';
-        const val = vocabData[todayStr] || 0;
-        chartInstance.data.datasets[0].data = [0, 0, 0, 0, 0, 0, val];
+
+        let labels = [];
+        let dataVals = [];
+        const baseDate = new Date(2026, 10, 1); 
+
+        if (currentChartRange === 'week') {
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date(baseDate);
+                d.setDate(baseDate.getDate() - i);
+                const m = d.getMonth() + 1;
+                const day = d.getDate();
+                const dateStr = `${d.getFullYear()}-${String(m).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                
+                labels.push(`${String(m).padStart(2, '0')}/${String(day).padStart(2, '0')}`);
+                dataVals.push(vocabData[dateStr] || 0);
+            }
+        } else if (currentChartRange === 'month') {
+            const daysInMonth = new Date(2026, 11, 0).getDate();
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `2026-11-${String(d).padStart(2, '0')}`;
+                labels.push(`${d}日`);
+                dataVals.push(vocabData[dateStr] || 0);
+            }
+        } else if (currentChartRange === 'year') {
+            labels = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+            dataVals = new Array(12).fill(0);
+
+            for (const [dateStr, val] of Object.entries(vocabData)) {
+                if (dateStr.startsWith('2026') && typeof val === 'number') {
+                    const parts = dateStr.split('-');
+                    if (parts.length >= 2) {
+                        const monthIdx = parseInt(parts[1], 10) - 1;
+                        if (monthIdx >= 0 && monthIdx < 12) {
+                            dataVals[monthIdx] += val;
+                        }
+                    }
+                }
+            }
+        }
+
+        chartInstance.data.labels = labels;
+        chartInstance.data.datasets[0].data = dataVals;
         chartInstance.update();
+    }
+
+    // 測驗系統功能
+    function toggleTestSource() {
+        const source = document.getElementById('testSource').value;
+        document.getElementById('dateRangeGroup').style.display = (source === 'date') ? 'block' : 'none';
+    }
+
+    function startTest() {
+        const testType = document.getElementById('testType').value;
+        const count = parseInt(document.getElementById('testCount').value, 10);
+        const source = document.getElementById('testSource').value;
+        
+        let pool = [];
+        if (source === 'level') {
+            pool = [...currentLevelData];
+        } else {
+            const dateStr = document.getElementById('testDateInput').value.trim();
+            const wordsObj = dayWordsData[dateStr];
+            if (wordsObj) {
+                pool = Object.entries(wordsObj).map(([w, def]) => ({ word: w, definition: def }));
+            }
+        }
+
+        if (pool.length === 0) {
+            alert('所選範圍無可用單字題庫！');
+            return;
+        }
+
+        // 隨機抽題
+        pool.sort(() => Math.random() - 0.5);
+        const questions = pool.slice(0, count);
+
+        const container = document.getElementById('testContainer');
+        container.innerHTML = '';
+        document.getElementById('testCardArea').style.display = 'block';
+
+        questions.forEach((q, idx) => {
+            let html = `<div style="margin-bottom:20px; padding:15px; border:1px solid var(--border); border-radius:8px;">`;
+            html += `<div style="font-weight:600; margin-bottom:10px;">第 ${idx + 1} 題</div>`;
+            
+            if (testType === 'choice') {
+                html += `<div style="font-size:1.1rem; margin-bottom:10px;">英文: <strong>${q.word}</strong></div>`;
+                // 產生選項
+                let options = [q.definition];
+                while(options.length < 4 && currentLevelData.length >= 4) {
+                    let randItem = currentLevelData[Math.floor(Math.random() * currentLevelData.length)];
+                    if (!options.includes(randItem.definition)) options.push(randItem.definition);
+                }
+                options.sort(() => Math.random() - 0.5);
+
+                options.forEach(opt => {
+                    html += `<label style="display:block; margin-bottom:6px; cursor:pointer;"><input type="radio" name="q_${idx}" value="${opt === q.definition ? 'correct' : 'wrong'}"> ${opt}</label>`;
+                });
+            } else {
+                html += `<div style="font-size:1.1rem; margin-bottom:10px;">中文定義: <strong>${q.definition}</strong></div>`;
+                html += `<input type="text" class="fill-input" data-answer="${q.word}" placeholder="請輸入英文拼寫..." style="padding:6px; width:100%; border:1px solid var(--border); border-radius:6px;">`;
+            }
+            html += `</div>`;
+            container.innerHTML += html;
+        });
+
+        container.innerHTML += `<button onclick="submitTest('${testType}', ${questions.length})">繳交測驗</button>`;
+    }
+
+    function submitTest(type, total) {
+        let score = 0;
+        if (type === 'choice') {
+            for (let i = 0; i < total; i++) {
+                const selected = document.querySelector(`input[name="q_${i}"]:checked`);
+                if (selected && selected.value === 'correct') score++;
+            }
+        } else {
+            const inputs = document.querySelectorAll('.fill-input');
+            inputs.forEach(input => {
+                if (input.value.trim().toLowerCase() === input.getAttribute('data-answer').toLowerCase()) {
+                    score++;
+                }
+            });
+        }
+
+        alert(`測驗結束！你的得分為: ${score} / ${total}`);
+        if (score === total) {
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+        }
     }
 
     window.onload = init;
