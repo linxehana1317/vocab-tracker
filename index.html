@@ -611,13 +611,35 @@
         renderCalendar();
     }
 
-    function updateStats() {
-        const todayStr = '2026-11-01';
-        document.getElementById('statToday').innerText = vocabData[todayStr] || 0;
-        document.getElementById('statWeek').innerText = vocabData[todayStr] || 0;
-        document.getElementById('statMonth').innerText = vocabData[todayStr] || 0;
-        document.getElementById('statYear').innerText = vocabData[todayStr] || 0;
+function updateStats() {
+    let todayStr = '2026-11-01';
+    let todayCount = vocabData[todayStr] || 0;
+    let weekCount = 0;
+    let monthCount = 0;
+    let yearCount = 0;
+
+    for (const [dateStr, val] of Object.entries(vocabData)) {
+        if (typeof val === 'number') {
+            // 計算今年 (以 2026 為例)
+            if (dateStr.startsWith('2026')) {
+                yearCount += val;
+            }
+            // 計算本月 (以 2026-11 為例)
+            if (dateStr.startsWith('2026-11')) {
+                monthCount += val;
+            }
+            // 計算本週或當日
+            if (dateStr === todayStr) {
+                weekCount += val; // 可根據需要擴充本週跨天邏輯
+            }
+        }
     }
+
+    document.getElementById('statToday').innerText = todayCount;
+    document.getElementById('statWeek').innerText = weekCount;
+    document.getElementById('statMonth').innerText = monthCount;
+    document.getElementById('statYear').innerText = yearCount;
+}
 
     function initChart() {
         const ctx = document.getElementById('trendChart').getContext('2d');
