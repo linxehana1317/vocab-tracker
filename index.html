@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.3</title>
+    <title>7000 大考核心單字學習平台 - v26.11.1</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -40,7 +40,7 @@
             padding: 24px 16px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-style: space-between;
             flex-shrink: 0;
         }
         .logo-area { margin-bottom: 24px; }
@@ -212,13 +212,14 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.3</span>
+                <span class="version-badge">v26.11.1</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin-bottom:8px; padding-left:4px;">單字級距分類</div>
         <div class="nav-group" id="levelNavGroup">
+            <!-- 所有 JSON 檔名皆統一採用小寫：level1.json 到 level7.json -->
             <div class="nav-item active" onclick="switchLevel('1-1000', 'level1.json', this)">Level 1 (1-1000)</div>
             <div class="nav-item" onclick="switchLevel('1001-2000', 'level2.json', this)">Level 2 (1001-2000)</div>
             <div class="nav-item" onclick="switchLevel('2001-3000', 'level3.json', this)">Level 3 (2001-3000)</div>
@@ -346,12 +347,23 @@
     async function fetchLevelData(jsonFileName) {
         try {
             const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
-            if (!res.ok) throw new Error('讀取失敗');
-            currentLevelData = await res.json();
+            if (!res.ok) {
+                throw new Error(`找不到檔案 HTTP ${res.status}`);
+            }
+            
+            const rawText = await res.text();
+            try {
+                currentLevelData = JSON.parse(rawText);
+            } catch (jsonErr) {
+                console.error("JSON 解析錯誤：", jsonErr);
+                document.getElementById('flashcardGrid').innerHTML = `<div style="color:#e11d48; padding:20px; font-weight:600;">無法解析 ${jsonFileName}！<br><span style="font-size:12px; font-weight:normal; color:var(--muted);">請檢查該 JSON 檔案是否有語法錯誤（例如最後一個單字後面多加了逗號 , ）。</span></div>`;
+                return;
+            }
+
             renderCards();
         } catch (err) {
             console.error(err);
-            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}，請確認檔案是否存在。</div>`;
+            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}，請確認檔名是否完全為小寫且已推送到 GitHub。</div>`;
         }
     }
 
@@ -365,8 +377,8 @@
     function renderCards() {
         const grid = document.getElementById('flashcardGrid');
         grid.innerHTML = '';
-        if (currentLevelData.length === 0) {
-            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此分類目前無單字。</div>';
+        if (!Array.isArray(currentLevelData) || currentLevelData.length === 0) {
+            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此分類目前尚無單字。</div>';
             return;
         }
 
@@ -376,9 +388,9 @@
             card.onclick = () => openCardDetail(item);
             card.innerHTML = `
                 <div>
-                    <div class="flashcard-word">${item.word}</div>
-                    <div class="flashcard-meta">${item.pos} | ${item.kk}</div>
-                    <div class="flashcard-def">${item.definition}</div>
+                    <div class="flashcard-word">${item.word || ''}</div>
+                    <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
+                    <div class="flashcard-def">${item.definition || ''}</div>
                 </div>
             `;
             grid.appendChild(card);
@@ -387,9 +399,9 @@
 
     function openCardDetail(item) {
         activeCardData = item;
-        document.getElementById('modalWordTitle').innerText = item.word;
-        document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk}`;
-        document.getElementById('modalWordDefinition').innerText = item.definition;
+        document.getElementById('modalWordTitle').innerText = item.word || '';
+        document.getElementById('modalWordMeta').innerText = `${item.pos || ''} | ${item.kk || ''}`;
+        document.getElementById('modalWordDefinition').innerText = item.definition || '';
 
         const derivArea = document.getElementById('modalDerivatives');
         derivArea.innerHTML = '';
@@ -424,6 +436,7 @@
     }
 
     function init() {
+        // 預設自動讀取全小寫的 level1.json
         fetchLevelData('level1.json');
         initChart();
         vocabRef.on('value', snap => {
