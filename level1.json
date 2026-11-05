@@ -1020,5 +1020,2923 @@
     "phrases": [
       { "phrase": "form a bond", "meaning": "建立緊密關係", "sentence": "The team members formed a strong bond during the training.", "translation": "隊員們在訓練期間建立了緊密的關係。" }
     ]
-  }
+   },
+    {
+      "word": "boost",
+      "pos": "v./n.",
+      "kk": "/bust/",
+      "definition": "促進，推動，提高",
+      "derivatives": [],
+      "root": "源自方言 boost (推、舉起)。",
+      "phrases": [
+        { "phrase": "boost morale", "meaning": "提升士氣", "sentence": "The victory boosted the team's morale.", "translation": "這場勝利提升了團隊的士氣。" }
+      ]
+    },
+    {
+      "word": "bother",
+      "pos": "v./n.",
+      "kk": "/ˈbɑðɚ/",
+      "definition": "打擾，煩惱；麻煩",
+      "derivatives": [
+        { "pos": "adj.", "word": "bothersome", "meaning": "令人討厭的，麻煩的" }
+      ],
+      "root": "源自愛爾蘭語 bodhar ( deafen / 使聾、煩擾 )。",
+      "phrases": [
+        { "phrase": "bother to do", "meaning": "費心去做...", "sentence": "Don't bother to wake me up tomorrow.", "translation": "明天不用費心叫醒我。" }
+      ]
+    },
+    {
+      "word": "bound",
+      "pos": "adj./v.",
+      "kk": "/baʊnd/",
+      "definition": "受約束的，必然的；彈跳",
+      "derivatives": [
+        { "pos": "n.", "word": "boundary", "meaning": "邊界，界限" }
+      ],
+      "root": "bind (綁定) 的過去分詞演變而來。",
+      "phrases": [
+        { "phrase": "be bound to", "meaning": "必然會...", "sentence": "Hard work is bound to pay off.", "translation": "努力必然會帶來回報。" }
+      ]
+    },
+    {
+      "word": "boundary",
+      "pos": "n.",
+      "kk": "/ˈbaʊndəri/",
+      "definition": "邊界，界限",
+      "derivatives": [],
+      "root": "bound (邊限) + -ary (名詞字尾)。",
+      "phrases": [
+        { "phrase": "set boundaries", "meaning": "設定界限", "sentence": "It is important to set clear boundaries in personal relationships.", "translation": "在人際關係中設定明確的界限很重要。" }
+      ]
+    },
+    {
+      "word": "brave",
+      "pos": "adj./v.",
+      "kk": "/brev/",
+      "definition": "勇敢的；勇敢面對",
+      "derivatives": [
+        { "pos": "n.", "word": "bravery", "meaning": "勇敢，勇氣" }
+      ],
+      "root": "源自拉丁語 bravus (野生、野蠻、勇敢)。",
+      "phrases": [
+        { "phrase": "brave the weather", "meaning": "冒著風雨", "sentence": "They braved the heavy rain to go to school.", "translation": "他們冒著大雨去上學。" }
+      ]
+    },
+    {
+      "word": "breathe",
+      "pos": "v.",
+      "kk": "/brið/",
+      "definition": "呼吸",
+      "derivatives": [
+        { "pos": "n.", "word": "breath", "meaning": "呼吸，氣息" },
+        { "pos": "adj.", "word": "breathless", "meaning": "上氣不接下氣的" }
+      ],
+      "root": "源自古英語 bræth (蒸氣、氣息)。",
+      "phrases": [
+        { "phrase": "breathe in and out", "meaning": "吸氣與呼氣", "sentence": "Take a deep breath and breathe in slowly.", "translation": "深吸一口氣，然後慢慢吸入。" }
+      ]
+    },
+    {
+      "word": "brief",
+      "pos": "adj./n.",
+      "kk": "/brif/",
+      "definition": "簡短的，短暫的；摘要",
+      "derivatives": [
+        { "pos": "adv.", "word": "briefly", "meaning": "簡短地" }
+      ],
+      "root": "源自拉丁語 brevis (短的)。",
+      "phrases": [
+        { "phrase": "in brief", "meaning": "簡而言之", "sentence": "In brief, the project was a great success.", "translation": "簡而言之，這個專案非常成功。" }
+      ]
+    },
+    {
+      "word": "brilliant",
+      "pos": "adj.",
+      "kk": "/ˈbrɪljənt/",
+      "definition": "燦爛的，傑出的，聰穎的",
+      "derivatives": [
+        { "pos": "n.", "word": "brilliance", "meaning": "光彩，才華" }
+      ],
+      "root": "源自義大利語 brillare (發光、閃耀)。",
+      "phrases": [
+        { "phrase": "brilliant idea", "meaning": "絕妙的主意", "sentence": "That is a brilliant idea to solve the issue.", "translation": "那是解決這個問題的絕妙主意。" }
+      ]
+    },
+    {
+      "word": "broad",
+      "pos": "adj.",
+      "kk": "/brɔd/",
+      "definition": "寬廣的，廣泛的",
+      "derivatives": [
+        { "pos": "v.", "word": "broaden", "meaning": "拓寬，開闊" },
+        { "pos": "adv.", "word": "broadly", "meaning": "廣泛地" }
+      ],
+      "root": "源自古英語 brād (寬的)。",
+      "phrases": [
+        { "phrase": "broaden one's horizons", "meaning": "開闊眼界", "sentence": "Traveling helps to broaden your horizons.", "translation": "旅遊有助於開闊你的眼界。" }
+      ]
+    },
+    {
+      "word": "broadcast",
+      "pos": "v./n.",
+      "kk": "/ˈbrɔdˌkæst/",
+      "definition": "廣播，播送",
+      "derivatives": [
+        { "pos": "n.", "word": "broadcaster", "meaning": "廣播員" }
+      ],
+      "root": "broad (寬廣) + cast (撒播)。向大眾散播資訊。",
+      "phrases": [
+        { "phrase": "broadcast live", "meaning": "現場直播", "sentence": "The match will be broadcast live tonight.", "translation": "這場比賽將於今晚現場直播。" }
+      ]
+    },
+    {
+      "word": "budget",
+      "pos": "n./v.",
+      "kk": "/ˈbʌdʒɪt/",
+      "definition": "預算；編列預算",
+      "derivatives": [],
+      "root": "源自古法語 bougette (小皮袋)。古代裝錢的袋子。",
+      "phrases": [
+        { "phrase": "on a budget", "meaning": "預算有限", "sentence": "We are traveling on a tight budget.", "translation": "我們的旅遊預算很緊。" }
+      ]
+    },
+    {
+      "word": "burden",
+      "pos": "n./v.",
+      "kk": "/ˈbɝdən/",
+      "definition": "負擔，重擔；加負擔於",
+      "derivatives": [
+        { "pos": "adj.", "word": "burdensome", "meaning": "沉重的，繁重的" }
+      ],
+      "root": "與 bear (承受) 同源。",
+      "phrases": [
+        { "phrase": "financial burden", "meaning": "財務負擔", "sentence": "Medical bills can become a heavy financial burden.", "translation": "醫療帳單可能會成為沉重的財務負擔。" }
+      ]
+    },
+    {
+      "word": "calculate",
+      "pos": "v.",
+      "kk": "/ˈkælkjəˌlet/",
+      "definition": "計算，估算",
+      "derivatives": [
+        { "pos": "n.", "word": "calculation", "meaning": "計算" },
+        { "pos": "n.", "word": "calculator", "meaning": "計算機" }
+      ],
+      "root": "源自拉丁語 calculus (用於計算的小算盤石頭)。",
+      "phrases": [
+        { "phrase": "calculate the cost", "meaning": "計算成本", "sentence": "We need to calculate the total cost first.", "translation": "我們需要先計算總成本。" }
+      ]
+    },
+    {
+      "word": "campaign",
+      "pos": "n./v.",
+      "kk": "/kæmˈpen/",
+      "definition": "活動，戰役；發起運動",
+      "derivatives": [],
+      "root": "字根 camp- (野外、平原)。原指野外軍事行動。",
+      "phrases": [
+        { "phrase": "election campaign", "meaning": "競選活動", "sentence": "He launched an election campaign yesterday.", "translation": "他昨天啟動了競選活動。" }
+      ]
+    },
+    {
+      "word": "cancel",
+      "pos": "v.",
+      "kk": "/ˈkænsəl/",
+      "definition": "取消，劃掉",
+      "derivatives": [
+        { "pos": "n.", "word": "cancellation", "meaning": "取消" }
+      ],
+      "root": "源自拉丁語 cancellare (用格子劃掉)。",
+      "phrases": [
+        { "phrase": "cancel an appointment", "meaning": "取消預約", "sentence": "I had to cancel my dentist appointment.", "translation": "我不得不取消我的牙醫預約。" }
+      ]
+    },
+    {
+      "word": "candidate",
+      "pos": "n.",
+      "kk": "/ˈkændədət/",
+      "definition": "候選人，應試者",
+      "derivatives": [],
+      "root": "源自拉丁語 candidus (白色)。古羅馬候選人穿著白色長袍。",
+      "phrases": [
+        { "phrase": "presidential candidate", "meaning": "總統候選人", "sentence": "The presidential candidate gave a powerful speech.", "translation": "那位總統候選人發表了強有力的演講。" }
+      ]
+    },
+    {
+      "word": "capacity",
+      "pos": "n.",
+      "kk": "/kəˈpæsəti/",
+      "definition": "容量，能力",
+      "derivatives": [
+        { "pos": "adj.", "word": "capacious", "meaning": "容量大的" }
+      ],
+      "root": "字根 cap- (抓取、容納) + -acity。",
+      "phrases": [
+        { "phrase": "full capacity", "meaning": "客滿，全負載", "sentence": "The stadium was filled to full capacity.", "translation": "體育場擠得滿滿當當。" }
+      ]
+    },
+    {
+      "word": "capture",
+      "pos": "v./n.",
+      "kk": "/ˈkæptʃɚ/",
+      "definition": "捕獲，俘虜，捕捉(畫面/注意力)",
+      "derivatives": [],
+      "root": "字根 cap- (抓取) + -ture。",
+      "phrases": [
+        { "phrase": "capture one's attention", "meaning": "吸引某人的注意力", "sentence": "The vibrant painting captured everyone's attention.", "translation": "那幅色彩鮮豔的畫作吸引了所有人的注意力。" }
+      ]
+    },
+    {
+      "word": "career",
+      "pos": "n.",
+      "kk": "/kəˈrɪr/",
+      "definition": "職業，生涯",
+      "derivatives": [],
+      "root": "源自拉丁語 carrus (兩輪戰車)。引申為奔馳的人生跑道。",
+      "phrases": [
+        { "phrase": "career path", "meaning": "職涯發展路徑", "sentence": "She is planning her future career path carefully.", "translation": "她正在仔細規劃未來的職涯發展路徑。" }
+      ]
+    },
+    {
+      "word": "caution",
+      "pos": "n./v.",
+      "kk": "/ˈkɔʃən/",
+      "definition": "小心，謹慎；警告",
+      "derivatives": [
+        { "pos": "adj.", "word": "cautious", "meaning": "謹慎的" },
+        { "pos": "adv.", "word": "cautiously", "meaning": "小心翼翼地" }
+      ],
+      "root": "字根 caut- (注意、留心) + -ion。",
+      "phrases": [
+        { "phrase": "exercise caution", "meaning": "保持謹慎", "sentence": "Drivers should exercise caution in icy conditions.", "translation": "駕駛人在結冰的狀況下應保持謹慎。" }
+      ]
+    },
+    {
+      "word": "cease",
+      "pos": "v./n.",
+      "kk": "/sis/",
+      "definition": "停止，終止",
+      "derivatives": [
+        { "pos": "adj.", "word": "ceaseless", "meaning": "不停的" }
+      ],
+      "root": "源自拉丁語 cedere (退讓、停止)。",
+      "phrases": [
+        { "phrase": "cease to exist", "meaning": "不復存在", "sentence": "Without water, life would cease to exist.", "translation": "沒有水，生命將不復存在。" }
+      ]
+    },
+    {
+      "word": "celebrate",
+      "pos": "v.",
+      "kk": "/ˈsɛləˌbret/",
+      "definition": "慶祝",
+      "derivatives": [
+        { "pos": "n.", "word": "celebration", "meaning": "慶祝活動" },
+        { "pos": "n.", "word": "celebrity", "meaning": "名人" }
+      ],
+      "root": "源自拉丁語 celeber (熱鬧的、歡聚的)。",
+      "phrases": [
+        { "phrase": "celebrate a birthday", "meaning": "慶祝生日", "sentence": "We gathered to celebrate her 18th birthday.", "translation": "我們聚在一起慶祝她的18歲生日。" }
+      ]
+    },
+    {
+      "word": "central",
+      "pos": "adj.",
+      "kk": "/ˈsɛntrəl/",
+      "definition": "中央的，核心的",
+      "derivatives": [
+        { "pos": "n.", "word": "center", "meaning": "中心" }
+      ],
+      "root": "center (中心) + -al。",
+      "phrases": [
+        { "phrase": "central theme", "meaning": "核心主題", "sentence": "Love is the central theme of the story.", "translation": "愛是這個故事的核心主題。" }
+      ]
+    },
+    {
+      "word": "challenge",
+      "pos": "n./v.",
+      "kk": "/ˈtʃælən dʒ/",
+      "definition": "挑戰，質疑；向...挑戰",
+      "derivatives": [
+        { "pos": "adj.", "word": "challenging", "meaning": "具挑戰性的" }
+      ],
+      "root": "源自拉丁語 calumnia (虛假控訴、控告)。衍生為發起挑戰。",
+      "phrases": [
+        { "phrase": "face a challenge", "meaning": "面臨挑戰", "sentence": "He is ready to face any new challenge.", "translation": "他隨時準備好面臨任何新挑戰。" }
+      ]
+    },
+    {
+      "word": "champion",
+      "pos": "n./v.",
+      "kk": "/ˈtʃæmpɪən/",
+      "definition": "冠軍，擁護者；支持",
+      "derivatives": [
+        { "pos": "n.", "word": "championship", "meaning": "錦標賽，冠軍頭銜" }
+      ],
+      "root": "字根 champ- (平原、戰場) + -ion。戰場上的獲勝者。",
+      "phrases": [
+        { "phrase": "world champion", "meaning": "世界冠軍", "sentence": "She became the world champion in chess.", "translation": "她成為西洋棋的世界冠軍。" }
+      ]
+    },
+    {
+      "word": "character",
+      "pos": "n.",
+      "kk": "/ˈkærɪktɚ/",
+      "definition": "性格，角色，文字/符號",
+      "derivatives": [
+        { "pos": "adj.", "word": "characteristic", "meaning": "特有的，典型的" }
+      ],
+      "root": "源自希臘語 kharakter (刻印的工具、標記)。",
+      "phrases": [
+        { "phrase": "main character", "meaning": "主角", "sentence": "Harry Potter is the main character of the novel.", "translation": "哈利波特是這本小說的主角。" }
+      ]
+    },
+    {
+      "word": "charity",
+      "pos": "n.",
+      "kk": "/ˈtʃærəti/",
+      "definition": "慈善，慈善機構",
+      "derivatives": [
+        { "pos": "adj.", "word": "charitable", "meaning": "慈善的，仁慈的" }
+      ],
+      "root": "源自拉丁語 caritas (慈愛、珍愛)。",
+      "phrases": [
+        { "phrase": "donate to charity", "meaning": "捐款給慈善機構", "sentence": "He donates a portion of his income to charity.", "translation": "他將一部分收入捐給慈善機構。" }
+      ]
+    },
+    {
+      "word": "charm",
+      "pos": "n./v.",
+      "kk": "/tʃɑrm/",
+      "definition": "魅力，符咒；迷住",
+      "derivatives": [
+        { "pos": "adj.", "word": "charming", "meaning": "迷人的，有魅力的" }
+      ],
+      "root": "源自拉丁語 carmen (歌曲、咒語)。用歌聲迷人。",
+      "phrases": [
+        { "phrase": "work like a charm", "meaning": "非常有效，靈驗", "sentence": "This new medicine worked like a charm.", "translation": "這種新藥非常靈驗。" }
+      ]
+    },
+    {
+      "word": "chase",
+      "pos": "v./n.",
+      "kk": "/tʃes/",
+      "definition": "追逐，追捕",
+      "derivatives": [],
+      "root": "與 catch (抓取) 同源。",
+      "phrases": [
+        { "phrase": "chase dreams", "meaning": "追逐夢想", "sentence": "Never stop chasing your dreams.", "translation": "永遠不要停止追逐你的夢想。" }
+      ]
+    },
+    {
+      "word": "chemical",
+      "pos": "adj./n.",
+      "kk": "/ˈkɛmɪkəl/",
+      "definition": "化學的；化學物質",
+      "derivatives": [
+        { "pos": "n.", "word": "chemistry", "meaning": "化學" }
+      ],
+      "root": "源自 alchemy (煉金術)。",
+      "phrases": [
+        { "phrase": "chemical reaction", "meaning": "化學反應", "sentence": "Mixing these two liquids causes a chemical reaction.", "translation": "混合這兩種液體會引起化學反應。" }
+      ]
+    },
+    {
+      "word": "circumstance",
+      "pos": "n.",
+      "kk": "/ˈsɝkəmˌstæns/",
+      "definition": "情況，情勢",
+      "derivatives": [],
+      "root": "circum- (環繞) + stance (站立)。圍繞在周遭的事物。",
+      "phrases": [
+        { "phrase": "under any circumstances", "meaning": "在任何情況下", "sentence": "Do not leave the room under any circumstances.", "translation": "在任何情況下都不要離開房間。" }
+      ]
+    },
+    {
+      "word": "citizen",
+      "pos": "n.",
+      "kk": "/ˈsɪtəzən/",
+      "definition": "公民，市民",
+      "derivatives": [
+        { "pos": "n.", "word": "citizenship", "meaning": "公民身分" }
+      ],
+      "root": "city (城市) + -zen (居民)。",
+      "phrases": [
+        { "phrase": "senior citizen", "meaning": "長者，銀髮族", "sentence": "Discounts are available for senior citizens.", "translation": "長者可享有折扣。" }
+      ]
+    },
+    {
+      "word": "claim",
+      "pos": "v./n.",
+      "kk": "/klem/",
+      "definition": "宣稱，要求，索賠",
+      "derivatives": [],
+      "root": "字根 clam/claim (呼喊、叫喊)。發聲宣稱。",
+      "phrases": [
+        { "phrase": "claim responsibility for", "meaning": "宣稱對...負責", "sentence": "No group has claimed responsibility for the attack.", "translation": "尚無組織宣稱對這次襲擊事件負責。" }
+      ]
+    },
+    {
+      "word": "clarify",
+      "pos": "v.",
+      "kk": "/ˈklærəˌfaɪ/",
+      "definition": "澄清，闡明",
+      "derivatives": [
+        { "pos": "n.", "word": "clarity", "meaning": "清晰，明確" }
+      ],
+      "root": "clari (清楚的) + -fy (使成為)。",
+      "phrases": [
+        { "phrase": "clarify a point", "meaning": "澄清立場/觀點", "sentence": "Allow me to clarify this point further.", "translation": "請允許我進一步澄清這一點。" }
+      ]
+    },
+    {
+      "word": "classic",
+      "pos": "adj./n.",
+      "kk": "/ˈklæsɪk/",
+      "definition": "經典的，典型的；名著",
+      "derivatives": [
+        { "pos": "adj.", "word": "classical", "meaning": "古典的" }
+      ],
+      "root": "class (班級、等級) + -ic。最高等級的作品。",
+      "phrases": [
+        { "phrase": "classic example", "meaning": "典型的範例", "sentence": "This movie is a classic example of 90s cinema.", "translation": "這部電影是90年代電影的典型範例。" }
+      ]
+    },
+    {
+      "word": "climate",
+      "pos": "n.",
+      "kk": "/ˈklaɪmət/",
+      "definition": "氣候，風氣",
+      "derivatives": [
+        { "pos": "adj.", "word": "climatic", "meaning": "氣候的" }
+      ],
+      "root": "源自希臘語 klima (傾斜)。地球相對太陽的傾斜角度照射影響氣候。",
+      "phrases": [
+        { "phrase": "climate change", "meaning": "氣候變遷", "sentence": "Climate change is a pressing global issue.", "translation": "氣候變遷是一個迫切的全球性問題。" }
+      ]
+    },
+    {
+      "word": "collapse",
+      "pos": "v./n.",
+      "kk": "/kəˈlæps/",
+      "definition": "倒塌，崩潰",
+      "derivatives": [],
+      "root": "col- (共同) + lapse (滑落、跌落)。全部一同塌陷下來。",
+      "phrases": [
+        { "phrase": "collapse under pressure", "meaning": "在壓力下崩潰", "sentence": "The bridge collapsed under extreme heat.", "translation": "橋樑在高溫下倒塌了。" }
+      ]
+    },
+    {
+      "word": "combine",
+      "pos": "v.",
+      "kk": "/kəmˈbaɪn/",
+      "definition": "結合，合併",
+      "derivatives": [
+        { "pos": "n.", "word": "combination", "meaning": "結合，組合" }
+      ],
+      "root": "com- (共同) + bi (兩個)。把兩事物合而為一。",
+      "phrases": [
+        { "phrase": "combine theory with practice", "meaning": "理論與實務結合", "sentence": "Good education combines theory with practice.", "translation": "好的教育將理論與實務相結合。" }
+      ]
+    },
+    {
+      "word": "comfort",
+      "pos": "n./v.",
+      "kk": "/ˈkʌmfɚt/",
+      "definition": "舒適，安慰；安慰某人",
+      "derivatives": [
+        { "pos": "adj.", "word": "comfortable", "meaning": "舒適的" }
+      ],
+      "root": "com- (加強) + fort (強壯)。給予心理上的力量安慰。",
+      "phrases": [
+        { "phrase": "comfort zone", "meaning": "舒適圈", "sentence": "You need to step out of your comfort zone to grow.", "translation": "你需要走出舒適圈才能成長。" }
+      ]
+    },
+    {
+      "word": "command",
+      "pos": "v./n.",
+      "kk": "/kəˈmænd/",
+      "definition": "命令，精通，指揮",
+      "derivatives": [
+        { "pos": "n.", "word": "commander", "meaning": "指揮官" }
+      ],
+      "root": "com- (加強) + mand (託付、手握大權)。授權指揮。",
+      "phrases": [
+        { "phrase": "have a good command of", "meaning": "精通(某語言/技能)", "sentence": "She has a good command of English.", "translation": "她精通英語。" }
+      ]
+    },
+    {
+      "word": "comment",
+      "pos": "n./v.",
+      "kk": "/ˈkɑmɛnt/",
+      "definition": "評論，意見；發表評論",
+      "derivatives": [
+        { "pos": "n.", "word": "commentary", "meaning": "實況解說，評註" }
+      ],
+      "root": "com- (共同) + ment (思考、心思)。將想法表達出來。",
+      "phrases": [
+        { "phrase": "no comment", "meaning": "不予置評", "sentence": "The mayor said 'no comment' to the reporters.", "translation": "市長對記者表示「不予置評」。" }
+      ]
+    },
+    {
+      "word": "commercial",
+      "pos": "adj./n.",
+      "kk": "/kəˈmɝʃəl/",
+      "definition": "商業的；電視/廣播廣告",
+      "derivatives": [
+        { "pos": "n.", "word": "commerce", "meaning": "商業，貿易" }
+      ],
+      "root": "com- (共同) + merce (商品、交易)。",
+      "phrases": [
+        { "phrase": "commercial break", "meaning": "廣告時間", "sentence": "We will be back after a short commercial break.", "translation": "我們將在一段短暫的廣告時間後回來。" }
+      ]
+    },
+    {
+      "word": "commit",
+      "pos": "v.",
+      "kk": "/kəˈmɪt/",
+      "definition": "犯(罪)，承諾，投入",
+      "derivatives": [
+        { "pos": "n.", "word": "commitment", "meaning": "承諾，奉獻" },
+        { "pos": "n.", "word": "committee", "meaning": "委員會" }
+      ],
+      "root": "com- (完全) + mit (送出、委任)。交付責任。",
+      "phrases": [
+        { "phrase": "commit a crime", "meaning": "犯罪", "sentence": "He was sent to prison for committing a crime.", "translation": "他因犯罪而被送進監獄。" }
+      ]
+    },
+    {
+      "word": "committee",
+      "pos": "n.",
+      "kk": "/kəˈmɪti/",
+      "definition": "委員會",
+      "derivatives": [],
+      "root": "commit (委任) + -ee (被委任的一群人)。",
+      "phrases": [
+        { "phrase": "organizing committee", "meaning": "籌備委員會", "sentence": "The organizing committee is planning the event.", "translation": "籌備委員會正在規劃這次活動。" }
+      ]
+    },
+    {
+      "word": "common",
+      "pos": "adj.",
+      "kk": "/ˈkɑmən/",
+      "definition": "常見的，共同的",
+      "derivatives": [
+        { "pos": "adv.", "word": "commonly", "meaning": "通常地" }
+      ],
+      "root": "com- (共同) + munis (服務、責任)。大眾公用的。",
+      "phrases": [
+        { "phrase": "have something in common", "meaning": "有共同點", "sentence": "The two brothers have a lot in common.", "translation": "這兄弟倆有很多共同點。" }
+      ]
+    },
+    {
+      "word": "communicate",
+      "pos": "v.",
+      "kk": "/kəˈmjunəˌket/",
+      "definition": "溝通，交流",
+      "derivatives": [
+        { "pos": "n.", "word": "communication", "meaning": "溝通，通訊" }
+      ],
+      "root": "com- (共同) + munis (分享、服務)。共享訊息。",
+      "phrases": [
+        { "phrase": "communicate with", "meaning": "與...溝通", "sentence": "It is vital to communicate with your teammates.", "translation": "與你的隊友溝通至關重要。" }
+      ]
+    },
+    {
+      "word": "community",
+      "pos": "n.",
+      "kk": "/kəˈmjunəti/",
+      "definition": "社區，共同體",
+      "derivatives": [],
+      "root": "common (共同) + -ity。",
+      "phrases": [
+        { "phrase": "local community", "meaning": "當地社區", "sentence": "The library serves the local community.", "translation": "這家圖書館為當地社區提供服務。" }
+      ]
+    },
+    {
+      "word": "companion",
+      "pos": "n.",
+      "kk": "/kəmˈpænjən/",
+      "definition": "同伴，夥伴",
+      "derivatives": [
+        { "pos": "n.", "word": "companionship", "meaning": "情誼，陪伴" }
+      ],
+      "root": "com- (共同) + pan (麵包)。一起分吃麵包的好夥伴。",
+      "phrases": [
+        { "phrase": "travel companion", "meaning": "旅伴", "sentence": "She is looking for a travel companion for her trip.", "translation": "她正在尋找旅行的旅伴。" }
+      ]
+    },
+    {
+      "word": "company",
+      "pos": "n.",
+      "kk": "/ˈkʌmpəni/",
+      "definition": "公司，陪伴",
+      "derivatives": [],
+      "root": "與 companion (同伴) 同源。大家在一起工作或陪伴。",
+      "phrases": [
+        { "phrase": "keep someone company", "meaning": "陪伴某人", "sentence": "I'll stay here to keep you company.", "translation": "我會留在這裡陪你。" }
+      ]
+    },
+    {
+      "word": "compare",
+      "pos": "v.",
+      "kk": "/kəmˈpɛr/",
+      "definition": "比較，對比",
+      "derivatives": [
+        { "pos": "n.", "word": "comparison", "meaning": "比較" },
+        { "pos": "adj.", "word": "comparable", "meaning": "可比較的" }
+      ],
+      "root": "com- (共同) + par (平等)。擺放在一起比較相異點。",
+      "phrases": [
+        { "phrase": "compare A with B", "meaning": "將A與B相比", "sentence": "If you compare this year's sales with last year's, they have doubled.", "translation": "如果將今年的銷售額與去年相比，已經翻倍了。" }
+      ]
+    },
+    {
+      "word": "compete",
+      "pos": "v.",
+      "kk": "/kəmˈpit/",
+      "definition": "競爭，比賽",
+      "derivatives": [
+        { "pos": "n.", "word": "competition", "meaning": "競爭，比賽" },
+        { "pos": "adj.", "word": "competitive", "meaning": "有競爭力的" },
+        { "pos": "n.", "word": "competitor", "meaning": "競爭者" }
+      ],
+      "root": "com- (共同) + pete (尋求、追求)。共同爭奪目標。",
+      "phrases": [
+        { "phrase": "compete with / against", "meaning": "與...競爭", "sentence": "Small businesses struggle to compete against large corporations.", "translation": "小企業很難與大型企業競爭。" }
+      ]
+    },
+    {
+      "word": "complain",
+      "pos": "v.",
+      "kk": "/kəmˈplen/",
+      "definition": "抱怨，投訴",
+      "derivatives": [
+        { "pos": "n.", "word": "complaint", "meaning": "抱怨，控訴" }
+      ],
+      "root": "com- (加強) + plain/plangere (捶胸頓足發出哀鳴)。",
+      "phrases": [
+        { "phrase": "complain about", "meaning": "抱怨...", "sentence": "He constantly complains about his noisy neighbors.", "translation": "他不斷抱怨他那吵鬧的鄰居。" }
+      ]
+    },
+    {
+      "word": "complete",
+      "pos": "adj./v.",
+      "kk": "/kəmˈplit/",
+      "definition": "完整的，完全的；完成",
+      "derivatives": [
+        { "pos": "adv.", "word": "completely", "meaning": "完全地" },
+        { "pos": "n.", "word": "completion", "meaning": "完成" }
+      ],
+      "root": "com- (完全) + ple (填滿)。全數填滿使之完整。",
+      "phrases": [
+        { "phrase": "complete a form", "meaning": "填寫表格", "sentence": "Please complete the application form carefully.", "translation": "請仔細填寫申請表。" }
+      ]
+    },
+    {
+      "word": "complex",
+      "pos": "adj./n.",
+      "kk": "/kəmˈplɛks/",
+      "definition": "複雜的；綜合大樓，情結",
+      "derivatives": [
+        { "pos": "n.", "word": "complexity", "meaning": "複雜性" }
+      ],
+      "root": "com- (共同) + plex (交織、編織)。盤根錯節的。",
+      "phrases": [
+        { "phrase": "shopping complex", "meaning": "購物中心大樓", "sentence": "A new shopping complex opened downtown yesterday.", "translation": "一家新的購物中心昨天在市中心開幕。" }
+      ]
+    },
+    {
+      "word": "complicate",
+      "pos": "v.",
+      "kk": "/ˈkɑmpləˌket/",
+      "definition": "使複雜，使惡化",
+      "derivatives": [
+        { "pos": "adj.", "word": "complicated", "meaning": "複雜難懂的" },
+        { "pos": "n.", "word": "complication", "meaning": "併發症，複雜化" }
+      ],
+      "root": "com- (共同) + plic (重疊、折疊)。使事情交錯錯綜複雜。",
+      "phrases": [
+        { "phrase": "complicate matters", "meaning": "使事情複雜化", "sentence": "Lying will only complicate matters further.", "translation": "說謊只會讓事情變得更複雜。" }
+      ]
+    },
+    {
+      "word": "concentrate",
+      "pos": "v.",
+      "kk": "/ˈkɑnsənˌtret/",
+      "definition": "專心，集中",
+      "derivatives": [
+        { "pos": "n.", "word": "concentration", "meaning": "專注力，濃度" }
+      ],
+      "root": "con- (共同) + center (中心)。把注意力聚焦到中心點。",
+      "phrases": [
+        { "phrase": "concentrate on", "meaning": "專注於...", "sentence": "I need to concentrate on my studies for the test.", "translation": "為了考試，我需要專注於學習。" }
+      ]
+    },
+    {
+      "word": "concept",
+      "pos": "n.",
+      "kk": "/ˈkɑnsɛpt/",
+      "definition": "概念，觀念",
+      "derivatives": [
+        { "pos": "adj.", "word": "conceptual", "meaning": "概念上的" }
+      ],
+      "root": "con- (完全) + cept (拿取、理解)。腦中形成的看法。",
+      "phrases": [
+        { "phrase": "basic concept", "meaning": "基本概念", "sentence": "First, you must understand the basic concepts of physics.", "translation": "首先，你必須理解物理學的基本概念。" }
+      ]
+    },
+    {
+      "word": "concern",
+      "pos": "v./n.",
+      "kk": "/kənˈsɝn/",
+      "definition": "使擔心，關心；關切的事",
+      "derivatives": [
+        { "pos": "adj.", "word": "concerned", "meaning": "擔心的，關心的" }
+      ],
+      "root": "con- (加強) + cern (篩選、查看)。目光注視著懸念。",
+      "phrases": [
+        { "phrase": "express concern about", "meaning": "對...表達關切/擔心", "sentence": "Parents expressed concern about school safety.", "translation": "家長對校園安全表達了關切。" }
+      ]
+    },
+    {
+      "word": "conclude",
+      "pos": "v.",
+      "kk": "/kənˈklud/",
+      "definition": "下結論，結束",
+      "derivatives": [
+        { "pos": "n.", "word": "conclusion", "meaning": "結論，結尾" },
+        { "pos": "adj.", "word": "conclusive", "meaning": "決定性的，確鑿的" }
+      ],
+      "root": "con- (完全) + clud (關閉)。將論述關上門做出結尾。",
+      "phrases": [
+        { "phrase": "in conclusion", "meaning": "總結而言", "sentence": "In conclusion, we must take action now.", "translation": "總結而言，我們現在必須採取行動。" }
+      ]
+    },
+    {
+      "word": "concrete",
+      "pos": "adj./n.",
+      "kk": "/ˈkɑnkrit/",
+      "definition": "具體的，凝固的；混凝土",
+      "derivatives": [],
+      "root": "con- (共同) + crete/grow (生長、凝結)。凝固結實起來。",
+      "phrases": [
+        { "phrase": "concrete evidence", "meaning": "具體的證據", "sentence": "The police have no concrete evidence against him.", "translation": "警方沒有掌握對他不利的具體證據。" }
+      ]
+    },
+    {
+      "word": "condition",
+      "pos": "n./v.",
+      "kk": "/kənˈdɪʃən/",
+      "definition": "狀況，條件；決定/制約",
+      "derivatives": [
+        { "pos": "adj.", "word": "conditional", "meaning": "有條件的" }
+      ],
+      "root": "con- (共同) + dic/dict (說話、約定)。事前約定好的條款。",
+      "phrases": [
+        { "phrase": "in good condition", "meaning": "狀況良好", "sentence": "The second-hand car is still in good condition.", "translation": "這輛二手車狀況依然良好。" }
+      ]
+    },
+    {
+      "word": "conduct",
+      "pos": "v./n.",
+      "kk": "/kənˈdʌkt/",
+      "definition": "執行，引導，傳導；行為舉止",
+      "derivatives": [
+        { "pos": "n.", "word": "conductor", "meaning": "指揮家，導體" }
+      ],
+      "root": "con- (共同) + duct (引導)。引導帶領。",
+      "phrases": [
+        { "phrase": "conduct an experiment", "meaning": "進行實驗", "sentence": "Scientists conducted an experiment to test the theory.", "translation": "科學家進行了實驗來驗證該理論。" }
+      ]
+    },
+    {
+      "word": "confidence",
+      "pos": "n.",
+      "kk": "/ˈkɑnfədəns/",
+      "definition": "信心，信任",
+      "derivatives": [
+        { "pos": "adj.", "word": "confident", "meaning": "自信的" }
+      ],
+      "root": "con- (完全) + fid (信任) + -ence。",
+      "phrases": [
+        { "phrase": "have confidence in", "meaning": "對...有信心", "sentence": "I have full confidence in your abilities.", "translation": "我對你的能力非常有信心。" }
+      ]
+    },
+    {
+      "word": "confirm",
+      "pos": "v.",
+      "kk": "/kənˈfɝm/",
+      "definition": "確認，證實",
+      "derivatives": [
+        { "pos": "n.", "word": "confirmation", "meaning": "確認，證實" }
+      ],
+      "root": "con- (加強) + firm (堅固的)。使之堅定無誤。",
+      "phrases": [
+        { "phrase": "confirm a reservation", "meaning": "確認預訂", "sentence": "Please call to confirm your hotel reservation.", "translation": "請打電話確認您的飯店預訂。" }
+      ]
+    },
+    {
+      "word": "conflict",
+      "pos": "n./v.",
+      "kk": "/ˈkɑnflɪkt/",
+      "definition": "衝突，抵觸",
+      "derivatives": [],
+      "root": "con- (共同) + flict (打擊)。相互撞擊打鬥。",
+      "phrases": [
+        { "phrase": "conflict of interest", "meaning": "利益衝突", "sentence": "Judges must avoid any conflict of interest.", "translation": "法官必須避免任何利益衝突。" }
+      ]
+    },
+    {
+      "word": "confuse",
+      "pos": "v.",
+      "kk": "/kənˈfjuz/",
+      "definition": "使困惑，混淆",
+      "derivatives": [
+        { "pos": "adj.", "word": "confused", "meaning": "感到困惑的" },
+        { "pos": "adj.", "word": "confusing", "meaning": "令人困惑的" },
+        { "pos": "n.", "word": "confusion", "meaning": "混亂，困惑" }
+      ],
+      "root": "con- (共同) + fuse (倒、傾倒)。全部倒在一起分不清。",
+      "phrases": [
+        { "phrase": "confuse A with B", "meaning": "把A跟B弄混", "sentence": "Don't confuse Austria with Australia.", "translation": "不要把奧地利和澳洲搞混了。" }
+      ]
+    },
+    {
+      "word": "congratulate",
+      "pos": "v.",
+      "kk": "/kənˈɡrætʃəˌlet/",
+      "definition": "祝賀，恭喜",
+      "derivatives": [
+        { "pos": "n.", "word": "congratulation", "meaning": "祝賀，恭喜(常用複數)" }
+      ],
+      "root": "con- (共同) + grat (高興、感謝)。共同為喜事慶賀。",
+      "phrases": [
+        { "phrase": "congratulate someone on", "meaning": "就...向某人祝賀", "sentence": "We congratulated him on passing the exam.", "translation": "我們就他通過考試向他祝賀。" }
+      ]
+    },
+    {
+      "word": "connect",
+      "pos": "v.",
+      "kk": "/kəˈnɛkt/",
+      "definition": "連接，連結",
+      "derivatives": [
+        { "pos": "n.", "word": "connection", "meaning": "連結，人脈" }
+      ],
+      "root": "con- (共同) + nect (綁、繫)。將兩者繫在一起。",
+      "phrases": [
+        { "phrase": "connect to the Internet", "meaning": "連線上網", "sentence": "My phone failed to connect to the Internet.", "translation": "我的手機無法連線上網。" }
+      ]
+    },
+    {
+      "word": "conscious",
+      "pos": "adj.",
+      "kk": "/ˈkɑnʃəs/",
+      "definition": "意識到的，神智清醒的",
+      "derivatives": [
+        { "pos": "n.", "word": "consciousness", "meaning": "知覺，意識" },
+        { "pos": "adj.", "word": "unconscious", "meaning": "失去知覺的" }
+      ],
+      "root": "con- (完全) + sci (知道) + -ous。完全明白清楚的。",
+      "phrases": [
+        { "phrase": "be conscious of", "meaning": "意識到...", "sentence": "He was fully conscious of the risks involved.", "translation": "他完全意識到了其中的風險。" }
+      ]
+    },
+    {
+      "word": "consequence",
+      "pos": "n.",
+      "kk": "/ˈkɑnsəˌkwɛns/",
+      "definition": "結果，後果",
+      "derivatives": [
+        { "pos": "adj.", "word": "consequent", "meaning": "隨之發生的" },
+        { "pos": "adv.", "word": "consequently", "meaning": "結果，因此" }
+      ],
+      "root": "con- (共同) + sequ (跟隨) + -ence。接續在後面發生的事。",
+      "phrases": [
+        { "phrase": "as a consequence of", "meaning": "因為...的結果", "sentence": "He lost his job as a consequence of his carelessness.", "translation": "他因為粗心大意而失去了工作。" }
+      ]
+    },
+    {
+      "word": "consider",
+      "pos": "v.",
+      "kk": "/kənˈsɪdɚ/",
+      "definition": "考慮，認為",
+      "derivatives": [
+        { "pos": "n.", "word": "consideration", "meaning": "考慮，體貼" },
+        { "pos": "adj.", "word": "considerate", "meaning": "體貼的" },
+        { "pos": "adj.", "word": "considerable", "meaning": "相當大/多的" }
+      ],
+      "root": "con- (加強) + sider (星辰)。古人抬頭看星象審慎思考占卜。",
+      "phrases": [
+        { "phrase": "consider doing", "meaning": "考慮做...", "sentence": "Are you considering moving to another city?", "translation": "你在考慮搬到另一個城市嗎？" }
+      ]
+    },
+    {
+      "word": "consist",
+      "pos": "v.",
+      "kk": "/kənˈsɪst/",
+      "definition": "由...組成，在於",
+      "derivatives": [
+        { "pos": "adj.", "word": "consistent", "meaning": "一貫的，一致的" }
+      ],
+      "root": "con- (共同) + sist (站立)。站立聚集在一塊。",
+      "phrases": [
+        { "phrase": "consist of", "meaning": "由...組成", "sentence": "The team consists of five experienced engineers.", "translation": "該團隊由五名經驗豐富的工程師組成。" }
+      ]
+    },
+    {
+      "word": "constant",
+      "pos": "adj./n.",
+      "kk": "/ˈkɑnstənt/",
+      "definition": "持續不斷的，恆定的；常數",
+      "derivatives": [
+        { "pos": "adv.", "word": "constantly", "meaning": "不斷地" }
+      ],
+      "root": "con- (加強) + stant (站立)。屹立不搖堅定不變。",
+      "phrases": [
+        { "phrase": "constant noise", "meaning": "持續不斷的噪音", "sentence": "The constant noise from the street kept me awake.", "translation": "街上持續不斷的噪音讓我睡不著。" }
+      ]
+    },
+    {
+      "word": "construct",
+      "pos": "v.",
+      "kk": "/kənˈstrʌkt/",
+      "definition": "建造，修建",
+      "derivatives": [
+        { "pos": "n.", "word": "construction", "meaning": "建造，施工" },
+        { "pos": "adj.", "word": "constructive", "meaning": "建設性的" }
+      ],
+      "root": "con- (共同) + struct (堆疊、建築)。堆砌構造物。",
+      "phrases": [
+        { "phrase": "under construction", "meaning": "施工中", "sentence": "The new highway is currently under construction.", "translation": "這條新公路目前正在施工中。" }
+      ]
+    },
+    {
+      "word": "consult",
+      "pos": "v.",
+      "kk": "/kənˈsʌlt/",
+      "definition": "諮詢，請教，查閱",
+      "derivatives": [
+        { "pos": "n.", "word": "consultant", "meaning": "顧問" },
+        { "pos": "n.", "word": "consultation", "meaning": "諮詢會" }
+      ],
+      "root": "con- (共同) + sult/sal (跳、招集)。召集專家會商討論。",
+      "phrases": [
+        { "phrase": "consult a doctor", "meaning": "看醫生，諮詢醫師", "sentence": "You should consult a doctor if the fever persists.", "translation": "如果持續發燒，你應該去看醫生。" }
+      ]
+    },
+    {
+      "word": "consume",
+      "pos": "v.",
+      "kk": "/kənˈsum/",
+      "definition": "消耗，消費，吃喝",
+      "derivatives": [
+        { "pos": "n.", "word": "consumer", "meaning": "消費者" },
+        { "pos": "n.", "word": "consumption", "meaning": "消耗量，消費" }
+      ],
+      "root": "con- (完全) + sume (拿取、吃下)。吃光耗盡。",
+      "phrases": [
+        { "phrase": "time-consuming", "meaning": "耗時的", "sentence": "Data entry is a tedious and time-consuming process.", "translation": "資料輸入是一個繁瑣且耗時的過程。" }
+      ]
+    },
+    {
+      "word": "contact",
+      "pos": "n./v.",
+      "kk": "/ˈkɑntækt/",
+      "definition": "接觸，聯繫；與...聯繫",
+      "derivatives": [],
+      "root": "con- (共同) + tact (觸碰)。互相接觸連結。",
+      "phrases": [
+        { "phrase": "keep in contact with", "meaning": "與...保持聯繫", "sentence": "I still keep in contact with my high school friends.", "translation": "我仍然與我的高中朋友保持聯繫。" }
+      ]
+    },
+    {
+      "word": "contain",
+      "pos": "v.",
+      "kk": "/kənˈten/",
+      "definition": "包含，容納，控制(情緒)",
+      "derivatives": [
+        { "pos": "n.", "word": "container", "meaning": "容器，貨櫃" }
+      ],
+      "root": "con- (共同) + tain (握住、保持)。包容在內。",
+      "phrases": [
+        { "phrase": "contain information", "meaning": "包含資訊", "sentence": "This document contains confidential information.", "translation": "這份文件包含機密資訊。" }
+      ]
+    },
+    {
+      "word": "content",
+      "pos": "n./adj.",
+      "kk": "/ˈkɑntɛnt/",
+      "definition": "內容，目錄；滿足的",
+      "derivatives": [
+        { "pos": "n.", "word": "contentment", "meaning": "滿足" }
+      ],
+      "root": "與 contain (包含) 同源。包含在其中的事物。",
+      "phrases": [
+        { "phrase": "table of contents", "meaning": "目錄", "sentence": "Check the table of contents to find the chapter.", "translation": "查看目錄以找到該章節。" }
+      ]
+    },
+    {
+      "word": "context",
+      "pos": "n.",
+      "kk": "/ˈkɑntɛkst/",
+      "definition": "上下文，背景脈絡",
+      "derivatives": [],
+      "root": "con- (共同) + text (編織)。編織交錯的前後文關係。",
+      "phrases": [
+        { "phrase": "in this context", "meaning": "在這種語境/情況下", "sentence": "The word has a specialized meaning in this context.", "translation": "這個詞在這種語境下有特殊含義。" }
+      ]
+    },
+    {
+      "word": "continue",
+      "pos": "v.",
+      "kk": "/kənˈtɪnju/",
+      "definition": "繼續，持續",
+      "derivatives": [
+        { "pos": "adj.", "word": "continuous", "meaning": "連續不斷的" },
+        { "pos": "adj.", "word": "continual", "meaning": "頻頻發生的" }
+      ],
+      "root": "con- (共同) + tinu/tain (維持)。連貫延伸下去。",
+      "phrases": [
+        { "phrase": "continue to do", "meaning": "繼續做...", "sentence": "Prices will continue to rise throughout the year.", "translation": "整年價格將會繼續上漲。" }
+      ]
+    },
+    {
+      "word": "contract",
+      "pos": "n./v.",
+      "kk": "/ˈkɑntrækt/",
+      "definition": "合約，契約；收縮，感染",
+      "derivatives": [],
+      "root": "con- (共同) + tract (拉)。將雙方拉在一起簽訂協議。",
+      "phrases": [
+        { "phrase": "sign a contract", "meaning": "簽訂合約", "sentence": "Read carefully before you sign any contract.", "translation": "在簽署任何合約之前請仔細閱讀。" }
+      ]
+    },
+    {
+      "word": "contrast",
+      "pos": "n./v.",
+      "kk": "/ˈkɑntræst/",
+      "definition": "對比，對照",
+      "derivatives": [],
+      "root": "contra- (相反) + st (站立)。相對立而顯現出的差異。",
+      "phrases": [
+        { "phrase": "in contrast to", "meaning": "與...成對比", "sentence": "In contrast to his sister, he is very quiet.", "translation": "與他姐姐相比，他非常安靜。" }
+      ]
+    },
+    {
+      "word": "contribute",
+      "pos": "v.",
+      "kk": "/kənˈtrɪbjut/",
+      "definition": "貢獻，捐助，促成",
+      "derivatives": [
+        { "pos": "n.", "word": "contribution", "meaning": "貢獻，捐款" }
+      ],
+      "root": "con- (共同) + tribute (給予、賦稅)。大眾一同出力交納。",
+      "phrases": [
+        { "phrase": "contribute to", "meaning": "促成...，捐助...", "sentence": "Lack of sleep can contribute to health problems.", "translation": "缺乏睡眠可能會引發健康問題。" }
+      ]
+    },
+    {
+      "word": "control",
+      "pos": "n./v.",
+      "kk": "/kənˈtrol/",
+      "definition": "控制，掌控",
+      "derivatives": [],
+      "root": "contra- (相反) + rotulus (小輪、捲軸)。對照帳冊進行管控。",
+      "phrases": [
+        { "phrase": "out of control", "meaning": "失去控制", "sentence": "The situation went completely out of control.", "translation": "局勢完全失去了控制。" }
+      ]
+    },
+    {
+      "word": "convenient",
+      "pos": "adj.",
+      "kk": "/kənˈvinjənt/",
+      "definition": "方便的，便利的",
+      "derivatives": [
+        { "pos": "n.", "word": "convenience", "meaning": "便利，方便" }
+      ],
+      "root": "con- (共同) + ven (來) + -ient。事物順手適時來到身邊。",
+      "phrases": [
+        { "phrase": "convenience store", "meaning": "便利商店", "sentence": "There is a 24-hour convenience store around the corner.", "translation": "街角有一家24小時便利商店。" }
+      ]
+    },
+    {
+      "word": "convince",
+      "pos": "v.",
+      "kk": "/kənˈvɪns/",
+      "definition": "使信服，說服",
+      "derivatives": [
+        { "pos": "adj.", "word": "convincing", "meaning": "有說服力的" },
+        { "pos": "adj.", "word": "convinced", "meaning": "確信的" }
+      ],
+      "root": "con- (完全) + vinc/vict (戰勝)。在理智上戰勝對方使其服氣。",
+      "phrases": [
+        { "phrase": "convince someone of something", "meaning": "使某人確信某事", "sentence": "She managed to convince him of her innocence.", "translation": "她設法讓他相信了她的清白。" }
+      ]
+    },
+    {
+      "word": "cooperate",
+      "pos": "v.",
+      "kk": "/koˈɑpəˌret/",
+      "definition": "合作，配合",
+      "derivatives": [
+        { "pos": "n.", "word": "cooperation", "meaning": "合作" },
+        { "pos": "adj.", "word": "cooperative", "meaning": "合作的" }
+      ],
+      "root": "co- (共同) + operate (工作、操作)。分工合作。",
+      "phrases": [
+        { "phrase": "cooperate with", "meaning": "與...合作", "sentence": "We need to cooperate with other companies on this project.", "translation": "我們需要在此專案上與其他公司合作。" }
+      ]
+    },
+    {
+      "word": "cope",
+      "pos": "v.",
+      "kk": "/kop/",
+      "definition": "應付，對付",
+      "derivatives": [],
+      "root": "源自古法語 couper (打擊、對抗)。",
+      "phrases": [
+        { "phrase": "cope with", "meaning": "妥善處理/應付...", "sentence": "He knows how to cope with stress effectively.", "translation": "他知道如何有效地應對壓力。" }
+      ]
+    },
+    {
+      "word": "courage",
+      "pos": "n.",
+      "kk": "/ˈkɝɪdʒ/",
+      "definition": "勇氣",
+      "derivatives": [
+        { "pos": "adj.", "word": "courageous", "meaning": "勇敢的" },
+        { "pos": "v.", "word": "encourage", "meaning": "鼓勵" }
+      ],
+      "root": "源自拉丁語 cor (心臟)。代表內心強大勇敢。",
+      "phrases": [
+        { "phrase": "take courage", "meaning": "鼓起勇氣", "sentence": "It takes courage to speak up in front of a crowd.", "translation": "在大眾面前發言需要勇氣。" }
+      ]
+    },
+    {
+      "word": "create",
+      "pos": "v.",
+      "kk": "/kriˈet/",
+      "definition": "創造，創作，引起",
+      "derivatives": [
+        { "pos": "n.", "word": "creation", "meaning": "創造，作品" },
+        { "pos": "adj.", "word": "creative", "meaning": "有創意的" },
+        { "pos": "n.", "word": "creativity", "meaning": "創造力" }
+      ],
+      "root": "字根 cre/cres (生長、成長)。產出新事物。",
+      "phrases": [
+        { "phrase": "create an opportunity", "meaning": "創造機會", "sentence": "Innovation helps create new job opportunities.", "translation": "創新有助於創造新的工作機會。" }
+      ]
+    },
+    {
+      "word": "creature",
+      "pos": "n.",
+      "kk": "/ˈkritʃɚ/",
+      "definition": "生物，造物",
+      "derivatives": [],
+      "root": "create (創造) + -ure。被創造出來的生命體。",
+      "phrases": [
+        { "phrase": "living creature", "meaning": "生物，活物", "sentence": "Respect all living creatures on Earth.", "translation": "尊重地球上的所有生物。" }
+      ]
+    },
+    {
+      "word": "credit",
+      "pos": "n./v.",
+      "kk": "/ˈkrɛdɪt/",
+      "definition": "信用，學分，讚譽；歸功於",
+      "derivatives": [
+        { "pos": "adj.", "word": "credible", "meaning": "可信的" }
+      ],
+      "root": "字根 cred- (信任、相信)。得到信任或賒帳許可。",
+      "phrases": [
+        { "phrase": "credit card", "meaning": "信用卡", "sentence": "Can I pay by credit card?", "translation": "我可以使用信用卡付款嗎？" }
+      ]
+    },
+    {
+      "word": "crisis",
+      "pos": "n.",
+      "kk": "/ˈkraɪsɪs/",
+      "definition": "危機，緊要關頭",
+      "derivatives": [],
+      "root": "源自希臘語 krisis (轉折點、判斷)。關乎生死存亡的關鍵時刻。",
+      "phrases": [
+        { "phrase": "financial crisis", "meaning": "金融危機", "sentence": "The government took measures to deal with the financial crisis.", "translation": "政府採取措施應對金融危機。" }
+      ]
+    },
+    {
+      "word": "critic",
+      "pos": "n.",
+      "kk": "/ˈkrɪtɪk/",
+      "definition": "評論家，批評者",
+      "derivatives": [
+        { "pos": "v.", "word": "criticize", "meaning": "批評" },
+        { "pos": "n.", "word": "criticism", "meaning": "批判，指責" },
+        { "pos": "adj.", "word": "critical", "meaning": "批判性的，關鍵的" }
+      ],
+      "root": "字根 crit- (審判、挑剔、評判)。進行審視的人。",
+      "phrases": [
+        { "phrase": "film critic", "meaning": "影評人", "sentence": "The movie received high praise from film critics.", "translation": "這部電影獲得了影評人的高度讚賞。" }
+      ]
+    },
+    {
+      "word": "crucial",
+      "pos": "adj.",
+      "kk": "/ˈkruʃəl/",
+      "definition": "關鍵性的，至關重要的",
+      "derivatives": [],
+      "root": "字根 cruc- (十字路口)。站立在攸關方向抉擇的交叉點。",
+      "phrases": [
+        { "phrase": "play a crucial role", "meaning": "扮演關鍵角色", "sentence": "Education plays a crucial role in society.", "translation": "教育在社會中扮演著至關重要的角色。" }
+      ]
+    },
+    {
+      "word": "culture",
+      "pos": "n.",
+      "kk": "/ˈkʌltʃɚ/",
+      "definition": "文化，教養",
+      "derivatives": [
+        { "pos": "adj.", "word": "cultural", "meaning": "文化的" }
+      ],
+      "root": "字根 cult- (耕作、培育)。心靈深處的培育與薰陶。",
+      "phrases": [
+        { "phrase": "pop culture", "meaning": "流行文化", "sentence": "Anime is a significant part of Japanese pop culture.", "translation": "動漫是日本流行文化的重要組成部分。" }
+      ]
+    },
+    {
+      "word": "cure",
+      "pos": "v./n.",
+      "kk": "/kjʊr/",
+      "definition": "治癒，治療方法",
+      "derivatives": [
+        { "pos": "adj.", "word": "curable", "meaning": "可治癒的" }
+      ],
+      "root": "字根 cur- (關心、照料)。細心照顧使疾病復原。",
+      "phrases": [
+        { "phrase": "cure for disease", "meaning": "疾病的治療法", "sentence": "Scientists are working hard to find a cure for cancer.", "translation": "科學家們正在努力尋找癌症的治療方法。" }
+      ]
+    },
+    {
+      "word": "curious",
+      "pos": "adj.",
+      "kk": "/ˈkjʊrɪəs/",
+      "definition": "好奇的，奇特的",
+      "derivatives": [
+        { "pos": "n.", "word": "curiosity", "meaning": "好奇心" }
+      ],
+      "root": "字根 cur- (關心、在乎) + -ous。極度在乎想一探究竟。",
+      "phrases": [
+        { "phrase": "be curious about", "meaning": "對...感到好奇", "sentence": "Children are naturally curious about the world around them.", "translation": "孩子們天生對周圍的世界充滿好奇。" }
+      ]
+    },
+    {
+      "word": "current",
+      "pos": "adj./n.",
+      "kk": "/ˈkɝənt/",
+      "definition": "當前的，現行的；水流，氣流，電流",
+      "derivatives": [
+        { "pos": "adv.", "word": "currently", "meaning": "目前" }
+      ],
+      "root": "字根 cur/curr (流動、跑)。正向前流動推進中的時間或水流。",
+      "phrases": [
+        { "phrase": "current situation", "meaning": "現況", "sentence": "What is your assessment of the current situation?", "translation": "你對現況的評估是什麼？" }
+      ]
+    },
+    {
+      "word": "custom",
+      "pos": "n.",
+      "kk": "/ˈkʌstəm/",
+      "definition": "習俗，慣例，海關(複數)",
+      "derivatives": [
+        { "pos": "adj.", "word": "customary", "meaning": "習慣上的" },
+        { "pos": "n.", "word": "customer", "meaning": "顧客" }
+      ],
+      "root": "源自拉丁語 consuetudo (習慣、常規)。",
+      "phrases": [
+        { "phrase": "local custom", "meaning": "地方習俗", "sentence": "When traveling, you should respect local customs.", "translation": "旅遊時，你應該尊重當地的習俗。" }
+      ]
+    },
+    {
+      "word": "damage",
+      "pos": "n./v.",
+      "kk": "/ˈdæmɪdʒ/",
+      "definition": "損害，破壞；損壞",
+      "derivatives": [],
+      "root": "字根 dam- (損失、懲罰) + -age。",
+      "phrases": [
+        { "phrase": "cause damage to", "meaning": "對...造成損害", "sentence": "The typhoon caused severe damage to the city.", "translation": "颱風對這座城市造成了嚴重的損害。" }
+      ]
+    },
+    {
+      "word": "debate",
+      "pos": "n./v.",
+      "kk": "/dɪˈbet/",
+      "definition": "辯論，討論",
+      "derivatives": [],
+      "root": "de- (向下、徹底) + bat (打擊)。用言語互相論辯攻防。",
+      "phrases": [
+        { "phrase": "debate on / over", "meaning": "關於...爭論", "sentence": "There was a fierce debate over the new policy.", "translation": "關於新政策引發了一場激烈的辯論。" }
+      ]
+    },
+    {
+      "word": "debt",
+      "pos": "n.",
+      "kk": "/dɛt/",
+      "definition": "債務，欠債",
+      "derivatives": [
+        { "pos": "n.", "word": "debtor", "meaning": "債務人" }
+      ],
+      "root": "de- (離) + habere (持有)。欠別人的金錢。",
+      "phrases": [
+        { "phrase": "in debt", "meaning": "負債", "sentence": "He accumulated a lot of money and got heavily in debt.", "translation": "他積累了許多開銷並深陷重負債。" }
+      ]
+    },
+    {
+      "word": "decade",
+      "pos": "n.",
+      "kk": "/ˈdɛked/",
+      "definition": "十年，十年期",
+      "derivatives": [],
+      "root": "希臘語 deka (十)。",
+      "phrases": [
+        { "phrase": "for decades", "meaning": "數十年之久", "sentence": "The two countries have been peaceful neighbors for decades.", "translation": "這兩個國家數十年來一直和平相處。" }
+      ]
+    },
+    {
+      "word": "decline",
+      "pos": "v./n.",
+      "kk": "/dɪˈklaɪn/",
+      "definition": "下降，衰退，婉拒",
+      "derivatives": [],
+      "root": "de- (向下) + clin (傾斜)。向下傾斜衰落。",
+      "phrases": [
+        { "phrase": "decline an offer", "meaning": "婉拒邀約/提議", "sentence": "Politely decline an offer if you are busy.", "translation": "如果你很忙，請禮貌地婉拒提議。" }
+      ]
+    },
+    {
+      "word": "decrease",
+      "pos": "v./n.",
+      "kk": "/dɪˈkris/",
+      "definition": "減少，降低",
+      "derivatives": [],
+      "root": "de- (向下) + crease/cres (生長)。成長停止轉而向下微縮。",
+      "phrases": [
+        { "phrase": "decrease in sales", "meaning": "銷售額下滑", "sentence": "There was a noticeable decrease in sales last month.", "translation": "上個月銷售額出現了明顯的下滑。" }
+      ]
+    },
+    {
+      "word": "dedicate",
+      "pos": "v.",
+      "kk": "/ˈdɛdəˌket/",
+      "definition": "奉獻，獻出",
+      "derivatives": [
+        { "pos": "adj.", "word": "dedicated", "meaning": "全心全意的，奉獻的" },
+        { "pos": "n.", "word": "dedication", "meaning": "奉獻，獻詞" }
+      ],
+      "root": "de- (加強) + dic (宣示、聲明)。宣告將生命奉獻於某事。",
+      "phrases": [
+        { "phrase": "dedicate oneself to", "meaning": "致力於...", "sentence": "She dedicated herself to helping poor children.", "translation": "她致力於幫助貧困兒童。" }
+      ]
+    },
+    {
+      "word": "defeat",
+      "pos": "v./n.",
+      "kk": "/dɪˈfit/",
+      "definition": "擊敗，戰勝；失敗",
+      "derivatives": [],
+      "root": "de- (撤銷) + feat/fact (做)。使對方的努力全數付諸流水。",
+      "phrases": [
+        { "phrase": "defeat the enemy", "meaning": "擊敗敵人", "sentence": "The army defeated the enemy in the battle.", "translation": "軍隊在戰役中擊敗了敵人。" }
+      ]
+    },
+    {
+      "word": "defend",
+      "pos": "v.",
+      "kk": "/dɪˈfɛnd/",
+      "definition": "防禦，辯護",
+      "derivatives": [
+        { "pos": "n.", "word": "defense", "meaning": "防禦，辯護" },
+        { "pos": "adj.", "word": "defensive", "meaning": "防禦性的" }
+      ],
+      "root": "de- (離) + fend (打擊)。打退前來的攻擊。",
+      "phrases": [
+        { "phrase": "defend oneself against", "meaning": "防衛自身抵禦...", "sentence": "Animals have various ways to defend themselves against predators.", "translation": "動物有各種方法自我防衛以抵禦捕食者。" }
+      ]
+    },
+    {
+      "word": "define",
+      "pos": "v.",
+      "kk": "/dɪˈfaɪn/",
+      "definition": "下定義，界定",
+      "derivatives": [
+        { "pos": "n.", "word": "definition", "meaning": "定義" },
+        { "pos": "adj.", "word": "definite", "meaning": "明確的" }
+      ],
+      "root": "de- (加強) + fin (界限、邊界)。畫出範疇下定義。",
+      "phrases": [
+        { "phrase": "clearly defined", "meaning": "界定明確的", "sentence": "Your responsibilities should be clearly defined.", "translation": "你的職責應該被明確界定。" }
+      ]
+    },
+    {
+      "word": "delay",
+      "pos": "v./n.",
+      "kk": "/dɪˈle/",
+      "definition": "延遲，耽擱",
+      "derivatives": [],
+      "root": "de- (離開) + lay (放置)。擱置在一旁慢點做。",
+      "phrases": [
+        { "phrase": "without delay", "meaning": "毫不延誤", "sentence": "Please send the reply without delay.", "translation": "請毫不延誤地回覆。" }
+      ]
+    },
+    {
+      "word": "delicate",
+      "pos": "adj.",
+      "kk": "/ˈdɛləkət/",
+      "definition": "精細的，脆弱的，微妙的",
+      "derivatives": [],
+      "root": "de- (離) + lic (誘惑)。誘人且需要小心對待的精密物品。",
+      "phrases": [
+        { "phrase": "delicate skin", "meaning": "嬌嫩的肌膚", "sentence": "This soap is gentle on delicate skin.", "translation": "這款香皂溫和不刺激嬌嫩肌膚。" }
+      ]
+    },
+    {
+      "word": "delight",
+      "pos": "n./v.",
+      "kk": "/dɪˈlaɪt/",
+      "definition": "欣喜，快樂；使高興",
+      "derivatives": [
+        { "pos": "adj.", "word": "delighted", "meaning": "感到欣喜的" },
+        { "pos": "adj.", "word": "delightful", "meaning": "令人愉快的" }
+      ],
+      "root": "de- (加強) + light/licere (吸引、誘惑)。深感歡欣鼓舞。",
+      "phrases": [
+        { "phrase": "take delight in", "meaning": "以...為樂", "sentence": "She takes great delight in gardening.", "translation": "她以園藝為樂。" }
+      ]
+    },
+    {
+      "word": "deliver",
+      "pos": "v.",
+      "kk": "/dɪˈlɪvɚ/",
+      "definition": "遞送，發表(演講)，接生",
+      "derivatives": [
+        { "pos": "n.", "word": "delivery", "meaning": "運送，快遞" }
+      ],
+      "root": "de- (離) + liber (自由)。解放開來交到收件人手上。",
+      "phrases": [
+        { "phrase": "deliver a speech", "meaning": "發表演講", "sentence": "The principal will deliver a speech at the ceremony.", "translation": "校長將在典禮上發表演講。" }
+      ]
+    },
+    {
+      "word": "demand",
+      "pos": "v./n.",
+      "kk": "/dɪˈmænd/",
+      "definition": "要求，需求",
+      "derivatives": [
+        { "pos": "adj.", "word": "demanding", "meaning": "嚴苛的，要求高的" }
+      ],
+      "root": "de- (強烈) + mand (託付、吩咐)。強烈命令討要。",
+      "phrases": [
+        { "phrase": "in high demand", "meaning": "需求量很大", "sentence": "Skilled software engineers are in high demand.", "translation": "有經驗的軟體工程師需求量很大。" }
+      ]
+    },
+    {
+      "word": "demonstrate",
+      "pos": "v.",
+      "kk": "/ˈdɛmənˌstret/",
+      "definition": "示範，證明，示威遊行",
+      "derivatives": [
+        { "pos": "n.", "word": "demonstration", "meaning": "示範，示威活動" }
+      ],
+      "root": "de- (強烈) + monst (展示、顯示)。公開展示指明。",
+      "phrases": [
+        { "phrase": "demonstrate how to", "meaning": "示範如何...", "sentence": "The chef demonstrated how to make authentic pasta.", "translation": "大廚示範了如何製作道地的義大利麵。" }
+      ]
+    },
+    {
+      "word": "deny",
+      "pos": "v.",
+      "kk": "/dɪˈnaɪ/",
+      "definition": "否認，拒絕給予",
+      "derivatives": [
+        { "pos": "n.", "word": "denial", "meaning": "否認，拒絕" }
+      ],
+      "root": "de- (完全) + ne (不)。徹底拒絕否認。",
+      "phrases": [
+        { "phrase": "there is no denying that", "meaning": "不可否認的是...", "sentence": "There is no denying that technology changes our lives.", "translation": "不可否認的是，科技改變了我們的生活。" }
+      ]
+    },
+    {
+      "word": "depart",
+      "pos": "v.",
+      "kk": "/dɪˈpɑrt/",
+      "definition": "出發，離開",
+      "derivatives": [
+        { "pos": "n.", "word": "departure", "meaning": "離開，出發" },
+        { "pos": "n.", "word": "department", "meaning": "部門，系所" }
+      ],
+      "root": "de- (離開) + part (部分、分開)。分道揚鑣離開。",
+      "phrases": [
+        { "phrase": "depart for", "meaning": "啟程前往...", "sentence": "The train is scheduled to depart for Tokyo at 9 AM.", "translation": "列車預計於上午9點啟程前往東京。" }
+      ]
+    },
+    {
+      "word": "depend",
+      "pos": "v.",
+      "kk": "/dɪˈpɛnd/",
+      "definition": "依賴，取決於",
+      "derivatives": [
+        { "pos": "adj.", "word": "dependent", "meaning": "依賴的" },
+        { "pos": "adj.", "word": "independent", "meaning": "獨立的" },
+        { "pos": "n.", "word": "dependence", "meaning": "依靠" }
+      ],
+      "root": "de- (向下) + pend (懸掛)。懸掛附著在下方依附他人。",
+      "phrases": [
+        { "phrase": "depend on", "meaning": "依靠，取決於", "sentence": "Our success depends on effective teamwork.", "translation": "我們的成功取決於有效的團隊合作。" }
+      ]
+    },
+    {
+      "word": "deposit",
+      "pos": "n./v.",
+      "kk": "/dɪˈpɑzət/",
+      "definition": "訂金，押金，存款；寄存，沉積",
+      "derivatives": [],
+      "root": "de- (向下) + posit (放置)。把錢留下來下存。",
+      "phrases": [
+        { "phrase": "make a deposit", "meaning": "存入一筆錢，付訂金", "sentence": "You need to make a deposit to reserve the room.", "translation": "你需要支付訂金來預訂房間。" }
+      ]
+    },
+    {
+      "word": "depress",
+      "pos": "v.",
+      "kk": "/dɪˈprɛs/",
+      "definition": "使沮喪，使不景氣",
+      "derivatives": [
+        { "pos": "adj.", "word": "depressed", "meaning": "感到沮喪的" },
+        { "pos": "adj.", "word": "depressing", "meaning": "令人沮喪的" },
+        { "pos": "n.", "word": "depression", "meaning": "憂鬱症，蕭條" }
+      ],
+      "root": "de- (向下) + press (按壓)。心理重重往下按壓。",
+      "phrases": [
+        { "phrase": "economic depression", "meaning": "經濟大蕭條", "sentence": "The country suffered an economic depression in the 1930s.", "translation": "該國在1930年代經歷了經濟大蕭條。" }
+      ]
+    },
+    {
+      "word": "derive",
+      "pos": "v.",
+      "kk": "/dɪˈraɪv/",
+      "definition": "衍生，起源於，取得",
+      "derivatives": [
+        { "pos": "n.", "word": "derivative", "meaning": "衍生詞，衍生物" }
+      ],
+      "root": "de- (離) + riv (河流)。從源頭引水分流。",
+      "phrases": [
+        { "phrase": "derive pleasure from", "meaning": "從...獲得樂趣", "sentence": "Many people derive pleasure from listening to music.", "translation": "許多人從聆聽音樂中獲得樂趣。" }
+      ]
+    },
+    {
+      "word": "describe",
+      "pos": "v.",
+      "kk": "/dɪˈskraɪb/",
+      "definition": "描述，形容",
+      "derivatives": [
+        { "pos": "n.", "word": "description", "meaning": "描述，描繪" },
+        { "pos": "adj.", "word": "descriptive", "meaning": "描寫的" }
+      ],
+      "root": "de- (向下) + scribe (書寫)。一字一句寫下。",
+      "phrases": [
+        { "phrase": "describe A as B", "meaning": "將A形容為B", "sentence": "Friends describe her as kind and generous.", "translation": "朋友將她形容為善良且大方。" }
+      ]
+    },
+    {
+      "word": "deserve",
+      "pos": "v.",
+      "kk": "/dɪˈzɝv/",
+      "definition": "值得，應得",
+      "derivatives": [],
+      "root": "de- (完全) + serve (服務)。完全盡力服務因而理應獲得獎賞。",
+      "phrases": [
+        { "phrase": "deserve praise", "meaning": "值得稱讚", "sentence": "Their hard work deserves high praise.", "translation": "他們的努力值得高度稱讚。" }
+      ]
+    },
+    {
+      "word": "design",
+      "pos": "v./n.",
+      "kk": "/dɪˈzaɪn/",
+      "definition": "設計，圖案",
+      "derivatives": [
+        { "pos": "n.", "word": "designer", "meaning": "設計師" }
+      ],
+      "root": "de- (向下) + sign (記號、標誌)。劃下記號進行設計。",
+      "phrases": [
+        { "phrase": "interior design", "meaning": "室內設計", "sentence": "She works in an interior design company.", "translation": "她在一家室內設計公司工作。" }
+      ]
+    },
+    {
+      "word": "desire",
+      "pos": "n./v.",
+      "kk": "/dɪˈzaɪr/",
+      "definition": "渴望，慾望",
+      "derivatives": [
+        { "pos": "adj.", "word": "desirable", "meaning": "值得渴望的，理想的" }
+      ],
+      "root": "de- (離) + sider (星辰)。渴望仰望遠方星辰。",
+      "phrases": [
+        { "phrase": "have a desire to", "meaning": "渴望做...", "sentence": "He has a strong desire to learn new languages.", "translation": "他有強烈的渴望想學習新語言。" }
+      ]
+    },
+    {
+      "word": "desperate",
+      "pos": "adj.",
+      "kk": "/ˈdɛspərət/",
+      "definition": "絕望的，不顧一切的，急切的",
+      "derivatives": [
+        { "pos": "adv.", "word": "desperately", "meaning": "拼命地，絕望地" },
+        { "pos": "n.", "word": "despair", "meaning": "絕望" }
+      ],
+      "root": "de- (完全沒有) + sper (希望)。希望全無的狀況。",
+      "phrases": [
+        { "phrase": "be desperate for", "meaning": "急切渴望獲得...", "sentence": "The thirsty hikers were desperate for water.", "translation": "口渴的健行者急切渴望得到水。" }
+      ]
+    },
+    {
+      "word": "despite",
+      "pos": "prep.",
+      "kk": "/dɪˈspaɪt/",
+      "definition": "儘管，不顧",
+      "derivatives": [],
+      "root": "源自拉丁語 despectus (輕視、不看)。忽略眼前的障礙前進。",
+      "phrases": [
+        { "phrase": "despite the fact that", "meaning": "儘管事實是...", "sentence": "He arrived on time despite the heavy traffic.", "translation": "儘管交通擁堵，他還是準時到達了。" }
+      ]
+    },
+    {
+      "word": "destroy",
+      "pos": "v.",
+      "kk": "/dɪˈstrɔɪ/",
+      "definition": "毀壞，摧毀",
+      "derivatives": [
+        { "pos": "n.", "word": "destruction", "meaning": "毀滅，破壞" },
+        { "pos": "adj.", "word": "destructive", "meaning": "破壞性的" }
+      ],
+      "root": "de- (向下、拆卸) + struct (建造)。將建好的結構徹底砸毀。",
+      "phrases": [
+        { "phrase": "destroy completely", "meaning": "徹底摧毀", "sentence": "The fire destroyed the building completely.", "translation": "大火徹底摧毀了那棟建築。" }
+      ]
+    },
+    {
+      "word": "detail",
+      "pos": "n./v.",
+      "kk": "/dɪˈtel/",
+      "definition": "細節，詳情；詳細說明",
+      "derivatives": [
+        { "pos": "adj.", "word": "detailed", "meaning": "詳細的" }
+      ],
+      "root": "de- (切下) + tail (切割)。切成一小塊一小塊觀察。",
+      "phrases": [
+        { "phrase": "in detail", "meaning": "詳細地", "sentence": "Please explain the plan to us in detail.", "translation": "請向我們詳細解釋這個計畫。" }
+      ]
+    },
+    {
+      "word": "detect",
+      "pos": "v.",
+      "kk": "/dɪˈtɛkt/",
+      "definition": "察覺，偵測",
+      "derivatives": [
+        { "pos": "n.", "word": "detective", "meaning": "偵探" },
+        { "pos": "n.", "word": "detector", "meaning": "偵測器" }
+      ],
+      "root": "de- (除去) + tect (覆蓋)。揭開蓋子發現秘密。",
+      "phrases": [
+        { "phrase": "detect early signs of", "meaning": "察覺...的早期徵兆", "sentence": "X-rays can help detect early signs of disease.", "translation": "X光可以幫助察覺疾病的早期徵兆。" }
+      ]
+    },
+    {
+      "word": "determine",
+      "pos": "v.",
+      "kk": "/dɪˈtɝmɪn/",
+      "definition": "決定，下定決心",
+      "derivatives": [
+        { "pos": "adj.", "word": "determined", "meaning": "下定決心的" },
+        { "pos": "n.", "word": "determination", "meaning": "決心" }
+      ],
+      "root": "de- (完全) + termin (邊界、終點)。下最後終點決心。",
+      "phrases": [
+        { "phrase": "be determined to do", "meaning": "下定決心做...", "sentence": "She is determined to pass the college entrance exam.", "translation": "她下定決心要通過大學入學考試。" }
+      ]
+    },
+    {
+      "word": "develop",
+      "pos": "v.",
+      "kk": "/dɪˈvɛləp/",
+      "definition": "發展，開發，培養，沖洗(相片)",
+      "derivatives": [
+        { "pos": "n.", "word": "development", "meaning": "發展，開發" }
+      ],
+      "root": "de- (拆開) + velop (包覆)。拆開包裝逐步展開。",
+      "phrases": [
+        { "phrase": "develop a habit", "meaning": "養成習慣", "sentence": "It is good to develop a habit of reading every day.", "translation": "養成每天閱讀的習慣很好。" }
+      ]
+    },
+    {
+      "word": "device",
+      "pos": "n.",
+      "kk": "/dɪˈvaɪs/",
+      "definition": "裝置，設備，器具",
+      "derivatives": [
+        { "pos": "v.", "word": "devise", "meaning": "設計，想出" }
+      ],
+      "root": "與 divide (分開、劃分) 同源。經過構想切割設計出的器具。",
+      "phrases": [
+        { "phrase": "electronic device", "meaning": "電子裝置", "sentence": "Turn off all electronic devices during takeoff.", "translation": "起飛期間請關閉所有電子裝置。" }
+      ]
+    },
+    {
+      "word": "devote",
+      "pos": "v.",
+      "kk": "/dɪˈvot/",
+      "definition": "奉獻，致力於",
+      "derivatives": [
+        { "pos": "adj.", "word": "devoted", "meaning": "摯愛的，全心全意的" },
+        { "pos": "n.", "word": "devotion", "meaning": "奉獻，虔誠" }
+      ],
+      "root": "de- (完全) + vote (立誓)。發誓奉獻全心全意。",
+      "phrases": [
+        { "phrase": "devote time to", "meaning": "花時間致力於...", "sentence": "He devotes a lot of time to community service.", "translation": "他投入大量時間致力於社區服務。" }
+      ]
+    },
+    {
+      "word": "differ",
+      "pos": "v.",
+      "kk": "/ˈdɪfɚ/",
+      "definition": "相異，不同",
+      "derivatives": [
+        { "pos": "n.", "word": "difference", "meaning": "差異，不同" },
+        { "pos": "adj.", "word": "different", "meaning": "不同的" }
+      ],
+      "root": "dis- (分開) + fer (攜帶)。帶往不同方向而產生差異。",
+      "phrases": [
+        { "phrase": "differ from", "meaning": "與...不同", "sentence": "My opinion differs slightly from yours.", "translation": "我的意見與你的略有不同。" }
+      ]
+    },
+    {
+      "word": "digital",
+      "pos": "adj.",
+      "kk": "/ˈdɪdʒətəl/",
+      "definition": "數位的，手指的",
+      "derivatives": [],
+      "root": "源自 digit (手指、0-9的數字)。古人伸出手指數數。",
+      "phrases": [
+        { "phrase": "digital camera", "meaning": "數位相機", "sentence": "Digital cameras have largely replaced film cameras.", "translation": "數位相機很大程度上取代了膠卷相機。" }
+      ]
+    },
+    {
+      "word": "dignity",
+      "pos": "n.",
+      "kk": "/ˈdɪɡnəti/",
+      "definition": "尊嚴，高貴",
+      "derivatives": [],
+      "root": "字根 dign (高貴的、有價值的) + -ity。",
+      "phrases": [
+        { "phrase": "human dignity", "meaning": "人類尊嚴", "sentence": "Everyone should be treated with human dignity.", "translation": "每個人都應該享有尊嚴地被對待。" }
+      ]
+    },
+    {
+      "word": "dilemma",
+      "pos": "n.",
+      "kk": "/daɪˈlɛmə/",
+      "definition": "兩難困境",
+      "derivatives": [],
+      "root": "di- (兩個) + lemma (前提、選擇)。兩個選項都難抉擇的困境。",
+      "phrases": [
+        { "phrase": "face a dilemma", "meaning": "面臨兩難抉擇", "sentence": "He faced a dilemma between career and family.", "translation": "他在事業和家庭之間面臨兩難抉擇。" }
+      ]
+    },
+    {
+      "word": "diminish",
+      "pos": "v.",
+      "kk": "/dɪˈmɪnɪʃ/",
+      "definition": "減少，減弱",
+      "derivatives": [],
+      "root": "di- (使) + mini (小) + -ish。使變小降低。",
+      "phrases": [
+        { "phrase": "diminish in value", "meaning": "貶值，價值減少", "sentence": "Cars diminish in value quickly after purchase.", "translation": "汽車購買後會迅速貶值。" }
+      ]
+    },
+    {
+      "word": "disaster",
+      "pos": "n.",
+      "kk": "/dɪˈzæstɚ/",
+      "definition": "災難，大禍",
+      "derivatives": [
+        { "pos": "adj.", "word": "disastrous", "meaning": "災難性的" }
+      ],
+      "root": "dis- (不佳、凶) + aster (星辰)。占星術中凶星凌日的惡兆災難。",
+      "phrases": [
+        { "phrase": "natural disaster", "meaning": "天然災害", "sentence": "Earthquakes and tsunamis are natural disasters.", "translation": "地震和海嘯都是天然災害。" }
+      ]
+    },
+    {
+      "word": "discipline",
+      "pos": "n./v.",
+      "kk": "/ˈdɪsəplɪn/",
+      "definition": "紀律，自律，學科；訓練，懲戒",
+      "derivatives": [
+        { "pos": "adj.", "word": "disciplined", "meaning": "有紀律的" }
+      ],
+      "root": "源自 disciple (門徒、學生)。跟隨老師學習約束紀律。",
+      "phrases": [
+        { "phrase": "self-discipline", "meaning": "自律", "sentence": "Self-discipline is key to achieving long-term goals.", "translation": "自律是達成長期目標的關鍵。" }
+      ]
+    },
+    {
+      "word": "discover",
+      "pos": "v.",
+      "kk": "/dɪˈskʌvɚ/",
+      "definition": "發現，找到",
+      "derivatives": [
+        { "pos": "n.", "word": "discovery", "meaning": "發現" }
+      ],
+      "root": "dis- (除去) + cover (蓋子)。掀開蓋子使其重見天日。",
+      "phrases": [
+        { "phrase": "discover a secret", "meaning": "發現秘密", "sentence": "She accidentally discovered his secret.", "translation": "她不小心發現了他的秘密。" }
+      ]
+    },
+    {
+      "word": "discourage",
+      "pos": "v.",
+      "kk": "/dɪˈskɝɪdʒ/",
+      "definition": "使沮喪，阻止，勸阻",
+      "derivatives": [
+        { "pos": "adj.", "word": "discouraged", "meaning": "感到沮喪的" }
+      ],
+      "root": "dis- (剝奪) + courage (勇氣)。使人喪失勇氣。",
+      "phrases": [
+        { "phrase": "discourage someone from", "meaning": "勸阻某人不要做...", "sentence": "Rain discouraged us from going on a picnic.", "translation": "下雨阻止了我們去野餐。" }
+      ]
+    },
+    {
+      "word": "discuss",
+      "pos": "v.",
+      "kk": "/dɪˈskʌs/",
+      "definition": "討論，商討",
+      "derivatives": [
+        { "pos": "n.", "word": "discussion", "meaning": "討論" }
+      ],
+      "root": "dis- (分開) + cuss (敲擊、振動)。把議題粉碎拆解進行檢視。",
+      "phrases": [
+        { "phrase": "discuss a problem", "meaning": "討論問題", "sentence": "We need to gather and discuss the problem together.", "translation": "我們需要聚集在一起討論這個問題。" }
+      ]
+    },
+    {
+      "word": "disease",
+      "pos": "n.",
+      "kk": "/dɪˈziz/",
+      "definition": "疾病",
+      "derivatives": [],
+      "root": "dis- (不、缺乏) + ease (安寧、舒服)。身體不舒服生病了。",
+      "phrases": [
+        { "phrase": "prevent disease", "meaning": "預防疾病", "sentence": "Washing hands frequently helps prevent disease.", "translation": "勤洗手有助於預防疾病。" }
+      ]
+    },
+    {
+      "word": "disguise",
+      "pos": "v./n.",
+      "kk": "/dɪsˈɡaɪz/",
+      "definition": "偽裝，喬裝",
+      "derivatives": [],
+      "root": "dis- (改變) + guise (服裝、外表)。變換外貌掩人耳目。",
+      "phrases": [
+        { "phrase": "a blessing in disguise", "meaning": "塞翁失馬，焉知非福 (化妝的祝福)", "sentence": "Losing that job turned out to be a blessing in disguise.", "translation": "失去那份工作結果證明是塞翁失馬，焉知非福。" }
+      ]
+    },
+    {
+      "word": "dismiss",
+      "pos": "v.",
+      "kk": "/dɪsˈmɪs/",
+      "definition": "解散，解雇，不予理會",
+      "derivatives": [
+        { "pos": "n.", "word": "dismissal", "meaning": "解雇，解散" }
+      ],
+      "root": "dis- (離開) + miss (發送)。打發人離去。",
+      "phrases": [
+        { "phrase": "dismiss a rumor", "meaning": "駁斥謠言", "sentence": "The company dismissed rumors of a layoff.", "translation": "公司駁斥了裁員的謠言。" }
+      ]
+    },
+    {
+      "word": "display",
+      "pos": "v./n.",
+      "kk": "/dɪˈsple/",
+      "definition": "展示，陳列，顯示",
+      "derivatives": [],
+      "root": "dis- (展開) + play/plic (折疊)。展開攤平讓大家看。",
+      "phrases": [
+        { "phrase": "on display", "meaning": "展出中", "sentence": "Famous artworks are currently on display at the museum.", "translation": "著名藝術品目前正在博物館展出。" }
+      ]
+    },
+    {
+      "word": "distant",
+      "pos": "adj.",
+      "kk": "/ˈdɪstənt/",
+      "definition": "遙遠的，冷漠的",
+      "derivatives": [
+        { "pos": "n.", "word": "distance", "meaning": "距離" }
+      ],
+      "root": "dis- (分開) + stant (站立)。隔開很遠距離站著。",
+      "phrases": [
+        { "phrase": "in the distant future", "meaning": "在遙遠的未來", "sentence": "Mars colonizing might happen in the distant future.", "translation": "移民火星可能會在遙遠的未來實現。" }
+      ]
+    },
+    {
+      "word": "distinct",
+      "pos": "adj.",
+      "kk": "/dɪˈstɪŋkt/",
+      "definition": "清晰的，有區別的，顯著的",
+      "derivatives": [
+        { "pos": "n.", "word": "distinction", "meaning": "差別，卓越" },
+        { "pos": "adj.", "word": "distinctive", "meaning": "獨特的，有特色的" }
+      ],
+      "root": "dis- (分開) + stinct (刺、標記)。戳上記號做區隔。",
+      "phrases": [
+        { "phrase": "distinct advantage", "meaning": "明顯的優勢", "sentence": "Bilingual applicants have a distinct advantage.", "translation": "雙語求職者具有明顯的優勢。" }
+      ]
+    },
+    {
+      "word": "distribute",
+      "pos": "v.",
+      "kk": "/dɪˈstrɪbjut/",
+      "definition": "分配，分發，散佈",
+      "derivatives": [
+        { "pos": "n.", "word": "distribution", "meaning": "分發，分配" }
+      ],
+      "root": "dis- (分開) + tribute (給予)。向四處發放。",
+      "phrases": [
+        { "phrase": "distribute flyers", "meaning": "發傳單", "sentence": "Volunteers distributed flyers on the street.", "translation": "志工們在街上發放傳單。" }
+      ]
+    },
+    {
+      "word": "district",
+      "pos": "n.",
+      "kk": "/ˈdɪstrɪkt/",
+      "definition": "區域，行政區",
+      "derivatives": [],
+      "root": "dis- (分開) + strict (緊拉、約束)。劃分出管轄權的區域。",
+      "phrases": [
+        { "phrase": "financial district", "meaning": "金融區", "sentence": "The company's headquarter is in the financial district.", "translation": "公司總部位於金融區。" }
+      ]
+    },
+    {
+      "word": "disturb",
+      "pos": "v.",
+      "kk": "/dɪˈstɝb/",
+      "definition": "打擾，打亂，使焦慮",
+      "derivatives": [
+        { "pos": "n.", "word": "disturbance", "meaning": "干擾，騷動" }
+      ],
+      "root": "dis- (完全) + turb (混亂、騷動)。引發混亂打擾。",
+      "phrases": [
+        { "phrase": "do not disturb", "meaning": "請勿打擾", "sentence": "He hung a 'Do Not Disturb' sign on the hotel door.", "translation": "他在飯店門口掛上了「請勿打擾」的牌子。" }
+      ]
+    },
+    {
+      "word": "diverse",
+      "pos": "adj.",
+      "kk": "/daɪˈvɝs/",
+      "definition": "多元的，各式各樣的",
+      "derivatives": [
+        { "pos": "n.", "word": "diversity", "meaning": "多樣性" }
+      ],
+      "root": "di- (分開) + verse/vert (轉向)。朝向不同方向擴展。",
+      "phrases": [
+        { "phrase": "cultural diversity", "meaning": "文化多樣性", "sentence": "The city is known for its rich cultural diversity.", "translation": "這座城市以其豐富的文化多樣性而聞名。" }
+      ]
+    },
+    {
+      "word": "divide",
+      "pos": "v./n.",
+      "kk": "/dɪˈvaɪd/",
+      "definition": "劃分，分割，除以",
+      "derivatives": [
+        { "pos": "n.", "word": "division", "meaning": "部門，分割，除法" }
+      ],
+      "root": "di- (分開) + wid (分開、看)。一切為二進行分類。",
+      "phrases": [
+        { "phrase": "divide A into B", "meaning": "把A分成B", "sentence": "The teacher divided the class into small groups.", "translation": "老師將全班分成了幾個小組。" }
+      ]
+    },
+    {
+      "word": "document",
+      "pos": "n./v.",
+      "kk": "/ˈdɑkjəmənt/",
+      "definition": "文件，公文；記錄",
+      "derivatives": [
+        { "pos": "n.", "word": "documentary", "meaning": "紀錄片" }
+      ],
+      "root": "字根 doc- (教導、證明) + -ment。記錄下來作為證明的公文。",
+      "phrases": [
+        { "phrase": "sign a document", "meaning": "在文件上簽名", "sentence": "Please sign the official document at the bottom.", "translation": "請在官方文件的底部簽名。" }
+      ]
+    },
+    {
+      "word": "domestic",
+      "pos": "adj.",
+      "kk": "/dəˈmɛstɪk/",
+      "definition": "國內的，家庭的，馴養的",
+      "derivatives": [],
+      "root": "源自拉丁語 domus (房屋、家)。屋子裡面的事。",
+      "phrases": [
+        { "phrase": "domestic flight", "meaning": "國內航班", "sentence": "Passengers for domestic flights should arrive one hour early.", "translation": "搭乘國內航班的旅客應提前一小時到達。" }
+      ]
+    },
+    {
+      "word": "dominant",
+      "pos": "adj.",
+      "kk": "/ˈdɑmənənt/",
+      "definition": "主導的，占優勢的",
+      "derivatives": [
+        { "pos": "v.", "word": "dominate", "meaning": "支配，統治" },
+        { "pos": "n.", "word": "domination", "meaning": "統治，控制" }
+      ],
+      "root": "字根 domin (主人、統治) + -ant。",
+      "phrases": [
+        { "phrase": "play a dominant role", "meaning": "扮演主導角色", "sentence": "English plays a dominant role in international trade.", "translation": "英語在國際貿易中扮演著主導角色。" }
+      ]
+    },
+    {
+      "word": "donate",
+      "pos": "v.",
+      "kk": "/ˈdonet/",
+      "definition": "捐贈，捐獻",
+      "derivatives": [
+        { "pos": "n.", "word": "donation", "meaning": "捐款，捐贈物" },
+        { "pos": "n.", "word": "donor", "meaning": "捐贈者" }
+      ],
+      "root": "字根 don/dot (給予)。慷慨贈予。",
+      "phrases": [
+        { "phrase": "donate blood", "meaning": "捐血", "sentence": "Many people gathered to donate blood today.", "translation": "今天許多人聚集在一起捐血。" }
+      ]
+    },
+    {
+      "word": "dramatic",
+      "pos": "adj.",
+      "kk": "/drəˈmætɪk/",
+      "definition": "戲劇性的，巨大的，引人注目的",
+      "derivatives": [
+        { "pos": "n.", "word": "drama", "meaning": "戲劇" },
+        { "pos": "adv.", "word": "dramatically", "meaning": "顯著地，戲劇性地" }
+      ],
+      "root": "drama (戲劇) + -tic。",
+      "phrases": [
+        { "phrase": "dramatic change", "meaning": "巨大的變化", "sentence": "There has been a dramatic change in the weather.", "translation": "天氣發生了巨大的變化。" }
+      ]
+    },
+    {
+      "word": "drastic",
+      "pos": "adj.",
+      "kk": "/ˈdræstɪk/",
+      "definition": "嚴厲的，猛烈的，激烈的",
+      "derivatives": [
+        { "pos": "adv.", "word": "drastically", "meaning": "大幅度地，徹底地" }
+      ],
+      "root": "源自希臘語 drastikos (有效的、強烈的)。下猛藥強行發揮作用。",
+      "phrases": [
+        { "phrase": "take drastic measures", "meaning": "採取嚴厲/果斷的措施", "sentence": "The government needs to take drastic measures to control inflation.", "translation": "政府需要採取果斷措施來控制通貨膨脹。" }
+      ]
+    },
+    {
+      "word": "durable",
+      "pos": "adj.",
+      "kk": "/ˈdʊrəbəl/",
+      "definition": "耐用的，持久的",
+      "derivatives": [
+        { "pos": "n.", "word": "durability", "meaning": "耐用性" }
+      ],
+      "root": "字根 dur (持續、堅硬) + -able。",
+      "phrases": [
+        { "phrase": "durable material", "meaning": "耐用的材質", "sentence": "Leather is a very durable material.", "translation": "皮革是一種非常耐用的材質。" }
+      ]
+    },
+    {
+      "word": "eager",
+      "pos": "adj.",
+      "kk": "/ˈiɡɚ/",
+      "definition": "熱切的，渴望的",
+      "derivatives": [
+        { "pos": "adv.", "word": "eagerly", "meaning": "急切地" },
+        { "pos": "n.", "word": "eagerness", "meaning": "熱切" }
+      ],
+      "root": "源自古法語 aigre (尖銳的、熱烈的)。非常著急興奮。",
+      "phrases": [
+        { "phrase": "be eager to do", "meaning": "急切想做...", "sentence": "The students are eager to learn something new.", "translation": "學生們急切想學習新事物。" }
+      ]
+    },
+    {
+      "word": "economical",
+      "pos": "adj.",
+      "kk": "/ˌikəˈnɑmɪkəl/",
+      "definition": "節省的，划算的",
+      "derivatives": [
+        { "pos": "n.", "word": "economy", "meaning": "經濟，節約" },
+        { "pos": "adj.", "word": "economic", "meaning": "經濟上的" },
+        { "pos": "adv.", "word": "economically", "meaning": "經濟上地，精打細算地" }
+      ],
+      "root": "eco (房屋、家庭) + nomy (管理)。管理家計精打細算。",
+      "phrases": [
+        { "phrase": "economical car", "meaning": "省油/划算的小車", "sentence": "Buying a hybrid car is an economical choice.", "translation": "購買油電混合車是一個划算的選擇。" }
+      ]
+    },
+    {
+      "word": "economy",
+      "pos": "n.",
+      "kk": "/ɪˈkɑnəmi/",
+      "definition": "經濟，節約",
+      "derivatives": [],
+      "root": "eco (家) + nomy (管理)。國家或家庭的財務管理系統。",
+      "phrases": [
+        { "phrase": "boost the economy", "meaning": "振興經濟", "sentence": "Tourism helps boost the local economy.", "translation": "旅遊業有助於振興當地經濟。" }
+      ]
+    },
+    {
+      "word": "efficient",
+      "pos": "adj.",
+      "kk": "/ɪˈfɪʃənt/",
+      "definition": "有效率的，高能的",
+      "derivatives": [
+        { "pos": "n.", "word": "efficiency", "meaning": "效率" },
+        { "pos": "adv.", "word": "efficiently", "meaning": "有效率地" }
+      ],
+      "root": "ef/ex (出) + fic (做) + -ient。展現絕佳產出效能。",
+      "phrases": [
+        { "phrase": "energy efficient", "meaning": "省電的，高能源效率的", "sentence": "Using LED bulbs is more energy efficient.", "translation": "使用LED燈泡更省電。" }
+      ]
+    },
+    {
+      "word": "effort",
+      "pos": "n.",
+      "kk": "/ˈɛfɚt/",
+      "definition": "努力，嘗試",
+      "derivatives": [],
+      "root": "ef/ex- (出) + fort (力量)。將力氣全部拿出用上。",
+      "phrases": [
+        { "phrase": "make an effort", "meaning": "做出努力", "sentence": "You should make an effort to arrive on time.", "translation": "你應該努力準時到達。" }
+      ]
+    },
+    {
+      "word": "elaborate",
+      "pos": "adj./v.",
+      "kk": "/ɪˈlæbərət/",
+      "definition": "精心製作的，詳細的；詳細說明",
+      "derivatives": [],
+      "root": "e/ex- (出) + labor (勞動、精心打造)。經由精密工藝耗費心思製作的。",
+      "phrases": [
+        { "phrase": "elaborate design", "meaning": "精密的設計", "sentence": "The wedding dress has an elaborate design.", "translation": "這件婚紗有著精美的設計。" }
+      ]
+    },
+    {
+      "word": "elect",
+      "pos": "v.",
+      "kk": "/ɪˈlɛkt/",
+      "definition": "選舉，推選",
+      "derivatives": [
+        { "pos": "n.", "word": "election", "meaning": "選舉" }
+      ],
+      "root": "e/ex- (出) + lect (挑選)。萬中選一挑選出來。",
+      "phrases": [
+        { "phrase": "elect a president", "meaning": "選出總統", "sentence": "Citizens will vote to elect a new president.", "translation": "公民將投票選出新總統。" }
+      ]
+    },
+    {
+      "word": "elegant",
+      "pos": "adj.",
+      "kk": "/ˈɛlɪɡənt/",
+      "definition": "優雅的，典雅的",
+      "derivatives": [
+        { "pos": "n.", "word": "elegance", "meaning": "優雅" }
+      ],
+      "root": "e/ex- (出) + leg (挑選)。精挑細選展現品味優雅。",
+      "phrases": [
+        { "phrase": "elegant dress", "meaning": "優雅的禮服", "sentence": "She wore an elegant black dress to the party.", "translation": "她穿著一身優雅的黑色禮服參加派對。" }
+      ]
+    },
+    {
+      "word": "element",
+      "pos": "n.",
+      "kk": "/ˈɛləmənt/",
+      "definition": "元素，成分，要素",
+      "derivatives": [
+        { "pos": "adj.", "word": "elementary", "meaning": "基礎的，初級的" }
+      ],
+      "root": "源自拉丁語 elementum (基本原理、基本成分)。",
+      "phrases": [
+        { "phrase": "essential element", "meaning": "不可或缺的要素", "sentence": "Trust is an essential element in any friendship.", "translation": "信任是任何友誼中不可或缺的要素。" }
+      ]
+    },
+    {
+      "word": "eliminate",
+      "pos": "v.",
+      "kk": "/ɪˈlɪməˌnet/",
+      "definition": "消除，淘汰，剔除",
+      "derivatives": [
+        { "pos": "n.", "word": "elimination", "meaning": "消除，淘汰" }
+      ],
+      "root": "e/ex- (出) + limin (門檻)。推出門外清除出去。",
+      "phrases": [
+        { "phrase": "eliminate waste", "meaning": "消除浪費", "sentence": "The company tries to eliminate unnecessary waste.", "translation": "公司努力消除不必要的浪費。" }
+      ]
+    },
+    {
+      "word": "embarrass",
+      "pos": "v.",
+      "kk": "/ɪmˈbærəs/",
+      "definition": "使尷尬，使難堪",
+      "derivatives": [
+        { "pos": "adj.", "word": "embarrassed", "meaning": "感到尷尬的" },
+        { "pos": "adj.", "word": "embarrassing", "meaning": "令人尷尬的" },
+        { "pos": "n.", "word": "embarrassment", "meaning": "尷尬" }
+      ],
+      "root": "em- (進入) + barra (橫木、障礙)。深陷進退維谷的難堪場面。",
+      "phrases": [
+        { "phrase": "feel embarrassed about", "meaning": "對...感到尷尬", "sentence": "He felt embarrassed about forgetting her name.", "translation": "他因為忘記她的名字而感到尷尬。" }
+      ]
+    },
+    {
+      "word": "emerge",
+      "pos": "v.",
+      "kk": "/ɪˈmɝdʒ/",
+      "definition": "浮現，顯現，崛起",
+      "derivatives": [
+        { "pos": "n.", "word": "emergence", "meaning": "出現，浮現" },
+        { "pos": "n.", "word": "emergency", "meaning": "緊急狀況" }
+      ],
+      "root": "e/ex- (出) + merge (浸泡、沉沒)。從水底下浮現出水面。",
+      "phrases": [
+        { "phrase": "emerge from", "meaning": "從...浮現/脫穎而出", "sentence": "The sun emerged from behind the dark clouds.", "translation": "太陽從烏雲後面浮現出來。" }
+      ]
+    },
+    {
+      "word": "emotion",
+      "pos": "n.",
+      "kk": "/ɪˈmoʃən/",
+      "definition": "情緒，情感",
+      "derivatives": [
+        { "pos": "adj.", "word": "emotional", "meaning": "情緒化的，感人的" }
+      ],
+      "root": "e/ex- (出) + mot (移動) + -ion。內心波濤湧出外露。",
+      "phrases": [
+        { "phrase": "express emotion", "meaning": "表達情緒", "sentence": "Music is a great way to express your emotions.", "translation": "音樂是表達情緒的好方法。" }
+      ]
+    },
+    {
+      "word": "emphasis",
+      "pos": "n.",
+      "kk": "/ˈɛmfəsɪs/",
+      "definition": "強調，重點",
+      "derivatives": [
+        { "pos": "v.", "word": "emphasize", "meaning": "強調" }
+      ],
+      "root": "em- (在內) + phan (展現、照亮)。將光亮聚集在特定點上。",
+      "phrases": [
+        { "phrase": "place emphasis on", "meaning": "著重於...", "sentence": "The curriculum places heavy emphasis on practical skills.", "translation": "該課程非常注重實用技能。" }
+      ]
+    },
+    {
+      "word": "empire",
+      "pos": "n.",
+      "kk": "/ˈɛmpaɪr/",
+      "definition": "帝國",
+      "derivatives": [
+        { "pos": "n.", "word": "emperor", "meaning": "皇帝" }
+      ],
+      "root": "em- (進入) + para/perare (準備、統治)。最高統治權領域。",
+      "phrases": [
+        { "phrase": "Roman Empire", "meaning": "羅馬帝國", "sentence": "The Roman Empire was one of the largest in history.", "translation": "羅馬帝國是歷史上最大的帝國之一。" }
+      ]
+    },
+    {
+      "word": "employ",
+      "pos": "v.",
+      "kk": "/ɪmˈplɔɪ/",
+      "definition": "僱用，使用",
+      "derivatives": [
+        { "pos": "n.", "word": "employee", "meaning": "員工" },
+        { "pos": "n.", "word": "employer", "meaning": "雇主" },
+        { "pos": "n.", "word": "employment", "meaning": "就業，僱用" }
+      ],
+      "root": "em- (進入) + plic (折疊、牽涉)。納入工作中運用。",
+      "phrases": [
+        { "phrase": "employ tactics", "meaning": "採用策略", "sentence": "The team employed new tactics to win the match.", "translation": "該團隊採用了新策略來贏得比賽。" }
+      ]
+    },
+    {
+      "word": "enable",
+      "pos": "v.",
+      "kk": "/ɪnˈebəl/",
+      "definition": "使能夠，賦予能力",
+      "derivatives": [],
+      "root": "en- (使) + able (能夠)。使具備相應的能力。",
+      "phrases": [
+        { "phrase": "enable someone to do", "meaning": "使某人能夠做...", "sentence": "The scholarship enabled her to study abroad.", "translation": "這筆獎學金使她能夠出國留學。" }
+      ]
+    },
+    {
+      "word": "encounter",
+      "pos": "v./n.",
+      "kk": "/ɪnˈkaʊntɚ/",
+      "definition": "遭遇，偶然相遇",
+      "derivatives": [],
+      "root": "en- (在...之中) + counter (相對、對決)。狹路相逢遭遇。",
+      "phrases": [
+        { "phrase": "encounter difficulties", "meaning": "遭遇困難", "sentence": "We encountered some unexpected difficulties during the trip.", "translation": "我們在旅途中遇到了一些意外的困難。" }
+      ]
+    },
+    {
+      "word": "encourage",
+      "pos": "v.",
+      "kk": "/ɪnˈkɝɪdʒ/",
+      "definition": "鼓勵，提倡",
+      "derivatives": [
+        { "pos": "n.", "word": "encouragement", "meaning": "鼓勵" }
+      ],
+      "root": "en- (注入) + courage (勇氣)。注入勇氣加油打氣。",
+      "phrases": [
+        { "phrase": "encourage someone to do", "meaning": "鼓勵某人做...", "sentence": "My parents always encourage me to try my best.", "translation": "我父母總是鼓勵我盡力而為。" }
+      ]
+    },
+    {
+      "word": "endure",
+      "pos": "v.",
+      "kk": "/ɪnˈdʊr/",
+      "definition": "忍受，持久，經受得起",
+      "derivatives": [
+        { "pos": "n.", "word": "endurance", "meaning": "耐力，忍耐" }
+      ],
+      "root": "en- (使) + dur (堅硬、持續)。挺過去咬牙堅持。",
+      "phrases": [
+        { "phrase": "endure pain", "meaning": "忍受疼痛", "sentence": "He had to endure terrible pain after the injury.", "translation": "受傷後他不得不忍受劇烈的疼痛。" }
+      ]
+    },
+    {
+      "word": "energetic",
+      "pos": "adj.",
+      "kk": "/ˌɛnɚˈdʒɛtɪk/",
+      "definition": "精力充沛的，充滿活力的",
+      "derivatives": [
+        { "pos": "n.", "word": "energy", "meaning": "能量，精力" },
+        { "pos": "adv.", "word": "energetically", "meaning": "精力充沛地" }
+      ],
+      "root": "en- (在...之內) + erg (工作、能量) + -etic。內部蘊含無限能量。",
+      "phrases": [
+        { "phrase": "energetic music", "meaning": "充滿活力的音樂", "sentence": "The gym plays energetic music to motivate workouts.", "translation": "健身房放著充滿活力的音樂來激勵鍛鍊。" }
+      ]
+    },
+    {
+      "word": "enforce",
+      "pos": "v.",
+      "kk": "/ɪnˈfors/",
+      "definition": "強制執行，實施(法律)",
+      "derivatives": [
+        { "pos": "n.", "word": "enforcement", "meaning": "執行，強制" }
+      ],
+      "root": "en- (使) + force (力量)。施加力量使之落實執行。",
+      "phrases": [
+        { "phrase": "enforce the law", "meaning": "執法，執行法律", "sentence": "The police are responsible for enforcing the law.", "translation": "警察負責執行法律。" }
+      ]
+    },
+    {
+      "word": "engage",
+      "pos": "v.",
+      "kk": "/ɪnˈɡedʒ/",
+      "definition": "吸引，從事，訂婚",
+      "derivatives": [
+        { "pos": "adj.", "word": "engaged", "meaning": "已訂婚的，忙於...的" },
+        { "pos": "n.", "word": "engagement", "meaning": "訂婚，約會" }
+      ],
+      "root": "en- (進入) + gage (抵押、下賭注)。全身心投入其中。",
+      "phrases": [
+        { "phrase": "engage in", "meaning": "參與，從事", "sentence": "Many young people engage in volunteer work.", "translation": "許多年輕人參與志工工作。" }
+      ]
+    },
+    {
+      "word": "enhance",
+      "pos": "v.",
+      "kk": "/ɪnˈhæns/",
+      "definition": "提升，增強",
+      "derivatives": [
+        { "pos": "n.", "word": "enhancement", "meaning": "提升，進步" }
+      ],
+      "root": "en- (使) + hance/high (高)。抬高品質促進成效。",
+      "phrases": [
+        { "phrase": "enhance performance", "meaning": "提升表現", "sentence": "Regular practice helps enhance your performance.", "translation": "經常練習有助於提升你的表現。" }
+      ]
+    },
+    {
+      "word": "enormous",
+      "pos": "adj.",
+      "kk": "/ɪˈnɔrməs/",
+      "definition": "巨大的，龐大的",
+      "derivatives": [],
+      "root": "e/ex- (超出) + norm (常規、標準) + -ous。超出常規基準的巨大尺寸。",
+      "phrases": [
+        { "phrase": "enormous success", "meaning": "巨大的成功", "sentence": "The new product brought enormous success to the company.", "translation": "這款新產品為公司帶來了巨大的成功。" }
+      ]
+    },
+    {
+      "word": "ensure",
+      "pos": "v.",
+      "kk": "/ɪnˈʃʊr/",
+      "definition": "確保，保證",
+      "derivatives": [],
+      "root": "en- (使) + sure (確定)。確保萬無一失。",
+      "phrases": [
+        { "phrase": "ensure safety", "meaning": "確保安全", "sentence": "Measures were taken to ensure student safety.", "translation": "已採取措施來確保學生的安全。" }
+      ]
+    },
+    {
+      "word": "entertain",
+      "pos": "v.",
+      "kk": "/ˌɛntɚˈten/",
+      "definition": "娛樂，招待",
+      "derivatives": [
+        { "pos": "n.", "word": "entertainment", "meaning": "娛樂，演藝" },
+        { "pos": "adj.", "word": "entertaining", "meaning": "有趣的，娛樂性的" }
+      ],
+      "root": "enter- (之間) + tain (維持)。彼此交流款待並帶給快樂。",
+      "phrases": [
+        { "phrase": "entertain guests", "meaning": "款待客人", "sentence": "They love to entertain guests at their home.", "translation": "他們喜歡在家裡款待客人。" }
+      ]
+    },
+    {
+      "word": "enthusiasm",
+      "pos": "n.",
+      "kk": "/ɪnˈθuzɪˌæzəm/",
+      "definition": "熱情，熱忱",
+      "derivatives": [
+        { "pos": "adj.", "word": "enthusiastic", "meaning": "熱情的，熱心的" }
+      ],
+      "root": "en- (在...之中) + theos (神)。內心有如神明降臨般充滿狂熱。",
+      "phrases": [
+        { "phrase": "with enthusiasm", "meaning": "充滿熱情地", "sentence": "She welcomed the new challenges with enthusiasm.", "translation": "她充滿熱情地迎接新的挑戰。" }
+      ]
+    },
+    {
+      "word": "entire",
+      "pos": "adj.",
+      "kk": "/ɪnˈtaɪr/",
+      "definition": "整個的，完全的",
+      "derivatives": [
+        { "pos": "adv.", "word": "entirely", "meaning": "完全地，完全" }
+      ],
+      "root": "源自拉丁語 integer (完整的、未經觸碰的)。完整無缺的。",
+      "phrases": [
+        { "phrase": "the entire world", "meaning": "全世界", "sentence": "The news spread rapidly across the entire world.", "translation": "這則新聞迅速傳遍了全世界。" }
+      ]
+    },
+    {
+      "word": "environment",
+      "pos": "n.",
+      "kk": "/ɪnˈvaɪrənmənt/",
+      "definition": "環境",
+      "derivatives": [
+        { "pos": "adj.", "word": "environmental", "meaning": "環境的" }
+      ],
+      "root": "en- (在...之中) + viron (圍繞) + -ment。圍繞在我們周圍的一切。",
+      "phrases": [
+        { "phrase": "protect the environment", "meaning": "保護環境", "sentence": "We should all do our part to protect the environment.", "translation": "我們都應該盡自己的一份力量來保護環境。" }
+      ]
+    },
+    {
+      "word": "equal",
+      "pos": "adj./v./n.",
+      "kk": "/ˈikwəl/",
+      "definition": "平等的，相等的；等於",
+      "derivatives": [
+        { "pos": "n.", "word": "equality", "meaning": "平等" },
+        { "pos": "adv.", "word": "equally", "meaning": "平等地" }
+      ],
+      "root": "字根 equ- (平等、平均) + -al。",
+      "phrases": [
+        { "phrase": "equal rights", "meaning": "平等權利", "sentence": "Everyone deserves equal rights regardless of background.", "translation": "無論背景如何，每個人都享有平等的權利。" }
+      ]
+    },
+    {
+      "word": "equip",
+      "pos": "v.",
+      "kk": "/ɪˈkwɪp/",
+      "definition": "裝備，配備",
+      "derivatives": [
+        { "pos": "n.", "word": "equipment", "meaning": "設備，裝備(不可數)" }
+      ],
+      "root": "源自古諾斯語 skipa (登上船艦、配備物資)。",
+      "phrases": [
+        { "phrase": "be equipped with", "meaning": "配備有...", "sentence": "The classroom is equipped with a modern projector.", "translation": "這間教室配備有現代化的投影機。" }
+      ]
+    },
+    {
+      "word": "equivalent",
+      "pos": "adj./n.",
+      "kk": "/ɪˈkwɪvələnt/",
+      "definition": "等值的，相當的；等價物",
+      "derivatives": [],
+      "root": "equi- (相等的) + val (價值) + -ent。價值相等的。",
+      "phrases": [
+        { "phrase": "be equivalent to", "meaning": "相當於...", "sentence": "Silence in this situation is equivalent to an admission of guilt.", "translation": "在這種情況下保持沉默相當於承認有罪。" }
+      ]
+    },
+    {
+      "word": "essential",
+      "pos": "adj./n.",
+      "kk": "/ɪˈsɛnʃəl/",
+      "definition": "必要的，不可或缺的；要素",
+      "derivatives": [
+        { "pos": "n.", "word": "essence", "meaning": "本質，精髓" }
+      ],
+      "root": "字根 esse/sent (存在) + -ial。關乎生存本質的。",
+      "phrases": [
+        { "phrase": "essential for / to", "meaning": "對...至關重要/不可或缺", "sentence": "Water is essential for human survival.", "translation": "水對人類生存至關重要。" }
+      ]
+    },
+    {
+      "word": "establish",
+      "pos": "v.",
+      "kk": "/ɪˈstæblɪʃ/",
+      "definition": "建立，設立，確立",
+      "derivatives": [
+        { "pos": "n.", "word": "establishment", "meaning": "建立，機構" }
+      ],
+      "root": "e- + stabl/stable (穩定)。使事物屹立穩固。",
+      "phrases": [
+        { "phrase": "establish a system", "meaning": "建立制度/系統", "sentence": "The company plans to establish a new evaluation system.", "translation": "公司計劃建立一套新的考評制度。" }
+      ]
+    },
+    {
+      "word": "estimate",
+      "pos": "v./n.",
+      "kk": "/ˈɛstəmət/",
+      "definition": "估計，估算；估價單",
+      "derivatives": [
+        { "pos": "n.", "word": "estimation", "meaning": "估計，評價" }
+      ],
+      "root": "字根 estim- (價值、評估)。衡量價值進行估算。",
+      "phrases": [
+        { "phrase": "estimated cost", "meaning": "預估費用", "sentence": "The estimated cost of repairs is around five thousand dollars.", "translation": "維修的預估費用大約是五千美元。" }
+      ]
+    },
+    {
+      "word": "evaluate",
+      "pos": "v.",
+      "kk": "/ɪˈvæljuˌet/",
+      "definition": "評估，評價",
+      "derivatives": [
+        { "pos": "n.", "word": "evaluation", "meaning": "評估，評價" }
+      ],
+      "root": "e/ex- (出) + val (價值) + -uate。算評出真正的價值。",
+      "phrases": [
+        { "phrase": "evaluate performance", "meaning": "評估表現", "sentence": "Teachers evaluate student performance continuously.", "translation": "教師持續評估學生的表現。" }
+      ]
+    },
+    {
+      "word": "eventual",
+      "pos": "adj.",
+      "kk": "/ɪˈvɛntʃuəl/",
+      "definition": "最終的，最後的",
+      "derivatives": [
+        { "pos": "adv.", "word": "eventually", "meaning": "最後，終於" }
+      ],
+      "root": "e/ex- (出) + vent (來) + -ual。事件水落石出發生的最終結果。",
+      "phrases": [
+        { "phrase": "eventual victory", "meaning": "最終的勝利", "sentence": "Perseverance led to their eventual victory.", "translation": "堅持不懈帶領他們取得了最終的勝利。" }
+      ]
+    },
+    {
+      "word": "evidence",
+      "pos": "n.",
+      "kk": "/ˈɛvədəns/",
+      "definition": "證據，跡象(不可數)",
+      "derivatives": [
+        { "pos": "adj.", "word": "evident", "meaning": "顯而易見的" }
+      ],
+      "root": "e/ex- (出) + vid (看) + -ence。讓人看得一清二楚的證據。",
+      "phrases": [
+        { "phrase": "clear evidence", "meaning": "明確的證據", "sentence": "There is clear evidence of global warming.", "translation": "有明確的證據表明全球正在變暖。" }
+      ]
+    },
+    {
+      "word": "exaggerate",
+      "pos": "v.",
+      "kk": "/ɪɡˈzædʒəˌret/",
+      "definition": "誇大，誇張",
+      "derivatives": [
+        { "pos": "n.", "word": "exaggeration", "meaning": "誇張" }
+      ],
+      "root": "ex- (加強) + agger (堆積、土堆)。把小丘堆成大山般誇大。",
+      "phrases": [
+        { "phrase": "exaggerate the truth", "meaning": "誇大事實", "sentence": "Media reports sometimes exaggerate the truth.", "translation": "媒體報導有時會誇大事實。" }
+      ]
+    },
+    {
+      "word": "exceed",
+      "pos": "v.",
+      "kk": "/ɪkˈsid/",
+      "definition": "超過，超出",
+      "derivatives": [
+        { "pos": "adj.", "word": "excessive", "meaning": "過度的" }
+      ],
+      "root": "ex- (超出) + ceed (前進、行走)。越界超越上限。",
+      "phrases": [
+        { "phrase": "exceed expectations", "meaning": "超出預期", "sentence": "His outstanding results exceeded all our expectations.", "translation": "他出色的成績超出了我們所有的預期。" }
+      ]
+    },
+    {
+      "word": "excellent",
+      "pos": "adj.",
+      "kk": "/ˈɛksələnt/",
+      "definition": "優秀的，傑出的",
+      "derivatives": [
+        { "pos": "n.", "word": "excellence", "meaning": "卓越，優秀" }
+      ],
+      "root": "ex- (出) + cel (高登、升起) + -ent。高高凌駕眾人之上。",
+      "phrases": [
+        { "phrase": "excellent performance", "meaning": "優異的表現", "sentence": "She received an award for her excellent performance.", "translation": "她因表現優異而獲獎。" }
+      ]
+    },
+    {
+      "word": "exception",
+      "pos": "n.",
+      "kk": "/ɪkˈsɛpʃən/",
+      "definition": "例外",
+      "derivatives": [
+        { "pos": "adj.", "word": "exceptional", "meaning": "卓越的，非凡的" }
+      ],
+      "root": "ex- (出) + cept (拿取) + -ion。拿出去不包含在內的特別項。",
+      "phrases": [
+        { "phrase": "with the exception of", "meaning": "除了...之外", "sentence": "Everyone arrived on time with the exception of Tom.", "translation": "除了湯姆之外，所有人都準時到達了。" }
+      ]
+    },
+    {
+      "word": "excess",
+      "pos": "n./adj.",
+      "kk": "/ˈɛksɛs/",
+      "definition": "過量，過剩；多餘的",
+      "derivatives": [
+        { "pos": "adj.", "word": "excessive", "meaning": "過度的" }
+      ],
+      "root": "與 exceed (超過) 同源。超過界限的剩餘物。",
+      "phrases": [
+        { "phrase": "in excess of", "meaning": "超過...", "sentence": "The damages were estimated in excess of a million dollars.", "translation": "損害預估超過了一百萬美元。" }
+      ]
+    },
+    {
+      "word": "exchange",
+      "pos": "v./n.",
+      "kk": "/ɪksˈtʃendʒ/",
+      "definition": "交換，交流，匯率",
+      "derivatives": [],
+      "root": "ex- (出) + change (改變)。互相交出並置換物品。",
+      "phrases": [
+        { "phrase": "exchange student", "meaning": "交換學生", "sentence": "She spent a semester in France as an exchange student.", "translation": "她作為交換學生在法國度過了一個學期。" }
+      ]
+    },
+    {
+      "word": "exclude",
+      "pos": "v.",
+      "kk": "/ɪkˈsklud/",
+      "definition": "排除，不包括",
+      "derivatives": [
+        { "pos": "adj.", "word": "exclusive", "meaning": "專屬的，排他的" }
+      ],
+      "root": "ex- (出) + clud (關閉)。將其關在門外排斥出去。",
+      "phrases": [
+        { "phrase": "exclude from", "meaning": "從...排除", "sentence": "The price excludes tax and service charges.", "translation": "該價格不包含稅金和服務費。" }
+      ]
+    },
+    {
+      "word": "executive",
+      "pos": "n./adj.",
+      "kk": "/ɪɡˈzɛkjətɪv/",
+      "definition": "高階主管；執行的，行政的",
+      "derivatives": [
+        { "pos": "v.", "word": "execute", "meaning": "執行，處決" }
+      ],
+      "root": "ex- (出) + secut (跟隨) + -ive。跟進並貫徹執行到底的人。",
+      "phrases": [
+        { "phrase": "chief executive officer", "meaning": "執行長 (CEO)", "sentence": "The CEO announced a new strategic vision for the firm.", "translation": "執行長宣布了公司的新戰略願景。" }
+      ]
+    },
+    {
+      "word": "exhaust",
+      "pos": "v./n.",
+      "kk": "/ɪɡˈzɔst/",
+      "definition": "使精疲力竭，耗盡；廢氣",
+      "derivatives": [
+        { "pos": "adj.", "word": "exhausted", "meaning": "精疲力竭的" },
+        { "pos": "n.", "word": "exhaustion", "meaning": "耗盡，筋疲力力盡" }
+      ],
+      "root": "ex- (出) + haust (抽水、汲取)。把裡面的精力抽空。",
+      "phrases": [
+        { "phrase": "exhaust all possibilities", "meaning": "窮盡所有可能性", "sentence": "We have exhausted all possibilities to solve the issue.", "translation": "我們已經窮盡所有可能性來解決這個問題。" }
+      ]
+    },
+    {
+      "word": "exhibit",
+      "pos": "v./n.",
+      "kk": "/ɪɡˈzɪbɪt/",
+      "definition": "展覽，展示；展覽品",
+      "derivatives": [
+        { "pos": "n.", "word": "exhibition", "meaning": "展覽會" }
+      ],
+      "root": "ex- (出) + hibit (持、握)。拿出來亮相展示。",
+      "phrases": [
+        { "phrase": "exhibit symptoms", "meaning": "呈現症狀", "sentence": "The patient exhibited symptoms of a cold.", "translation": "患者呈現出感冒的症狀。" }
+      ]
+    },
+    {
+      "word": "exist",
+      "pos": "v.",
+      "kk": "/ɪɡˈzɪst/",
+      "definition": "存在，生存",
+      "derivatives": [
+        { "pos": "n.", "word": "existence", "meaning": "存在" }
+      ],
+      "root": "ex- (出) + sist (站立)。矗立在此顯現出存在。",
+      "phrases": [
+        { "phrase": "cease to exist", "meaning": "停止存在，滅絕", "sentence": "Many species are at risk of ceasing to exist.", "translation": "許多物種面臨滅絕的風險。" }
+      ]
+    },
+    {
+      "word": "expand",
+      "pos": "v.",
+      "kk": "/ɪkˈspænd/",
+      "definition": "擴展，膨脹，擴大",
+      "derivatives": [
+        { "pos": "n.", "word": "expansion", "meaning": "擴張，膨脹" }
+      ],
+      "root": "ex- (出) + pand (張開、鋪開)。向外攤開延伸。",
+      "phrases": [
+        { "phrase": "expand business", "meaning": "擴展業務", "sentence": "The company plans to expand its business into Asia.", "translation": "該公司計劃將業務擴展到亞洲。" }
+      ]
+    },
+    {
+      "word": "expect",
+      "pos": "v.",
+      "kk": "/ɪkˈspɛkt/",
+      "definition": "期待，預期，期盼",
+      "derivatives": [
+        { "pos": "n.", "word": "expectation", "meaning": "期望，預期" }
+      ],
+      "root": "ex- (向外) + spect (看)。引頸向外期盼盼望。",
+      "phrases": [
+        { "phrase": "expect someone to do", "meaning": "期盼某人做...", "sentence": "I expect you to deliver the report on time.", "translation": "我期望你按時交出報告。" }
+      ]
+    },
+    {
+      "word": "expense",
+      "pos": "n.",
+      "kk": "/ɪkˈspɛns/",
+      "definition": "費用，開支，代價",
+      "derivatives": [
+        { "pos": "adj.", "word": "expensive", "meaning": "昂貴的" }
+      ],
+      "root": "ex- (出) + pend/pens (稱重、付錢)。支付出去的金錢。",
+      "phrases": [
+        { "phrase": "at the expense of", "meaning": "以...為代價", "sentence": "He succeeded, but at the expense of his health.", "translation": "他成功了，但卻以健康為代價。" }
+      ]
+    },
+    {
+      "word": "experience",
+      "pos": "n./v.",
+      "kk": "/ɪkˈspɪrɪəns/",
+      "definition": "經驗，經歷；親身經歷",
+      "derivatives": [
+        { "pos": "adj.", "word": "experienced", "meaning": "有經驗的" }
+      ],
+      "root": "ex- (出) + peri (嘗試、冒險) + -ence。從嘗試與冒險中獲得的積累。",
+      "phrases": [
+        { "phrase": "work experience", "meaning": "工作經驗", "sentence": "She has over five years of work experience in marketing.", "translation": "她在行銷領域擁有超過五年的工作經驗。" }
+      ]
+    },
+    {
+      "word": "experiment",
+      "pos": "n./v.",
+      "kk": "/ɪkˈspɛrəmənt/",
+      "definition": "實驗，試驗；做實驗",
+      "derivatives": [
+        { "pos": "adj.", "word": "experimental", "meaning": "實驗性的" }
+      ],
+      "root": "與 experience (經驗) 同源。親自試驗進行測試。",
+      "phrases": [
+        { "phrase": "conduct an experiment", "meaning": "做實驗", "sentence": "Students conducted an experiment in the chemistry lab.", "translation": "學生們在化學實驗室裡做了實驗。" }
+      ]
+    },
+    {
+      "word": "expert",
+      "pos": "n./adj.",
+      "kk": "/ˈɛkspɝt/",
+      "definition": "專家；熟練的，內行的",
+      "derivatives": [
+        { "pos": "n.", "word": "expertise", "meaning": "專長，專業知識" }
+      ],
+      "root": "與 experience (經驗) 同源。經過無數次實踐嘗試的人。",
+      "phrases": [
+        { "phrase": "an expert in", "meaning": "...領域的專家", "sentence": "He is a recognized expert in cybersecurity.", "translation": "他是公認的資訊安全專家。" }
+      ]
+    },
+    {
+      "word": "explain",
+      "pos": "v.",
+      "kk": "/ɪkˈsplen/",
+      "definition": "解釋，說明",
+      "derivatives": [
+        { "pos": "n.", "word": "explanation", "meaning": "解釋，說明" }
+      ],
+      "root": "ex- (出) + plain (平坦、清楚)。將複雜的事鋪平講明白。",
+      "phrases": [
+        { "phrase": "explain reason", "meaning": "解釋原因", "sentence": "Can you explain the reason for your absence?", "translation": "你能解釋一下你缺席的原因嗎？" }
+      ]
+    },
+    {
+      "word": "explore",
+      "pos": "v.",
+      "kk": "/ɪkˈsplɔr/",
+      "definition": "探索，探究",
+      "derivatives": [
+        { "pos": "n.", "word": "exploration", "meaning": "探索，勘探" },
+        { "pos": "n.", "word": "explorer", "meaning": "探險家" }
+      ],
+      "root": "ex- (出) + plor (喊叫)。原指獵人在森林中大喊搜尋獵物。",
+      "phrases": [
+        { "phrase": "explore possibilities", "meaning": "探討可能性", "sentence": "We need to explore all possible options.", "translation": "我们需要探討所有可能的選擇。" }
+      ]
+    },
+    {
+      "word": "export",
+      "pos": "v./n.",
+      "kk": "/ɪkˈspɔrt/",
+      "definition": "出口，輸出",
+      "derivatives": [],
+      "root": "ex- (出) + port (港口)。貨物經由港口運送到國外。",
+      "phrases": [
+        { "phrase": "export goods to", "meaning": "將商品出口到...", "sentence": "Taiwan exports electronic components to many countries.", "translation": "台灣將電子零件出口到許多國家。" }
+      ]
+    },
+    {
+      "word": "expose",
+      "pos": "v.",
+      "kk": "/ɪkˈspoz/",
+      "definition": "暴露，揭露，使接觸",
+      "derivatives": [
+        { "pos": "n.", "word": "exposure", "meaning": "暴露，曝光" }
+      ],
+      "root": "ex- (出) + pose (放置)。擺放出來攤在陽光下。",
+      "phrases": [
+        { "phrase": "be exposed to", "meaning": "暴露於...，接觸...", "sentence": "Children should not be exposed to violence on TV.", "translation": "兒童不應該接觸電視上的暴力內容。" }
+      ]
+    },
+    {
+      "word": "express",
+      "pos": "v./adj./n.",
+      "kk": "/ɪkˈsprɛs/",
+      "definition": "表達，表示；明確的，快速的；快遞，特快車",
+      "derivatives": [
+        { "pos": "n.", "word": "expression", "meaning": "表達，表情，措辭" }
+      ],
+      "root": "ex- (出) + press (擠壓)。將內心想法擠壓表達出來。",
+      "phrases": [
+        { "phrase": "express feelings", "meaning": "表達感受", "sentence": "He finds it difficult to express his feelings.", "translation": "他覺得很難表達自己的感受。" }
+      ]
+    },
+    {
+      "word": "extend",
+      "pos": "v.",
+      "kk": "/ɪkˈstɛnd/",
+      "definition": "延伸，擴展，延長(期限)",
+      "derivatives": [
+        { "pos": "n.", "word": "extension", "meaning": "延伸，電話分機" },
+        { "pos": "adj.", "word": "extensive", "meaning": "廣泛的" }
+      ],
+      "root": "ex- (出) + tend (伸展)。向外延伸展拉。",
+      "phrases": [
+        { "phrase": "extend a deadline", "meaning": "延長截止日期", "sentence": "The professor agreed to extend the deadline for the essay.", "translation": "教授同意延長論文的截止日期。" }
+      ]
+    },
+    {
+      "word": "extent",
+      "pos": "n.",
+      "kk": "/ɪkˈstɛnt/",
+      "definition": "程度，範圍",
+      "derivatives": [],
+      "root": "與 extend (延伸) 同源。向外延展涵蓋的範圍界限。",
+      "phrases": [
+        { "phrase": "to some extent", "meaning": "在某種程度上", "sentence": "I agree with your plan to some extent.", "translation": "在某種程度上我同意你的計畫。" }
+      ]
+    },
+    {
+      "word": "extreme",
+      "pos": "adj./n.",
+      "kk": "/ɪkˈstrim/",
+      "definition": "極端的，極度的；極端",
+      "derivatives": [
+        { "pos": "adv.", "word": "extremely", "meaning": "極其，非常" }
+      ],
+      "root": "ex- (外) + -treme (最離遠)。位於最外側極端的邊界。",
+      "phrases": [
+        { "phrase": "extreme weather", "meaning": "極端氣候", "sentence": "Extreme weather events are becoming more frequent.", "translation": "極端天氣事件變得越來越頻繁。" }
+      ]
+    }
 ]
