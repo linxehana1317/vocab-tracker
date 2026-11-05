@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.7</title>
+    <title>單字學習平台 - v26.11.8</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -40,7 +40,7 @@
             padding: 24px 16px;
             display: flex;
             flex-direction: column;
-            justify-style: space-between;
+            justify-content: space-between;
             flex-shrink: 0;
             overflow-y: auto;
         }
@@ -241,7 +241,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.7</span>
+                <span class="version-badge">v26.11.8</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -357,7 +357,7 @@
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
                     <label>指定日期 (YYYY-MM-DD)</label>
-                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-01">
+                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-05">
                 </div>
             </div>
             <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
@@ -405,14 +405,17 @@
     </div>
 </div>
 
-<!-- 日曆日期明細彈窗 (支援清除記錄) -->
+<!-- 日曆日期明細彈窗 (支援清除記錄與測驗當日單字) -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
         <div id="dayDetailList" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
-        <div style="display:flex; justify-content:space-between;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
             <button onclick="clearSelectedDayRecord()" class="btn-danger">清空當日標記</button>
-            <button onclick="closeDayModal()" class="btn-secondary">關閉</button>
+            <div style="display:flex; gap:8px;">
+                <button onclick="startDayTestFromModal()" class="btn-secondary">測驗當日單字</button>
+                <button onclick="closeDayModal()" class="btn-secondary">關閉</button>
+            </div>
         </div>
     </div>
 </div>
@@ -472,11 +475,17 @@
     let studiedWords = {};
     let testStats = {};
     let dayWordsData = {};
-    let currentDate = new Date(2026, 10, 1);
+    let currentDate = new Date(2026, 10, 5); // 設定當前檢視日期為 2026-11
     let activeSelectedDate = '';
     let chartInstance = null;
     let activeCardData = null;
     let currentChartRange = 'week';
+
+    // 取得動態真實今天的日期字串 (YYYY-MM-DD)
+    function getTodayStr() {
+        const d = new Date();
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
 
     async function fetchLevelData(jsonFileName) {
         currentFileName = jsonFileName;
@@ -491,7 +500,6 @@
         }
     }
 
-    // 點擊級距：直接切換到單字視圖並載入該 Level
     function switchLevel(title, fileName, element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         if (element) element.classList.add('active');
@@ -503,7 +511,6 @@
         fetchLevelData(fileName);
     }
 
-    // 點擊測驗：切換到測驗視圖
     function openTestView(element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         if (element) element.classList.add('active');
@@ -588,7 +595,7 @@
     function toggleCardStudied() {
         if (!activeCardData) return;
         const word = activeCardData.word;
-        const todayStr = '2026-11-01';
+        const todayStr = getTodayStr();
 
         const currentStatus = !!studiedWords[word];
         const newStatus = !currentStatus;
@@ -641,9 +648,9 @@
     }
 
     function resetHistoryData() {
-        const todayStr = '2026-11-01';
+        const todayStr = getTodayStr();
         
-        // 重置今天之前的歷史日曆打卡資料
+        // 將今天之前的所有日曆打卡紀錄與詳細單字紀錄清零
         vocabRef.once('value', snap => {
             const data = snap.val() || {};
             for (const d in data) {
@@ -662,12 +669,12 @@
             }
         });
 
-        // 重置所有單字的已背誦狀態標記
+        // 重置所有單字的已背誦標記
         studiedRef.remove();
     }
 
     function init() {
-        resetHistoryData(); // 自動把今日之前的歷史紀錄及標記重置
+        resetHistoryData(); 
         fetchLevelData('level1.json');
         initChart();
 
@@ -753,12 +760,28 @@
         alert('已清空當日紀錄！');
     }
 
+    function startDayTestFromModal() {
+        if (!activeSelectedDate) return;
+        const wordsObj = dayWordsData[activeSelectedDate];
+        if (!wordsObj || Object.keys(wordsObj).length === 0) {
+            alert('該日無打卡單字可供測驗！');
+            return;
+        }
+
+        closeDayModal();
+        openTestView(document.getElementById('testNavItem'));
+        document.getElementById('testSource').value = 'date';
+        toggleTestSource();
+        document.getElementById('testDateInput').value = activeSelectedDate;
+        startTest();
+    }
+
     function closeDayModal() {
         document.getElementById('dayDetailModal').style.display = 'none';
     }
 
     function updateStats() {
-        let todayStr = '2026-11-01';
+        let todayStr = getTodayStr();
         let todayCount = vocabData[todayStr] || 0;
         let weekCount = todayCount;
         let monthCount = 0;
@@ -812,7 +835,7 @@
 
         let labels = [];
         let dataVals = [];
-        const baseDate = new Date(2026, 10, 1); 
+        const baseDate = new Date(2026, 10, 5); 
 
         if (currentChartRange === 'week') {
             for (let i = 6; i >= 0; i--) {
