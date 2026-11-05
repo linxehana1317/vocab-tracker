@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7000 大考核心單字學習平台 - v26.11.1</title>
+    <title>單字學習平台 - v26.11.7</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -40,7 +40,7 @@
             padding: 24px 16px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-style: space-between;
             flex-shrink: 0;
             overflow-y: auto;
         }
@@ -195,7 +195,7 @@
         button:hover { background: var(--primary-hover); }
         .btn-secondary { background: #e2e8f0; color: #475569; }
         .btn-secondary:hover { background: #cbd5e1; }
-        .btn-danger { background: #ef4444; }
+        .btn-danger { background: #ef4444; color: white; }
         .btn-danger:hover { background: #dc2626; }
 
         .modal {
@@ -241,7 +241,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.1</span>
+                <span class="version-badge">v26.11.7</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -259,8 +259,7 @@
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin:16px 0 8px 4px;">測驗區塊</div>
         <div class="nav-group">
-            <div class="nav-item" onclick="switchMainView('vocab', this)">單字瀏覽與管理</div>
-            <div class="nav-item" onclick="switchMainView('test', this)">字彙測驗系統</div>
+            <div class="nav-item" id="testNavItem" onclick="openTestView(this)">字彙測驗系統</div>
         </div>
     </div>
 
@@ -280,14 +279,14 @@
             </div>
         </div>
 
-        <!-- 單字卡固定高度滾動框 (4*4 顯示區) -->
+        <!-- 單字卡 4*4 滾動框 -->
         <div class="card">
             <div class="flashcard-scroll-container">
                 <div class="flashcard-grid" id="flashcardGrid"></div>
             </div>
         </div>
 
-        <!-- 統計、趨勢與日曆同排配置 -->
+        <!-- 統計、趨勢與日曆同排 -->
         <div class="dashboard-row">
             <div class="stat-trend-wrapper">
                 <div class="card" style="margin-bottom:0;">
@@ -399,22 +398,20 @@
             <div id="modalPhrases"></div>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
-            <button onclick="deleteCurrentWord()" class="btn-danger">刪除此單字</button>
-            <div style="display:flex; gap:8px;">
-                <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
-            </div>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
+            <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
+            <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
         </div>
     </div>
 </div>
 
-<!-- 日曆日期明細彈窗 -->
+<!-- 日曆日期明細彈窗 (支援清除記錄) -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
         <div id="dayDetailList" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
-        <div style="display:flex; justify-content:flex-end;">
+        <div style="display:flex; justify-content:space-between;">
+            <button onclick="clearSelectedDayRecord()" class="btn-danger">清空當日標記</button>
             <button onclick="closeDayModal()" class="btn-secondary">關閉</button>
         </div>
     </div>
@@ -467,7 +464,7 @@
     const vocabRef = db.ref('vocabData');
     const studiedRef = db.ref('studiedWords');
     const statsRef = db.ref('testStats');
-    const dayWordsRef = db.ref('dayWords'); // 記錄每天背誦的單字陣列
+    const dayWordsRef = db.ref('dayWords');
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -476,6 +473,7 @@
     let testStats = {};
     let dayWordsData = {};
     let currentDate = new Date(2026, 10, 1);
+    let activeSelectedDate = '';
     let chartInstance = null;
     let activeCardData = null;
     let currentChartRange = 'week';
@@ -493,24 +491,25 @@
         }
     }
 
+    // 點擊級距：直接切換到單字視圖並載入該 Level
     function switchLevel(title, fileName, element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         if (element) element.classList.add('active');
+
+        document.getElementById('vocabView').style.display = 'block';
+        document.getElementById('testView').style.display = 'none';
+
         document.getElementById('currentLevelTitle').innerText = `Level ${title}`;
         fetchLevelData(fileName);
     }
 
-    function switchMainView(viewName, element) {
+    // 點擊測驗：切換到測驗視圖
+    function openTestView(element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
         if (element) element.classList.add('active');
 
-        if (viewName === 'vocab') {
-            document.getElementById('vocabView').style.display = 'block';
-            document.getElementById('testView').style.display = 'none';
-        } else if (viewName === 'test') {
-            document.getElementById('vocabView').style.display = 'none';
-            document.getElementById('testView').style.display = 'block';
-        }
+        document.getElementById('vocabView').style.display = 'none';
+        document.getElementById('testView').style.display = 'block';
     }
 
     function renderCards(dataList) {
@@ -586,16 +585,6 @@
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
-    function deleteCurrentWord() {
-        if (!activeCardData) return;
-        if (!confirm(`確定要刪除單字 "${activeCardData.word}" 嗎？`)) return;
-        
-        currentLevelData = currentLevelData.filter(i => i.word !== activeCardData.word);
-        renderCards(currentLevelData);
-        closeCardModal();
-        alert('已從目前清單中刪除！');
-    }
-
     function toggleCardStudied() {
         if (!activeCardData) return;
         const word = activeCardData.word;
@@ -651,7 +640,34 @@
         }
     }
 
+    function resetHistoryData() {
+        const todayStr = '2026-11-01';
+        
+        // 重置今天之前的歷史日曆打卡資料
+        vocabRef.once('value', snap => {
+            const data = snap.val() || {};
+            for (const d in data) {
+                if (d < todayStr) {
+                    vocabRef.child(d).remove();
+                }
+            }
+        });
+
+        dayWordsRef.once('value', snap => {
+            const data = snap.val() || {};
+            for (const d in data) {
+                if (d < todayStr) {
+                    dayWordsRef.child(d).remove();
+                }
+            }
+        });
+
+        // 重置所有單字的已背誦狀態標記
+        studiedRef.remove();
+    }
+
     function init() {
+        resetHistoryData(); // 自動把今日之前的歷史紀錄及標記重置
         fetchLevelData('level1.json');
         initChart();
 
@@ -710,6 +726,7 @@
     }
 
     function showDayDetails(dateStr) {
+        activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${dateStr} 打卡記錄`;
         const listDiv = document.getElementById('dayDetailList');
         listDiv.innerHTML = '';
@@ -723,6 +740,17 @@
             }
         }
         document.getElementById('dayDetailModal').style.display = 'flex';
+    }
+
+    function clearSelectedDayRecord() {
+        if (!activeSelectedDate) return;
+        if (!confirm(`確定要清空 ${activeSelectedDate} 的所有背誦標記與紀錄嗎？`)) return;
+
+        vocabRef.child(activeSelectedDate).remove();
+        dayWordsRef.child(activeSelectedDate).remove();
+
+        closeDayModal();
+        alert('已清空當日紀錄！');
     }
 
     function closeDayModal() {
@@ -826,7 +854,6 @@
         chartInstance.update();
     }
 
-    // 測驗系統功能
     function toggleTestSource() {
         const source = document.getElementById('testSource').value;
         document.getElementById('dateRangeGroup').style.display = (source === 'date') ? 'block' : 'none';
@@ -853,7 +880,6 @@
             return;
         }
 
-        // 隨機抽題
         pool.sort(() => Math.random() - 0.5);
         const questions = pool.slice(0, count);
 
@@ -867,7 +893,6 @@
             
             if (testType === 'choice') {
                 html += `<div style="font-size:1.1rem; margin-bottom:10px;">英文: <strong>${q.word}</strong></div>`;
-                // 產生選項
                 let options = [q.definition];
                 while(options.length < 4 && currentLevelData.length >= 4) {
                     let randItem = currentLevelData[Math.floor(Math.random() * currentLevelData.length)];
