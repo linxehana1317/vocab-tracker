@@ -375,7 +375,7 @@
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
                     <label>指定日期 (YYYY-MM-DD)</label>
-                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-05">
+                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-06">
                 </div>
             </div>
             <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
@@ -423,11 +423,11 @@
     </div>
 </div>
 
-<!-- 日曆日期明細彈窗 -->
+<!-- 日曆日期明細彈窗（單字卡形式展示） -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
-        <div id="dayDetailList" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
+        <div id="dayDetailList" style="max-height: 380px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
         <div style="display:flex; justify-content:space-between; align-items:center;">
             <button onclick="clearSelectedDayRecord()" class="btn-danger">清空當日標記</button>
             <div style="display:flex; gap:8px;">
@@ -510,7 +510,7 @@
             const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
             if (!res.ok) throw new Error('讀取失敗');
             currentLevelData = await res.json();
-            filterSubLevel(); // 載入後依照目前的 100 字次分類篩選顯示
+            filterSubLevel();
         } catch (err) {
             console.error(err);
             document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
@@ -525,7 +525,7 @@
         document.getElementById('testView').style.display = 'none';
 
         document.getElementById('currentLevelTitle').innerText = `Level ${title}`;
-        document.getElementById('subLevelSelect').value = 'all'; // 重置次分類選單
+        document.getElementById('subLevelSelect').value = 'all';
         fetchLevelData(fileName);
     }
 
@@ -569,7 +569,7 @@
             card.innerHTML = `
                 <div>
                     <div class="flashcard-word">${item.word}</div>
-                    <div class="flashcard-meta">${item.pos} | ${item.kk}</div>
+                    <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
                     <div class="flashcard-def">${item.definition}</div>
                 </div>
             `;
@@ -593,7 +593,7 @@
     function openCardDetail(item) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
-        document.getElementById('modalWordMeta').innerText = `${item.pos} | ${item.kk}`;
+        document.getElementById('modalWordMeta').innerText = `${item.pos || ''} | ${item.kk || ''}`;
         document.getElementById('modalWordDefinition').innerText = item.definition;
 
         const derivArea = document.getElementById('modalDerivatives');
@@ -637,7 +637,8 @@
         if (newStatus) {
             currentCount++;
             confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-            dayWordsRef.child(todayStr).child(word).set(activeCardData.definition);
+            // 儲存完整單字物件資料以利日曆詳細單字卡展示
+            dayWordsRef.child(todayStr).child(word).set(activeCardData);
         } else {
             currentCount = Math.max(0, currentCount - 1);
             dayWordsRef.child(todayStr).child(word).remove();
@@ -736,6 +737,7 @@
         renderCalendar();
     }
 
+    // 展示日曆打卡單字卡彈窗
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${dateStr} 打卡記錄`;
@@ -746,9 +748,28 @@
         if (!wordsObj || Object.keys(wordsObj).length === 0) {
             listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
         } else {
-            for (const [w, def] of Object.entries(wordsObj)) {
-                listDiv.innerHTML += `<div style="padding: 6px 0; border-bottom: 1px solid var(--border);"><strong>${w}</strong>: ${def}</div>`;
+            const gridContainer = document.createElement('div');
+            gridContainer.style.display = 'grid';
+            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            gridContainer.style.gap = '10px';
+
+            for (const [w, itemData] of Object.entries(wordsObj)) {
+                const item = (typeof itemData === 'object') ? itemData : { word: w, definition: itemData, pos: '', kk: '' };
+                
+                const miniCard = document.createElement('div');
+                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
+                miniCard.onmouseover = () => miniCard.style.borderColor = '#4f46e5';
+                miniCard.onmouseout = () => miniCard.style.borderColor = '#e2e8f0';
+                miniCard.onclick = () => openCardDetail(item);
+
+                miniCard.innerHTML = `
+                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
+                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
+                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
+                `;
+                gridContainer.appendChild(miniCard);
             }
+            listDiv.appendChild(gridContainer);
         }
         document.getElementById('dayDetailModal').style.display = 'flex';
     }
@@ -912,7 +933,10 @@
             const dateStr = document.getElementById('testDateInput').value.trim();
             const wordsObj = dayWordsData[dateStr];
             if (wordsObj) {
-                pool = Object.entries(wordsObj).map(([w, def]) => ({ word: w, definition: def }));
+                pool = Object.entries(wordsObj).map(([w, itemData]) => {
+                    const def = (typeof itemData === 'object') ? itemData.definition : itemData;
+                    return { word: w, definition: def };
+                });
             }
         }
 
