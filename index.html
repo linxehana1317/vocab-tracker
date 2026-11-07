@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.9</title>
+    <title>單字學習平台 - v26.11.11</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -208,6 +208,11 @@
             z-index: 1000;
             backdrop-filter: blur(4px);
         }
+        /* 讓單字卡詳細彈窗圖層高於日曆明細彈窗，直接覆蓋在上方 */
+        #cardDetailModal {
+            z-index: 1100;
+        }
+
         .modal-content {
             background: white;
             padding: 28px;
@@ -241,7 +246,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.9</span>
+                <span class="version-badge">v26.11.11</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -375,7 +380,7 @@
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
                     <label>指定日期 (YYYY-MM-DD)</label>
-                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-06">
+                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-07">
                 </div>
             </div>
             <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
@@ -388,7 +393,7 @@
 
 </div>
 
-<!-- 單字詳細資料彈窗 -->
+<!-- 單字詳細資料彈窗 (圖層 1100，會覆蓋在日曆明細上方) -->
 <div class="modal" id="cardDetailModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
@@ -423,7 +428,7 @@
     </div>
 </div>
 
-<!-- 日曆日期明細彈窗（單字卡形式展示） -->
+<!-- 日曆日期明細彈窗 -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
@@ -637,7 +642,7 @@
         if (newStatus) {
             currentCount++;
             confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-            // 儲存完整單字物件資料以利日曆詳細單字卡展示
+            // 完整儲存該單字的全部物件資料，確保點開時背面有內容
             dayWordsRef.child(todayStr).child(word).set(activeCardData);
         } else {
             currentCount = Math.max(0, currentCount - 1);
@@ -737,7 +742,6 @@
         renderCalendar();
     }
 
-    // 展示日曆打卡單字卡彈窗
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${dateStr} 打卡記錄`;
@@ -754,7 +758,8 @@
             gridContainer.style.gap = '10px';
 
             for (const [w, itemData] of Object.entries(wordsObj)) {
-                const item = (typeof itemData === 'object') ? itemData : { word: w, definition: itemData, pos: '', kk: '' };
+                // 相容處理：若舊資料只有文字定義，自動補齊預設物件結構
+                const item = (typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] };
                 
                 const miniCard = document.createElement('div');
                 miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
@@ -934,7 +939,7 @@
             const wordsObj = dayWordsData[dateStr];
             if (wordsObj) {
                 pool = Object.entries(wordsObj).map(([w, itemData]) => {
-                    const def = (typeof itemData === 'object') ? itemData.definition : itemData;
+                    const def = (typeof itemData === 'object' && itemData !== null) ? itemData.definition : itemData;
                     return { word: w, definition: def };
                 });
             }
