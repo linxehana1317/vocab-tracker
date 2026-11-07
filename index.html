@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.11</title>
+    <title>單字學習平台 - v26.11.4</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -20,6 +20,8 @@
             --border: #e2e8f0;
             --muted: #64748b;
             --studied-bg: #eef2ff;
+            --wrong-bg: #fee2e2; /* 錯題淡紅色背景 */
+            --wrong-border: #fca5a5;
         }
         * { box-sizing: border-box; }
         body {
@@ -128,17 +130,10 @@
             background-color: var(--studied-bg);
             border-color: #c7d2fe;
         }
-        .flashcard-item.mastered::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(60deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%);
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
+        /* 錯題淡紅色樣式 */
+        .flashcard-item.is-wrong {
+            background-color: var(--wrong-bg);
+            border-color: var(--wrong-border);
         }
 
         .flashcard-item:hover {
@@ -208,7 +203,7 @@
             z-index: 1000;
             backdrop-filter: blur(4px);
         }
-        /* 讓單字卡詳細彈窗圖層高於日曆明細彈窗，直接覆蓋在上方 */
+        /* 單字卡詳細彈窗圖層高於日曆明細彈窗，確保能直接覆蓋在上方 */
         #cardDetailModal {
             z-index: 1100;
         }
@@ -246,7 +241,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.11</span>
+                <span class="version-badge">v26.11.4</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -393,7 +388,7 @@
 
 </div>
 
-<!-- 單字詳細資料彈窗 (圖層 1100，會覆蓋在日曆明細上方) -->
+<!-- 單字詳細資料彈窗 (圖層 1100，覆蓋於日曆明細上方) -->
 <div class="modal" id="cardDetailModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
@@ -421,9 +416,12 @@
             <div id="modalPhrases"></div>
         </div>
 
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
-            <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-            <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯題庫移除</button>
+            <div style="display:flex; gap:8px; margin-left:auto;">
+                <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
+                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
+            </div>
         </div>
     </div>
 </div>
@@ -491,6 +489,7 @@
     const studiedRef = db.ref('studiedWords');
     const statsRef = db.ref('testStats');
     const dayWordsRef = db.ref('dayWords');
+    const wrongRef = db.ref('wrongWords'); // 錯題庫雲端參考
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -498,11 +497,13 @@
     let studiedWords = {};
     let testStats = {};
     let dayWordsData = {};
+    let wrongWords = {}; // 錯題庫資料
     let currentDate = new Date();
     let activeSelectedDate = '';
     let chartInstance = null;
     let activeCardData = null;
     let currentChartRange = 'week';
+    let currentTestQuestions = []; // 暫存目前測驗題目以便比對詳解
 
     function getTodayStr() {
         const d = new Date();
@@ -567,9 +568,10 @@
             const isStudied = studiedWords[item.word] === true;
             const correctCount = testStats[item.word] || 0;
             const isMastered = correctCount >= 4;
+            const isWrong = wrongWords[item.word] === true; // 是否為錯題
 
             const card = document.createElement('div');
-            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isMastered ? 'mastered' : ''}`;
+            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isMastered ? 'mastered' : ''} ${isWrong ? 'is-wrong' : ''}`;
             card.onclick = () => openCardDetail(item);
             card.innerHTML = `
                 <div>
@@ -619,6 +621,11 @@
             });
         } else phraseArea.innerText = '無';
 
+        // 檢查是否為錯題，決定是否顯示「從錯題庫移除」按鈕
+        const isWrongWord = !!wrongWords[item.word];
+        const wrongBtn = document.getElementById('modalWrongBtn');
+        wrongBtn.style.display = isWrongWord ? 'block' : 'none';
+
         const isStudied = studiedWords[item.word];
         const btn = document.getElementById('modalStudiedBtn');
         btn.innerText = isStudied ? '已標記為背誦 (取消)' : '標記為今日已背誦 (+1)';
@@ -627,6 +634,14 @@
     }
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
+
+    // 手動將單字從錯題庫移除
+    function toggleWrongStatus() {
+        if (!activeCardData) return;
+        wrongRef.child(activeCardData.word).remove();
+        closeCardModal();
+        alert(`已將 "${activeCardData.word}" 從錯題庫移除！`);
+    }
 
     function toggleCardStudied() {
         if (!activeCardData) return;
@@ -642,7 +657,6 @@
         if (newStatus) {
             currentCount++;
             confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-            // 完整儲存該單字的全部物件資料，確保點開時背面有內容
             dayWordsRef.child(todayStr).child(word).set(activeCardData);
         } else {
             currentCount = Math.max(0, currentCount - 1);
@@ -708,6 +722,11 @@
         dayWordsRef.on('value', snap => {
             dayWordsData = snap.val() || {};
         });
+
+        wrongRef.on('value', snap => {
+            wrongWords = snap.val() || {};
+            filterSubLevel();
+        });
     }
 
     function renderCalendar() {
@@ -758,7 +777,6 @@
             gridContainer.style.gap = '10px';
 
             for (const [w, itemData] of Object.entries(wordsObj)) {
-                // 相容處理：若舊資料只有文字定義，自動補齊預設物件結構
                 const item = (typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] };
                 
                 const miniCard = document.createElement('div');
@@ -939,8 +957,8 @@
             const wordsObj = dayWordsData[dateStr];
             if (wordsObj) {
                 pool = Object.entries(wordsObj).map(([w, itemData]) => {
-                    const def = (typeof itemData === 'object' && itemData !== null) ? itemData.definition : itemData;
-                    return { word: w, definition: def };
+                    if (typeof itemData === 'object' && itemData !== null) return itemData;
+                    return { word: w, definition: itemData };
                 });
             }
         }
@@ -951,13 +969,13 @@
         }
 
         pool.sort(() => Math.random() - 0.5);
-        const questions = pool.slice(0, count);
+        currentTestQuestions = pool.slice(0, count); // 暫存題目供交卷比對
 
         const container = document.getElementById('testContainer');
         container.innerHTML = '';
         document.getElementById('testCardArea').style.display = 'block';
 
-        questions.forEach((q, idx) => {
+        currentTestQuestions.forEach((q, idx) => {
             let html = `<div style="margin-bottom:20px; padding:15px; border:1px solid var(--border); border-radius:8px;">`;
             html += `<div style="font-weight:600; margin-bottom:10px;">第 ${idx + 1} 題</div>`;
             
@@ -975,45 +993,62 @@
                 });
             } else {
                 html += `<div style="font-size:1.1rem; margin-bottom:10px;">中文定義: <strong>${q.definition}</strong></div>`;
-                html += `<input type="text" class="fill-input" data-answer="${q.word}" placeholder="請輸入英文拼寫..." style="padding:6px; width:100%; border:1px solid var(--border); border-radius:6px;">`;
+                html += `<input type="text" class="fill-input" data-index="${idx}" data-answer="${q.word}" placeholder="請輸入英文拼寫..." style="padding:6px; width:100%; border:1px solid var(--border); border-radius:6px;">`;
             }
             html += `</div>`;
             container.innerHTML += html;
         });
 
-        container.innerHTML += `<button onclick="submitTest('${testType}', ${questions.length})">繳交測驗</button>`;
+        container.innerHTML += `<button onclick="submitTest('${testType}')">繳交測驗</button>`;
     }
 
-    function submitTest(type, total) {
+    function submitTest(type) {
         let score = 0;
-        if (type === 'choice') {
-            for (let i = 0; i < total; i++) {
+        let resultsHtml = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>`;
+
+        currentTestQuestions.forEach((q, i) => {
+            let isCorrect = false;
+            let userAnsDisplay = "";
+            let correctAnsDisplay = (type === 'choice') ? q.definition : q.word;
+
+            if (type === 'choice') {
                 const selected = document.querySelector(`input[name="q_${i}"]:checked`);
+                userAnsDisplay = selected ? selected.parentNode.textContent.trim() : "未作答";
                 if (selected && selected.value === 'correct') {
-                    score++;
-                    const word = selected.getAttribute('data-word');
-                    if (word) {
-                        let curStats = testStats[word] || 0;
-                        statsRef.child(word).set(curStats + 1);
-                    }
+                    isCorrect = true;
+                }
+            } else {
+                const input = document.querySelector(`input[data-index="${i}"]`);
+                userAnsDisplay = input ? input.value.trim() : "";
+                if (userAnsDisplay.toLowerCase() === q.word.toLowerCase()) {
+                    isCorrect = true;
                 }
             }
-        } else {
-            const inputs = document.querySelectorAll('.fill-input');
-            inputs.forEach(input => {
-                const word = input.getAttribute('data-answer');
-                if (input.value.trim().toLowerCase() === word.toLowerCase()) {
-                    score++;
-                    if (word) {
-                        let curStats = testStats[word] || 0;
-                        statsRef.child(word).set(curStats + 1);
-                    }
-                }
-            });
-        }
 
-        alert(`測驗結束！你的得分為: ${score} / ${total}`);
-        if (score === total) {
+            if (isCorrect) {
+                score++;
+                let curStats = testStats[q.word] || 0;
+                statsRef.child(q.word).set(curStats + 1);
+            } else {
+                // 答錯自動加入錯題庫
+                wrongRef.child(q.word).set(true);
+            }
+
+            resultsHtml += `
+                <div style="padding: 12px 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border); background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-color: ${isCorrect ? '#bbf7d0' : '#fecaca'};">
+                    <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${type === 'choice' ? q.word : q.definition} ${isCorrect ? '✅' : '❌'}</div>
+                    <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${userAnsDisplay || '無'}</span></div>
+                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : ''}
+                </div>
+            `;
+        });
+
+        // 組合最終結果顯示
+        const finalScoreHtml = `<div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 20px;">總得分：${score} / ${currentTestQuestions.length}</div>`;
+        const container = document.getElementById('testContainer');
+        container.innerHTML = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>` + finalScoreHtml + resultsHtml + `<button onclick="startTest()" style="margin-top: 16px;">再考一次</button>`;
+
+        if (score === currentTestQuestions.length) {
             confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
         }
     }
