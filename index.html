@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.4</title>
+    <title>單字學習平台 - v26.11.5</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>WB</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -20,8 +20,10 @@
             --border: #e2e8f0;
             --muted: #64748b;
             --studied-bg: #eef2ff;
-            --wrong-bg: #fee2e2; /* 錯題淡紅色背景 */
+            --wrong-bg: #fee2e2;
             --wrong-border: #fca5a5;
+            --mastered-bg: #dcfce7;
+            --mastered-border: #86efac;
         }
         * { box-sizing: border-box; }
         body {
@@ -126,15 +128,9 @@
             position: relative;
             overflow: hidden;
         }
-        .flashcard-item.is-studied {
-            background-color: var(--studied-bg);
-            border-color: #c7d2fe;
-        }
-        /* 錯題淡紅色樣式 */
-        .flashcard-item.is-wrong {
-            background-color: var(--wrong-bg);
-            border-color: var(--wrong-border);
-        }
+        .flashcard-item.is-studied { background-color: var(--studied-bg); border-color: #c7d2fe; }
+        .flashcard-item.is-wrong { background-color: var(--wrong-bg); border-color: var(--wrong-border); }
+        .flashcard-item.is-mastered { border-left: 5px solid #16a34a; }
 
         .flashcard-item:hover {
             transform: translateY(-2px);
@@ -155,10 +151,10 @@
             flex-direction: column;
             gap: 24px;
         }
-        .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .stat-item { background: #f8fafc; padding: 14px; border-radius: 8px; text-align: center; border: 1px solid var(--border); }
-        .stat-value { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
-        .stat-label { font-size: 0.8rem; color: var(--muted); }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .stat-item { background: #f8fafc; padding: 12px 8px; border-radius: 8px; text-align: center; border: 1px solid var(--border); }
+        .stat-value { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
 
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
         .calendar-day-header { font-weight: 600; padding: 6px; color: var(--muted); font-size: 12px; }
@@ -192,6 +188,7 @@
         .btn-secondary:hover { background: #cbd5e1; }
         .btn-danger { background: #ef4444; color: white; }
         .btn-danger:hover { background: #dc2626; }
+        .btn-sm { padding: 4px 8px; font-size: 11px; border-radius: 4px; }
 
         .modal {
             display: none;
@@ -203,10 +200,7 @@
             z-index: 1000;
             backdrop-filter: blur(4px);
         }
-        /* 單字卡詳細彈窗圖層高於日曆明細彈窗，確保能直接覆蓋在上方 */
-        #cardDetailModal {
-            z-index: 1100;
-        }
+        #cardDetailModal { z-index: 1100; }
 
         .modal-content {
             background: white;
@@ -231,30 +225,40 @@
             font-size: 14px;
         }
         .detail-section h4 { margin: 0 0 8px; font-size: 0.85rem; color: var(--primary); text-transform: uppercase; }
+
+        .date-input-compact {
+            width: 110px !important;
+            padding: 6px 10px !important;
+            font-size: 13px !important;
+            border-radius: 8px !important;
+            border: 1px solid var(--border) !important;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
 
-<!-- 左側選單 -->
 <div class="sidebar">
     <div>
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.4</span>
+                <span class="version-badge">v26.11.5</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin-bottom:8px; padding-left:4px;">單字級距分類</div>
         <div class="nav-group" id="levelNavGroup">
-            <div class="nav-item active" onclick="switchLevel('1-1000', 'level1.json', this)">Level 1 (1-1000)</div>
-            <div class="nav-item" onclick="switchLevel('1001-2000', 'level2.json', this)">Level 2 (1001-2000)</div>
-            <div class="nav-item" onclick="switchLevel('2001-3000', 'level3.json', this)">Level 3 (2001-3000)</div>
-            <div class="nav-item" onclick="switchLevel('3001-4000', 'level4.json', this)">Level 4 (3001-4000)</div>
-            <div class="nav-item" onclick="switchLevel('4001-5000', 'level5.json', this)">Level 5 (4001-5000)</div>
-            <div class="nav-item" onclick="switchLevel('5001-6000', 'level6.json', this)">Level 6 (5001-6000)</div>
-            <div class="nav-item" onclick="switchLevel('6001-7000', 'level7.json', this)">Level 7 (6001-7000)</div>
+            <div class="nav-item active" onclick="switchLevel('1 (1-1000)', 'level1.json', this)">Level 1 (1-1000)</div>
+            <div class="nav-item" onclick="switchLevel('2 (1001-2000)', 'level2.json', this)">Level 2 (1001-2000)</div>
+            <div class="nav-item" onclick="switchLevel('3 (2001-3000)', 'level3.json', this)">Level 3 (2001-3000)</div>
+            <div class="nav-item" onclick="switchLevel('4 (3001-4000)', 'level4.json', this)">Level 4 (3001-4000)</div>
+            <div class="nav-item" onclick="switchLevel('5 (4001-5000)', 'level5.json', this)">Level 5 (4001-5000)</div>
+            <div class="nav-item" onclick="switchLevel('6 (5001-6000)', 'level6.json', this)">Level 6 (5001-6000)</div>
+            <div class="nav-item" onclick="switchLevel('7 (6001-7000)', 'level7.json', this)">Level 7 (6001-7000)</div>
         </div>
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin:16px 0 8px 4px;">測驗區塊</div>
@@ -266,16 +270,13 @@
     <button onclick="openAddWordModal()" style="width:100%;">+ 手動新增單字</button>
 </div>
 
-<!-- 右側主要區域 -->
 <div class="main-content">
     
-    <!-- 視圖 1: 單字瀏覽與學習面板 -->
     <div id="vocabView">
         <div class="header-bar">
             <div style="display: flex; align-items: center; gap: 16px;">
                 <h1 style="margin:0; font-size:1.4rem;" id="currentLevelTitle">Level 1 (1-1000)</h1>
                 
-                <!-- 每 100 字次分類下拉選單 -->
                 <select id="subLevelSelect" onchange="filterSubLevel()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; outline: none; background: #fff;">
                     <option value="all">全部單字 (1-1000)</option>
                     <option value="0">第 1 - 100 字</option>
@@ -297,23 +298,23 @@
             </div>
         </div>
 
-        <!-- 單字卡 4*4 滾動框 -->
         <div class="card">
             <div class="flashcard-scroll-container">
                 <div class="flashcard-grid" id="flashcardGrid"></div>
             </div>
         </div>
 
-        <!-- 統計、趨勢與日曆同排 -->
         <div class="dashboard-row">
             <div class="stat-trend-wrapper">
                 <div class="card" style="margin-bottom:0;">
-                    <h2>學習統計</h2>
+                    <h2>學習統計與字庫概況</h2>
                     <div class="stat-grid">
-                        <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日</div></div>
-                        <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週</div></div>
-                        <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月</div></div>
-                        <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日背誦</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statWeek">0</div><div class="stat-label">本週背誦</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月背誦</div></div>
+                        <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年背誦</div></div>
+                        <div class="stat-item" style="background:#f0fdf4; border-color:#bbf7d0;"><div class="stat-value" style="color:#16a34a;" id="statMastered">0</div><div class="stat-label">精熟庫 (≥4次)</div></div>
+                        <div class="stat-item" style="background:#fef2f2; border-color:#fecaca;"><div class="stat-value" style="color:#dc2626;" id="statWrong">0</div><div class="stat-label">錯題庫</div></div>
                     </div>
                 </div>
 
@@ -343,7 +344,6 @@
         </div>
     </div>
 
-    <!-- 視圖 2: 測驗系統面板 -->
     <div id="testView" style="display:none;">
         <div class="header-bar">
             <h1 style="margin:0; font-size:1.4rem;">字彙測驗系統</h1>
@@ -370,12 +370,12 @@
                     <label>範圍來源</label>
                     <select id="testSource" onchange="toggleTestSource()">
                         <option value="level">依照目前等級範圍/次分類</option>
-                        <option value="date">依照指定打卡日期範圍</option>
+                        <option value="date">依照指定打卡日期範圍 (YYYYMMDD)</option>
                     </select>
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
-                    <label>指定日期 (YYYY-MM-DD)</label>
-                    <input type="text" id="testDateInput" placeholder="例如: 2026-11-07">
+                    <label>指定日期 (格式: YYYYMMDD)</label>
+                    <input type="text" id="testDateInput" placeholder="例如: 20261107">
                 </div>
             </div>
             <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
@@ -388,7 +388,6 @@
 
 </div>
 
-<!-- 單字詳細資料彈窗 (圖層 1100，覆蓋於日曆明細上方) -->
 <div class="modal" id="cardDetailModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
@@ -416,23 +415,24 @@
             <div id="modalPhrases"></div>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
             <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯題庫移除</button>
-            <div style="display:flex; gap:8px; margin-left:auto;">
+
+            <div style="display:flex; gap:8px; align-items:center; margin-left:auto;">
                 <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為今日已背誦 (+1)</button>
+                <input type="text" id="cardCustomDate" class="date-input-compact" placeholder="YYYYMMDD" maxlength="8">
+                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為背誦</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 日曆日期明細彈窗 -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">日期打卡記錄</h3>
         <div id="dayDetailList" style="max-height: 380px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
         <div style="display:flex; justify-content:space-between; align-items:center;">
-            <button onclick="clearSelectedDayRecord()" class="btn-danger">清空當日標記</button>
+            <button onclick="clearSelectedDayRecord()" class="btn-danger">清空全日標記</button>
             <div style="display:flex; gap:8px;">
                 <button onclick="startDayTestFromModal()" class="btn-secondary">測驗當日單字</button>
                 <button onclick="closeDayModal()" class="btn-secondary">關閉</button>
@@ -441,7 +441,6 @@
     </div>
 </div>
 
-<!-- 手動新增單字彈窗 -->
 <div class="modal" id="addWordModal">
     <div class="modal-content">
         <h3 style="margin-top:0; color:var(--primary);">手動新增單字</h3>
@@ -489,7 +488,7 @@
     const studiedRef = db.ref('studiedWords');
     const statsRef = db.ref('testStats');
     const dayWordsRef = db.ref('dayWords');
-    const wrongRef = db.ref('wrongWords'); // 錯題庫雲端參考
+    const wrongRef = db.ref('wrongWords');
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -497,17 +496,24 @@
     let studiedWords = {};
     let testStats = {};
     let dayWordsData = {};
-    let wrongWords = {}; // 錯題庫資料
+    let wrongWords = {};
     let currentDate = new Date();
     let activeSelectedDate = '';
     let chartInstance = null;
     let activeCardData = null;
     let currentChartRange = 'week';
-    let currentTestQuestions = []; // 暫存目前測驗題目以便比對詳解
+    let currentTestQuestions = [];
 
-    function getTodayStr() {
+    // 取得 YYYYMMDD 格式（無連字號）
+    function getTodayYYYYMMDD() {
         const d = new Date();
-        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    // YYYYMMDD 轉為標準 Date 比對或顯示
+    function formatYYYYMMDDToStandard(str) {
+        if (!str || str.length !== 8) return str;
+        return `${str.substring(0,4)}-${str.substring(4,6)}-${str.substring(6,8)}`;
     }
 
     async function fetchLevelData(jsonFileName) {
@@ -567,15 +573,18 @@
         dataList.forEach(item => {
             const isStudied = studiedWords[item.word] === true;
             const correctCount = testStats[item.word] || 0;
-            const isMastered = correctCount >= 4;
-            const isWrong = wrongWords[item.word] === true; // 是否為錯題
+            const isMastered = correctCount >= 4; // 正確次數 ≥ 4 次為精熟
+            const isWrong = wrongWords[item.word] === true;
 
             const card = document.createElement('div');
-            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isMastered ? 'mastered' : ''} ${isWrong ? 'is-wrong' : ''}`;
+            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''}`;
             card.onclick = () => openCardDetail(item);
             card.innerHTML = `
                 <div>
-                    <div class="flashcard-word">${item.word}</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div class="flashcard-word">${item.word}</div>
+                        ${isMastered ? '<span style="font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px; font-weight:700;">精熟</span>' : ''}
+                    </div>
                     <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
                     <div class="flashcard-def">${item.definition}</div>
                 </div>
@@ -621,21 +630,23 @@
             });
         } else phraseArea.innerText = '無';
 
-        // 檢查是否為錯題，決定是否顯示「從錯題庫移除」按鈕
         const isWrongWord = !!wrongWords[item.word];
         const wrongBtn = document.getElementById('modalWrongBtn');
         wrongBtn.style.display = isWrongWord ? 'block' : 'none';
 
+        // 預設填入今天 YYYYMMDD，亦可手動修改
+        document.getElementById('cardCustomDate').value = getTodayYYYYMMDD();
+
         const isStudied = studiedWords[item.word];
         const btn = document.getElementById('modalStudiedBtn');
-        btn.innerText = isStudied ? '已標記為背誦 (取消)' : '標記為今日已背誦 (+1)';
+        btn.innerText = isStudied ? '取消背誦標記' : '標記為背誦';
+        btn.className = isStudied ? 'btn-secondary' : '';
 
         document.getElementById('cardDetailModal').style.display = 'flex';
     }
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
-    // 手動將單字從錯題庫移除
     function toggleWrongStatus() {
         if (!activeCardData) return;
         wrongRef.child(activeCardData.word).remove();
@@ -646,25 +657,43 @@
     function toggleCardStudied() {
         if (!activeCardData) return;
         const word = activeCardData.word;
-        const todayStr = getTodayStr();
+        const targetDate = document.getElementById('cardCustomDate').value.trim() || getTodayYYYYMMDD();
+
+        if (targetDate.length !== 8 || isNaN(targetDate)) {
+            alert('請輸入標準 8 位數日期格式 (如: 20261107)');
+            return;
+        }
 
         const currentStatus = !!studiedWords[word];
         const newStatus = !currentStatus;
 
         studiedRef.child(word).set(newStatus);
 
-        let currentCount = vocabData[todayStr] || 0;
+        let currentCount = vocabData[targetDate] || 0;
         if (newStatus) {
             currentCount++;
             confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-            dayWordsRef.child(todayStr).child(word).set(activeCardData);
+            dayWordsRef.child(targetDate).child(word).set(activeCardData);
         } else {
             currentCount = Math.max(0, currentCount - 1);
-            dayWordsRef.child(todayStr).child(word).remove();
+            dayWordsRef.child(targetDate).child(word).remove();
         }
-        vocabRef.child(todayStr).set(currentCount);
+        vocabRef.child(targetDate).set(currentCount);
 
         closeCardModal();
+    }
+
+    function removeSingleWordFromDay(dateStr, wordStr) {
+        if (!confirm(`確定要將 "${wordStr}" 從 ${dateStr} 的記錄中移除嗎？`)) return;
+
+        dayWordsRef.child(dateStr).child(wordStr).remove();
+        studiedRef.child(wordStr).set(false);
+
+        let currentCount = vocabData[dateStr] || 0;
+        let newCount = Math.max(0, currentCount - 1);
+        vocabRef.child(dateStr).set(newCount);
+
+        showDayDetails(dateStr);
     }
 
     function openAddWordModal() { document.getElementById('addWordModal').style.display = 'flex'; }
@@ -716,6 +745,7 @@
 
         statsRef.on('value', snap => {
             testStats = snap.val() || {};
+            updateStats();
             filterSubLevel();
         });
 
@@ -725,6 +755,7 @@
 
         wrongRef.on('value', snap => {
             wrongWords = snap.val() || {};
+            updateStats();
             filterSubLevel();
         });
     }
@@ -745,10 +776,10 @@
         for(let i = 0; i < firstDay; i++) grid.innerHTML += `<div></div>`;
 
         for(let d = 1; d <= days; d++) {
-            const dateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-            const val = vocabData[dateStr];
+            const dateStr8 = `${y}${String(m + 1).padStart(2, '0')}${String(d).padStart(2, '0')}`;
+            const val = vocabData[dateStr8];
             grid.innerHTML += `
-                <div class="calendar-day ${val ? 'has-data' : ''}" onclick="showDayDetails('${dateStr}')">
+                <div class="calendar-day ${val ? 'has-data' : ''}" onclick="showDayDetails('${dateStr8}')">
                     <span>${d}</span>
                     ${val ? `<div class="count-badge">+${val}</div>` : ''}
                 </div>
@@ -763,7 +794,7 @@
 
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
-        document.getElementById('dayDetailTitle').innerText = `${dateStr} 打卡記錄`;
+        document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
         const listDiv = document.getElementById('dayDetailList');
         listDiv.innerHTML = '';
 
@@ -777,16 +808,18 @@
             gridContainer.style.gap = '10px';
 
             for (const [w, itemData] of Object.entries(wordsObj)) {
-                const item = (typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] };
-                
-                const miniCard = document.createElement('div');
-                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
-                miniCard.onmouseover = () => miniCard.style.borderColor = '#4f46e5';
-                miniCard.onmouseout = () => miniCard.style.borderColor = '#e2e8f0';
-                miniCard.onclick = () => openCardDetail(item);
+                // 自動與目前 JSON 全域比對以取得最新完整資料
+                let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
+                const miniCard = document.createElement('div');
+                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; position: relative; transition: all 0.2s;";
+                
                 miniCard.innerHTML = `
-                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div style="font-weight: 700; font-size: 1rem; color: var(--text); cursor:pointer;" onclick="openCardDetailFromDay('${w}')">${item.word}</div>
+                        <button class="btn-danger btn-sm" onclick="event.stopPropagation(); removeSingleWordFromDay('${dateStr}', '${w}')">移除</button>
+                    </div>
                     <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
                     <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
                 `;
@@ -797,9 +830,18 @@
         document.getElementById('dayDetailModal').style.display = 'flex';
     }
 
+    function openCardDetailFromDay(wordStr) {
+        let found = currentLevelData.find(x => x.word.toLowerCase() === wordStr.toLowerCase());
+        if (found) {
+            openCardDetail(found);
+        } else {
+            openCardDetail({ word: wordStr, definition: '舊記錄單字', pos: '', kk: '', derivatives: [], root: '', phrases: [] });
+        }
+    }
+
     function clearSelectedDayRecord() {
         if (!activeSelectedDate) return;
-        if (!confirm(`確定要清空 ${activeSelectedDate} 的所有背誦標記與紀錄嗎？`)) return;
+        if (!confirm(`確定要清空 ${formatYYYYMMDDToStandard(activeSelectedDate)} 的所有背誦標記嗎？`)) return;
 
         vocabRef.child(activeSelectedDate).remove();
         dayWordsRef.child(activeSelectedDate).remove();
@@ -829,14 +871,14 @@
     }
 
     function updateStats() {
-        let todayStr = getTodayStr();
-        let todayCount = vocabData[todayStr] || 0;
+        let todayStr8 = getTodayYYYYMMDD();
+        let todayCount = vocabData[todayStr8] || 0;
         let weekCount = todayCount;
         let monthCount = 0;
         let yearCount = 0;
 
         const currentYearStr = String(new Date().getFullYear());
-        const currentMonthPrefix = `${currentYearStr}-${String(new Date().getMonth() + 1).padStart(2, '0')}`;
+        const currentMonthPrefix = `${currentYearStr}${String(new Date().getMonth() + 1).padStart(2, '0')}`;
 
         for (const [dateStr, val] of Object.entries(vocabData)) {
             if (typeof val === 'number') {
@@ -845,10 +887,21 @@
             }
         }
 
+        // 精熟庫統計 (測驗答對 ≥ 4 次)
+        let masteredCount = 0;
+        for (const [w, c] of Object.entries(testStats)) {
+            if (c >= 4) masteredCount++;
+        }
+
+        // 錯題庫統計
+        let wrongCount = Object.keys(wrongWords).length;
+
         document.getElementById('statToday').innerText = todayCount;
         document.getElementById('statWeek').innerText = weekCount;
         document.getElementById('statMonth').innerText = monthCount;
         document.getElementById('statYear').innerText = yearCount;
+        document.getElementById('statMastered').innerText = masteredCount;
+        document.getElementById('statWrong').innerText = wrongCount;
     }
 
     function initChart() {
@@ -872,11 +925,7 @@
         currentChartRange = range;
         ['week', 'month', 'year'].forEach(r => {
             const btn = document.getElementById(`btn-${r}`);
-            if (r === range) {
-                btn.className = ''; 
-            } else {
-                btn.className = 'btn-secondary'; 
-            }
+            btn.className = (r === range) ? '' : 'btn-secondary';
         });
         updateChart();
     }
@@ -894,10 +943,10 @@
                 d.setDate(baseDate.getDate() - i);
                 const m = d.getMonth() + 1;
                 const day = d.getDate();
-                const dateStr = `${d.getFullYear()}-${String(m).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dateStr8 = `${d.getFullYear()}${String(m).padStart(2, '0')}${String(day).padStart(2, '0')}`;
                 
                 labels.push(`${String(m).padStart(2, '0')}/${String(day).padStart(2, '0')}`);
-                dataVals.push(vocabData[dateStr] || 0);
+                dataVals.push(vocabData[dateStr8] || 0);
             }
         } else if (currentChartRange === 'month') {
             const y = baseDate.getFullYear();
@@ -906,9 +955,9 @@
             const monthStr = String(m + 1).padStart(2, '0');
 
             for (let d = 1; d <= daysInMonth; d++) {
-                const dateStr = `${y}-${monthStr}-${String(d).padStart(2, '0')}`;
+                const dateStr8 = `${y}${monthStr}${String(d).padStart(2, '0')}`;
                 labels.push(`${d}日`);
-                dataVals.push(vocabData[dateStr] || 0);
+                dataVals.push(vocabData[dateStr8] || 0);
             }
         } else if (currentChartRange === 'year') {
             labels = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
@@ -916,13 +965,10 @@
             const currentYearStr = String(baseDate.getFullYear());
 
             for (const [dateStr, val] of Object.entries(vocabData)) {
-                if (dateStr.startsWith(currentYearStr) && typeof val === 'number') {
-                    const parts = dateStr.split('-');
-                    if (parts.length >= 2) {
-                        const monthIdx = parseInt(parts[1], 10) - 1;
-                        if (monthIdx >= 0 && monthIdx < 12) {
-                            dataVals[monthIdx] += val;
-                        }
+                if (dateStr.startsWith(currentYearStr) && typeof val === 'number' && dateStr.length === 8) {
+                    const monthIdx = parseInt(dateStr.substring(4, 6), 10) - 1;
+                    if (monthIdx >= 0 && monthIdx < 12) {
+                        dataVals[monthIdx] += val;
                     }
                 }
             }
@@ -957,8 +1003,8 @@
             const wordsObj = dayWordsData[dateStr];
             if (wordsObj) {
                 pool = Object.entries(wordsObj).map(([w, itemData]) => {
-                    if (typeof itemData === 'object' && itemData !== null) return itemData;
-                    return { word: w, definition: itemData };
+                    let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                    return found || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData });
                 });
             }
         }
@@ -969,7 +1015,7 @@
         }
 
         pool.sort(() => Math.random() - 0.5);
-        currentTestQuestions = pool.slice(0, count); // 暫存題目供交卷比對
+        currentTestQuestions = pool.slice(0, count);
 
         const container = document.getElementById('testContainer');
         container.innerHTML = '';
@@ -1030,7 +1076,6 @@
                 let curStats = testStats[q.word] || 0;
                 statsRef.child(q.word).set(curStats + 1);
             } else {
-                // 答錯自動加入錯題庫
                 wrongRef.child(q.word).set(true);
             }
 
@@ -1043,7 +1088,6 @@
             `;
         });
 
-        // 組合最終結果顯示
         const finalScoreHtml = `<div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 20px;">總得分：${score} / ${currentTestQuestions.length}</div>`;
         const container = document.getElementById('testContainer');
         container.innerHTML = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>` + finalScoreHtml + resultsHtml + `<button onclick="startTest()" style="margin-top: 16px;">再考一次</button>`;
