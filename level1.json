@@ -3938,5 +3938,2680 @@
       "phrases": [
         { "phrase": "extreme weather", "meaning": "極端氣候", "sentence": "Extreme weather events are becoming more frequent.", "translation": "極端天氣事件變得越來越頻繁。" }
       ]
-    }
+    },
+  [
+  {
+    "word": "abrupt",
+    "pos": "adj.",
+    "kk": "/əˈbrʌpt/",
+    "definition": "突然的；陡峭的；唐突的",
+    "derivatives": [
+      { "word": "abruptly", "pos": "adv.", "meaning": "突然地" }
+    ],
+    "root": "ab- (離開) + rupt (破裂) -> 突然破裂中斷 -> 突然的",
+    "phrases": [
+      {
+        "phrase": "come to an abrupt end",
+        "meaning": "戛然而止",
+        "sentence": "The meeting came to an abrupt end when the fire alarm went off."
+      }
+    ]
+  },
+  {
+    "word": "absent",
+    "pos": "adj.",
+    "kk": "/ˈæbsənt/",
+    "definition": "缺席的；心不在焉的",
+    "derivatives": [
+      { "word": "absence", "pos": "n.", "meaning": "缺席；缺乏" }
+    ],
+    "root": "ab- (離開) + sent (存在/在場) -> 不在現場 -> 缺席的",
+    "phrases": [
+      {
+        "phrase": "be absent from",
+        "meaning": "缺席...",
+        "sentence": "He was absent from school yesterday due to a cold."
+      }
+    ]
+  },
+  {
+    "word": "absolute",
+    "pos": "adj.",
+    "kk": "/ˈæbsəˌlut/",
+    "definition": "絕對的；完全的",
+    "derivatives": [
+      { "word": "absolutely", "pos": "adv.", "meaning": "絕對地；完全地" }
+    ],
+    "root": "ab- (離開/完全) + solut (鬆開/獨立) -> 從限制中完全獨立出來 -> 絕對的",
+    "phrases": [
+      {
+        "phrase": "absolute power",
+        "meaning": "絕對權力",
+        "sentence": "Absolute power tends to corrupt absolutely."
+      }
+    ]
+  },
+  {
+    "word": "absorb",
+    "pos": "v.",
+    "kk": "/əbˈsɔrb/",
+    "definition": "吸收；使全神貫注",
+    "derivatives": [
+      { "word": "absorption", "pos": "n.", "meaning": "吸收；專注" },
+      { "word": "absorbed", "pos": "adj.", "meaning": "被吸收的；全神貫注的" }
+    ],
+    "root": "ab- (加強) + sorb (吸取/吞咽) -> 徹底吸進去 -> 吸收",
+    "phrases": [
+      {
+        "phrase": "be absorbed in",
+        "meaning": "專注於...",
+        "sentence": "She was deeply absorbed in reading a novel."
+      }
+    ]
+  },
+  {
+    "word": "abstract",
+    "pos": "adj. / n.",
+    "kk": "/ˈæbˌstrækt/",
+    "definition": "抽象的 / 摘要",
+    "derivatives": [
+      { "word": "abstraction", "pos": "n.", "meaning": "抽象概念" }
+    ],
+    "root": "abs- (從...離開) + tract (拉) -> 把特質抽離出來 -> 抽象的",
+    "phrases": [
+      {
+        "phrase": "in the abstract",
+        "meaning": "從理論上來說",
+        "sentence": "It is hard to discuss this issue in the abstract."
+      }
+    ]
+  },
+  {
+    "word": "absurd",
+    "pos": "adj.",
+    "kk": "/əbˈsɜrd/",
+    "definition": "荒謬的；滑稽的",
+    "derivatives": [
+      { "word": "absurdity", "pos": "n.", "meaning": "荒謬" }
+    ],
+    "root": "ab- (加強) + surd (聾的/不合情理的) -> 荒唐到聽不進去 -> 荒謬的",
+    "phrases": [
+      {
+        "phrase": "sound absurd",
+        "meaning": "聽起來很荒謬",
+        "sentence": "His explanation sounded completely absurd."
+      }
+    ]
+  },
+  {
+    "word": "abundance",
+    "pos": "n.",
+    "kk": "/əˈbʌndəns/",
+    "definition": "豐富；充裕",
+    "derivatives": [
+      { "word": "abundant", "pos": "adj.", "meaning": "豐富的" }
+    ],
+    "root": "ab- + und (波浪) + -ance (名詞字尾) -> 如波浪般湧現 -> 豐富",
+    "phrases": [
+      {
+        "phrase": "in abundance",
+        "meaning": "大量地；充裕地",
+        "sentence": "Food and wine were available in abundance."
+      }
+    ]
+  },
+  {
+    "word": "academic",
+    "pos": "adj. / n.",
+    "kk": "/ˌækəˈdɛmɪk/",
+    "definition": "學術的 / 大學教師",
+    "derivatives": [
+      { "word": "academy", "pos": "n.", "meaning": "學院；學會" },
+      { "word": "academically", "pos": "adv.", "meaning": "學術上地" }
+    ],
+    "root": "Academia (希臘哲學家柏拉圖講學的花園地名)",
+    "phrases": [
+      {
+        "phrase": "academic performance",
+        "meaning": "學業表現",
+        "sentence": "Her academic performance has improved significantly this semester."
+      }
+    ]
+  },
+  {
+    "word": "accelerate",
+    "pos": "v.",
+    "kk": "/ækˈsɛləˌreɪt/",
+    "definition": "加速；促進",
+    "derivatives": [
+      { "word": "acceleration", "pos": "n.", "meaning": "加速" },
+      { "word": "accelerator", "pos": "n.", "meaning": "油門；加速器" }
+    ],
+    "root": "ac- (朝向) + celer (速度) + -ate (動詞字尾) -> 增加速度 -> 加速",
+    "phrases": [
+      {
+        "phrase": "accelerate the process",
+        "meaning": "加速過程",
+        "sentence": "New technology can help accelerate the production process."
+      }
+    ]
+  },
+  {
+    "word": "accent",
+    "pos": "n.",
+    "kk": "/ˈæksɛnt/",
+    "definition": "口音；重音",
+    "derivatives": [
+      { "word": "accents", "pos": "n.", "meaning": "重音（複數）" }
+    ],
+    "root": "ac- (朝向) + cent (唱歌/發聲) -> 對著某個音發出強調 -> 重音",
+    "phrases": [
+      {
+        "phrase": "speak with an accent",
+        "meaning": "帶有口音說話",
+        "sentence": "He speaks English with a slight French accent."
+      }
+    ]
+  },
+  {
+    "word": "accept",
+    "pos": "v.",
+    "kk": "/əkˈsɛpt/",
+    "definition": "接受；同意",
+    "derivatives": [
+      { "word": "acceptable", "pos": "adj.", "meaning": "可接受的" },
+      { "word": "acceptance", "pos": "n.", "meaning": "接受；認可" }
+    ],
+    "root": "ac- (朝向) + cept (拿取) -> 把東西拿到自己手上 -> 接受",
+    "phrases": [
+      {
+        "phrase": "accept an apology",
+        "meaning": "接受道歉",
+        "sentence": "She was ready to accept his sincere apology."
+      }
+    ]
+  },
+  {
+    "word": "access",
+    "pos": "n. / v.",
+    "kk": "/ˈæksɛs/",
+    "definition": "通道；接近的機會 / 存取；進入",
+    "derivatives": [
+      { "word": "accessible", "pos": "adj.", "meaning": "易接近的；可使用的" }
+    ],
+    "root": "ac- (朝向) + cess (走/進入) -> 走進去 -> 通道/進入",
+    "phrases": [
+      {
+        "phrase": "have access to",
+        "meaning": "有權使用；可接近",
+        "sentence": "All students have access to the school library."
+      }
+    ]
+  },
+  {
+    "word": "accident",
+    "pos": "n.",
+    "kk": "/ˈæksədənt/",
+    "definition": "事故；意外",
+    "derivatives": [
+      { "word": "accidental", "pos": "adj.", "meaning": "意外的" },
+      { "word": "accidentally", "pos": "adv.", "meaning": "意外地；偶然地" }
+    ],
+    "root": "ac- (掉落) + cid (發生) -> 事情無意間掉落發生 -> 意外",
+    "phrases": [
+      {
+        "phrase": "by accident",
+        "meaning": "偶然地；意外地",
+        "sentence": "I met my old friend on the street by accident."
+      }
+    ]
+  },
+  {
+    "word": "accompany",
+    "pos": "v.",
+    "kk": "/əˈkʌmpəni/",
+    "definition": "陪伴；伴隨",
+    "derivatives": [
+      { "word": "accompaniment", "pos": "n.", "meaning": "伴奏；陪伴物" }
+    ],
+    "root": "ac- (共同) + company (夥伴) -> 當別人的夥伴 -> 陪伴",
+    "phrases": [
+      {
+        "phrase": "accompany someone to",
+    "meaning": "陪某人去...",
+    "sentence": "I will accompany my mother to the hospital."
+      }
+    ]
+  },
+  {
+    "word": "accomplish",
+    "pos": "v.",
+    "kk": "/əˈkɑmplɪʃ/",
+    "definition": "完成；實現",
+    "derivatives": [
+      { "word": "accomplishment", "pos": "n.", "meaning": "成就；才華" }
+    ],
+    "root": "ac- (完全) + complish (完成/滿的) -> 圓滿完成 -> 達成",
+    "phrases": [
+      {
+        "phrase": "accomplish a goal",
+        "meaning": "達成目標",
+        "sentence": "Working hard helps you accomplish your goals."
+      }
+    ]
+  },
+  {
+    "word": "according",
+    "pos": "prep.",
+    "kk": "/əˈkɔrdɪŋ/",
+    "definition": "根據；按照",
+    "derivatives": [
+      { "word": "accordingly", "pos": "adv.", "meaning": "因此；相應地" }
+    ],
+    "root": "ac- + cord (心/一致) -> 心意一致地順從 -> 根據",
+    "phrases": [
+      {
+        "phrase": "according to",
+        "meaning": "根據...",
+        "sentence": "According to the weather report, it will rain tomorrow."
+      }
+    ]
+  },
+  {
+    "word": "account",
+    "pos": "n. / v.",
+    "kk": "/əˈkaʊnt/",
+    "definition": "帳戶；報導；理由 / 說明；佔...比例",
+    "derivatives": [
+      { "word": "accountant", "pos": "n.", "meaning": "會計師" }
+    ],
+    "root": "ac- + count (計算) -> 計算記錄 -> 帳戶/報告",
+    "phrases": [
+      {
+        "phrase": "take into account",
+        "meaning": "把...考慮在內",
+        "sentence": "We must take all factors into account before making a decision."
+      }
+    ]
+  },
+  {
+    "word": "accumulate",
+    "pos": "v.",
+    "kk": "/əˈkjumjəˌleɪt/",
+    "definition": "累積；積聚",
+    "derivatives": [
+      { "word": "accumulation", "pos": "n.", "meaning": "累積" }
+    ],
+    "root": "ac- (朝向) + cumul (堆積) + -ate (動詞字尾) -> 一堆堆積起來 -> 累積",
+    "phrases": [
+      {
+        "phrase": "accumulate wealth",
+        "meaning": "累積財富",
+        "sentence": "It takes time and patience to accumulate wealth."
+      }
+    ]
+  },
+  {
+    "word": "accurate",
+    "pos": "adj.",
+    "kk": "/ˈækjərət/",
+    "definition": "準確的；精確的",
+    "derivatives": [
+      { "word": "accuracy", "pos": "n.", "meaning": "準確性" },
+      { "word": "accurately", "pos": "adv.", "meaning": "準確地" }
+    ],
+    "root": "ac- (朝向) + curat (照顧/修飾) -> 精心雕琢到對 -> 準確的",
+    "phrases": [
+      {
+        "phrase": "accurate information",
+        "meaning": "準確的資訊",
+        "sentence": "Please make sure you provide accurate information."
+      }
+    ]
+  },
+  {
+    "word": "accuse",
+    "pos": "v.",
+    "kk": "/əˈkjuz/",
+    "definition": "指控；控告",
+    "derivatives": [
+      { "word": "accusation", "pos": "n.", "meaning": "指控；控告" }
+    ],
+    "root": "ac- (朝向) + cuse (理由/罪名) -> 朝別人加上罪名 -> 指控",
+    "phrases": [
+      {
+        "phrase": "accuse someone of",
+        "meaning": "指控某人...罪名",
+        "sentence": "He was accused of stealing money from the store."
+      }
+    ]
+  },
+  {
+    "word": "accustom",
+    "pos": "v.",
+    "kk": "/əˈkʌstəm/",
+    "definition": "使習慣於",
+    "derivatives": [
+      { "word": "accustomed", "pos": "adj.", "meaning": "習慣的" }
+    ],
+    "root": "ac- + custom (習俗) -> 使之符合風俗習慣 -> 使習慣",
+    "phrases": [
+      {
+        "phrase": "be accustomed to",
+        "meaning": "習慣於...",
+        "sentence": "She is accustomed to getting up early in the morning."
+      }
+    ]
+  },
+  {
+    "word": "achieve",
+    "pos": "v.",
+    "kk": "/əˈtʃiv/",
+    "definition": "達成；實現",
+    "derivatives": [
+      { "word": "achievement", "pos": "n.", "meaning": "成就；達成" }
+    ],
+    "root": "ac- (朝向) + chiev (頭/頂端 head) -> 達到頂端 -> 達成",
+    "phrases": [
+      {
+        "phrase": "achieve success",
+        "meaning": "取得成功",
+        "sentence": "Hard work is the key to achieving success."
+      }
+    ]
+  },
+  {
+    "word": "acid",
+    "pos": "n. / adj.",
+    "kk": "/ˈæsɪd/",
+    "definition": "酸 / 酸的",
+    "derivatives": [
+      { "word": "acidity", "pos": "n.", "meaning": "酸度" }
+    ],
+    "root": "acr- / ac- (尖銳、酸味的)",
+    "phrases": [
+      {
+        "phrase": "acid rain",
+        "meaning": "酸雨",
+        "sentence": "Acid rain can cause severe damage to forests and lakes."
+      }
+    ]
+  },
+  {
+    "word": "acknowledge",
+    "pos": "v.",
+    "kk": "/əkˈnɑlɪdʒ/",
+    "definition": "承認；感謝；告知收到",
+    "derivatives": [
+      { "word": "acknowledgment", "pos": "n.", "meaning": "承認；感謝" }
+    ],
+    "root": "ac- + knowledge (知道) -> 確認知道並承認 -> 承認",
+    "phrases": [
+      {
+        "phrase": "acknowledge one's mistake",
+        "meaning": "承認錯誤",
+        "sentence": "It takes courage to acknowledge your own mistakes."
+      }
+    ]
+  },
+  {
+    "word": "acquire",
+    "pos": "v.",
+    "kk": "/əˈkwaɪr/",
+    "definition": "獲得；取得",
+    "derivatives": [
+      { "word": "acquisition", "pos": "n.", "meaning": "獲得；取得物" }
+    ],
+    "root": "ac- (朝向) + quir (尋求) -> 努力尋找而得到 -> 獲得",
+    "phrases": [
+      {
+        "phrase": "acquire knowledge",
+        "meaning": "獲取知識",
+        "sentence": "Reading books is a great way to acquire knowledge."
+      }
+    ]
+  },
+  {
+    "word": "across",
+    "pos": "prep. / adv.",
+    "kk": "/əˈkrɔs/",
+    "definition": "橫越；穿過 / 橫跨",
+    "derivatives": [],
+    "root": "a- (在...) + cross (十字交叉)",
+    "phrases": [
+      {
+        "phrase": "walk across the street",
+        "meaning": "走過街道",
+        "sentence": "Be careful when you walk across the street."
+      }
+    ]
+  },
+  {
+    "word": "act",
+    "pos": "n. / v.",
+    "kk": "/ækt/",
+    "definition": "行為；法案 / 行動；扮演",
+    "derivatives": [
+      { "word": "action", "pos": "n.", "meaning": "行動" },
+      { "word": "active", "pos": "adj.", "meaning": "活躍的" }
+    ],
+    "root": "act (做、驅動)",
+    "phrases": [
+      {
+        "phrase": "actions speak louder than words",
+        "meaning": "事實勝於雄辯",
+        "sentence": "Don't just make promises; actions speak louder than words."
+      }
+    ]
+  },
+  {
+    "word": "active",
+    "pos": "adj.",
+    "kk": "/ˈæktɪv/",
+    "definition": "活躍的；積極的",
+    "derivatives": [
+      { "word": "actively", "pos": "adv.", "meaning": "積極地" },
+      { "word": "activity", "pos": "n.", "meaning": "活動" }
+    ],
+    "root": "act (做) + -ive (形容詞字尾) -> 喜歡動的 -> 活躍的",
+    "phrases": [
+      {
+        "phrase": "lead an active life",
+        "meaning": "過著活躍的生活",
+        "sentence": "Despite his age, he still leads a very active life."
+      }
+    ]
+  },
+  {
+    "word": "actor",
+    "pos": "n.",
+    "kk": "/ˈæktɚ/",
+    "definition": "男演員",
+    "derivatives": [
+      { "word": "actress", "pos": "n.", "meaning": "女演員" }
+    ],
+    "root": "act (演戲/做) + -or (人)",
+    "phrases": [
+      {
+        "phrase": "famous actor",
+        "meaning": "著名演員",
+        "sentence": "He dreams of becoming a famous Hollywood actor."
+      }
+    ]
+  },
+  {
+    "word": "actual",
+    "pos": "adj.",
+    "kk": "/ˈæktʃuəl/",
+    "definition": "實際的；真實的",
+    "derivatives": [
+      { "word": "actually", "pos": "adv.", "meaning": "實際上" }
+    ],
+    "root": "act (做) + -ual (形容詞字尾) -> 實際做出來的 -> 實際的",
+    "phrases": [
+      {
+        "phrase": "actual cost",
+        "meaning": "實際成本",
+        "sentence": "The actual cost was much higher than we expected."
+      }
+    ]
+  },
+  {
+    "word": "acute",
+    "pos": "adj.",
+    "kk": "/əˈkjut/",
+    "definition": "急性的；敏銳的；嚴重的",
+    "derivatives": [
+      { "word": "acutely", "pos": "adv.", "meaning": "敏銳地；劇烈地" }
+    ],
+    "root": "acu (尖銳)",
+    "phrases": [
+      {
+        "phrase": "acute pain",
+        "meaning": "劇痛；急性疼痛",
+        "sentence": "He was rushed to the hospital with acute stomach pain."
+      }
+    ]
+  },
+  {
+    "word": "adapt",
+    "pos": "v.",
+    "kk": "/əˈdæpt/",
+    "definition": "適應；改編",
+    "derivatives": [
+      { "word": "adaptation", "pos": "n.", "meaning": "適應；改編本" },
+      { "word": "adaptable", "pos": "adj.", "meaning": "能適應的" }
+    ],
+    "root": "ad- (朝向) + apt (適合) -> 使變得適合 -> 適應",
+    "phrases": [
+      {
+        "phrase": "adapt to a new environment",
+        "meaning": "適應新環境",
+        "sentence": "It takes time to adapt to a new environment."
+      }
+    ]
+  },
+  {
+    "word": "add",
+    "pos": "v.",
+    "kk": "/æd/",
+    "definition": "添加；增加；計算總和",
+    "derivatives": [
+      { "word": "addition", "pos": "n.", "meaning": "增加；加法" },
+      { "word": "additional", "pos": "adj.", "meaning": "附加的；額外的" }
+    ],
+    "root": "ad- (朝向) + d (給予) -> 加進去給予 -> 增加",
+    "phrases": [
+      {
+        "phrase": "add to",
+        "meaning": "增加...",
+        "sentence": "Bad weather only added to our difficulties."
+      }
+    ]
+  },
+  {
+    "word": "address",
+    "pos": "n. / v.",
+    "kk": "/əˈdrɛs/",
+    "definition": "地址；演說 / 處理；向...發表演說",
+    "derivatives": [],
+    "root": "ad- (朝向) + dress (使正直/排列) -> 朝著目標說話或擺放 -> 地址/演說/處理",
+    "phrases": [
+      {
+        "phrase": "address an issue",
+        "meaning": "處理問題",
+        "sentence": "The government needs to address the housing problem immediately."
+      }
+    ]
+  },
+  {
+    "word": "adequate",
+    "pos": "adj.",
+    "kk": "/ˈædɪkwət/",
+    "definition": "足夠的；適當的",
+    "derivatives": [
+      { "word": "adequately", "pos": "adv.", "meaning": "足夠地" }
+    ],
+    "root": "ad- (朝向) + equ (相等) -> 剛好達到相等標準 -> 足夠的",
+    "phrases": [
+      {
+        "phrase": "adequate sleep",
+        "meaning": "充足的睡眠",
+        "sentence": "Adequate sleep is essential for good health."
+      }
+    ]
+  },
+  {
+    "word": "adjust",
+    "pos": "v.",
+    "kk": "/əˈdʒʌst/",
+    "definition": "調整；調節；適應",
+    "derivatives": [
+      { "word": "adjustment", "pos": "n.", "meaning": "調整；調節" }
+    ],
+    "root": "ad- (朝向) + just (正確/剛好) -> 調整到正確狀態 -> 調整",
+    "phrases": [
+      {
+        "phrase": "adjust to",
+        "meaning": "適應...",
+        "sentence": "Students need time to adjust to high school life."
+      }
+    ]
+  },
+  {
+    "word": "administration",
+    "pos": "n.",
+    "kk": "/ədˌmɪnəˈstreʃən/",
+    "definition": "行政；管理；政府內閣",
+    "derivatives": [
+      { "word": "administrate", "pos": "v.", "meaning": "管理；治理" },
+      { "word": "administrator", "pos": "n.", "meaning": "行政人員；管理者" }
+    ],
+    "root": "ad- + ministrate (服務/管理) -> 為大眾提供服務管理 -> 行政",
+    "phrases": [
+      {
+        "phrase": "business administration",
+        "meaning": "企業管理",
+        "sentence": "He is majoring in business administration at university."
+      }
+    ]
+  },
+  {
+    "word": "admire",
+    "pos": "v.",
+    "kk": "/ədˈmaɪr/",
+    "definition": "欽佩；欣賞",
+    "derivatives": [
+      { "word": "admiration", "pos": "n.", "meaning": "欽佩；讚賞" },
+      { "word": "admirable", "pos": "adj.", "meaning": "令人欽佩的" }
+    ],
+    "root": "ad- (朝向) + mire (驚奇/讚嘆) -> 看著感到驚嘆 -> 欽佩",
+    "phrases": [
+      {
+        "phrase": "admire someone for",
+        "meaning": "因...而欽佩某人",
+        "sentence": "I really admire her for her dedication to work."
+      }
+    ]
+  },
+  {
+    "word": "admission",
+    "pos": "n.",
+    "kk": "/ədˈmɪʃən/",
+    "definition": "准許進入；入場費；承認",
+    "derivatives": [
+      { "word": "admit", "pos": "v.", "meaning": "准許進入；承認" }
+    ],
+    "root": "ad- (朝向) + miss (送入) -> 被送進去 -> 准許進入/承認",
+    "phrases": [
+      {
+        "phrase": "admission fee",
+        "meaning": "門票費",
+        "sentence": "Children under six get free admission to the museum."
+      }
+    ]
+  },
+  {
+    "word": "admit",
+    "pos": "v.",
+    "kk": "/ədˈmɪt/",
+    "definition": "承認；准許進入",
+    "derivatives": [
+      { "word": "admittance", "pos": "n.", "meaning": "進入權" }
+    ],
+    "root": "ad- (朝向) + mit (送) -> 允許進入或交出真相 -> 承認/准許",
+    "phrases": [
+      {
+        "phrase": "admit defeat",
+        "meaning": "認輸",
+        "sentence": "After a hard battle, they had to admit defeat."
+      }
+    ]
+  },
+  {
+    "word": "adolescent",
+    "pos": "n. / adj.",
+    "kk": "/ˌædəˈlɛsənt/",
+    "definition": "青少年 / 青少年的",
+    "derivatives": [
+      { "word": "adolescence", "pos": "n.", "meaning": "青春期" }
+    ],
+    "root": "ad- + adolesce (長大成人) -> 正在成長中的人 -> 青少年",
+    "phrases": [
+      {
+        "phrase": "adolescent psychology",
+        "meaning": "青少年心理學",
+        "sentence": "Parents should try to understand adolescent psychology."
+      }
+    ]
+  },
+  {
+    "word": "adopt",
+    "pos": "v.",
+    "kk": "/əˈdɑpt/",
+    "definition": "採取；領養；正式通過",
+    "derivatives": [
+      { "word": "adoption", "pos": "n.", "meaning": "領養；採用" }
+    ],
+    "root": "ad- (朝向) + opt (選擇) -> 選擇為自己的 -> 領養/採用",
+    "phrases": [
+      {
+        "phrase": "adopt a child",
+        "meaning": "領養小孩",
+        "sentence": "The couple decided to adopt a child from an orphanage."
+      }
+    ]
+  },
+  {
+    "word": "adult",
+    "pos": "n. / adj.",
+    "kk": "/əˈdʌlt/",
+    "definition": "成年人 / 成年的",
+    "derivatives": [
+      { "word": "adulthood", "pos": "n.", "meaning": "成年期" }
+    ],
+    "root": "ad- + olere (長大) -> 長大成熟的人 -> 成年人",
+    "phrases": [
+      {
+        "phrase": "adult education",
+        "meaning": "成人教育",
+        "sentence": "The community center offers various courses for adult education."
+      }
+    ]
+  },
+  {
+    "word": "advance",
+    "pos": "v. / n.",
+    "kk": "/ədˈvæns/",
+    "definition": "前進；進步；預付 / 前進；發展",
+    "derivatives": [
+      { "word": "advanced", "pos": "adj.", "meaning": "先進的；進階的" },
+      { "word": "advancement", "pos": "n.", "meaning": "促進；提升" }
+    ],
+    "root": "ad- (向前) + vanc (走/前面) -> 向前走 -> 前進",
+    "phrases": [
+      {
+        "phrase": "in advance",
+        "meaning": "預先；事先",
+        "sentence": "Please let us know your travel plans in advance."
+      }
+    ]
+  },
+  {
+    "word": "advantage",
+    "pos": "n.",
+    "kk": "/ədˈvæntɪdʒ/",
+    "definition": "優勢；有利條件",
+    "derivatives": [
+      { "word": "advantageous", "pos": "adj.", "meaning": "有利的" }
+    ],
+    "root": "ad- + vant (前面) -> 走在別人前面 -> 優勢",
+    "phrases": [
+      {
+        "phrase": "take advantage of",
+        "meaning": "利用；佔便宜",
+        "sentence": "You should take advantage of this great opportunity."
+      }
+    ]
+  },
+  {
+    "word": "adventure",
+    "pos": "n.",
+    "kk": "/ədˈvɛntʃɚ/",
+    "definition": "冒險；奇遇",
+    "derivatives": [
+      { "word": "adventurous", "pos": "adj.", "meaning": "愛冒險的" },
+      { "word": "adventurer", "pos": "n.", "meaning": "冒險家" }
+    ],
+    "root": "ad- + vent (來臨/發生) -> 即將發生的刺激事情 -> 冒險",
+    "phrases": [
+      {
+        "phrase": "go on an adventure",
+        "meaning": "去冒險",
+        "sentence": "They went on an exciting adventure in the jungle."
+      }
+    ]
+  },
+  {
+    "word": "advertise",
+    "pos": "v.",
+    "kk": "/ˈædvɚˌtaɪz/",
+    "definition": "為...做廣告；登廣告",
+    "derivatives": [
+      { "word": "advertisement", "pos": "n.", "meaning": "廣告" },
+      { "word": "advertising", "pos": "n.", "meaning": "廣告業" }
+    ],
+    "root": "ad- (朝向) + vert (轉動) -> 把人們的注意力轉過去 -> 宣傳/廣告",
+    "phrases": [
+      {
+        "phrase": "advertise for a job",
+        "meaning": "登廣告徵人",
+        "sentence": "The company is advertising for a new marketing manager."
+      }
+    ]
+  },
+  {
+    "word": "advice",
+    "pos": "n.",
+    "kk": "/ədˈvaɪs/",
+    "definition": "勸告；建議",
+    "derivatives": [
+      { "word": "advise", "pos": "v.", "meaning": "建議；忠告" },
+      { "word": "adviser", "pos": "n.", "meaning": "顧問" }
+    ],
+    "root": "ad- + vis (看) -> 給予別人看待事情的方向 -> 建議",
+    "phrases": [
+      {
+        "phrase": "give advice",
+        "meaning": "給建議",
+        "sentence": "Thank you for giving me such valuable advice."
+      }
+    ]
+  },
+  {
+    "word": "affair",
+    "pos": "n.",
+    "kk": "/əˈfɛr/",
+    "definition": "事務；事件；外遇",
+    "derivatives": [],
+    "root": "af- (朝向) + fair (做工/事情)",
+    "phrases": [
+      {
+        "phrase": "current affairs",
+        "meaning": "時事",
+        "sentence": "It is important for students to keep informed about current affairs."
+      }
+    ]
+  },
+  {
+    "word": "affect",
+    "pos": "v.",
+    "kk": "/əˈfɛkt/",
+    "definition": "影響",
+    "derivatives": [
+      { "word": "affection", "pos": "n.", "meaning": "喜愛；感情" }
+    ],
+    "root": "af- (朝向) + fect (做/產生作用) -> 對...產生作用 -> 影響",
+    "phrases": [
+      {
+        "phrase": "affect one's health",
+        "meaning": "影響某人的健康",
+        "sentence": "Smoking can seriously affect your health."
+      }
+    ]
+  },
+  {
+    "word": "afford",
+    "pos": "v.",
+    "kk": "/əˈfɔrd/",
+    "definition": "負擔得起；抽得出（時間、金錢）",
+    "derivatives": [
+      { "word": "affordable", "pos": "adj.", "meaning": "負擔得起的" }
+    ],
+    "root": "af- + forth (向前/提供) -> 有能力提供或承擔 -> 負擔得起",
+    "phrases": [
+      {
+        "phrase": "can afford to",
+        "meaning": "負擔得起...",
+        "sentence": "We can't afford to buy a new house right now."
+      }
+    ]
+  },
+  {
+    "word": "afraid",
+    "pos": "adj.",
+    "kk": "/əˈfreɪd/",
+    "definition": "害怕的；擔心的",
+    "derivatives": [],
+    "root": "a- + fray (驚嚇/打鬥)",
+    "phrases": [
+      {
+        "phrase": "be afraid of",
+        "meaning": "害怕...",
+        "sentence": "Many children are afraid of the dark."
+      }
+    ]
+  },
+  {
+    "word": "agency",
+    "pos": "n.",
+    "kk": "/ˈedʒənsi/",
+    "definition": "代辦處；經銷處；政府機構",
+    "derivatives": [
+      { "word": "agent", "pos": "n.", "meaning": "代理人；經紀人" }
+    ],
+    "root": "ag- (做) + -ency (名詞字尾) -> 替人辦事的機構 -> 代辦處",
+    "phrases": [
+      {
+        "phrase": "travel agency",
+        "meaning": "旅行社",
+        "sentence": "We booked our flight tickets through a travel agency."
+      }
+    ]
+  },
+  {
+    "word": "agenda",
+    "pos": "n.",
+    "kk": "/əˈdʒɛndə/",
+    "definition": "議程；待辦事項清單",
+    "derivatives": [],
+    "root": "ag- (做) + -enda (複數表「需要做的事」) -> 待辦事項 -> 議程",
+    "phrases": [
+      {
+        "phrase": "on the agenda",
+        "meaning": "在議程上；列入討論",
+        "sentence": "Environmental protection is high on our political agenda."
+      }
+    ]
+  },
+  {
+    "word": "agent",
+    "pos": "n.",
+    "kk": "/ˈedʒənt/",
+    "definition": "代理人；經紀人；特務",
+    "derivatives": [
+      { "word": "agency", "pos": "n.", "meaning": "經銷處；機構" }
+    ],
+    "root": "ag- (做) + -ent (人) -> 替別人做事的人 -> 代理人",
+    "phrases": [
+      {
+        "phrase": "real estate agent",
+    "meaning": "房地產經紀人",
+    "sentence": "She works as a real estate agent in downtown Taipei."
+      }
+    ]
+  },
+  {
+    "word": "aggressive",
+    "pos": "adj.",
+    "kk": "/əˈɡrɛsɪv/",
+    "definition": "積極進取的；侵略性的；好鬥的",
+    "derivatives": [
+      { "word": "aggressively", "pos": "adv.", "meaning": "積極地；侵略地" },
+      { "word": "aggression", "pos": "n.", "meaning": "侵略；攻擊" }
+    ],
+    "root": "ag- (朝向) + gress (走) -> 朝著別人走過去挑釁 -> 侵略的/積極的",
+    "phrases": [
+      {
+        "phrase": "aggressive marketing",
+        "meaning": "積極的行銷策略",
+        "sentence": "The company adopted an aggressive marketing strategy to boost sales."
+      }
+    ]
+  },
+  {
+    "word": "ago",
+    "pos": "adv.",
+    "kk": "/əˈɡoʊ/",
+    "definition": "以前",
+    "derivatives": [],
+    "root": "a- + go (過去)",
+    "phrases": [
+      {
+        "phrase": "long long ago",
+        "meaning": "很久很久以前",
+        "sentence": "Long long ago, there lived a kind king in a small country."
+      }
+    ]
+  },
+  {
+    "word": "agree",
+    "pos": "v.",
+    "kk": "/əˈɡri/",
+    "definition": "同意；贊成",
+    "derivatives": [
+      { "word": "agreement", "pos": "n.", "meaning": "同意；協議" },
+      { "word": "agreeable", "pos": "adj.", "meaning": "令人愉快的；隨和的" }
+    ],
+    "root": "a- (朝向) + gree (心意相通) -> 心意一致 -> 同意",
+    "phrases": [
+      {
+        "phrase": "agree with someone",
+        "meaning": "同意某人的看法",
+        "sentence": "I totally agree with you on this matter."
+      }
+    ]
+  },
+  {
+    "word": "agriculture",
+    "pos": "n.",
+    "kk": "/ˈæɡrɪˌkʌltʃɚ/",
+    "definition": "農業",
+    "derivatives": [
+      { "word": "agricultural", "pos": "adj.", "meaning": "農業的" }
+    ],
+    "root": "agri (田地) + culture (耕種/培植) -> 耕種田地 -> 農業",
+    "phrases": [
+      {
+        "phrase": "agricultural country",
+        "meaning": "農業國家",
+        "sentence": "Taiwan used to be primarily an agricultural country."
+      }
+    ]
+  },
+  {
+    "word": "ahead",
+    "pos": "adv.",
+    "kk": "/əˈhɛd/",
+    "definition": "在前面；向前；預先",
+    "derivatives": [],
+    "root": "a- (在...) + head (頭/前方)",
+    "phrases": [
+      {
+        "phrase": "ahead of time",
+        "meaning": "提前；事先",
+        "sentence": "We finished the project two days ahead of time."
+      }
+    ]
+  },
+  {
+    "word": "aid",
+    "pos": "n. / v.",
+    "kk": "/ed/",
+    "definition": "幫助；援助；救助物 / 援助",
+    "derivatives": [],
+    "root": "ad- + juvare (幫助)",
+    "phrases": [
+      {
+        "phrase": "first aid",
+        "meaning": "急救",
+        "sentence": "Everyone should learn basic first aid skills."
+      }
+    ]
+  },
+  {
+    "word": "aim",
+    "pos": "n. / v.",
+    "kk": "/em/",
+    "definition": "目標；目的 / 瞄準；力求達到",
+    "derivatives": [
+      { "word": "aimless", "pos": "adj.", "meaning": "漫無目的的" }
+    ],
+    "root": "aestimare (估計、評定)",
+    "phrases": [
+      {
+        "phrase": "aim at",
+        "meaning": "瞄準；以...為目標",
+        "sentence": "Our campaign aims at reducing plastic waste."
+      }
+    ]
+  },
+  {
+    "word": "aircraft",
+    "pos": "n.",
+    "kk": "/ˈɛrˌkræft/",
+    "definition": "飛機；航空器",
+    "derivatives": [],
+    "root": "air (空氣) + craft (船/飛行器)",
+    "phrases": [
+      {
+        "phrase": "commercial aircraft",
+        "meaning": "民航機",
+        "sentence": "Modern commercial aircraft can carry hundreds of passengers."
+      }
+    ]
+  },
+  {
+    "word": "airline",
+    "pos": "n.",
+    "kk": "/ˈɛrˌlaɪn/",
+    "definition": "航空公司；航線",
+    "derivatives": [],
+    "root": "air (空中) + line (線條/航線)",
+    "phrases": [
+      {
+        "phrase": "book an airline ticket",
+        "meaning": "訂機票",
+        "sentence": "I need to book an airline ticket to Tokyo for next week."
+      }
+    ]
+  },
+  {
+    "word": "airplane",
+    "pos": "n.",
+    "kk": "/ˈɛrˌpleɪn/",
+    "definition": "飛機",
+    "derivatives": [],
+    "root": "air (空氣) + plane (平面的飛行器)",
+    "phrases": [
+      {
+        "phrase": "take an airplane",
+        "meaning": "搭飛機",
+        "sentence": "Taking an airplane is the fastest way to travel abroad."
+      }
+    ]
+  },
+  {
+    "word": "airport",
+    "pos": "n.",
+    "kk": "/ˈɛrˌpɔrt/",
+    "definition": "機場",
+    "derivatives": [],
+    "root": "air (空中) + port (港口)",
+    "phrases": [
+      {
+        "phrase": "pick up someone at the airport",
+        "meaning": "去機場接某人",
+        "sentence": "I am going to the airport to pick up my friend."
+      }
+    ]
+  },
+  {
+    "word": "alarm",
+    "pos": "n. / v.",
+    "kk": "/əˈlɑrm/",
+    "definition": "警報器；驚慌 / 使驚恐；警告",
+    "derivatives": [
+      { "word": "alarming", "pos": "adj.", "meaning": "令人擔憂的；驚人的" }
+    ],
+    "root": "all'arme (義大利語：向武器奔跑 -> 警報)",
+    "phrases": [
+      {
+        "phrase": "fire alarm",
+        "meaning": "火災警報器",
+        "sentence": "The fire alarm went off, and everyone rushed outside."
+      }
+    ]
+  },
+  {
+    "word": "album",
+    "pos": "n.",
+    "kk": "/ˈælbəm/",
+    "definition": "相簿；音樂專輯",
+    "derivatives": [],
+    "root": "albus (白色) -> 古羅馬用來寫公告的白板 -> 記事本/相簿",
+    "phrases": [
+      {
+        "phrase": "photo album",
+        "meaning": "相本",
+        "sentence": "She loves looking through her old childhood photo album."
+      }
+    ]
+  },
+  {
+    "word": "alcohol",
+    "pos": "n.",
+    "kk": "/ˈælkəˌhɔl/",
+    "definition": "酒精；含酒精飲料",
+    "derivatives": [
+      { "word": "alcoholic", "pos": "adj. / n.", "meaning": "酒精的 / 酒鬼" }
+    ],
+    "root": "al-kuhul (阿拉伯語：細微的物質/蒸餾粉末)",
+    "phrases": [
+      {
+        "phrase": "under the influence of alcohol",
+        "meaning": "在酒精作用下；酒駕",
+        "sentence": "Driving under the influence of alcohol is illegal and dangerous."
+      }
+    ]
+  },
+  {
+    "word": "alert",
+    "pos": "adj. / n. / v.",
+    "kk": "/əˈlɜrt/",
+    "definition": "警覺的 / 警戒；警報 / 使警覺",
+    "derivatives": [],
+    "root": "all'erta (義大利語：在瞭望臺上)",
+    "phrases": [
+      {
+        "phrase": "stay alert",
+        "meaning": "保持警覺",
+        "sentence": "Drivers must stay alert while driving on the highway."
+      }
+    ]
+  },
+  {
+    "word": "algebra",
+    "pos": "n.",
+    "kk": "/ˈældʒəbrə/",
+    "definition": "代數",
+    "derivatives": [],
+    "root": "al-jabr (阿拉伯語：殘缺部分的修復/化整為零)",
+    "phrases": [
+      {
+        "phrase": "algebra class",
+        "meaning": "代數課",
+        "sentence": "We learned how to solve linear equations in algebra class."
+      }
+    ]
+  },
+  {
+    "word": "alike",
+    "pos": "adj. / adv.",
+    "kk": "/əˈlaɪk/",
+    "definition": "相似的 / 同樣地",
+    "derivatives": [],
+    "root": "a- (像) + like (一樣)",
+    "phrases": [
+      {
+        "phrase": "look alike",
+        "meaning": "長相相似",
+        "sentence": "The twin brothers look very much alike."
+      }
+    ]
+  },
+  {
+    "word": "alive",
+    "pos": "adj.",
+    "kk": "/əˈlaɪv/",
+    "definition": "活著的；有生氣的",
+    "derivatives": [],
+    "root": "a- (在...) + live (生活/生命)",
+    "phrases": [
+      {
+        "phrase": "stay alive",
+        "meaning": "存活；活下去",
+        "sentence": "Animals need water and food to stay alive."
+      }
+    ]
+  },
+  {
+    "word": "all",
+    "pos": "det. / pron. / adv.",
+    "kk": "/ɔl/",
+    "definition": "全部的 / 全部 / 完全",
+    "derivatives": [],
+    "root": "日耳曼語族源字 (allaz)",
+    "phrases": [
+      {
+        "phrase": "all of a sudden",
+        "meaning": "突然之間",
+        "sentence": "All of a sudden, the lights went out."
+      }
+    ]
+  },
+  {
+    "word": "allow",
+    "pos": "v.",
+    "kk": "/əˈlaʊ/",
+    "definition": "允許；准許",
+    "derivatives": [
+      { "word": "allowance", "pos": "n.", "meaning": "津貼；零用錢" }
+    ],
+    "root": "al- (加強) + locare (放置/分配) -> 撥出配額 -> 允許",
+    "phrases": [
+      {
+        "phrase": "allow someone to do something",
+        "meaning": "允許某人做某事",
+        "sentence": "My parents don't allow me to stay out late."
+      }
+    ]
+  },
+  {
+    "word": "almost",
+    "pos": "adv.",
+    "kk": "/ˈɔlˌmoʊst/",
+    "definition": "幾乎；差不多",
+    "derivatives": [],
+    "root": "all (全部) + most (最接近)",
+    "phrases": [
+      {
+        "phrase": "almost finished",
+        "meaning": "快要完成了",
+        "sentence": "I am almost finished with my homework."
+      }
+    ]
+  },
+  {
+    "word": "alone",
+    "pos": "adj. / adv.",
+    "kk": "/əˈloʊn/",
+    "definition": "單獨的；孤單的 / 獨自地",
+    "derivatives": [],
+    "root": "all (全) + one (一) -> 全由自己一人 -> 單獨的",
+    "phrases": [
+      {
+        "phrase": "leave someone alone",
+        "meaning": "別打擾某人；讓某人獨處",
+        "sentence": "Please leave me alone; I need some time to think."
+      }
+    ]
+  },
+  {
+    "word": "along",
+    "pos": "prep. / adv.",
+    "kk": "/əˈlɔŋ/",
+    "definition": "沿著 / 一起；向前",
+    "derivatives": [],
+    "root": "a- + long (長條形的)",
+    "phrases": [
+      {
+        "phrase": "along with",
+        "meaning": "連同...一起",
+        "sentence": "He brought his wife along with him to the party."
+      }
+    ]
+  },
+  {
+    "word": "aloud",
+    "pos": "adv.",
+    "kk": "/əˈlaʊd/",
+    "definition": "大聲地；出聲地",
+    "derivatives": [],
+    "root": "a- + loud (大聲的)",
+    "phrases": [
+      {
+        "phrase": "read aloud",
+        "meaning": "朗讀出來",
+        "sentence": "The teacher asked him to read the text aloud."
+      }
+    ]
+  },
+  {
+    "word": "alphabet",
+    "pos": "n.",
+    "kk": "/ˈælfəˌbɛt/",
+    "definition": "字母表；字母",
+    "derivatives": [
+      { "word": "alphabetic", "pos": "adj.", "meaning": "字母順序的" }
+    ],
+    "root": "Alpha (希臘字母第一個) + Beta (第二個)",
+    "phrases": [
+      {
+        "phrase": "in alphabetical order",
+        "meaning": "按照字母順序",
+        "sentence": "The names in the directory are listed in alphabetical order."
+      }
+    ]
+  },
+  {
+    "word": "already",
+    "pos": "adv.",
+    "kk": "/ɔlˈrɛdi/",
+    "definition": "已經",
+    "derivatives": [],
+    "root": "all (完全) + ready (準備好)",
+    "phrases": [
+      {
+        "phrase": "already know",
+        "meaning": "早就知道了",
+        "sentence": "You don't need to explain; I already know the truth."
+      }
+    ]
+  },
+  {
+    "word": "also",
+    "pos": "adv.",
+    "kk": "/ˈɔlsoʊ/",
+    "definition": "也；同樣",
+    "derivatives": [],
+    "root": "all (全部) + so (如此)",
+    "phrases": [
+      {
+        "phrase": "not only... but also...",
+        "meaning": "不但...而且...",
+        "sentence": "She is not only smart but also hardworking."
+      }
+    ]
+  },
+  {
+    "word": "alter",
+    "pos": "v.",
+    "kk": "/ˈɔltɚ/",
+    "definition": "改變；修改（衣服等）",
+    "derivatives": [
+      { "word": "alteration", "pos": "n.", "meaning": "改變；修改" }
+    ],
+    "root": "alter (其他的/其他的樣子)",
+    "phrases": [
+      {
+        "phrase": "alter a plan",
+        "meaning": "改變計畫",
+        "sentence": "Bad weather forced us to alter our travel plans."
+      }
+    ]
+  },
+  {
+    "word": "alternative",
+    "pos": "n. / adj.",
+    "kk": "/ɔlˈtɝnətɪv/",
+    "definition": "替代方案；選擇 / 替代的",
+    "derivatives": [],
+    "root": "alter (其他) + -ative -> 另一種選擇",
+    "phrases": [
+      {
+        "phrase": "have no alternative",
+        "meaning": "別無選擇",
+        "sentence": "We had no alternative but to cancel the event."
+      }
+    ]
+  },
+  {
+    "word": "although",
+    "pos": "conj.",
+    "kk": "/ɔlˈðoʊ/",
+    "definition": "雖然；儘管",
+    "derivatives": [],
+    "root": "all (完全) + though (雖然)",
+    "phrases": [
+      {
+        "phrase": "although it is raining",
+        "meaning": "雖然正在下雨",
+        "sentence": "Although it was raining, they still went hiking."
+      }
+    ]
+  },
+  {
+    "word": "altitude",
+    "pos": "n.",
+    "kk": "/ˈæltəˌtud/",
+    "definition": "海拔；高度",
+    "derivatives": [],
+    "root": "altus (高) + -tude (名詞字尾表狀態) -> 高度",
+    "phrases": [
+      {
+        "phrase": "fly at a high altitude",
+        "meaning": "在高空飛行",
+        "sentence": "Airplanes usually fly at a high altitude to save fuel."
+      }
+    ]
+  },
+  {
+    "word": "altogether",
+    "pos": "adv.",
+    "kk": "/ˌɔltəˈɡɛðɚ/",
+    "definition": "總共；完全地",
+    "derivatives": [],
+    "root": "all (全部) + together (在一起)",
+    "phrases": [
+      {
+        "phrase": "altogether cost",
+        "meaning": "總共花費",
+        "sentence": "The dinner came to 2,000 NT dollars altogether."
+      }
+    ]
+  },
+  {
+    "word": "aluminum",
+    "pos": "n.",
+    "kk": "/əˈlumənəm/",
+    "definition": "鋁",
+    "derivatives": [],
+    "root": "alum (明礬)",
+    "phrases": [
+      {
+        "phrase": "aluminum foil",
+        "meaning": "鋁箔紙",
+        "sentence": "Wrap the fish in aluminum foil before baking it."
+      }
+    ]
+  },
+  {
+    "word": "always",
+    "pos": "adv.",
+    "kk": "/ˈɔlweɪz/",
+    "definition": "總是；永遠",
+    "derivatives": [],
+    "root": "all (全部) + ways (各種方式/時間)",
+    "phrases": [
+      {
+        "phrase": "always remember",
+        "meaning": "永遠記得",
+        "sentence": "I will always remember your kindness."
+      }
+    ]
+  },
+  {
+    "word": "amateur",
+    "pos": "n. / adj.",
+    "kk": "/ˈæməˌtʊr/",
+    "definition": "業餘愛好者 / 業餘的",
+    "derivatives": [],
+    "root": "amare (愛) -> 因為熱愛而去做（非為賺錢） -> 業餘的",
+    "phrases": [
+      {
+        "phrase": "amateur photographer",
+        "meaning": "業餘攝影師",
+        "sentence": "He is a talented amateur photographer."
+      }
+    ]
+  },
+  {
+    "word": "amaze",
+    "pos": "v.",
+    "kk": "/əˈmez/",
+    "definition": "使驚奇；使驚嘆",
+    "derivatives": [
+      { "word": "amazed", "pos": "adj.", "meaning": "感到驚奇的" },
+      { "word": "amazing", "pos": "adj.", "meaning": "令人驚奇的" }
+    ],
+    "root": "a- (進入) + mase (迷惑/迷失方向)",
+    "phrases": [
+      {
+        "phrase": "be amazed at",
+        "meaning": "對...感到驚奇",
+        "sentence": "We were amazed at the beauty of the grand canyon."
+      }
+    ]
+  },
+  {
+    "word": "ambassador",
+    "pos": "n.",
+    "kk": "/æmˈbæsədɚ/",
+    "definition": "大使；使節",
+    "derivatives": [
+      { "word": "embassy", "pos": "n.", "meaning": "大使館" }
+    ],
+    "root": "ambaktos (僕人/使者)",
+    "phrases": [
+      {
+        "phrase": "ambassador to the US",
+        "meaning": "駐美大使",
+        "sentence": "She was appointed as the ambassador to the United States."
+      }
+    ]
+  },
+  {
+    "word": "ambition",
+    "pos": "n.",
+    "kk": "/æmˈbɪʃən/",
+    "definition": "野心；抱負",
+    "derivatives": [
+      { "word": "ambitious", "pos": "adj.", "meaning": "有野心的；有抱負的" }
+    ],
+    "root": "ambi (四周) + it (走) -> 到處拉選票 -> 有野心去爭取權力",
+    "phrases": [
+      {
+        "phrase": "achieve one's ambition",
+        "meaning": "實現抱負",
+        "sentence": "He worked hard to achieve his ambition of becoming a doctor."
+      }
+    ]
+  },
+  {
+    "word": "ambulance",
+    "pos": "n.",
+    "kk": "/ˈæmbjələns/",
+    "definition": "救護車",
+    "derivatives": [],
+    "root": "ambulare (走動/移動的軍醫院)",
+    "phrases": [
+      {
+        "phrase": "call an ambulance",
+        "meaning": "叫救護車",
+        "sentence": "Please call an ambulance immediately; he is badly hurt."
+      }
+    ]
+  },
+  {
+    "word": "among",
+    "pos": "prep.",
+    "kk": "/əˈmʌŋ/",
+    "definition": "在...之中（三者以上）",
+    "derivatives": [],
+    "root": "gemangian (混雜在一起)",
+    "phrases": [
+      {
+        "phrase": "among other things",
+        "meaning": "除其他事項外；特別是",
+        "sentence": "She speaks three languages, among other things."
+      }
+    ]
+  },
+  {
+    "word": "amount",
+    "pos": "n. / v.",
+    "kk": "/əˈmaʊnt/",
+    "definition": "數量；總額 / 總計達",
+    "derivatives": [],
+    "root": "ad- (到) + mont (山峰) -> 累積到山頂的高度 -> 總額",
+    "phrases": [
+      {
+        "phrase": "a large amount of",
+        "meaning": "大量的...",
+        "sentence": "A large amount of money was spent on the project."
+      }
+    ]
+  },
+  {
+    "word": "ample",
+    "pos": "adj.",
+    "kk": "/ˈæmpəl/",
+    "definition": "充足的；豐富的",
+    "derivatives": [],
+    "root": "amplus (寬廣的、豐富的)",
+    "phrases": [
+      {
+        "phrase": "ample time",
+        "meaning": "充裕的時間",
+        "sentence": "Don't worry; we still have ample time to catch the train."
+      }
+    ]
+  },
+  {
+    "word": "amuse",
+    "pos": "v.",
+    "kk": "/əˈmjuz/",
+    "definition": "逗樂；使開心",
+    "derivatives": [
+      { "word": "amusement", "pos": "n.", "meaning": "娛樂；消遣" },
+      { "word": "amusing", "pos": "adj.", "meaning": "有趣的" }
+    ],
+    "root": "a- (不) + muse (思考) -> 不用大腦思考的樂趣 -> 娛樂",
+    "phrases": [
+      {
+        "phrase": "amuse oneself",
+        "meaning": "自娛自樂",
+        "sentence": "He amused himself by reading comic books."
+      }
+    ]
+  },
+  {
+    "word": "analyze",
+    "pos": "v.",
+    "kk": "/ˈænəˌlaɪz/",
+    "definition": "分析",
+    "derivatives": [
+      { "word": "analysis", "pos": "n.", "meaning": "分析" },
+      { "word": "analyst", "pos": "n.", "meaning": "分析師" }
+    ],
+    "root": "ana (向上/完全) + lyse (解開) -> 解開結構來研究 -> 分析",
+    "phrases": [
+      {
+        "phrase": "analyze data",
+        "meaning": "分析數據",
+        "sentence": "Scientists spent weeks analyzing the survey data."
+      }
+    ]
+  },
+  {
+    "word": "ancestor",
+    "pos": "n.",
+    "kk": "/ˈænsɛstɚ/",
+    "definition": "祖先；祖宗",
+    "derivatives": [
+      { "word": "ancestry", "pos": "n.", "meaning": "血統；祖先" }
+    ],
+    "root": "ante (在前面) + cedere (走) -> 走在前面的人 -> 祖先",
+    "phrases": [
+      {
+        "phrase": "pay respect to ancestors",
+        "meaning": "祭祖",
+        "sentence": "During the festival, people pay respect to their ancestors."
+      }
+    ]
+  },
+  {
+    "word": "anchor",
+    "pos": "n. / v.",
+    "kk": "/ˈæŋkɚ/",
+    "definition": "錨 / 拋錨；主持（新聞）",
+    "derivatives": [
+      { "word": "anchorman", "pos": "n.", "meaning": "新聞主播" }
+    ],
+    "root": "agkura (彎曲的鉤子)",
+    "phrases": [
+      {
+        "phrase": "drop anchor",
+        "meaning": "拋錨；停泊",
+        "sentence": "The ship dropped anchor in the quiet bay."
+      }
+    ]
+  },
+  {
+    "word": "ancient",
+    "pos": "adj.",
+    "kk": "/ˈenʃənt/",
+    "definition": "古代的；古老的",
+    "derivatives": [],
+    "root": "ante (之前) -> 久遠以前的 -> 古代的",
+    "phrases": [
+      {
+        "phrase": "ancient history",
+        "meaning": "古代歷史",
+        "sentence": "He is deeply interested in ancient Greek history."
+      }
+    ]
+  },
+  {
+    "word": "angel",
+    "pos": "n.",
+    "kk": "/ˈendʒəl/",
+    "definition": "天使",
+    "derivatives": [
+      { "word": "angelic", "pos": "adj.", "meaning": "天使般的" }
+    ],
+    "root": "angelos (希臘文：使者、信使)",
+    "phrases": [
+      {
+        "phrase": "guardian angel",
+        "meaning": "守護天使",
+        "sentence": "She felt like he was her guardian angel during hard times."
+      }
+    ]
+  },
+  {
+    "word": "anger",
+    "pos": "n. / v.",
+    "kk": "/ˈæŋɡɚ/",
+    "definition": "生氣；憤怒 / 使發怒",
+    "derivatives": [
+      { "word": "angry", "pos": "adj.", "meaning": "生氣的" }
+    ],
+    "root": "angere (感到窒息、痛苦)",
+    "phrases": [
+      {
+        "phrase": "fill with anger",
+        "meaning": "充滿憤怒",
+        "sentence": "His unfair treatment filled her with anger."
+      }
+    ]
+  },
+  {
+    "word": "angle",
+    "pos": "n.",
+    "kk": "/ˈæŋɡəl/",
+    "definition": "角度；觀點",
+    "derivatives": [],
+    "root": "angulus (角落、彎曲)",
+    "phrases": [
+      {
+        "phrase": "from a different angle",
+        "meaning": "從不同的角度",
+        "sentence": "Try to look at the problem from a different angle."
+      }
+    ]
+  },
+  {
+    "word": "angry",
+    "pos": "adj.",
+    "kk": "/ˈæŋɡri/",
+    "definition": "生氣的；憤怒的",
+    "derivatives": [
+      { "word": "angrily", "pos": "adv.", "meaning": "生氣地" }
+    ],
+    "root": "anger (憤怒) + -y (形容詞字尾)",
+    "phrases": [
+      {
+        "phrase": "get angry with",
+        "meaning": "對...生氣",
+        "sentence": "Try not to get angry with people who disagree with you."
+      }
+    ]
+  },
+  {
+    "word": "animal",
+    "pos": "n.",
+    "kk": "/ˈænəməl/",
+    "definition": "動物",
+    "derivatives": [],
+    "root": "anima (生命、呼吸)",
+    "phrases": [
+      {
+        "phrase": "wild animal",
+        "meaning": "野生動物",
+        "sentence": "We should protect wild animals and their natural habitats."
+      }
+    ]
+  },
+  {
+    "word": "ankle",
+    "pos": "n.",
+    "kk": "/ˈæŋkəl/",
+    "definition": "腳踝",
+    "derivatives": [],
+    "root": "ancra (彎曲處)",
+    "phrases": [
+      {
+        "phrase": "sprain one's ankle",
+        "meaning": "扭傷腳踝",
+        "sentence": "He sprained his ankle while playing basketball yesterday."
+      }
+    ]
+  },
+  {
+    "word": "anniversary",
+    "pos": "n.",
+    "kk": "/ˌænəˈvɝsəri/",
+    "definition": "周年紀念日",
+    "derivatives": [],
+    "root": "annus (年) + versere (轉動) -> 一年轉過一圈 -> 週年紀念",
+    "phrases": [
+      {
+        "phrase": "wedding anniversary",
+        "meaning": "結婚紀念日",
+        "sentence": "They celebrated their tenth wedding anniversary with a trip to Japan."
+      }
+    ]
+  },
+  {
+    "word": "announce",
+    "pos": "v.",
+    "kk": "/əˈnaʊns/",
+    "definition": "宣布；宣告",
+    "derivatives": [
+      { "word": "announcement", "pos": "n.", "meaning": "公告；宣布" },
+      { "word": "announcer", "pos": "n.", "meaning": "廣播員；播報員" }
+    ],
+    "root": "ad- (朝向) + nounc (報告/傳遞消息) -> 向大家報告 -> 宣布",
+    "phrases": [
+      {
+        "phrase": "make an announcement",
+        "meaning": "發布公告",
+        "sentence": "The principal made an important announcement during the assembly."
+      }
+    ]
+  },
+  {
+    "word": "annoy",
+    "pos": "v.",
+    "kk": "/əˈnɔɪ/",
+    "definition": "惹惱；使煩惱",
+    "derivatives": [
+      { "word": "annoyed", "pos": "adj.", "meaning": "感到生氣的" },
+      { "word": "annoying", "pos": "adj.", "meaning": "討厭的；惱人的" }
+    ],
+    "root": "in- + nocere (傷害) -> 造成精神上的困擾 -> 惹惱",
+    "phrases": [
+      {
+        "phrase": "get annoyed",
+        "meaning": "感到煩躁",
+        "sentence": "She gets easily annoyed when people interrupt her."
+      }
+    ]
+  },
+  {
+    "word": "annual",
+    "pos": "adj.",
+    "kk": "/ˈænjuəl/",
+    "definition": "年度的；每年的",
+    "derivatives": [
+      { "word": "annually", "pos": "adv.", "meaning": "每年地" }
+    ],
+    "root": "annus (年) + -ual -> 每年的",
+    "phrases": [
+      {
+        "phrase": "annual report",
+        "meaning": "年度報告",
+        "sentence": "The company published its annual report yesterday."
+      }
+    ]
+  },
+  {
+    "word": "another",
+    "pos": "det. / pron.",
+    "kk": "/əˈnʌðɚ/",
+    "definition": "另一個；又一個",
+    "derivatives": [],
+    "root": "an (一個) + other (其他)",
+    "phrases": [
+      {
+        "phrase": "one after another",
+        "meaning": "接連不斷地",
+        "sentence": "The problems came up one after another."
+      }
+    ]
+  },
+  {
+    "word": "answer",
+    "pos": "n. / v.",
+    "kk": "/ˈænsɚ/",
+    "definition": "答案；回答 / 回答；接聽",
+    "derivatives": [],
+    "root": "and- (對立) + swerian (誓言/說話) -> 對話辯護 -> 回答",
+    "phrases": [
+      {
+        "phrase": "answer the phone",
+        "meaning": "接電話",
+        "sentence": "Could you please answer the phone? It's ringing."
+      }
+    ]
+  },
+  {
+    "word": "ant",
+    "pos": "n.",
+    "kk": "/ænt/",
+    "definition": "螞蟻",
+    "derivatives": [],
+    "root": "古日耳曼語彙 (咬東西的小昆蟲)",
+    "phrases": [
+      {
+        "phrase": "busy as an ant",
+        "meaning": "忙得像隻螞蟻",
+        "sentence": "She has been busy as an ant preparing for the party."
+      }
+    ]
+  },
+  {
+    "word": "antenna",
+    "pos": "n.",
+    "kk": "/ænˈtɛnə/",
+    "definition": "天線；觸角",
+    "derivatives": [],
+    "root": "antena (原本指帆桁，後引申為昆蟲觸角與天線)",
+    "phrases": [
+      {
+        "phrase": "TV antenna",
+        "meaning": "電視天線",
+        "sentence": "We need to adjust the TV antenna to get a better signal."
+      }
+    ]
+  },
+  {
+    "word": "anthem",
+    "pos": "n.",
+    "kk": "/ˈænθəm/",
+    "definition": "國歌；頌歌",
+    "derivatives": [],
+    "root": "anti- (對唱) + hymnos (讚美詩)",
+    "phrases": [
+      {
+        "phrase": "national anthem",
+        "meaning": "國歌",
+        "sentence": "Everyone stood up to sing the national anthem."
+      }
+    ]
+  },
+  {
+    "word": "anthropology",
+    "pos": "n.",
+    "kk": "/ˌænθrəˈpɑlədʒi/",
+    "definition": "人類學",
+    "derivatives": [
+      { "word": "anthropologist", "pos": "n.", "meaning": "人類學家" }
+    ],
+    "root": "anthropo (人類) + logy (學問)",
+    "phrases": [
+      {
+        "phrase": "study anthropology",
+        "meaning": "研讀人類學",
+        "sentence": "She is interested in cultural anthropology and human evolution."
+      }
+    ]
+  },
+  {
+    "word": "anti",
+    "pos": "prep. / prefix",
+    "kk": "/ˈænti/",
+    "definition": "反對；抗；防",
+    "derivatives": [],
+    "root": "anti (希臘文：對立、相反)",
+    "phrases": [
+      {
+        "phrase": "anti-pollution",
+        "meaning": "防污染的",
+        "sentence": "The government introduced new anti-pollution laws."
+      }
+    ]
+  },
+  {
+    "word": "antibiotic",
+    "pos": "n. / adj.",
+    "kk": "/ˌæntɪbaɪˈɑtɪk/",
+    "definition": "抗生素 / 抗生的",
+    "derivatives": [],
+    "root": "anti (抗) + bio (生命) + tic -> 對抗微生物的藥物 -> 抗生素",
+    "phrases": [
+      {
+        "phrase": "take antibiotics",
+        "meaning": "服用抗生素",
+        "sentence": "The doctor prescribed antibiotics for her bacterial infection."
+      }
+    ]
+  },
+  {
+    "word": "anticipate",
+    "pos": "v.",
+    "kk": "/ænˈtɪsəˌpet/",
+    "definition": "預料；期望",
+    "derivatives": [
+      { "word": "anticipation", "pos": "n.", "meaning": "期待；預料" }
+    ],
+    "root": "anti (前面) + cip (拿取) -> 事先掌握 -> 預料",
+    "phrases": [
+      {
+        "phrase": "anticipate a problem",
+        "meaning": "預料到問題",
+        "sentence": "We didn't anticipate any major problems during the project."
+      }
+    ]
+  },
+  {
+    "word": "antique",
+    "pos": "n. / adj.",
+    "kk": "/ænˈtik/",
+    "definition": "古董 / 古董的；年代久遠的",
+    "derivatives": [],
+    "root": "antiquus (古老的)",
+    "phrases": [
+      {
+        "phrase": "antique shop",
+        "meaning": "古董店",
+        "sentence": "They spent the afternoon browsing through antique shops."
+      }
+    ]
+  },
+  {
+    "word": "anxiety",
+    "pos": "n.",
+    "kk": "/æŋˈzaɪəti/",
+    "definition": "焦慮；憂慮",
+    "derivatives": [
+      { "word": "anxious", "pos": "adj.", "meaning": "焦慮的；渴望的" }
+    ],
+    "root": "angere (感到窒息/折磨) -> 內心受折磨 -> 焦慮",
+    "phrases": [
+      {
+        "phrase": "reduce anxiety",
+        "meaning": "減少焦慮",
+        "sentence": "Meditation can help reduce stress and anxiety."
+      }
+    ]
+  },
+  {
+    "word": "any",
+    "pos": "det. / pron. / adv.",
+    "kk": "/ˈɛni/",
+    "definition": "任何的 / 任何一個 / 稍微",
+    "derivatives": [],
+    "root": "ænig (古英文：一個)",
+    "phrases": [
+      {
+        "phrase": "at any time",
+        "meaning": "隨時",
+        "sentence": "You can call me for help at any time."
+      }
+    ]
+  },
+  {
+    "word": "anybody",
+    "pos": "pron.",
+    "kk": "/ˈɛniˌbɑdi/",
+    "definition": "任何人",
+    "derivatives": [],
+    "root": "any + body",
+    "phrases": [
+      {
+        "phrase": "is there anybody home?",
+        "meaning": "家裡有人嗎？",
+        "sentence": "I knocked on the door, but nobody answered. Is there anybody home?"
+      }
+    ]
+  },
+  {
+    "word": "anymore",
+    "pos": "adv.",
+    "kk": "/ˈɛniˌmɔr/",
+    "definition": "不再",
+    "derivatives": [],
+    "root": "any + more",
+    "phrases": [
+      {
+        "phrase": "not... anymore",
+        "meaning": "再也不...",
+        "sentence": "He doesn't live here anymore; he moved last month."
+      }
+    ]
+  },
+  {
+    "word": "anyone",
+    "pos": "pron.",
+    "kk": "/ˈɛniˌwʌn/",
+    "definition": "任何人",
+    "derivatives": [],
+    "root": "any + one",
+    "phrases": [
+      {
+        "phrase": "if anyone asks",
+        "meaning": "如果任何人問起",
+        "sentence": "If anyone asks, just tell them I'll be back soon."
+      }
+    ]
+  },
+  {
+    "word": "anything",
+    "pos": "pron.",
+    "kk": "/ˈɛniˌθɪŋ/",
+    "definition": "任何事物",
+    "derivatives": [],
+    "root": "any + thing",
+    "phrases": [
+      {
+        "phrase": "anything is possible",
+        "meaning": "任何事都有可能",
+        "sentence": "If you work hard enough, anything is possible."
+      }
+    ]
+  },
+  {
+    "word": "anyway",
+    "pos": "adv.",
+    "kk": "/ˈɛniˌweɪ/",
+    "definition": "無論如何；反正",
+    "derivatives": [],
+    "root": "any + way",
+    "phrases": [
+      {
+        "phrase": "anyway, let's move on",
+        "meaning": "無論如何，我們繼續吧",
+        "sentence": "It was a difficult task, but we finished it anyway."
+      }
+    ]
+  },
+  {
+    "word": "anywhere",
+    "pos": "adv.",
+    "kk": "/ˈɛniˌwɛr/",
+    "definition": "任何地方",
+    "derivatives": [],
+    "root": "any + where",
+    "phrases": [
+      {
+        "phrase": "not go anywhere",
+        "meaning": "哪裡也不去",
+        "sentence": "I am so tired that I don't want to go anywhere today."
+      }
+    ]
+  },
+  {
+    "word": "apart",
+    "pos": "adv.",
+    "kk": "/əˈpɑrt/",
+    "definition": "相隔；分開",
+    "derivatives": [],
+    "root": "a- + part (部分)",
+    "phrases": [
+      {
+        "phrase": "take apart",
+        "meaning": "拆開",
+        "sentence": "He took the broken clock apart to see what was wrong."
+      }
+    ]
+  },
+  {
+    "word": "apartment",
+    "pos": "n.",
+    "kk": "/əˈpɑrtmənt/",
+    "definition": "公寓",
+    "derivatives": [],
+    "root": "apart (分隔) + ment -> 被分隔成多戶的建築 -> 公寓",
+    "phrases": [
+      {
+        "phrase": "rent an apartment",
+        "meaning": "租公寓",
+        "sentence": "She decided to rent a small apartment near her office."
+      }
+    ]
+  },
+  {
+    "word": "apologize",
+    "pos": "v.",
+    "kk": "/əˈpɑləˌdʒaɪz/",
+    "definition": "道歉",
+    "derivatives": [
+      { "word": "apology", "pos": "n.", "meaning": "道歉；歉意" }
+    ],
+    "root": "apo- (離開/辯護) + log (說話) -> 為自己辯護解釋 -> 道歉",
+    "phrases": [
+      {
+        "phrase": "apologize to someone for something",
+        "meaning": "為某事向某人道歉",
+        "sentence": "You should apologize to your sister for breaking her toy."
+      }
+    ]
+  },
+  {
+    "word": "apparent",
+    "pos": "adj.",
+    "kk": "/əˈpɛrənt/",
+    "definition": "顯而易見的；表面上的",
+    "derivatives": [
+      { "word": "apparently", "pos": "adv.", "meaning": "顯然地；表面上" }
+    ],
+    "root": "ap- (朝向) + parere (出現/看得見) -> 清楚浮現出來 -> 顯而易見的",
+    "phrases": [
+      {
+        "phrase": "it is apparent that",
+        "meaning": "很明顯的是...",
+        "sentence": "It was apparent that she had put a lot of effort into her work."
+      }
+    ]
+  },
+  {
+    "word": "appeal",
+    "pos": "v. / n.",
+    "kk": "/əˈpil/",
+    "definition": "呼吁；上訴；有吸引力 / 懇求；吸引力",
+    "derivatives": [
+      { "word": "appealing", "pos": "adj.", "meaning": "有吸引力的" }
+    ],
+    "root": "ap- + pellere (驅趕/請求) -> 向大眾大聲懇求 -> 呼籲/吸引",
+    "phrases": [
+      {
+        "phrase": "appeal to someone",
+        "meaning": "對...有吸引力；向...呼籲",
+        "sentence": "The bright colors of the toy appeal to young children."
+      }
+    ]
+  },
+  {
+    "word": "appear",
+    "pos": "v.",
+    "kk": "/əˈpɪr/",
+    "definition": "出現；似乎",
+    "derivatives": [
+      { "word": "appearance", "pos": "n.", "meaning": "外表；出現" }
+    ],
+    "root": "ap- (朝向) + parere (看得見) -> 出現在眼前 -> 出現",
+    "phrases": [
+      {
+        "phrase": "appear out of nowhere",
+        "meaning": "從憑空處出現",
+        "sentence": "A stray cat appeared out of nowhere in our backyard."
+      }
+    ]
+  },
+  {
+    "word": "appetite",
+    "pos": "n.",
+    "kk": "/ˈæpəˌtaɪt/",
+    "definition": "食慾；胃口；渴望",
+    "derivatives": [],
+    "root": "ap- + petere (追求) -> 追求食物的慾望 -> 食慾",
+    "phrases": [
+      {
+        "phrase": "lose one's appetite",
+        "meaning": "失去胃口",
+        "sentence": "The bad news made him lose his appetite."
+      }
+    ]
+  },
+  {
+    "word": "applaud",
+    "pos": "v.",
+    "kk": "/əˈplɔd/",
+    "definition": "鼓掌；稱讚",
+    "derivatives": [
+      { "word": "applause", "pos": "n.", "meaning": "掌聲" }
+    ],
+    "root": "ap- (朝向) + plaud (拍手) -> 拍手叫好 -> 鼓掌",
+    "phrases": [
+      {
+        "phrase": "burst into applause",
+        "meaning": "爆發出掌聲",
+        "sentence": "The audience burst into loud applause at the end of the show."
+      }
+    ]
+  },
+  {
+    "word": "apple",
+    "pos": "n.",
+    "kk": "/ˈæpəl/",
+    "definition": "蘋果",
+    "derivatives": [],
+    "root": "古日耳曼語彙 (aeppel)",
+    "phrases": [
+      {
+        "phrase": "an apple a day keeps the doctor away",
+        "meaning": "一日一蘋果，醫生遠離我",
+        "sentence": "Eating fresh fruits like apples is good for health: an apple a day keeps the doctor away."
+      }
+    ]
+  },
+  {
+    "word": "applicant",
+    "pos": "n.",
+    "kk": "/ˈæplɪkənt/",
+    "definition": "申請人",
+    "derivatives": [
+      { "word": "application", "pos": "n.", "meaning": "申請；應用程式" },
+      { "word": "apply", "pos": "v.", "meaning": "申請；應用" }
+    ],
+    "root": "ap- + plic (折疊/貼近) -> 把資料填好貼上去申請 -> 申請人",
+    "phrases": [
+      {
+        "phrase": "job applicant",
+        "meaning": "求職者",
+        "sentence": "There were over a hundred applicants for the marketing position."
+      }
+    ]
+  },
+  {
+    "word": "appoint",
+    "pos": "v.",
+    "kk": "/əˈpɔɪnt/",
+    "definition": "任命；指定；約定",
+    "derivatives": [
+      { "word": "appointment", "pos": "n.", "meaning": "約會；預約；委任" }
+    ],
+    "root": "ap- + point (指派) -> 用手指派任務 -> 任命",
+    "phrases": [
+      {
+        "phrase": "make an appointment",
+        "meaning": "預約",
+        "sentence": "I need to make an appointment with the dentist for a check-up."
+      }
+    ]
+  },
+  {
+    "word": "appreciate",
+    "pos": "v.",
+    "kk": "/əˈpriʃiˌet/",
+    "definition": "欣賞；感激；理解",
+    "derivatives": [
+      { "word": "appreciation", "pos": "n.", "meaning": "感激；欣賞" }
+    ],
+    "root": "ap- + pretium (價值) -> 了解並肯定其價值 -> 感激/欣賞",
+    "phrases": [
+      {
+        "phrase": "appreciate your help",
+        "meaning": "感激你的幫助",
+        "sentence": "I really appreciate your help with this difficult project."
+      }
+    ]
+  },
+  {
+    "word": "approach",
+    "pos": "v. / n.",
+    "kk": "/əˈprotʃ/",
+    "definition": "接近；處理 / 方法；途徑",
+    "derivatives": [],
+    "root": "ap- + prochi (接近/鄰近)",
+    "phrases": [
+      {
+        "phrase": "a new approach to",
+        "meaning": "處理...的新方法",
+        "sentence": "We need to adopt a new approach to solving this problem."
+      }
+    ]
+  },
+  {
+    "word": "appropriate",
+    "pos": "adj.",
+    "kk": "/əˈpropriət/",
+    "definition": "合適的；恰當的",
+    "derivatives": [
+      { "word": "appropriately", "pos": "adv.", "meaning": "適當地" }
+    ],
+    "root": "ap- + proprius (自己的/適合的) -> 變得適合的 -> 恰當的",
+    "phrases": [
+      {
+        "phrase": "appropriate behavior",
+        "meaning": "合宜的舉止",
+        "sentence": "Formal attire is appropriate for this dinner party."
+      }
+    ]
+  },
+  {
+    "word": "approval",
+    "pos": "n.",
+    "kk": "/əˈpruvəl/",
+    "definition": "批准；贊同",
+    "derivatives": [
+      { "word": "approve", "pos": "v.", "meaning": "贊成；批准" }
+    ],
+    "root": "ap- + probare (證明是好的) -> 表示贊同 -> 批准",
+    "phrases": [
+      {
+        "phrase": "with the approval of",
+        "meaning": "在...的批准下",
+        "sentence": "The plan was carried out with the approval of the manager."
+      }
+    ]
+  },
+  {
+    "word": "approximate",
+    "pos": "adj. / v.",
+    "kk": "/əˈprɑksəmət/",
+    "definition": "大約的；接近的 / 接近",
+    "derivatives": [
+      { "word": "approximately", "pos": "adv.", "meaning": "大約；近乎" }
+    ],
+    "root": "ap- + proximus (最近的) -> 靠近的 -> 大約的",
+    "phrases": [
+      {
+        "phrase": "approximate cost",
+        "meaning": "大約的費用",
+        "sentence": "Can you give me an approximate estimate of the repair costs?"
+      }
+    ]
+  },
+  {
+    "word": "april",
+    "pos": "n.",
+    "kk": "/ˈeprəl/",
+    "definition": "四月",
+    "derivatives": [],
+    "root": "aperire (拉丁語：大地春回、花苞綻放的月份)",
+    "phrases": [
+      {
+        "phrase": "April Fools' Day",
+        "meaning": "愚人節",
+        "sentence": "People often play harmless jokes on April Fools' Day."
+      }
+    ]
+  },
+  {
+    "word": "architect",
+    "pos": "n.",
+    "kk": "/ˈɑrkəˌtɛkt/",
+    "definition": "建築師",
+    "derivatives": [
+      { "word": "architecture", "pos": "n.", "meaning": "建築學；建築風格" }
+    ],
+    "root": "archi (主要的) + tect (建造者) -> 首席建造者 -> 建築師",
+    "phrases": [
+      {
+        "phrase": "famous architect",
+        "meaning": "著名建築師",
+        "sentence": "The museum was designed by a world-famous architect."
+      }
+    ]
+  },
+  {
+    "word": "arctic",
+    "pos": "adj. / n.",
+    "kk": "/ˈɑrktɪk/",
+    "definition": "北極的 / 北極地區",
+    "derivatives": [],
+    "root": "arktos (希臘文：熊，指北斗七星所在的北方星座)",
+    "phrases": [
+      {
+        "phrase": "Arctic Circle",
+        "meaning": "北極圈",
+        "sentence": "Temperatures in the Arctic Circle can drop drastically in winter."
+      }
+    ]
+  },
+  {
+    "word": "argue",
+    "pos": "v.",
+    "kk": "/ˈɑrɡju/",
+    "definition": "爭論；主張；辯論",
+    "derivatives": [
+      { "word": "argument", "pos": "n.", "meaning": "爭論；論點" }
+    ],
+    "root": "arguere (使明晰、證明、爭辯)",
+    "phrases": [
+      {
+        "phrase": "argue with someone",
+        "meaning": "與某人爭吵",
+        "sentence": "There is no point in arguing with him about this trivial matter."
+      }
+    ]
+  },
+  {
+    "word": "arise",
+    "pos": "v.",
+    "kk": "/əˈraɪz/",
+    "definition": "產生；出現；起身",
+    "derivatives": [],
+    "root": "a- + rise (升起)",
+    "phrases": [
+      {
+        "phrase": "if problems arise",
+        "meaning": "如果問題出現",
+        "sentence": "Please let me know immediately if any problems arise."
+      }
+    ]
+  },
+  {
+    "word": "arithmetic",
+    "pos": "n.",
+    "kk": "/əˈrɪθmətɪk/",
+    "definition": "算術",
+    "derivatives": [],
+    "root": "arithmos (數字) + techne (藝術/技巧) -> 計算的藝術 -> 算術",
+    "phrases": [
+      {
+        "phrase": "mental arithmetic",
+        "meaning": "心算",
+        "sentence": "She is very fast at mental arithmetic."
+      }
+    ]
+  },
+  {
+    "word": "arm",
+    "pos": "n. / v.",
+    "kk": "/ɑrm/",
+    "definition": "手臂；袖子 / 武裝",
+    "derivatives": [
+      { "word": "armed", "pos": "adj.", "meaning": "武裝的" }
+    ],
+    "root": "armus (肩膀、手臂)",
+    "phrases": [
+      {
+        "phrase": "arm in arm",
+        "meaning": "挽著手臂",
+        "sentence": "They walked down the street arm in arm."
+      }
+    ]
+  },
+  {
+    "word": "army",
+    "pos": "n.",
+    "kk": "/ˈɑrmi/",
+    "definition": "軍隊；陸軍",
+    "derivatives": [],
+    "root": "armata (武裝起來的部隊)",
+    "phrases": [
+      {
+        "phrase": "join the army",
+        "meaning": "從軍；加入陸軍",
+        "sentence": "He decided to join the army after graduating from high school."
+      }
+    ]
+  },
+  {
+    "word": "around",
+    "pos": "prep. / adv.",
+    "kk": "/əˈraʊnd/",
+    "definition": "環繞；大約 / 到處",
+    "derivatives": [],
+    "root": "a- + round (圓形的)",
+    "phrases": [
+      {
+        "phrase": "all year round",
+        "meaning": "全年四季",
+        "sentence": "The weather here is warm all year round."
+      }
+    ]
+  },
+  {
+    "word": "arrange",
+    "pos": "v.",
+    "kk": "/əˈrendʒ/",
+    "definition": "安排；排列；佈置",
+    "derivatives": [
+      { "word": "arrangement", "pos": "n.", "meaning": "安排；佈置" }
+    ],
+    "root": "ar- (朝向) + range (行列) -> 排成行列 -> 安排",
+    "phrases": [
+      {
+        "phrase": "arrange a meeting",
+        "meaning": "安排會議",
+        "sentence": "I will arrange a meeting for us to discuss the project."
+      }
+    ]
+  },
+  {
+    "word": "arrest",
+    "pos": "v. / n.",
+    "kk": "/əˈrɛst/",
+    "definition": "逮捕；拘留 / 逮捕",
+    "derivatives": [],
+    "root": "ar- (朝向) + restare (停止、扣留) -> 把人扣留住 -> 逮捕",
+    "phrases": [
+      {
+        "phrase": "under arrest",
+        "meaning": "遭到逮捕",
+        "sentence": "The suspect was placed under arrest by the police."
+      }
+    ]
+  },
+  {
+    "word": "arrival",
+    "pos": "n.",
+    "kk": "/əˈraɪvəl/",
+    "definition": "到達；抵達",
+    "derivatives": [
+      { "word": "arrive", "pos": "v.", "meaning": "到達" }
+    ],
+    "root": "ar- + rivus (河岸) -> 船隻靠岸抵達 -> 到達",
+    "phrases": [
+      {
+        "phrase": "upon arrival",
+        "meaning": "一抵達時",
+        "sentence": "Please report to the front desk upon arrival."
+      }
+    ]
+  },
+  {
+    "word": "arrow",
+    "pos": "n.",
+    "kk": "/ˈæroʊ/",
+    "definition": "箭；箭號",
+    "derivatives": [],
+    "root": "arhwaz (古日耳曼語：箭)",
+    "phrases": [
+      {
+        "phrase": "follow the arrow",
+        "meaning": "跟著箭頭走",
+        "sentence": "Follow the arrows on the floor to find the exit."
+      }
+    ]
+  },
+  {
+    "word": "art",
+    "pos": "n.",
+    "kk": "/ɑrt/",
+    "definition": "藝術；美術",
+    "derivatives": [
+      { "word": "artist", "pos": "n.", "meaning": "藝術家" },
+      { "word": "artistic", "pos": "adj.", "meaning": "藝術的" }
+    ],
+    "root": "ars (技藝、手藝)",
+    "phrases": [
+      {
+        "phrase": "work of art",
+        "meaning": "藝術品",
+        "sentence": "The ancient vase on display is a true work of art."
+      }
+    ]
+  },
+  {
+    "word": "article",
+    "pos": "n.",
+    "kk": "/ˈɑrtɪkəl/",
+    "definition": "文章；物品；冠詞",
+    "derivatives": [],
+    "root": "artus (關節/小節) -> 結構中的小節 -> 條文、文章",
+    "phrases": [
+      {
+        "phrase": "write an article",
+        "meaning": "寫文章",
+        "sentence": "She was asked to write an article for the school magazine."
+      }
+    ]
+  },
+  {
+    "word": "artificial",
+    "pos": "adj.",
+    "kk": "/ˌɑrtəˈfɪʃəl/",
+    "definition": "人工的；人造的；假裝的",
+    "derivatives": [
+      { "word": "artificially", "pos": "adv.", "meaning": "人工地" }
+    ],
+    "root": "art (技藝) + fic (做) -> 用人工技藝做出來的 -> 人工的",
+    "phrases": [
+      {
+        "phrase": "artificial intelligence",
+        "meaning": "人工智慧 (AI)",
+        "sentence": "Artificial intelligence is changing the way we live and work."
+      }
+    ]
+  },
+  {
+    "word": "ash",
+    "pos": "n.",
+    "kk": "/æʃ/",
+    "definition": "灰燼；骨灰",
+    "derivatives": [
+      { "word": "ashy", "pos": "adj.", "meaning": "灰色的；蒼白的" }
+    ],
+    "root": "aska (古英文：灰燼)",
+    "phrases": [
+      {
+        "phrase": "burn to ashes",
+        "meaning": "燒成灰燼",
+        "sentence": "The old wooden house was burned to ashes in the fire."
+      }
+    ]
+  },
+  {
+    "word": "ashamed",
+    "pos": "adj.",
+    "kk": "/əˈʃemd/",
+    "definition": "羞恥的；感到羞愧的",
+    "derivatives": [],
+    "root": "a- + shame (羞恥)",
+    "phrases": [
+      {
+        "phrase": "be ashamed of",
+        "meaning": "對...感到羞恥",
+        "sentence": "You should be ashamed of your bad behavior."
+      }
+    ]
+  }
+]
 ]
