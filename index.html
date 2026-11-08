@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.6</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>單字學習平台</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -23,6 +24,8 @@
             --wrong-border: #fca5a5;
             --mastered-bg: #dcfce7;
             --mastered-border: #86efac;
+            --starred-bg: #fef9c3;
+            --starred-border: #fde047;
         }
         * { box-sizing: border-box; }
         body {
@@ -130,6 +133,7 @@
         .flashcard-item.is-studied { background-color: var(--studied-bg); border-color: #c7d2fe; }
         .flashcard-item.is-wrong { background-color: var(--wrong-bg); border-color: var(--wrong-border); }
         .flashcard-item.is-mastered { border-left: 5px solid #16a34a; }
+        .flashcard-item.is-starred { background-color: var(--starred-bg); border-color: var(--starred-border); }
 
         .flashcard-item:hover {
             transform: translateY(-2px);
@@ -245,7 +249,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.6</span>
+                <span class="version-badge">v26.11.7</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -312,8 +316,10 @@
                         <div class="stat-item"><div class="stat-value" id="statToday">0</div><div class="stat-label">今日背誦</div></div>
                         <div class="stat-item"><div class="stat-value" id="statMonth">0</div><div class="stat-label">本月背誦</div></div>
                         <div class="stat-item"><div class="stat-value" id="statYear">0</div><div class="stat-label">今年背誦</div></div>
+                        
                         <div class="stat-item" style="background:#f0fdf4; border-color:#bbf7d0;" onclick="openLibraryModal('mastered')"><div class="stat-value" style="color:#16a34a;" id="statMastered">0</div><div class="stat-label">精熟單字</div></div>
                         <div class="stat-item" style="background:#fef2f2; border-color:#fecaca;" onclick="openLibraryModal('wrong')"><div class="stat-value" style="color:#dc2626;" id="statWrong">0</div><div class="stat-label">錯誤單字</div></div>
+                        <div class="stat-item" style="background:#fefce8; border-color:#fef08a;" onclick="openLibraryModal('starred')"><div class="stat-value" style="color:#ca8a04;" id="statStarred">0</div><div class="stat-label">標記單字 ⭐</div></div>
                     </div>
                 </div>
 
@@ -373,8 +379,12 @@
                     </select>
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
-                    <label>指定日期 (格式: YYYYMMDD)</label>
-                    <input type="text" id="testDateInput" placeholder="例如: 20261107">
+                    <label>指定日期範圍 (格式: YYYYMMDD)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="text" id="testStartDateInput" placeholder="開始日期 (例: 20261101)" maxlength="8">
+                        <span>至</span>
+                        <input type="text" id="testEndDateInput" placeholder="結束日期 (例: 20261107)" maxlength="8">
+                    </div>
                 </div>
             </div>
             <button onclick="startTest()" style="margin-top: 16px;">開始測驗</button>
@@ -391,9 +401,12 @@
 <div class="modal" id="cardDetailModal">
     <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
-            <div>
-                <h3 id="modalWordTitle" style="margin:0; font-size:1.6rem;">word</h3>
-                <div id="modalWordMeta" style="color:var(--muted); font-size:13px; margin-top:4px;">pos / kk</div>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button id="modalStarBtn" onclick="toggleStarStatus()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; padding:0; line-height:1;" title="標記單字">⭐</button>
+                <div>
+                    <h3 id="modalWordTitle" style="margin:0; font-size:1.6rem;">word</h3>
+                    <div id="modalWordMeta" style="color:var(--muted); font-size:13px; margin-top:4px;">pos / kk</div>
+                </div>
             </div>
             <button onclick="closeCardModal()" class="btn-secondary">關閉</button>
         </div>
@@ -416,7 +429,7 @@
         </div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
-            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯題庫移除</button>
+            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯誤單字移除</button>
 
             <div style="display:flex; gap:8px; align-items:center; margin-left:auto;">
                 <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
@@ -491,6 +504,7 @@
     const statsRef = db.ref('testStats');
     const dayWordsRef = db.ref('dayWords');
     const wrongRef = db.ref('wrongWords');
+    const starredRef = db.ref('starredWords'); // 新增標記單字雲端節點
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -499,6 +513,7 @@
     let testStats = {};
     let dayWordsData = {};
     let wrongWords = {};
+    let starredWords = {}; // 儲存星號標記單字
     let currentDate = new Date();
     let activeSelectedDate = '';
     let chartInstance = null;
@@ -575,15 +590,19 @@
             const correctCount = testStats[item.word] || 0;
             const isMastered = correctCount >= 4;
             const isWrong = wrongWords[item.word] === true;
+            const isStarred = starredWords[item.word] === true;
 
             const card = document.createElement('div');
-            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''}`;
+            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
             card.onclick = () => openCardDetail(item);
             card.innerHTML = `
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <div class="flashcard-word">${item.word}</div>
-                        ${isMastered ? '<span style="font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px; font-weight:700;">精熟</span>' : ''}
+                        <div style="display:flex; gap:4px; align-items:center;">
+                            ${isStarred ? '<span style="font-size:12px;" title="已標記">⭐</span>' : ''}
+                            ${isMastered ? '<span style="font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px; font-weight:700;">精熟</span>' : ''}
+                        </div>
                     </div>
                     <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
                     <div class="flashcard-def">${item.definition}</div>
@@ -634,6 +653,12 @@
         const wrongBtn = document.getElementById('modalWrongBtn');
         wrongBtn.style.display = isWrongWord ? 'block' : 'none';
 
+        // 更新星號按鈕狀態
+        const isStarred = !!starredWords[item.word];
+        const starBtn = document.getElementById('modalStarBtn');
+        starBtn.style.opacity = isStarred ? '1' : '0.3';
+        starBtn.title = isStarred ? '取消標記單字' : '點擊標記單字';
+
         document.getElementById('cardCustomDate').value = getTodayYYYYMMDD();
 
         const isStudied = studiedWords[item.word];
@@ -646,11 +671,30 @@
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
+    // 切換星號標記狀態
+    function toggleStarStatus() {
+        if (!activeCardData) return;
+        const word = activeCardData.word;
+        const currentStarred = !!starredWords[word];
+        const newStarred = !currentStarred;
+
+        if (newStarred) {
+            starredRef.child(word).set(true);
+        } else {
+            starredRef.child(word).remove();
+        }
+
+        // 即時切換按鈕透明度
+        const starBtn = document.getElementById('modalStarBtn');
+        starBtn.style.opacity = newStarred ? '1' : '0.3';
+        starBtn.title = newStarred ? '取消標記單字' : '點擊標記單字';
+    }
+
     function toggleWrongStatus() {
         if (!activeCardData) return;
         wrongRef.child(activeCardData.word).remove();
         closeCardModal();
-        alert(`已將 "${activeCardData.word}" 從錯題庫移除！`);
+        alert(`已將 "${activeCardData.word}" 從錯誤單字移除！`);
     }
 
     function toggleCardStudied() {
@@ -757,6 +801,12 @@
             updateStats();
             filterSubLevel();
         });
+
+        starredRef.on('value', snap => {
+            starredWords = snap.val() || {};
+            updateStats();
+            filterSubLevel();
+        });
     }
 
     function renderCalendar() {
@@ -831,25 +881,26 @@
         document.getElementById('dayDetailModal').style.display = 'flex';
     }
 
-    // 新增：點擊統計卡片開啟精熟庫或錯題庫專屬清單
     function openLibraryModal(type) {
         const titleEl = document.getElementById('dayDetailTitle');
         const listDiv = document.getElementById('dayDetailList');
         listDiv.innerHTML = '';
 
-        // 隱藏日曆專屬按鈕
         document.getElementById('clearDayBtn').style.display = 'none';
         document.getElementById('testDayBtn').style.display = 'none';
 
         let targetWords = [];
         if (type === 'mastered') {
-            titleEl.innerText = '精熟庫單字清單 (≥4次)';
+            titleEl.innerText = '精熟單字清單 (≥4次)';
             for (const [w, c] of Object.entries(testStats)) {
                 if (c >= 4) targetWords.push(w);
             }
-        } else {
-            titleEl.innerText = '錯題庫單字清單';
+        } else if (type === 'wrong') {
+            titleEl.innerText = '錯誤單字清單';
             targetWords = Object.keys(wrongWords);
+        } else if (type === 'starred') {
+            titleEl.innerText = '標記單字清單 (⭐)';
+            targetWords = Object.keys(starredWords);
         }
 
         if (targetWords.length === 0) {
@@ -912,7 +963,8 @@
         openTestView(document.getElementById('testNavItem'));
         document.getElementById('testSource').value = 'date';
         toggleTestSource();
-        document.getElementById('testDateInput').value = activeSelectedDate;
+        document.getElementById('testStartDateInput').value = activeSelectedDate;
+        document.getElementById('testEndDateInput').value = activeSelectedDate;
         startTest();
     }
 
@@ -923,7 +975,6 @@
     function updateStats() {
         let todayStr8 = getTodayYYYYMMDD();
         let todayCount = vocabData[todayStr8] || 0;
-        let weekCount = todayCount;
         let monthCount = 0;
         let yearCount = 0;
 
@@ -943,13 +994,14 @@
         }
 
         let wrongCount = Object.keys(wrongWords).length;
+        let starredCount = Object.keys(starredWords).length;
 
         document.getElementById('statToday').innerText = todayCount;
-        document.getElementById('statWeek').innerText = weekCount;
         document.getElementById('statMonth').innerText = monthCount;
         document.getElementById('statYear').innerText = yearCount;
         document.getElementById('statMastered').innerText = masteredCount;
         document.getElementById('statWrong').innerText = wrongCount;
+        document.getElementById('statStarred').innerText = starredCount;
     }
 
     function initChart() {
@@ -1047,14 +1099,29 @@
                 pool = currentLevelData.slice(groupIdx * 100, (groupIdx + 1) * 100);
             }
         } else {
-            const dateStr = document.getElementById('testDateInput').value.trim();
-            const wordsObj = dayWordsData[dateStr];
-            if (wordsObj) {
-                pool = Object.entries(wordsObj).map(([w, itemData]) => {
-                    let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
-                    return found || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData });
-                });
+            const startDate = document.getElementById('testStartDateInput').value.trim();
+            const endDate = document.getElementById('testEndDateInput').value.trim();
+
+            if (!startDate || !endDate || startDate.length !== 8 || endDate.length !== 8) {
+                alert('請輸入正確的 8 位數起訖日期 (格式: YYYYMMDD)');
+                return;
             }
+
+            let collectedWordsMap = {};
+            for (const [dateKey, wordsObj] of Object.entries(dayWordsData)) {
+                if (dateKey >= startDate && dateKey <= endDate) {
+                    if (wordsObj && typeof wordsObj === 'object') {
+                        for (const [w, itemData] of Object.entries(wordsObj)) {
+                            collectedWordsMap[w] = itemData;
+                        }
+                    }
+                }
+            }
+
+            pool = Object.entries(collectedWordsMap).map(([w, itemData]) => {
+                let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                return found || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData });
+            });
         }
 
         if (pool.length === 0) {
@@ -1131,7 +1198,7 @@
                 <div style="padding: 12px 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border); background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-color: ${isCorrect ? '#bbf7d0' : '#fecaca'};">
                     <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${type === 'choice' ? q.word : q.definition} ${isCorrect ? '✅' : '❌'}</div>
                     <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${userAnsDisplay || '無'}</span></div>
-                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : ''}
+                    { !isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : '' }
                 </div>
             `;
         });
