@@ -9,64 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    </script>
-        // 1. 新增自動檢查與補齊的函式
-        async function checkAndInitDatabase() {
-            const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
-            
-            for (const nodeName of nodesToEnsure) {
-                const snapshot = await db.ref(nodeName).once('value');
-                if (!snapshot.exists()) {
-                    // 如果雲端上沒有這個節點，自動幫它建立一個空的物件
-                    await db.ref(nodeName).set({});
-                    console.log(`已自動建立缺少的資料庫節點: ${nodeName}`);
-                }
-            }
-        }
-        
-        // 2. 修改原本的 init() 函式，加入 async/await 讓它先檢查完再載入畫面
-        async function init() {
-            // 確保所有需要的資料庫節點都存在
-            await checkAndInitDatabase();
-        
-            fetchLevelData('level1.json');
-            initChart();
-        
-            vocabRef.on('value', snap => {
-                vocabData = snap.val() || {};
-                renderCalendar();
-                updateStats();
-                updateChart();
-            });
-        
-            studiedRef.on('value', snap => {
-                studiedWords = snap.val() || {};
-                filterSubLevel();
-            });
-        
-            statsRef.on('value', snap => {
-                testStats = snap.val() || {};
-                updateStats();
-                filterSubLevel();
-            });
-        
-            dayWordsRef.on('value', snap => {
-                dayWordsData = snap.val() || {};
-            });
-        
-            wrongRef.on('value', snap => {
-                wrongWords = snap.val() || {};
-                updateStats();
-                filterSubLevel();
-            });
-        
-            starredRef.on('value', snap => {
-                starredWords = snap.val() || {};
-                updateStats();
-                filterSubLevel();
-            });
-        }
-    </script>
+    
     <style>
         :root {
             --primary: #4f46e5;
