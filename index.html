@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-    
+
     <style>
         :root {
             --primary: #4f46e5;
@@ -249,7 +249,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.7</span>
+                <span class="version-badge">v26.11.8</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -504,7 +504,7 @@
     const statsRef = db.ref('testStats');
     const dayWordsRef = db.ref('dayWords');
     const wrongRef = db.ref('wrongWords');
-    const starredRef = db.ref('starredWords'); // 新增標記單字雲端節點
+    const starredRef = db.ref('starredWords');
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -513,7 +513,7 @@
     let testStats = {};
     let dayWordsData = {};
     let wrongWords = {};
-    let starredWords = {}; // 儲存星號標記單字
+    let starredWords = {};
     let currentDate = new Date();
     let activeSelectedDate = '';
     let chartInstance = null;
@@ -529,6 +529,17 @@
     function formatYYYYMMDDToStandard(str) {
         if (!str || str.length !== 8) return str;
         return `${str.substring(0,4)}-${str.substring(4,6)}-${str.substring(6,8)}`;
+    }
+
+    // 自動檢查並補齊缺失的雲端節點
+    async function checkAndInitDatabase() {
+        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
+        for (const nodeName of nodesToEnsure) {
+            const snapshot = await db.ref(nodeName).once('value');
+            if (!snapshot.exists()) {
+                await db.ref(nodeName).set({});
+            }
+        }
     }
 
     async function fetchLevelData(jsonFileName) {
@@ -653,7 +664,6 @@
         const wrongBtn = document.getElementById('modalWrongBtn');
         wrongBtn.style.display = isWrongWord ? 'block' : 'none';
 
-        // 更新星號按鈕狀態
         const isStarred = !!starredWords[item.word];
         const starBtn = document.getElementById('modalStarBtn');
         starBtn.style.opacity = isStarred ? '1' : '0.3';
@@ -671,7 +681,6 @@
 
     function closeCardModal() { document.getElementById('cardDetailModal').style.display = 'none'; }
 
-    // 切換星號標記狀態
     function toggleStarStatus() {
         if (!activeCardData) return;
         const word = activeCardData.word;
@@ -684,7 +693,6 @@
             starredRef.child(word).remove();
         }
 
-        // 即時切換按鈕透明度
         const starBtn = document.getElementById('modalStarBtn');
         starBtn.style.opacity = newStarred ? '1' : '0.3';
         starBtn.title = newStarred ? '取消標記單字' : '點擊標記單字';
@@ -770,7 +778,9 @@
         }
     }
 
-    function init() {
+    async function init() {
+        await checkAndInitDatabase();
+
         fetchLevelData('level1.json');
         initChart();
 
@@ -1102,7 +1112,7 @@
             const startDate = document.getElementById('testStartDateInput').value.trim();
             const endDate = document.getElementById('testEndDateInput').value.trim();
 
-            if (!startDate || !endDate || startDate.length !== 8 || endDate.length !== 8) {
+            if (!startDate || !endDate || startDate.length !== 8 || isNaN(startDate) || isNaN(endDate)) {
                 alert('請輸入正確的 8 位數起訖日期 (格式: YYYYMMDD)');
                 return;
             }
@@ -1198,7 +1208,7 @@
                 <div style="padding: 12px 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border); background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-color: ${isCorrect ? '#bbf7d0' : '#fecaca'};">
                     <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${type === 'choice' ? q.word : q.definition} ${isCorrect ? '✅' : '❌'}</div>
                     <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${userAnsDisplay || '無'}</span></div>
-                    { !isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : '' }
+                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : ''}
                 </div>
             `;
         });
