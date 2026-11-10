@@ -874,14 +874,9 @@
             const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
             const miniCard = document.createElement('div');
-            // 改為點擊卡片直接取消該單字的打卡標記與數量
+            // 純卡片設計，無多餘按鈕，點擊直接開啟該單字詳細彈窗並帶入該打卡日期
             miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; position: relative; transition: all 0.2s;";
-            miniCard.title = "點擊即可從當日記錄中取消標記";
-            miniCard.onclick = () => {
-                if (confirm(`確定要將 "${item.word}" 從 ${dateStr} 的打卡記錄中取消嗎？`)) {
-                    removeSingleWordFromDay(dateStr, item.word);
-                }
-            };
+            miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
             
             miniCard.innerHTML = `
                 <div style="display:flex; justify-content:space-between; align-items:flex-start;">
