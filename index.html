@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台</title>
+    <title>7000 大考核心單字學習平台 - v26.11.8</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -319,7 +319,7 @@
                         
                         <div class="stat-item" style="background:#f0fdf4; border-color:#bbf7d0;" onclick="openLibraryModal('mastered')"><div class="stat-value" style="color:#16a34a;" id="statMastered">0</div><div class="stat-label">精熟單字</div></div>
                         <div class="stat-item" style="background:#fef2f2; border-color:#fecaca;" onclick="openLibraryModal('wrong')"><div class="stat-value" style="color:#dc2626;" id="statWrong">0</div><div class="stat-label">錯誤單字</div></div>
-                        <div class="stat-item" style="background:#fefce8; border-color:#fef08a;" onclick="openLibraryModal('starred')"><div class="stat-value" style="color:#ca8a04;" id="statStarred">0</div><div class="stat-label">標記單字</div></div>
+                        <div class="stat-item" style="background:#fefce8; border-color:#fef08a;" onclick="openLibraryModal('starred')"><div class="stat-value" style="color:#ca8a04;" id="statStarred">0</div><div class="stat-label">標記單字 ⭐</div></div>
                     </div>
                 </div>
 
@@ -531,7 +531,6 @@
         return `${str.substring(0,4)}-${str.substring(4,6)}-${str.substring(6,8)}`;
     }
 
-    // 自動檢查並補齊缺失的雲端節點
     async function checkAndInitDatabase() {
         const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
         for (const nodeName of nodesToEnsure) {
@@ -636,7 +635,13 @@
         renderCards(filtered);
     }
 
-    function openCardDetail(item) {
+    function openCardDetailFromDay(wordStr, dateStr = getTodayYYYYMMDD()) {
+        let found = currentLevelData.find(x => x.word.toLowerCase() === wordStr.toLowerCase());
+        let item = found || { word: wordStr, definition: '舊記錄單字', pos: '', kk: '', derivatives: [], root: '', phrases: [] };
+        openCardDetail(item, dateStr);
+    }
+
+    function openCardDetail(item, customDate = null) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
         document.getElementById('modalWordMeta').innerText = `${item.pos || ''} | ${item.kk || ''}`;
@@ -669,7 +674,7 @@
         starBtn.style.opacity = isStarred ? '1' : '0.3';
         starBtn.title = isStarred ? '取消標記單字' : '點擊標記單字';
 
-        document.getElementById('cardCustomDate').value = getTodayYYYYMMDD();
+        document.getElementById('cardCustomDate').value = customDate || getTodayYYYYMMDD();
 
         const isStudied = studiedWords[item.word];
         const btn = document.getElementById('modalStudiedBtn');
@@ -732,19 +737,10 @@
         vocabRef.child(targetDate).set(currentCount);
 
         closeCardModal();
-    }
 
-    function removeSingleWordFromDay(dateStr, wordStr) {
-        if (!confirm(`確定要將 "${wordStr}" 從 ${dateStr} 的記錄中移除嗎？`)) return;
-
-        dayWordsRef.child(dateStr).child(wordStr).remove();
-        studiedRef.child(wordStr).set(false);
-
-        let currentCount = vocabData[dateStr] || 0;
-        let newCount = Math.max(0, currentCount - 1);
-        vocabRef.child(dateStr).set(newCount);
-
-        showDayDetails(dateStr);
+        if (document.getElementById('dayDetailModal').style.display === 'flex') {
+            showDayDetails(targetDate);
+        }
     }
 
     function openAddWordModal() { document.getElementById('addWordModal').style.display = 'flex'; }
@@ -851,47 +847,46 @@
         renderCalendar();
     }
 
-   function showDayDetails(dateStr) {
-    activeSelectedDate = dateStr;
-    document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
-    document.getElementById('clearDayBtn').style.display = 'block';
-    document.getElementById('testDayBtn').style.display = 'inline-block';
-    
-    const listDiv = document.getElementById('dayDetailList');
-    listDiv.innerHTML = '';
+    function showDayDetails(dateStr) {
+        activeSelectedDate = dateStr;
+        document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
+        document.getElementById('clearDayBtn').style.display = 'block';
+        document.getElementById('testDayBtn').style.display = 'inline-block';
+        
+        const listDiv = document.getElementById('dayDetailList');
+        listDiv.innerHTML = '';
 
-    const wordsObj = dayWordsData[dateStr];
-    if (!wordsObj || Object.keys(wordsObj).length === 0) {
-        listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
-    } else {
-        const gridContainer = document.createElement('div');
-        gridContainer.style.display = 'grid';
-        gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-        gridContainer.style.gap = '10px';
+        const wordsObj = dayWordsData[dateStr];
+        if (!wordsObj || Object.keys(wordsObj).length === 0) {
+            listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
+        } else {
+            const gridContainer = document.createElement('div');
+            gridContainer.style.display = 'grid';
+            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            gridContainer.style.gap = '10px';
 
-        for (const [w, itemData] of Object.entries(wordsObj)) {
-            let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
-            const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
+            for (const [w, itemData] of Object.entries(wordsObj)) {
+                let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
-            const miniCard = document.createElement('div');
-            // 純卡片設計，無多餘按鈕，點擊直接開啟該單字詳細彈窗並帶入該打卡日期
-            miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; position: relative; transition: all 0.2s;";
-            miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
-            
-            miniCard.innerHTML = `
-                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
-                    <span style="font-size:12px; color:var(--primary); font-weight:600;">已打卡 ✓</span>
-                </div>
-                <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
-                <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
-            `;
-            gridContainer.appendChild(miniCard);
+                const miniCard = document.createElement('div');
+                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; position: relative; transition: all 0.2s;";
+                miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
+                
+                miniCard.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
+                        <span style="font-size:12px; color:var(--primary); font-weight:600;">已打卡 ✓</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
+                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
+                `;
+                gridContainer.appendChild(miniCard);
+            }
+            listDiv.appendChild(gridContainer);
         }
-        listDiv.appendChild(gridContainer);
+        document.getElementById('dayDetailModal').style.display = 'flex';
     }
-    document.getElementById('dayDetailModal').style.display = 'flex';
-}
 
     function openLibraryModal(type) {
         const titleEl = document.getElementById('dayDetailTitle');
@@ -941,15 +936,6 @@
         }
 
         document.getElementById('dayDetailModal').style.display = 'flex';
-    }
-
-    function openCardDetailFromDay(wordStr) {
-        let found = currentLevelData.find(x => x.word.toLowerCase() === wordStr.toLowerCase());
-        if (found) {
-            openCardDetail(found);
-        } else {
-            openCardDetail({ word: wordStr, definition: '舊記錄單字', pos: '', kk: '', derivatives: [], root: '', phrases: [] });
-        }
     }
 
     function clearSelectedDayRecord() {
