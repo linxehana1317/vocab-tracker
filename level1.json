@@ -6611,5 +6611,458 @@
           "sentence": "You should be ashamed of your bad behavior."
         }
       ]
-    }  
-  ]
+    },
+    [
+  {
+    "word": "aside",
+    "pos": "adv.",
+    "kk": "/əˈsaɪd/",
+    "definition": "在旁邊；留出",
+    "derivatives": [],
+    "root": "a- (在...) + side (旁邊)",
+    "phrases": [
+      {
+        "phrase": "set aside",
+        "meaning": "保留；撥出（時間或金錢）",
+        "sentence": "You should set aside some time every day for exercise."
+      }
+    ]
+  },
+  {
+    "word": "asleep",
+    "pos": "adj.",
+    "kk": "/əˈsliːp/",
+    "definition": "睡著的",
+    "derivatives": [],
+    "root": "a- (處於...狀態) + sleep (睡覺)",
+    "phrases": [
+      {
+        "phrase": "fall asleep",
+        "meaning": "入睡",
+        "sentence": "He was so tired that he fell asleep immediately."
+      }
+    ]
+  },
+  {
+    "word": "aspect",
+    "pos": "n.",
+    "kk": "/ˈæspɛkt/",
+    "definition": "方面；觀點；外貌",
+    "derivatives": [],
+    "root": "ad- (朝向) + spect (看) -> 看過去的角度 -> 方面",
+    "phrases": [
+      {
+        "phrase": "every aspect of life",
+        "meaning": "生活的各個方面",
+        "sentence": "Technology affects almost every aspect of life today."
+      }
+    ]
+  },
+  {
+    "word": "assist",
+    "pos": "v.",
+    "kk": "/əˈsɪst/",
+    "definition": "協助；幫助",
+    "derivatives": [
+      { "word": "assistant", "pos": "n.", "meaning": "助手" },
+      { "word": "assistance", "pos": "n.", "meaning": "協助" }
+    ],
+    "root": "ad- (朝向) + sist (站立) -> 站在身邊支援 -> 協助",
+    "phrases": [
+      {
+        "phrase": "assist someone with something",
+        "meaning": "協助某人做某事",
+        "sentence": "The nurse assisted the doctor with the operation."
+      }
+    ]
+  },
+  {
+    "word": "assistance",
+    "pos": "n.",
+    "kk": "/əˈsɪstəns/",
+    "definition": "協助；援助",
+    "derivatives": [],
+    "root": "assist (協助) + -ance (名詞字尾)",
+    "phrases": [
+      {
+        "phrase": "come to someone's assistance",
+        "meaning": "前來援助某人",
+        "sentence": "A stranger came to her assistance when her car broke down."
+      }
+    ]
+  },
+  {
+    "word": "assistant",
+    "pos": "n.",
+    "kk": "/ˈæsɪstənt/",
+    "definition": "助理；助手",
+    "derivatives": [],
+    "root": "assist (協助) + -ant (人)",
+    "phrases": [
+      {
+        "phrase": "research assistant",
+        "meaning": "研究助理",
+        "sentence": "She works as a research assistant at the university."
+      }
+    ]
+  },
+  {
+    "word": "associate",
+    "pos": "v. / n. / adj.",
+    "kk": "/əˈsoʊʃiˌeɪt/",
+    "definition": "聯想；結交 / 合夥人 / 副的",
+    "derivatives": [
+      { "word": "association", "pos": "n.", "meaning": "協會；聯想" }
+    ],
+    "root": "ad- (朝向) + soci (同伴) + -ate (動詞字尾) -> 結為同伴 -> 聯想/結交",
+    "phrases": [
+      {
+        "phrase": "associate A with B",
+        "meaning": "將A與B聯想在一起",
+        "sentence": "People usually associate summer with sunshine and ice cream."
+      }
+    ]
+  },
+  {
+    "word": "association",
+    "pos": "n.",
+    "kk": "/əˌsoʊsiˈeɪʃən/",
+    "definition": "協會；聯想；合作",
+    "derivatives": [],
+    "root": "associate (聯想/結交) + -ion (名詞字尾)",
+    "phrases": [
+      {
+        "phrase": "in association with",
+        "meaning": "與...合作/聯合",
+        "sentence": "The event was organized in association with a local charity."
+      }
+    ]
+  },
+  {
+    "word": "assume",
+    "pos": "v.",
+    "kk": "/əˈsuːm/",
+    "definition": "假設；假定；承擔（責任）",
+    "derivatives": [
+      { "word": "assumption", "pos": "n.", "meaning": "假設" }
+    ],
+    "root": "ad- (朝向) + sume (拿取) -> 拿過來當作是真的 -> 假設",
+    "phrases": [
+      {
+        "phrase": "assume responsibility",
+        "meaning": "承擔責任",
+        "sentence": "He was willing to assume full responsibility for the mistake."
+      }
+    ]
+  },
+  {
+    "word": "assure",
+    "pos": "v.",
+    "kk": "/əˈʃʊr/",
+    "definition": "保證；使確信",
+    "derivatives": [
+      { "word": "assurance", "pos": "n.", "meaning": "保證；自信" }
+    ],
+    "root": "ad- (朝向) + sure (確定) -> 使別人感到確定 -> 保證",
+    "phrases": [
+      {
+        "phrase": "assure someone that",
+        "meaning": "向某人保證...",
+        "sentence": "I can assure you that everything will be fine."
+      }
+    ]
+  },
+  {
+    "word": "astonish",
+    "pos": "v.",
+    "kk": "/əˈstɑːnɪʃ/",
+    "definition": "使驚訝；使震驚",
+    "derivatives": [
+      { "word": "astonishing", "pos": "adj.", "meaning": "令人驚訝的" },
+      { "word": "astonishment", "pos": "n.", "meaning": "驚訝" }
+    ],
+    "root": "ex- (出) + tonare (雷鳴) -> 如被雷擊般震撼 -> 使驚訝",
+    "phrases": [
+      {
+        "phrase": "be astonished at",
+        "meaning": "對...感到驚訝",
+        "sentence": "We were astonished at his incredible memory."
+      }
+    ]
+  },
+  {
+    "word": "astronaut",
+    "pos": "n.",
+    "kk": "/ˈæstrəˌnɔt/",
+    "definition": "太空人",
+    "derivatives": [],
+    "root": "astro (星星) + naut (水手) -> 星海水手 -> 太空人",
+    "phrases": [
+      {
+        "phrase": "become an astronaut",
+        "meaning": "成為太空人",
+        "sentence": "Many kids dream of becoming an astronaut when they grow up."
+      }
+    ]
+  },
+  {
+    "word": "athlete",
+    "pos": "n.",
+    "kk": "/ˈæθliːt/",
+    "definition": "運動員",
+    "derivatives": [
+      { "word": "athletic", "pos": "adj.", "meaning": "運動的；體育的" }
+    ],
+    "root": "athlon (競賽/獎品) -> 參加比賽爭取榮譽的人 -> 運動員",
+    "phrases": [
+      {
+        "phrase": "professional athlete",
+        "meaning": "職業運動員",
+        "sentence": "Professional athletes spend hours training every single day."
+      }
+    ]
+  },
+  {
+    "word": "atmosphere",
+    "pos": "n.",
+    "kk": "/ˈætməˌsfɪr/",
+    "definition": "大氣層；氣氛",
+    "derivatives": [],
+    "root": "atmo (蒸汽/空氣) + sphere (球體) -> 包裹地球的氣體 -> 大氣/氣氛",
+    "phrases": [
+      {
+        "phrase": "friendly atmosphere",
+        "meaning": "友好的氣氛",
+        "sentence": "The restaurant is famous for its warm and friendly atmosphere."
+      }
+    ]
+  },
+  {
+    "word": "atom",
+    "pos": "n.",
+    "kk": "/ˈætəm/",
+    "definition": "原子",
+    "derivatives": [
+      { "word": "atomic", "pos": "adj.", "meaning": "原子的" }
+    ],
+    "root": "a- (不) + tom (切割) -> 無法再分割的微粒 -> 原子",
+    "phrases": [
+      {
+        "phrase": "atomic energy",
+        "meaning": "原子能",
+        "sentence": "An atom consists of a nucleus surrounded by electrons."
+      }
+    ]
+  },
+  {
+    "word": "attach",
+    "pos": "v.",
+    "kk": "/əˈtætʃ/",
+    "definition": "附上；貼上；繫住",
+    "derivatives": [
+      { "word": "attachment", "pos": "n.", "meaning": "附件；依戀" },
+      { "word": "attached", "pos": "adj.", "meaning": "附加的；依戀的" }
+    ],
+    "root": "ad- (朝向) + tack (釘子) -> 用釘子固定上去 -> 附上/貼上",
+    "phrases": [
+      {
+        "phrase": "attach a file",
+        "meaning": "附加檔案",
+        "sentence": "Please don't forget to attach the document to your email."
+      }
+    ]
+  },
+  {
+    "word": "attack",
+    "pos": "v. / n.",
+    "kk": "/əˈtæk/",
+    "definition": "攻擊；進攻 / 攻擊；發作",
+    "derivatives": [
+      { "word": "attacker", "pos": "n.", "meaning": "攻擊者" }
+    ],
+    "root": "ad- + tack (釘子) -> 向前刺戳 -> 攻擊",
+    "phrases": [
+      {
+        "phrase": "heart attack",
+        "meaning": "心臟病發作",
+        "sentence": "He was rushed to the hospital after suffering a heart attack."
+      }
+    ]
+  },
+  {
+    "word": "attain",
+    "pos": "v.",
+    "kk": "/əˈteɪn/",
+    "definition": "達到；獲得",
+    "derivatives": [
+      { "word": "attainment", "pos": "n.", "meaning": "成就；達到" }
+    ],
+    "root": "ad- (朝向) + tang (觸碰) -> 手伸過去碰到 -> 達到/獲得",
+    "phrases": [
+      {
+        "phrase": "attain a goal",
+        "meaning": "達到目標",
+        "sentence": "With determination, she eventually attained her goal."
+      }
+    ]
+  },
+  {
+    "word": "attempt",
+    "pos": "v. / n.",
+    "kk": "/əˈtɛmpt/",
+    "definition": "嘗試；企圖 / 嘗試；努力",
+    "derivatives": [],
+    "root": "ad- (朝向) + tempt (試探) -> 朝著目標試試看 -> 嘗試",
+    "phrases": [
+      {
+        "phrase": "make an attempt to",
+        "meaning": "試圖做...",
+        "sentence": "He made an attempt to explain the complex theory."
+      }
+    ]
+  },
+  {
+    "word": "attend",
+    "pos": "v.",
+    "kk": "/əˈtɛnd/",
+    "definition": "出席；參加；照料",
+    "derivatives": [
+      { "word": "attendance", "pos": "n.", "meaning": "出席；出席人數" },
+      { "word": "attendant", "pos": "n.", "meaning": "服務員" }
+    ],
+    "root": "ad- (朝向) + tend (伸展) -> 心思伸過去某處 -> 出席/關注",
+    "phrases": [
+      {
+        "phrase": "attend a meeting",
+        "meaning": "參加會議",
+        "sentence": "All team members are required to attend the morning meeting."
+      }
+    ]
+  },
+  {
+    "word": "attention",
+    "pos": "n.",
+    "kk": "/əˈtɛnʃən/",
+    "definition": "注意力；關心",
+    "derivatives": [
+      { "word": "attentive", "pos": "adj.", "meaning": "專心的；留意的" }
+    ],
+    "root": "attend (關注) + -ion (名詞字尾)",
+    "phrases": [
+      {
+        "phrase": "pay attention to",
+        "meaning": "注意...",
+        "sentence": "Please pay attention to the instructions given by the teacher."
+      }
+    ]
+  },
+  {
+    "word": "attitude",
+    "pos": "n.",
+    "kk": "/ˈætəˌtuːd/",
+    "definition": "態度；姿態",
+    "derivatives": [],
+    "root": "aptus (適當的/姿勢) -> 面對事情擺出的姿態 -> 態度",
+    "phrases": [
+      {
+        "phrase": "positive attitude",
+        "meaning": "積極正面的態度",
+        "sentence": "Having a positive attitude can help you overcome challenges."
+      }
+    ]
+  },
+  {
+    "word": "attract",
+    "pos": "v.",
+    "kk": "/əˈtrækt/",
+    "definition": "吸引；引起興趣",
+    "derivatives": [
+      { "word": "attraction", "pos": "n.", "meaning": "吸引力；景點" },
+      { "word": "attractive", "pos": "adj.", "meaning": "有吸引力的" }
+    ],
+    "root": "ad- (朝向) + tract (拉) -> 朝自己這邊拉過來 -> 吸引",
+    "phrases": [
+      {
+        "phrase": "attract one's attention",
+        "meaning": "吸引某人的注意力",
+        "sentence": "The colorful billboard immediately attracted the boy's attention."
+      }
+    ]
+  },
+  {
+    "word": "attraction",
+    "pos": "n.",
+    "kk": "/əˈtrækʃən/",
+    "definition": "吸引力；觀光景點",
+    "derivatives": [],
+    "root": "attract (吸引) + -ion (名詞字尾)",
+    "phrases": [
+      {
+        "phrase": "tourist attraction",
+        "meaning": "觀光景點",
+        "sentence": "Taipei 101 is one of the most famous tourist attractions in Taiwan."
+      }
+    ]
+  },
+  {
+    "word": "attractive",
+    "pos": "adj.",
+    "kk": "/əˈtræktɪv/",
+    "definition": "有吸引力的；迷人的",
+    "derivatives": [
+      { "word": "attractively", "pos": "adv.", "meaning": "吸引人地" }
+    ],
+    "root": "attract (吸引) + -ive (形容詞字尾)",
+    "phrases": [
+      {
+        "phrase": "attractive offer",
+        "meaning": "具吸引力的提議/條件",
+        "sentence": "The company made him a very attractive job offer."
+      }
+    ]
+  },
+  {
+    "word": "audience",
+    "pos": "n.",
+    "kk": "/ˈɔdiəns/",
+    "definition": "觀眾；聽眾",
+    "derivatives": [],
+    "root": "audi (聽) + -ence (名詞字尾表集合名詞) -> 前來聆聽的人群 -> 觀眾",
+    "phrases": [
+      {
+        "phrase": "target audience",
+        "meaning": "目標受眾",
+        "sentence": "The concert managed to captivate the entire audience."
+      }
+    ]
+  },
+  {
+    "word": "August",
+    "pos": "n.",
+    "kk": "/ˈɔɡəst/",
+    "definition": "八月",
+    "derivatives": [],
+    "root": "Augustus (羅馬帝國開國皇帝屋大維的稱號，源自aug-「增加/尊貴」)",
+    "phrases": [
+      {
+        "phrase": "in August",
+        "meaning": "在八月",
+        "sentence": "We are planning to go to the beach in August."
+      }
+    ]
+  },
+  {
+    "word": "aunt",
+    "pos": "n.",
+    "kk": "/ænt/",
+    "definition": "姑姑；阿姨；伯母；嬸嬸；舅媽",
+    "derivatives": [],
+    "root": "amita (拉丁語：父親的姐妹)",
+    "phrases": [
+      {
+        "phrase": "visit my aunt",
+        "meaning": "拜訪我的阿姨/姑姑",
+        "sentence": "We usually visit my aunt and uncle during the Chinese New Year."
+      }
+  }
+    ]
