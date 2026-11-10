@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7000 大考核心單字學習平台 - v26.11.8</title>
+    <title>單字學習平台 - v26.11.8</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -319,7 +319,7 @@
                         
                         <div class="stat-item" style="background:#f0fdf4; border-color:#bbf7d0;" onclick="openLibraryModal('mastered')"><div class="stat-value" style="color:#16a34a;" id="statMastered">0</div><div class="stat-label">精熟單字</div></div>
                         <div class="stat-item" style="background:#fef2f2; border-color:#fecaca;" onclick="openLibraryModal('wrong')"><div class="stat-value" style="color:#dc2626;" id="statWrong">0</div><div class="stat-label">錯誤單字</div></div>
-                        <div class="stat-item" style="background:#fefce8; border-color:#fef08a;" onclick="openLibraryModal('starred')"><div class="stat-value" style="color:#ca8a04;" id="statStarred">0</div><div class="stat-label">標記單字 ⭐</div></div>
+                        <div class="stat-item" style="background:#fefce8; border-color:#fef08a;" onclick="openLibraryModal('starred')"><div class="stat-value" style="color:#ca8a04;" id="statStarred">0</div><div class="stat-label">標記單字</div></div>
                     </div>
                 </div>
 
@@ -398,48 +398,44 @@
 </div>
 
 <!-- 單字詳細彈窗 -->
-<div class="modal" id="cardDetailModal">
+<!-- 手動新增單字彈窗 -->
+<div class="modal" id="addWordModal">
     <div class="modal-content">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
-            <div style="display:flex; align-items:center; gap:12px;">
-                <button id="modalStarBtn" onclick="toggleStarStatus()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; padding:0; line-height:1;" title="標記單字">⭐</button>
-                <div>
-                    <h3 id="modalWordTitle" style="margin:0; font-size:1.6rem;">word</h3>
-                    <div id="modalWordMeta" style="color:var(--muted); font-size:13px; margin-top:4px;">pos / kk</div>
-                </div>
-            </div>
-            <button onclick="closeCardModal()" class="btn-secondary">關閉</button>
+        <h3 style="margin-top:0; color:var(--primary);">手動新增單字</h3>
+        <div class="form-group">
+            <label>英文單字 (Word)</label>
+            <input type="text" id="newWord" placeholder="例如: banana">
         </div>
-
-        <div style="font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:16px;" id="modalWordDefinition"></div>
-
-        <div class="detail-section">
-            <h4>1. 衍伸單字與詞性變化</h4>
-            <div id="modalDerivatives"></div>
+        <div class="form-group">
+            <label>詞性 (POS)</label>
+            <input type="text" id="newPos" placeholder="例如: n.">
         </div>
-
-        <div class="detail-section">
-            <h4>2. 核心字根與構詞延伸</h4>
-            <div id="modalRoot"></div>
+        <div class="form-group">
+            <label>KK音標 (KK)</label>
+            <input type="text" id="newKk" placeholder="例如: /bəˈnænə/">
         </div>
-
-        <div class="detail-section">
-            <h4>3. 常用片語與例句</h4>
-            <div id="modalPhrases"></div>
+        <div class="form-group">
+            <label>中文定義 (Definition)</label>
+            <input type="text" id="newDef" placeholder="例如: 香蕉">
         </div>
-
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
-            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯誤單字移除</button>
-
-            <div style="display:flex; gap:8px; align-items:center; margin-left:auto;">
-                <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
-                <input type="text" id="cardCustomDate" class="date-input-compact" placeholder="YYYYMMDD" maxlength="8">
-                <button id="modalStudiedBtn" onclick="toggleCardStudied()">標記為背誦</button>
-            </div>
+        <div class="form-group">
+            <label>字根/字源 (Root)</label>
+            <input type="text" id="newRoot" placeholder="例如: 源自西非語言...">
+        </div>
+        <div class="form-group">
+            <label>衍伸單字 (格式: 單字|詞性|意思，多個用逗號隔開)</label>
+            <input type="text" id="newDerivatives" placeholder="例如: dangerously|adv.|危險地">
+        </div>
+        <div class="form-group">
+            <label>常用片語與例句 (格式: 片語|意思|例句)</label>
+            <input type="text" id="newPhrases" placeholder="例如: in danger|處於危險中|He is in danger.">
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
+            <button onclick="closeAddWordModal()" class="btn-secondary">取消</button>
+            <button onclick="saveNewWord()">確認新增</button>
         </div>
     </div>
 </div>
-
 <!-- 日曆與專屬字庫彈窗共用 -->
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
@@ -746,33 +742,48 @@
     function openAddWordModal() { document.getElementById('addWordModal').style.display = 'flex'; }
     function closeAddWordModal() { document.getElementById('addWordModal').style.display = 'none'; }
 
-    function saveNewWord() {
-        const word = document.getElementById('newWord').value.trim();
-        const pos = document.getElementById('newPos').value.trim();
-        const kk = document.getElementById('newKk').value.trim();
-        const definition = document.getElementById('newDef').value.trim();
-        const root = document.getElementById('newRoot').value.trim();
+   function saveNewWord() {
+    const word = document.getElementById('newWord').value.trim();
+    const pos = document.getElementById('newPos').value.trim();
+    const kk = document.getElementById('newKk').value.trim();
+    const definition = document.getElementById('newDef').value.trim();
+    const root = document.getElementById('newRoot').value.trim();
+    const rawDerivatives = document.getElementById('newDerivatives').value.trim();
+    const rawPhrases = document.getElementById('newPhrases').value.trim();
 
-        if (!word || !definition) {
-            alert('請至少填寫單字與中文定義！');
-            return;
-        }
-
-        const newObj = { word, pos, kk, definition, root, derivatives: [], phrases: [] };
-        currentLevelData.push(newObj);
-        filterSubLevel();
-        closeAddWordModal();
-        alert(`已成功新增 "${word}" 至當前清單！`);
+    if (!word || !definition) {
+        alert('請至少填寫單字與中文定義！');
+        return;
     }
 
-    function speakCurrentWord() {
-        if(activeCardData && 'speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(activeCardData.word);
-            u.lang = 'en-US';
-            window.speechSynthesis.speak(u);
-        }
+    // 解析衍伸單字欄位
+    let derivatives = [];
+    if (rawDerivatives) {
+        rawDerivatives.split(',').forEach(item => {
+            const parts = item.split('|');
+            if (parts.length >= 3) {
+                derivatives.push({ word: parts[0].trim(), pos: parts[1].trim(), meaning: parts[2].trim() });
+            }
+        });
     }
+
+    // 解析片語與例句欄位
+    let phrases = [];
+    if (rawPhrases) {
+        rawPhrases.split(',').forEach(item => {
+            const parts = item.split('|');
+            if (parts.length >= 3) {
+                phrases.push({ phrase: parts[0].trim(), meaning: parts[1].trim(), sentence: parts[2].trim() });
+            }
+        });
+    }
+
+    const newObj = { word, pos, kk, definition, root, derivatives, phrases };
+    currentLevelData.push(newObj);
+    filterSubLevel();
+    closeAddWordModal();
+    alert(`已成功新增 "${word}" 至當前清單！`);
+}
 
     async function init() {
         await checkAndInitDatabase();
