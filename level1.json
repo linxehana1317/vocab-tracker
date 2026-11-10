@@ -6611,5 +6611,622 @@
           "sentence": "You should be ashamed of your bad behavior."
         }
       ]
-    }
+    },
+    
+{
+"word": "ashamed",
+"pos": "adj.",
+"kk": "/əˈʃemd/",
+"definition": "感到羞恥的，感到難堪的",
+"root": "a- (處於...狀態) + shame (羞恥)",
+"derivatives": [
+{
+"word": "shame",
+"pos": "n.",
+"meaning": "羞恥，遺憾的事"
+},
+{
+"word": "shameful",
+"pos": "adj.",
+"meaning": "可恥的"
+}
+],
+"phrases": [
+{
+"phrase": "be ashamed of",
+"meaning": "對...感到羞恥",
+"sentence": "He was ashamed of his rude behavior."
+}
+]
+},
+{
+"word": "aside",
+"pos": "adv.",
+"kk": "/əˈsaɪd/",
+"definition": "在旁邊，到一邊",
+"root": "a- (在) + side (邊)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "aside from",
+"meaning": "除了...之外",
+"sentence": "Aside from English, she speaks French fluently."
+},
+{
+"phrase": "set aside",
+"meaning": "保留，儲存",
+"sentence": "Try to set aside some money every month."
+}
+]
+},
+{
+"word": "ask",
+"pos": "v.",
+"kk": "/æsk/",
+"definition": "詢問，要求，邀請",
+"root": "古英語 ascian (要求，詢問)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "ask for",
+"meaning": "索取，要求",
+"sentence": "She called to ask for help."
+},
+{
+"phrase": "ask out",
+"meaning": "邀請...約會",
+"sentence": "John finally asked Mary out."
+}
+]
+},
+{
+"word": "asleep",
+"pos": "adj.",
+"kk": "/əˈslip/",
+"definition": "睡著的",
+"root": "a- (處於...狀態) + sleep (睡覺)",
+"derivatives": [
+{
+"word": "sleep",
+"pos": "v./n.",
+"meaning": "睡覺"
+},
+{
+"word": "sleepy",
+"pos": "adj.",
+"meaning": "想睡覺的"
+}
+],
+"phrases": [
+{
+"phrase": "fall asleep",
+"meaning": "入睡",
+"sentence": "The baby fell asleep after drinking milk."
+}
+]
+},
+{
+"word": "aspect",
+"pos": "n.",
+"kk": "/ˈæspɛkt/",
+"definition": "方面，層面，外觀",
+"root": "ad- (向) + spec (看)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "every aspect of",
+"meaning": "...的各個方面",
+"sentence": "Technology influences every aspect of our lives."
+}
+]
+},
+{
+"word": "assist",
+"pos": "v.",
+"kk": "/əˈsɪst/",
+"definition": "協助，幫助",
+"root": "ad- (在旁) + sist (站立)",
+"derivatives": [
+{
+"word": "assistance",
+"pos": "n.",
+"meaning": "協助，援助"
+},
+{
+"word": "assistant",
+"pos": "n.",
+"meaning": "助手，助理"
+}
+],
+"phrases": [
+{
+"phrase": "assist with",
+"meaning": "協助做...",
+"sentence": "Can you assist me with these heavy boxes?"
+}
+]
+},
+{
+"word": "associate",
+"pos": "v./n.",
+"kk": "/əˈsoʃɪˌet/",
+"definition": "聯想，交往；夥伴",
+"root": "ad- (向) + soci (同伴)",
+"derivatives": [
+{
+"word": "association",
+"pos": "n.",
+"meaning": "協會，聯想"
+}
+],
+"phrases": [
+{
+"phrase": "associate A with B",
+"meaning": "將 A 與 B 聯想在一起",
+"sentence": "People often associate summer with beach and ice cream."
+}
+]
+},
+{
+"word": "assume",
+"pos": "v.",
+"kk": "/əˈsum/",
+"definition": "假定，以為，承擔",
+"root": "ad- (向) + sume (拿)",
+"derivatives": [
+{
+"word": "assumption",
+"pos": "n.",
+"meaning": "假設，推測"
+}
+],
+"phrases": [
+{
+"phrase": "assume responsibility",
+"meaning": "承擔責任",
+"sentence": "The manager agreed to assume full responsibility."
+}
+]
+},
+{
+"word": "assurance",
+"pos": "n.",
+"kk": "/əˈʃʊrəns/",
+"definition": "保證，自信，保險",
+"root": "ad- (使) + sure (確定) + -ance (名詞字尾)",
+"derivatives": [
+{
+"word": "assure",
+"pos": "v.",
+"meaning": "向...保證"
+}
+],
+"phrases": [
+{
+"phrase": "give assurance",
+"meaning": "給予保證",
+"sentence": "The government gave assurance that the project would be completed."
+}
+]
+},
+{
+"word": "astonish",
+"pos": "v.",
+"kk": "/əˈstɑnɪʃ/",
+"definition": "使震驚，使驚訝",
+"root": "ex- (出) + tonare (雷鳴)",
+"derivatives": [
+{
+"word": "astonishing",
+"pos": "adj.",
+"meaning": "令人驚訝的"
+},
+{
+"word": "astonishment",
+"pos": "n.",
+"meaning": "驚訝，震驚"
+}
+],
+"phrases": [
+{
+"phrase": "be astonished at",
+"meaning": "對...感到十分驚訝",
+"sentence": "We were astonished at his sudden departure."
+}
+]
+},
+{
+"word": "athlete",
+"pos": "n.",
+"kk": "/ˈæθˌlit/",
+"definition": "運動員",
+"root": "athlos (競賽，爭奪獎品)",
+"derivatives": [
+{
+"word": "athletic",
+"pos": "adj.",
+"meaning": "運動的，健壯的"
+}
+],
+"phrases": [
+{
+"phrase": "professional athlete",
+"meaning": "職業運動員",
+"sentence": "She trained hard to become a professional athlete."
+}
+]
+},
+{
+"word": "atmosphere",
+"pos": "n.",
+"kk": "/ˈætməsˌfɪr/",
+"definition": "大氣層，氣氛",
+"root": "atmos (水蒸氣) + sphere (球體)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "friendly atmosphere",
+"meaning": "友善的氣氛",
+"sentence": "The restaurant is known for its warm and friendly atmosphere."
+}
+]
+},
+{
+"word": "attach",
+"pos": "v.",
+"kk": "/əˈtætʃ/",
+"definition": "繫上，貼上，附加",
+"root": "ad- (至) + tack (釘子)",
+"derivatives": [
+{
+"word": "attachment",
+"pos": "n.",
+"meaning": "附件，依戀"
+}
+],
+"phrases": [
+{
+"phrase": "attach A to B",
+"meaning": "將 A 附著/連接到 B",
+"sentence": "Please attach your photo to the application form."
+}
+]
+},
+{
+"word": "attack",
+"pos": "v./n.",
+"kk": "/əˈtæk/",
+"definition": "攻擊，襲擊",
+"root": "ad- (至) + tack (爭鬥)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "heart attack",
+"meaning": "心臟病發作",
+"sentence": "He was rushed to the hospital after a heart attack."
+},
+{
+"phrase": "under attack",
+"meaning": "遭受攻擊",
+"sentence": "The town came under attack during the night."
+}
+]
+},
+{
+"word": "attain",
+"pos": "v.",
+"kk": "/əˈten/",
+"definition": "達到，獲得",
+"root": "ad- (至) + tangere (接觸)",
+"derivatives": [
+{
+"word": "attainable",
+"pos": "adj.",
+"meaning": "可達到的"
+},
+{
+"word": "attainment",
+"pos": "n.",
+"meaning": "成就，達到"
+}
+],
+"phrases": [
+{
+"phrase": "attain a goal",
+"meaning": "達成目標",
+"sentence": "She worked hard to attain her ultimate goal."
+}
+]
+},
+{
+"word": "attempt",
+"pos": "v./n.",
+"kk": "/əˈtɛmpt/",
+"definition": "企圖，嘗試",
+"root": "ad- (至) + temptare (試探)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "make an attempt",
+"meaning": "嘗試",
+"sentence": "He made an attempt to climb the mountain alone."
+}
+]
+},
+{
+"word": "attend",
+"pos": "v.",
+"kk": "/əˈtɛnd/",
+"definition": "出席，參加，照顧",
+"root": "ad- (向) + tendere (伸展)",
+"derivatives": [
+{
+"word": "attendance",
+"pos": "n.",
+"meaning": "出席率，出席"
+},
+{
+"word": "attendant",
+"pos": "n.",
+"meaning": "服務員"
+}
+],
+"phrases": [
+{
+"phrase": "attend a meeting",
+"meaning": "參加會議",
+"sentence": "All members are required to attend the meeting."
+},
+{
+"phrase": "attend to",
+"meaning": "處理，照顧",
+"sentence": "The nurse will attend to your needs shortly."
+}
+]
+},
+{
+"word": "attention",
+"pos": "n.",
+"kk": "/əˈtɛnʃən/",
+"definition": "注意力，關心",
+"root": "ad- (向) + tend (伸展) + -tion (名詞字尾)",
+"derivatives": [
+{
+"word": "attentive",
+"pos": "adj.",
+"meaning": "專心的"
+}
+],
+"phrases": [
+{
+"phrase": "pay attention to",
+"meaning": "注意",
+"sentence": "Please pay attention to the instructions."
+},
+{
+"phrase": "attract attention",
+"meaning": "吸引注意",
+"sentence": "His bright shirt attracted everyone's attention."
+}
+]
+},
+{
+"word": "attitude",
+"pos": "n.",
+"kk": "/ˈætəˌtud/",
+"definition": "態度，姿態",
+"root": "aptus (適合的)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "positive attitude",
+"meaning": "積極的態度",
+"sentence": "A positive attitude can help you overcome difficulties."
+}
+]
+},
+{
+"word": "attract",
+"pos": "v.",
+"kk": "/əˈtrækt/",
+"definition": "吸引，引起興趣",
+"root": "ad- (向) + tract (拉)",
+"derivatives": [
+{
+"word": "attraction",
+"pos": "n.",
+"meaning": "吸引力，景點"
+},
+{
+"word": "attractive",
+"pos": "adj.",
+"meaning": "有吸引力的"
+}
+],
+"phrases": [
+{
+"phrase": "attract crowd",
+"meaning": "吸引人群",
+"sentence": "The street musician attracted a large crowd."
+}
+]
+},
+{
+"word": "audience",
+"pos": "n.",
+"kk": "/ˈɔdɪəns/",
+"definition": "觀眾，聽眾",
+"root": "audi (聽) + -ence (名詞字尾)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "target audience",
+"meaning": "目標受眾",
+"sentence": "The movie was made for a young audience."
+}
+]
+},
+{
+"word": "author",
+"pos": "n.",
+"kk": "/ˈɔθɚ/",
+"definition": "作者，作家",
+"root": "augere (創造，增加)",
+"derivatives": [
+{
+"word": "authority",
+"pos": "n.",
+"meaning": "權威，官方"
+}
+],
+"phrases": [
+{
+"phrase": "bestselling author",
+"meaning": "暢銷作家",
+"sentence": "She is a bestselling author of crime novels."
+}
+]
+},
+{
+"word": "automatic",
+"pos": "adj.",
+"kk": "/ˌɔtəˈmætɪk/",
+"definition": "自動的，不假思索的",
+"root": "auto- (自己) + matos (思考，起意)",
+"derivatives": [
+{
+"word": "automatically",
+"pos": "adv.",
+"meaning": "自動地"
+}
+],
+"phrases": [
+{
+"phrase": "automatic door",
+"meaning": "自動門",
+"sentence": "The automatic doors opened as we approached."
+}
+]
+},
+{
+"word": "available",
+"pos": "adj.",
+"kk": "/əˈveləbəl/",
+"definition": "可利用的，可得到的，有空的",
+"root": "ad- (至) + valere (有價值) + -able (可...的)",
+"derivatives": [
+{
+"word": "availability",
+"pos": "n.",
+"meaning": "可取得性，可用性"
+}
+],
+"phrases": [
+{
+"phrase": "available for",
+"meaning": "可用於...，對...有空",
+"sentence": "The doctor is available for appointments tomorrow."
+}
+]
+},
+{
+"word": "avenue",
+"pos": "n.",
+"kk": "/ˈævəˌnju/",
+"definition": "大道，途徑",
+"root": "ad- (向) + venire (來)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "Fifth Avenue",
+"meaning": "第五大道",
+"sentence": "They went shopping on Fifth Avenue in New York."
+}
+]
+},
+{
+"word": "average",
+"pos": "adj./n./v.",
+"kk": "/ˈævərɪdʒ/",
+"definition": "平均的，一般的；平均值",
+"root": "avaria (海損，費用分攤)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "on average",
+"meaning": "平均而言",
+"sentence": "On average, he works eight hours a day."
+},
+{
+"phrase": "above average",
+"meaning": "高於平均",
+"sentence": "Her academic record is well above average."
+}
+]
+},
+{
+"word": "avoid",
+"pos": "v.",
+"kk": "/əˈvɔɪd/",
+"definition": "避免，避開",
+"root": "ex- (出) + void (空的)",
+"derivatives": [
+{
+"word": "avoidable",
+"pos": "adj.",
+"meaning": "可避免的"
+},
+{
+"word": "avoidance",
+"pos": "n.",
+"meaning": "避免"
+}
+],
+"phrases": [
+{
+"phrase": "avoid doing something",
+"meaning": "避免做某事",
+"sentence": "You should avoid eating too much junk food."
+}
+]
+},
+{
+"word": "awake",
+"pos": "adj./v.",
+"kk": "/əˈwek/",
+"definition": "醒著的；喚醒，醒來",
+"root": "a- (處於...狀態) + wake (醒)",
+"derivatives": [
+{
+"word": "awaken",
+"pos": "v.",
+"meaning": "喚醒"
+}
+],
+"phrases": [
+{
+"phrase": "wide awake",
+"meaning": "完全清醒的",
+"sentence": "Even at midnight, the kids were still wide awake."
+}
+]
+},
+{
+"word": "award",
+"pos": "n./v.",
+"kk": "/əˈwɔrd/",
+"definition": "獎項，獎金；頒發",
+"root": "ad- (向) + warder (看察)",
+"derivatives": [],
+"phrases": [
+{
+"phrase": "win an award",
+"meaning": "獲獎",
+"sentence": "She won an award for her outstanding research."
+},
+{
+"phrase": "award A to B",
+"meaning": "將 A 頒發給 B",
+"sentence": "The prize was awarded to the youngest participant."
+}
   ]
