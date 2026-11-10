@@ -851,45 +851,52 @@
         renderCalendar();
     }
 
-    function showDayDetails(dateStr) {
-        activeSelectedDate = dateStr;
-        document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
-        document.getElementById('clearDayBtn').style.display = 'block';
-        document.getElementById('testDayBtn').style.display = 'inline-block';
-        
-        const listDiv = document.getElementById('dayDetailList');
-        listDiv.innerHTML = '';
+   function showDayDetails(dateStr) {
+    activeSelectedDate = dateStr;
+    document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
+    document.getElementById('clearDayBtn').style.display = 'block';
+    document.getElementById('testDayBtn').style.display = 'inline-block';
+    
+    const listDiv = document.getElementById('dayDetailList');
+    listDiv.innerHTML = '';
 
-        const wordsObj = dayWordsData[dateStr];
-        if (!wordsObj || Object.keys(wordsObj).length === 0) {
-            listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
-        } else {
-            const gridContainer = document.createElement('div');
-            gridContainer.style.display = 'grid';
-            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            gridContainer.style.gap = '10px';
+    const wordsObj = dayWordsData[dateStr];
+    if (!wordsObj || Object.keys(wordsObj).length === 0) {
+        listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
+    } else {
+        const gridContainer = document.createElement('div');
+        gridContainer.style.display = 'grid';
+        gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        gridContainer.style.gap = '10px';
 
-            for (const [w, itemData] of Object.entries(wordsObj)) {
-                let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
-                const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
+        for (const [w, itemData] of Object.entries(wordsObj)) {
+            let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+            const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
-                const miniCard = document.createElement('div');
-                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; position: relative; transition: all 0.2s;";
-                
-                miniCard.innerHTML = `
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <div style="font-weight: 700; font-size: 1rem; color: var(--text); cursor:pointer;" onclick="openCardDetailFromDay('${w}')">${item.word}</div>
-                        <button class="btn-danger btn-sm" onclick="event.stopPropagation(); removeSingleWordFromDay('${dateStr}', '${w}')">移除</button>
-                    </div>
-                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
-                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
-                `;
-                gridContainer.appendChild(miniCard);
-            }
-            listDiv.appendChild(gridContainer);
+            const miniCard = document.createElement('div');
+            // 改為點擊卡片直接取消該單字的打卡標記與數量
+            miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; position: relative; transition: all 0.2s;";
+            miniCard.title = "點擊即可從當日記錄中取消標記";
+            miniCard.onclick = () => {
+                if (confirm(`確定要將 "${item.word}" 從 ${dateStr} 的打卡記錄中取消嗎？`)) {
+                    removeSingleWordFromDay(dateStr, item.word);
+                }
+            };
+            
+            miniCard.innerHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
+                    <span style="font-size:12px; color:var(--primary); font-weight:600;">已打卡 ✓</span>
+                </div>
+                <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
+                <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
+            `;
+            gridContainer.appendChild(miniCard);
         }
-        document.getElementById('dayDetailModal').style.display = 'flex';
+        listDiv.appendChild(gridContainer);
     }
+    document.getElementById('dayDetailModal').style.display = 'flex';
+}
 
     function openLibraryModal(type) {
         const titleEl = document.getElementById('dayDetailTitle');
