@@ -308,7 +308,7 @@
             </div>
 
             <div class="search-box">
-                <!-- 新增單字狀態篩選選單 -->
+                <!-- 單字狀態篩選選單 -->
                 <select id="statusFilterSelect" class="filter-select" onchange="filterSubLevel()">
                     <option value="all">全部單字</option>
                     <option value="studied">已背誦</option>
@@ -570,34 +570,33 @@
         }
     }
 
-   async function fetchLevelData(jsonFileName) {
-    currentFileName = jsonFileName;
-    try {
-        const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
-        if (!res.ok) throw new Error('讀取失敗');
-        let serverData = await res.json();
-        
-        let customKey = 'custom_' + jsonFileName;
-        let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
-        
-        // 合併原本的資料與自訂資料
-        let combined = [...serverData, ...localCustom];
-        
-        // ✨ 新增這段去重邏輯：用單字英文名字作為唯一識別，重複的只留一個！
-        const uniqueMap = new Map();
-        combined.forEach(item => {
-            if (item && item.word) {
-                uniqueMap.set(item.word.toLowerCase(), item);
-            }
-        });
-        currentLevelData = Array.from(uniqueMap.values());
+    async function fetchLevelData(jsonFileName) {
+        currentFileName = jsonFileName;
+        try {
+            const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
+            if (!res.ok) throw new Error('讀取失敗');
+            let serverData = await res.json();
+            
+            let customKey = 'custom_' + jsonFileName;
+            let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
+            
+            let combined = [...serverData, ...localCustom];
+            
+            // 加上 Map 去重防重複機制
+            const uniqueMap = new Map();
+            combined.forEach(item => {
+                if (item && item.word) {
+                    uniqueMap.set(item.word.toLowerCase(), item);
+                }
+            });
+            currentLevelData = Array.from(uniqueMap.values());
 
-        filterSubLevel();
-    } catch (err) {
-        console.error(err);
-        document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
+            filterSubLevel();
+        } catch (err) {
+            console.error(err);
+            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
+        }
     }
-}
 
     function switchLevel(title, fileName, element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
@@ -703,6 +702,7 @@
         openCardDetail(item, dateStr);
     }
 
+    // 支援接收自訂日期 (解決取消昨日打卡卻誤扣今日的問題)
     function openCardDetail(item, customDate = null) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
@@ -937,7 +937,7 @@
         renderCalendar();
     }
 
-    // 1. 移除日曆彈窗內的「已打卡 ✓」標籤
+    // 日曆彈窗內移除「已打卡 ✓」，並帶入該日日期給彈出卡片
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
@@ -962,9 +962,9 @@
 
                 const miniCard = document.createElement('div');
                 miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
-                miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
+                // 傳入 dateStr 讓取消標記時能夠鎖定當天日期
+                miniCard.onclick = () => openCardDetail(item, dateStr);
                 
-                // 移除原先的「已打卡 ✓」標籤，呈現純粹單字內容
                 miniCard.innerHTML = `
                     <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
                     <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
@@ -978,7 +978,6 @@
     }
 
     function openLibraryModal(type) {
-        // 點擊統計儀表板直接切換頂部下拉選單進行篩選，不開彈窗
         const statusSelect = document.getElementById('statusFilterSelect');
         if (statusSelect) {
             statusSelect.value = type;
