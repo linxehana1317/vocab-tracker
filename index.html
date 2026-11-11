@@ -192,7 +192,6 @@
         .btn-secondary:hover { background: #cbd5e1; }
         .btn-danger { background: #ef4444; color: white; }
         .btn-danger:hover { background: #dc2626; }
-        .btn-sm { padding: 4px 8px; font-size: 11px; border-radius: 4px; }
 
         .modal {
             display: none;
@@ -211,9 +210,12 @@
             padding: 28px;
             border-radius: 16px;
             width: 90%;
-            max-width: 580px;
+            max-width: 800px;
             max-height: 85vh;
             overflow-y: auto;
+        }
+        .modal-content-compact {
+            max-width: 580px;
         }
         .form-group { margin-bottom: 14px; }
         .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--muted); }
@@ -399,7 +401,7 @@
 
 <!-- 單字詳細彈窗 -->
 <div class="modal" id="cardDetailModal">
-    <div class="modal-content">
+    <div class="modal-content modal-content-compact">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div style="display:flex; align-items:center; gap:12px;">
                 <button id="modalStarBtn" onclick="toggleStarStatus()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; padding:0; line-height:1;" title="標記單字">⭐</button>
@@ -444,7 +446,7 @@
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">打卡記錄</h3>
-        <div id="dayDetailList" style="max-height: 380px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
+        <div id="dayDetailList" style="max-height: 480px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
         <div style="display:flex; justify-content:space-between; align-items:center;" id="dayDetailFooter">
             <button onclick="clearSelectedDayRecord()" class="btn-danger" id="clearDayBtn">清空全日標記</button>
             <div style="display:flex; gap:8px;">
@@ -457,7 +459,7 @@
 
 <!-- 手動新增單字彈窗 -->
 <div class="modal" id="addWordModal">
-    <div class="modal-content">
+    <div class="modal-content modal-content-compact">
         <h3 style="margin-top:0; color:var(--primary);">手動新增單字</h3>
         <div class="form-group">
             <label>英文單字 (Word)</label>
@@ -888,6 +890,32 @@
         renderCalendar();
     }
 
+    function createWordCardElement(item, customDateStr = null) {
+        const isStudied = studiedWords[item.word] === true;
+        const correctCount = testStats[item.word] || 0;
+        const isMastered = correctCount >= 4;
+        const isWrong = wrongWords[item.word] === true;
+        const isStarred = starredWords[item.word] === true;
+
+        const card = document.createElement('div');
+        card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
+        card.onclick = () => openCardDetail(item, customDateStr);
+        card.innerHTML = `
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div class="flashcard-word">${item.word}</div>
+                    <div style="display:flex; gap:4px; align-items:center;">
+                        ${isStarred ? '<span style="font-size:12px;" title="已標記">⭐</span>' : ''}
+                        ${isMastered ? '<span style="font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px; font-weight:700;">精熟</span>' : ''}
+                    </div>
+                </div>
+                <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
+                <div class="flashcard-def">${item.definition}</div>
+            </div>
+        `;
+        return card;
+    }
+
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
@@ -902,27 +930,13 @@
             listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
         } else {
             const gridContainer = document.createElement('div');
-            gridContainer.style.display = 'grid';
-            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            gridContainer.style.gap = '10px';
+            gridContainer.className = 'flashcard-grid';
 
             for (const [w, itemData] of Object.entries(wordsObj)) {
                 let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
                 const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
-                const miniCard = document.createElement('div');
-                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; position: relative; transition: all 0.2s;";
-                miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
-                
-                miniCard.innerHTML = `
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-                        <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
-                        <span style="font-size:12px; color:var(--primary); font-weight:600;">已打卡 ✓</span>
-                    </div>
-                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
-                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
-                `;
-                gridContainer.appendChild(miniCard);
+                gridContainer.appendChild(createWordCardElement(item, dateStr));
             }
             listDiv.appendChild(gridContainer);
         }
@@ -955,23 +969,11 @@
             listDiv.innerHTML = `<div style="color:var(--muted); padding:10px;">目前此庫無單字記錄。</div>`;
         } else {
             const gridContainer = document.createElement('div');
-            gridContainer.style.display = 'grid';
-            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            gridContainer.style.gap = '10px';
+            gridContainer.className = 'flashcard-grid';
 
             targetWords.forEach(w => {
                 let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase()) || { word: w, definition: '點擊查看詳情', pos: '', kk: '' };
-
-                const miniCard = document.createElement('div');
-                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
-                miniCard.onclick = () => openCardDetail(foundFull);
-
-                miniCard.innerHTML = `
-                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${foundFull.word}</div>
-                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${foundFull.pos || ''} ${foundFull.kk || ''}</div>
-                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${foundFull.definition}</div>
-                `;
-                gridContainer.appendChild(miniCard);
+                gridContainer.appendChild(createWordCardElement(foundFull));
             });
             listDiv.appendChild(gridContainer);
         }
