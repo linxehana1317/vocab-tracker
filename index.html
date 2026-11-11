@@ -570,23 +570,34 @@
         }
     }
 
-    async function fetchLevelData(jsonFileName) {
-        currentFileName = jsonFileName;
-        try {
-            const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
-            if (!res.ok) throw new Error('讀取失敗');
-            let serverData = await res.json();
-            
-            let customKey = 'custom_' + jsonFileName;
-            let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
-            
-            currentLevelData = [...serverData, ...localCustom];
-            filterSubLevel();
-        } catch (err) {
-            console.error(err);
-            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
-        }
+   async function fetchLevelData(jsonFileName) {
+    currentFileName = jsonFileName;
+    try {
+        const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
+        if (!res.ok) throw new Error('讀取失敗');
+        let serverData = await res.json();
+        
+        let customKey = 'custom_' + jsonFileName;
+        let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
+        
+        // 合併原本的資料與自訂資料
+        let combined = [...serverData, ...localCustom];
+        
+        // ✨ 新增這段去重邏輯：用單字英文名字作為唯一識別，重複的只留一個！
+        const uniqueMap = new Map();
+        combined.forEach(item => {
+            if (item && item.word) {
+                uniqueMap.set(item.word.toLowerCase(), item);
+            }
+        });
+        currentLevelData = Array.from(uniqueMap.values());
+
+        filterSubLevel();
+    } catch (err) {
+        console.error(err);
+        document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
     }
+}
 
     function switchLevel(title, fileName, element) {
         document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
