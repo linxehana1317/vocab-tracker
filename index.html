@@ -683,12 +683,7 @@
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <div class="flashcard-word">${item.word}</div>
-                       <div style="display:flex; gap:5px; align-items:center;">
-            ${isStarred ? '<span style="width:8px; height:8px; background:#eab308; border-radius:50%; display:inline-block;" title="已標記"></span>' : ''}
-            ${isWrong ? '<span style="width:8px; height:8px; background:#dc2626; border-radius:50%; display:inline-block;" title="錯誤單字"></span>' : ''}
-            ${isMastered ? '<span style="width:8px; height:8px; background:#16a34a; border-radius:50%; display:inline-block;" title="精熟單字"></span>' : ''}
-        </div>
-                           
+                        
                         </div>
                     </div>
                     <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
