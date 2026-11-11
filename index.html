@@ -84,14 +84,25 @@
             align-items: center;
             margin-bottom: 24px;
         }
-        .search-box { display: flex; gap: 8px; }
+        .search-box { display: flex; gap: 8px; align-items: center; }
         .search-input {
             padding: 8px 16px;
             border-radius: 20px;
             border: 1px solid var(--border);
             outline: none;
-            width: 220px;
+            width: 200px;
             font-size: 14px;
+        }
+        .filter-select {
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            outline: none;
+            background: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text);
+            font-weight: 500;
         }
 
         .card {
@@ -192,6 +203,7 @@
         .btn-secondary:hover { background: #cbd5e1; }
         .btn-danger { background: #ef4444; color: white; }
         .btn-danger:hover { background: #dc2626; }
+        .btn-sm { padding: 4px 8px; font-size: 11px; border-radius: 4px; }
 
         .modal {
             display: none;
@@ -210,12 +222,9 @@
             padding: 28px;
             border-radius: 16px;
             width: 90%;
-            max-width: 800px;
+            max-width: 580px;
             max-height: 85vh;
             overflow-y: auto;
-        }
-        .modal-content-compact {
-            max-width: 580px;
         }
         .form-group { margin-bottom: 14px; }
         .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--muted); }
@@ -299,6 +308,16 @@
             </div>
 
             <div class="search-box">
+                <!-- 新增單字狀態篩選選單 -->
+                <select id="statusFilterSelect" class="filter-select" onchange="filterSubLevel()">
+                    <option value="all">全部單字</option>
+                    <option value="studied">已背誦</option>
+                    <option value="unstudied">未背誦</option>
+                    <option value="mastered">精熟單字</option>
+                    <option value="wrong">錯誤單字</option>
+                    <option value="starred">標記單字</option>
+                </select>
+
                 <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." oninput="searchWord()">
                 <button onclick="searchWord()">搜尋</button>
             </div>
@@ -401,7 +420,7 @@
 
 <!-- 單字詳細彈窗 -->
 <div class="modal" id="cardDetailModal">
-    <div class="modal-content modal-content-compact">
+    <div class="modal-content">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px;">
             <div style="display:flex; align-items:center; gap:12px;">
                 <button id="modalStarBtn" onclick="toggleStarStatus()" style="background:none; border:none; font-size:1.8rem; cursor:pointer; padding:0; line-height:1;" title="標記單字">⭐</button>
@@ -446,7 +465,7 @@
 <div class="modal" id="dayDetailModal">
     <div class="modal-content">
         <h3 id="dayDetailTitle" style="margin-top:0; color:var(--primary);">打卡記錄</h3>
-        <div id="dayDetailList" style="max-height: 480px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
+        <div id="dayDetailList" style="max-height: 380px; overflow-y: auto; margin-bottom: 20px; padding-right: 4px;"></div>
         <div style="display:flex; justify-content:space-between; align-items:center;" id="dayDetailFooter">
             <button onclick="clearSelectedDayRecord()" class="btn-danger" id="clearDayBtn">清空全日標記</button>
             <div style="display:flex; gap:8px;">
@@ -459,7 +478,7 @@
 
 <!-- 手動新增單字彈窗 -->
 <div class="modal" id="addWordModal">
-    <div class="modal-content modal-content-compact">
+    <div class="modal-content">
         <h3 style="margin-top:0; color:var(--primary);">手動新增單字</h3>
         <div class="form-group">
             <label>英文單字 (Word)</label>
@@ -581,17 +600,47 @@
         fetchLevelData(fileName);
     }
 
+    // 結合級距、搜尋框與狀態篩選條件
     function filterSubLevel() {
         const selectedVal = document.getElementById('subLevelSelect').value;
-        if (selectedVal === 'all') {
-            renderCards(currentLevelData);
-        } else {
+        let baseData = currentLevelData;
+
+        // 1. 級距範圍過濾
+        if (selectedVal !== 'all') {
             const groupIndex = parseInt(selectedVal, 10);
             const startIndex = groupIndex * 100;
             const endIndex = startIndex + 100;
-            const subGroupData = currentLevelData.slice(startIndex, endIndex);
-            renderCards(subGroupData);
+            baseData = currentLevelData.slice(startIndex, endIndex);
         }
+
+        // 2. 狀態選單過濾 (全部, 已背誦, 未背誦, 精熟單字, 錯誤單字, 標記單字)
+        const statusFilter = document.getElementById('statusFilterSelect').value;
+        if (statusFilter === 'studied') {
+            baseData = baseData.filter(item => studiedWords[item.word] === true);
+        } else if (statusFilter === 'unstudied') {
+            baseData = baseData.filter(item => !studiedWords[item.word]);
+        } else if (statusFilter === 'mastered') {
+            baseData = baseData.filter(item => (testStats[item.word] || 0) >= 4);
+        } else if (statusFilter === 'wrong') {
+            baseData = baseData.filter(item => wrongWords[item.word] === true);
+        } else if (statusFilter === 'starred') {
+            baseData = baseData.filter(item => starredWords[item.word] === true);
+        }
+
+        // 3. 搜尋關鍵字過濾
+        const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+        if (keyword) {
+            baseData = baseData.filter(item => 
+                item.word.toLowerCase().includes(keyword) || 
+                item.definition.includes(keyword)
+            );
+        }
+
+        renderCards(baseData);
+    }
+
+    function searchWord() {
+        filterSubLevel();
     }
 
     function openTestView(element) {
@@ -606,7 +655,7 @@
         const grid = document.getElementById('flashcardGrid');
         grid.innerHTML = '';
         if (!Array.isArray(dataList) || dataList.length === 0) {
-            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此分類目前無單字。</div>';
+            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此條件下目前無單字。</div>';
             return;
         }
 
@@ -635,19 +684,6 @@
             `;
             grid.appendChild(card);
         });
-    }
-
-    function searchWord() {
-        const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
-        if (!keyword) {
-            filterSubLevel();
-            return;
-        }
-        const filtered = currentLevelData.filter(item => 
-            item.word.toLowerCase().includes(keyword) || 
-            item.definition.includes(keyword)
-        );
-        renderCards(filtered);
     }
 
     function openCardDetailFromDay(wordStr, dateStr = getTodayYYYYMMDD()) {
@@ -890,32 +926,7 @@
         renderCalendar();
     }
 
-    function createWordCardElement(item, customDateStr = null) {
-        const isStudied = studiedWords[item.word] === true;
-        const correctCount = testStats[item.word] || 0;
-        const isMastered = correctCount >= 4;
-        const isWrong = wrongWords[item.word] === true;
-        const isStarred = starredWords[item.word] === true;
-
-        const card = document.createElement('div');
-        card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
-        card.onclick = () => openCardDetail(item, customDateStr);
-        card.innerHTML = `
-            <div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <div class="flashcard-word">${item.word}</div>
-                    <div style="display:flex; gap:4px; align-items:center;">
-                        ${isStarred ? '<span style="font-size:12px;" title="已標記">⭐</span>' : ''}
-                        ${isMastered ? '<span style="font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:10px; font-weight:700;">精熟</span>' : ''}
-                    </div>
-                </div>
-                <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
-                <div class="flashcard-def">${item.definition}</div>
-            </div>
-        `;
-        return card;
-    }
-
+    // 1. 移除日曆彈窗內的「已打卡 ✓」標籤
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
@@ -930,13 +941,25 @@
             listDiv.innerHTML = '<div style="color:var(--muted); padding:10px;">當日無記錄詳細單字。</div>';
         } else {
             const gridContainer = document.createElement('div');
-            gridContainer.className = 'flashcard-grid';
+            gridContainer.style.display = 'grid';
+            gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            gridContainer.style.gap = '10px';
 
             for (const [w, itemData] of Object.entries(wordsObj)) {
                 let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
                 const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
-                gridContainer.appendChild(createWordCardElement(item, dateStr));
+                const miniCard = document.createElement('div');
+                miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
+                miniCard.onclick = () => openCardDetailFromDay(w, dateStr);
+                
+                // 移除原先的「已打卡 ✓」標籤，呈現純粹單字內容
+                miniCard.innerHTML = `
+                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
+                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
+                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
+                `;
+                gridContainer.appendChild(miniCard);
             }
             listDiv.appendChild(gridContainer);
         }
@@ -944,41 +967,12 @@
     }
 
     function openLibraryModal(type) {
-        const titleEl = document.getElementById('dayDetailTitle');
-        const listDiv = document.getElementById('dayDetailList');
-        listDiv.innerHTML = '';
-
-        document.getElementById('clearDayBtn').style.display = 'none';
-        document.getElementById('testDayBtn').style.display = 'none';
-
-        let targetWords = [];
-        if (type === 'mastered') {
-            titleEl.innerText = '精熟單字清單 (≥4次)';
-            for (const [w, c] of Object.entries(testStats)) {
-                if (c >= 4) targetWords.push(w);
-            }
-        } else if (type === 'wrong') {
-            titleEl.innerText = '錯誤單字清單';
-            targetWords = Object.keys(wrongWords);
-        } else if (type === 'starred') {
-            titleEl.innerText = '標記單字清單 (⭐)';
-            targetWords = Object.keys(starredWords);
+        // 點擊統計儀表板直接切換頂部下拉選單進行篩選，不開彈窗
+        const statusSelect = document.getElementById('statusFilterSelect');
+        if (statusSelect) {
+            statusSelect.value = type;
+            filterSubLevel();
         }
-
-        if (targetWords.length === 0) {
-            listDiv.innerHTML = `<div style="color:var(--muted); padding:10px;">目前此庫無單字記錄。</div>`;
-        } else {
-            const gridContainer = document.createElement('div');
-            gridContainer.className = 'flashcard-grid';
-
-            targetWords.forEach(w => {
-                let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase()) || { word: w, definition: '點擊查看詳情', pos: '', kk: '' };
-                gridContainer.appendChild(createWordCardElement(foundFull));
-            });
-            listDiv.appendChild(gridContainer);
-        }
-
-        document.getElementById('dayDetailModal').style.display = 'flex';
     }
 
     function clearSelectedDayRecord() {
