@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台 - v26.11.8</title>
+    <title>單字學習平台</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -260,7 +260,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.8</span>
+                <span class="version-badge">v26.11.9</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -308,7 +308,6 @@
             </div>
 
             <div class="search-box">
-                <!-- 單字狀態篩選選單 -->
                 <select id="statusFilterSelect" class="filter-select" onchange="filterSubLevel()">
                     <option value="all">全部單字</option>
                     <option value="studied">已背誦</option>
@@ -395,8 +394,11 @@
                 <div class="form-group">
                     <label>範圍來源</label>
                     <select id="testSource" onchange="toggleTestSource()">
-                        <option value="level">依照目前等級範圍/次分類</option>
-                        <option value="date">依照指定打卡日期範圍 (YYYYMMDD)</option>
+                        <option value="date">依日期分類</option>
+                        <option value="level" selected>依範圍分類</option>
+                        <option value="mastered">精熟單字</option>
+                        <option value="wrong">錯誤單字</option>
+                        <option value="starred">標記單字</option>
                     </select>
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
@@ -531,6 +533,7 @@
     const vocabRef = db.ref('vocabData');
     const studiedRef = db.ref('studiedWords');
     const statsRef = db.ref('testStats');
+    const wrongStatsRef = db.ref('wrongStats');
     const dayWordsRef = db.ref('dayWords');
     const wrongRef = db.ref('wrongWords');
     const starredRef = db.ref('starredWords');
@@ -540,6 +543,7 @@
     let vocabData = {};
     let studiedWords = {};
     let testStats = {};
+    let wrongStats = {};
     let dayWordsData = {};
     let wrongWords = {};
     let starredWords = {};
@@ -549,6 +553,7 @@
     let activeCardData = null;
     let currentChartRange = 'week';
     let currentTestQuestions = [];
+    let testDistractorPool = [];
 
     function getTodayYYYYMMDD() {
         const d = new Date();
@@ -561,13 +566,34 @@
     }
 
     async function checkAndInitDatabase() {
-        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
+        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'wrongStats', 'dayWords', 'wrongWords', 'starredWords'];
         for (const nodeName of nodesToEnsure) {
             const snapshot = await db.ref(nodeName).once('value');
             if (!snapshot.exists()) {
                 await db.ref(nodeName).set({});
             }
         }
+    }
+
+    async function fetchAllLevelsWords() {
+        const files = ['level1.json', 'level2.json', 'level3.json', 'level4.json', 'level5.json', 'level6.json', 'level7.json'];
+        const uniqueMap = new Map();
+        for (const f of files) {
+            try {
+                const res = await fetch(f + '?v=' + new Date().getTime());
+                if (res.ok) {
+                    const data = await res.json();
+                    data.forEach(item => {
+                        if (item && item.word) uniqueMap.set(item.word.toLowerCase(), item);
+                    });
+                }
+            } catch (e) {}
+            const localCustom = JSON.parse(localStorage.getItem('custom_' + f) || '[]');
+            localCustom.forEach(item => {
+                if (item && item.word) uniqueMap.set(item.word.toLowerCase(), item);
+            });
+        }
+        return Array.from(uniqueMap.values());
     }
 
     async function fetchLevelData(jsonFileName) {
@@ -610,7 +636,6 @@
         fetchLevelData(fileName);
     }
 
-    // 結合級距、搜尋框與狀態篩選條件
     function filterSubLevel() {
         const selectedVal = document.getElementById('subLevelSelect').value;
         let baseData = currentLevelData;
@@ -623,14 +648,14 @@
             baseData = currentLevelData.slice(startIndex, endIndex);
         }
 
-        // 2. 狀態選單過濾 (全部, 已背誦, 未背誦, 精熟單字, 錯誤單字, 標記單字)
+        // 2. 狀態選單過濾 (精熟改為答對 >= 3 次)
         const statusFilter = document.getElementById('statusFilterSelect').value;
         if (statusFilter === 'studied') {
             baseData = baseData.filter(item => studiedWords[item.word] === true);
         } else if (statusFilter === 'unstudied') {
             baseData = baseData.filter(item => !studiedWords[item.word]);
         } else if (statusFilter === 'mastered') {
-            baseData = baseData.filter(item => (testStats[item.word] || 0) >= 4);
+            baseData = baseData.filter(item => (testStats[item.word] || 0) >= 3);
         } else if (statusFilter === 'wrong') {
             baseData = baseData.filter(item => wrongWords[item.word] === true);
         } else if (statusFilter === 'starred') {
@@ -672,7 +697,7 @@
         dataList.forEach(item => {
             const isStudied = studiedWords[item.word] === true;
             const correctCount = testStats[item.word] || 0;
-            const isMastered = correctCount >= 4;
+            const isMastered = correctCount >= 3;
             const isWrong = wrongWords[item.word] === true;
             const isStarred = starredWords[item.word] === true;
 
@@ -683,7 +708,6 @@
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <div class="flashcard-word">${item.word}</div>
-                        
                         </div>
                     </div>
                     <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
@@ -700,7 +724,6 @@
         openCardDetail(item, dateStr);
     }
 
-    // 支援接收自訂日期 (解決取消昨日打卡卻誤扣今日的問題)
     function openCardDetail(item, customDate = null) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
@@ -766,6 +789,7 @@
     function toggleWrongStatus() {
         if (!activeCardData) return;
         wrongRef.child(activeCardData.word).remove();
+        wrongStatsRef.child(activeCardData.word).remove();
         closeCardModal();
         alert(`已將 "${activeCardData.word}" 從錯誤單字移除！`);
     }
@@ -886,6 +910,10 @@
             filterSubLevel();
         });
 
+        wrongStatsRef.on('value', snap => {
+            wrongStats = snap.val() || {};
+        });
+
         dayWordsRef.on('value', snap => {
             dayWordsData = snap.val() || {};
         });
@@ -935,7 +963,6 @@
         renderCalendar();
     }
 
-    // 日曆彈窗內移除「已打卡 ✓」，並帶入該日日期給彈出卡片
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
@@ -960,7 +987,6 @@
 
                 const miniCard = document.createElement('div');
                 miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
-                // 傳入 dateStr 讓取消標記時能夠鎖定當天日期
                 miniCard.onclick = () => openCardDetail(item, dateStr);
                 
                 miniCard.innerHTML = `
@@ -1031,9 +1057,10 @@
             }
         }
 
+        // 精熟統計同步改成答對 >= 3 次
         let masteredCount = 0;
         for (const [w, c] of Object.entries(testStats)) {
-            if (c >= 4) masteredCount++;
+            if (c >= 3) masteredCount++;
         }
 
         let wrongCount = Object.keys(wrongWords).length;
@@ -1127,12 +1154,14 @@
         document.getElementById('dateRangeGroup').style.display = (source === 'date') ? 'block' : 'none';
     }
 
-    function startTest() {
+    async function startTest() {
         const testType = document.getElementById('testType').value;
         const count = parseInt(document.getElementById('testCount').value, 10);
         const source = document.getElementById('testSource').value;
         
         let pool = [];
+        testDistractorPool = [...currentLevelData];
+
         if (source === 'level') {
             const subVal = document.getElementById('subLevelSelect').value;
             if (subVal === 'all') {
@@ -1141,7 +1170,7 @@
                 const groupIdx = parseInt(subVal, 10);
                 pool = currentLevelData.slice(groupIdx * 100, (groupIdx + 1) * 100);
             }
-        } else {
+        } else if (source === 'date') {
             const startDate = document.getElementById('testStartDateInput').value.trim();
             const endDate = document.getElementById('testEndDateInput').value.trim();
 
@@ -1165,6 +1194,15 @@
                 let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
                 return found || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData });
             });
+        } else if (source === 'mastered') {
+            pool = currentLevelData.filter(item => (testStats[item.word] || 0) >= 3);
+        } else if (source === 'wrong') {
+            pool = currentLevelData.filter(item => wrongWords[item.word] === true);
+        } else if (source === 'starred') {
+            // 標記單字從全範圍抓取
+            const allWords = await fetchAllLevelsWords();
+            testDistractorPool = allWords;
+            pool = allWords.filter(item => starredWords[item.word] === true);
         }
 
         if (pool.length === 0) {
@@ -1179,6 +1217,8 @@
         container.innerHTML = '';
         document.getElementById('testCardArea').style.display = 'block';
 
+        const distractorSource = testDistractorPool.length >= 4 ? testDistractorPool : currentLevelData;
+
         currentTestQuestions.forEach((q, idx) => {
             let html = `<div style="margin-bottom:20px; padding:15px; border:1px solid var(--border); border-radius:8px;">`;
             html += `<div style="font-weight:600; margin-bottom:10px;">第 ${idx + 1} 題</div>`;
@@ -1186,8 +1226,8 @@
             if (testType === 'choice') {
                 html += `<div style="font-size:1.1rem; margin-bottom:10px;">英文: <strong>${q.word}</strong></div>`;
                 let options = [q.definition];
-                while(options.length < 4 && currentLevelData.length >= 4) {
-                    let randItem = currentLevelData[Math.floor(Math.random() * currentLevelData.length)];
+                while(options.length < 4 && distractorSource.length >= 4) {
+                    let randItem = distractorSource[Math.floor(Math.random() * distractorSource.length)];
                     if (!options.includes(randItem.definition)) options.push(randItem.definition);
                 }
                 options.sort(() => Math.random() - 0.5);
@@ -1208,7 +1248,7 @@
 
     function submitTest(type) {
         let score = 0;
-        let resultsHtml = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>`;
+        let resultsHtml = '';
 
         currentTestQuestions.forEach((q, i) => {
             let isCorrect = false;
@@ -1231,10 +1271,21 @@
 
             if (isCorrect) {
                 score++;
-                let curStats = testStats[q.word] || 0;
-                statsRef.child(q.word).set(curStats + 1);
+                let curStats = (testStats[q.word] || 0) + 1;
+                statsRef.child(q.word).set(curStats);
+                // 累計答對 3 次成為精熟單字，並從錯誤單字移除
+                if (curStats >= 3) {
+                    wrongRef.child(q.word).remove();
+                    wrongStatsRef.child(q.word).remove();
+                }
             } else {
-                wrongRef.child(q.word).set(true);
+                let curWrong = (wrongStats[q.word] || 0) + 1;
+                wrongStatsRef.child(q.word).set(curWrong);
+                // 累計答錯 2 次成為錯誤單字，並解除精熟狀態
+                if (curWrong >= 2) {
+                    wrongRef.child(q.word).set(true);
+                    statsRef.child(q.word).set(0);
+                }
             }
 
             resultsHtml += `
