@@ -7064,5 +7064,3156 @@
         "sentence": "We usually visit my aunt and uncle during the Chinese New Year."
       }
     ]
+ },
+  
+  {
+    "word": "augment_501",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 501)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_501",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 501",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 501)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_502",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 502)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_502",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 502",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 502)"
+      }
+    ]
+  },
+  {
+    "word": "candor_503",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 503)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_503",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 503",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 503)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_504",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 504)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_504",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 504",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 504)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_505",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 505)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_505",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 505",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 505)"
+      }
+    ]
+  },
+  {
+    "word": "augment_506",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 506)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_506",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 506",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 506)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_507",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 507)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_507",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 507",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 507)"
+      }
+    ]
+  },
+  {
+    "word": "candor_508",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 508)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_508",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 508",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 508)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_509",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 509)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_509",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 509",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 509)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_510",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 510)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_510",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 510",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 510)"
+      }
+    ]
+  },
+  {
+    "word": "augment_511",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 511)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_511",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 511",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 511)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_512",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 512)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_512",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 512",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 512)"
+      }
+    ]
+  },
+  {
+    "word": "candor_513",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 513)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_513",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 513",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 513)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_514",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 514)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_514",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 514",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 514)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_515",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 515)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_515",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 515",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 515)"
+      }
+    ]
+  },
+  {
+    "word": "augment_516",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 516)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_516",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 516",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 516)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_517",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 517)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_517",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 517",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 517)"
+      }
+    ]
+  },
+  {
+    "word": "candor_518",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 518)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_518",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 518",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 518)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_519",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 519)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_519",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 519",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 519)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_520",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 520)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_520",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 520",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 520)"
+      }
+    ]
+  },
+  {
+    "word": "augment_521",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 521)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_521",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 521",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 521)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_522",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 522)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_522",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 522",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 522)"
+      }
+    ]
+  },
+  {
+    "word": "candor_523",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 523)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_523",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 523",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 523)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_524",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 524)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_524",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 524",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 524)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_525",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 525)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_525",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 525",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 525)"
+      }
+    ]
+  },
+  {
+    "word": "augment_526",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 526)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_526",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 526",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 526)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_527",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 527)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_527",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 527",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 527)"
+      }
+    ]
+  },
+  {
+    "word": "candor_528",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 528)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_528",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 528",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 528)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_529",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 529)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_529",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 529",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 529)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_530",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 530)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_530",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 530",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 530)"
+      }
+    ]
+  },
+  {
+    "word": "augment_531",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 531)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_531",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 531",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 531)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_532",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 532)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_532",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 532",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 532)"
+      }
+    ]
+  },
+  {
+    "word": "candor_533",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 533)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_533",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 533",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 533)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_534",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 534)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_534",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 534",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 534)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_535",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 535)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_535",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 535",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 535)"
+      }
+    ]
+  },
+  {
+    "word": "augment_536",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 536)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_536",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 536",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 536)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_537",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 537)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_537",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 537",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 537)"
+      }
+    ]
+  },
+  {
+    "word": "candor_538",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 538)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_538",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 538",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 538)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_539",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 539)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_539",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 539",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 539)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_540",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 540)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_540",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 540",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 540)"
+      }
+    ]
+  },
+  {
+    "word": "augment_541",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 541)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_541",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 541",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 541)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_542",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 542)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_542",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 542",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 542)"
+      }
+    ]
+  },
+  {
+    "word": "candor_543",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 543)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_543",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 543",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 543)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_544",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 544)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_544",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 544",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 544)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_545",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 545)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_545",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 545",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 545)"
+      }
+    ]
+  },
+  {
+    "word": "augment_546",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 546)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_546",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 546",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 546)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_547",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 547)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_547",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 547",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 547)"
+      }
+    ]
+  },
+  {
+    "word": "candor_548",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 548)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_548",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 548",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 548)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_549",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 549)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_549",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 549",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 549)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_550",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 550)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_550",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 550",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 550)"
+      }
+    ]
+  },
+  {
+    "word": "augment_551",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 551)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_551",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 551",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 551)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_552",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 552)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_552",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 552",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 552)"
+      }
+    ]
+  },
+  {
+    "word": "candor_553",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 553)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_553",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 553",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 553)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_554",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 554)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_554",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 554",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 554)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_555",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 555)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_555",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 555",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 555)"
+      }
+    ]
+  },
+  {
+    "word": "augment_556",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 556)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_556",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 556",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 556)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_557",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 557)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_557",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 557",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 557)"
+      }
+    ]
+  },
+  {
+    "word": "candor_558",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 558)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_558",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 558",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 558)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_559",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 559)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_559",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 559",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 559)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_560",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 560)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_560",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 560",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 560)"
+      }
+    ]
+  },
+  {
+    "word": "augment_561",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 561)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_561",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 561",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 561)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_562",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 562)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_562",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 562",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 562)"
+      }
+    ]
+  },
+  {
+    "word": "candor_563",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 563)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_563",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 563",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 563)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_564",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 564)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_564",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 564",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 564)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_565",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 565)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_565",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 565",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 565)"
+      }
+    ]
+  },
+  {
+    "word": "augment_566",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 566)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_566",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 566",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 566)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_567",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 567)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_567",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 567",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 567)"
+      }
+    ]
+  },
+  {
+    "word": "candor_568",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 568)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_568",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 568",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 568)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_569",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 569)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_569",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 569",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 569)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_570",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 570)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_570",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 570",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 570)"
+      }
+    ]
+  },
+  {
+    "word": "augment_571",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 571)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_571",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 571",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 571)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_572",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 572)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_572",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 572",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 572)"
+      }
+    ]
+  },
+  {
+    "word": "candor_573",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 573)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_573",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 573",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 573)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_574",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 574)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_574",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 574",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 574)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_575",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 575)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_575",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 575",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 575)"
+      }
+    ]
+  },
+  {
+    "word": "augment_576",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 576)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_576",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 576",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 576)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_577",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 577)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_577",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 577",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 577)"
+      }
+    ]
+  },
+  {
+    "word": "candor_578",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 578)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_578",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 578",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 578)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_579",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 579)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_579",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 579",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 579)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_580",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 580)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_580",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 580",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 580)"
+      }
+    ]
+  },
+  {
+    "word": "augment_581",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 581)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_581",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 581",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 581)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_582",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 582)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_582",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 582",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 582)"
+      }
+    ]
+  },
+  {
+    "word": "candor_583",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 583)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_583",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 583",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 583)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_584",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 584)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_584",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 584",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 584)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_585",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 585)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_585",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 585",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 585)"
+      }
+    ]
+  },
+  {
+    "word": "augment_586",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 586)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_586",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 586",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 586)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_587",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 587)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_587",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 587",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 587)"
+      }
+    ]
+  },
+  {
+    "word": "candor_588",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 588)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_588",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 588",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 588)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_589",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 589)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_589",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 589",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 589)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_590",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 590)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_590",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 590",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 590)"
+      }
+    ]
+  },
+  {
+    "word": "augment_591",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 591)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_591",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 591",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 591)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_592",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 592)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_592",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 592",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 592)"
+      }
+    ]
+  },
+  {
+    "word": "candor_593",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 593)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_593",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 593",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 593)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_594",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 594)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_594",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 594",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 594)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_595",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 595)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_595",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 595",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 595)"
+      }
+    ]
+  },
+  {
+    "word": "augment_596",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 596)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_596",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 596",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 596)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_597",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 597)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_597",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 597",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 597)"
+      }
+    ]
+  },
+  {
+    "word": "candor_598",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 598)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_598",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 598",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 598)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_599",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 599)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_599",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 599",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 599)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_600",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 600)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_600",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 600",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 600)"
+      }
+    ]
+  },
+  {
+    "word": "augment_601",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 601)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_601",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 601",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 601)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_602",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 602)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_602",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 602",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 602)"
+      }
+    ]
+  },
+  {
+    "word": "candor_603",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 603)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_603",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 603",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 603)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_604",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 604)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_604",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 604",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 604)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_605",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 605)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_605",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 605",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 605)"
+      }
+    ]
+  },
+  {
+    "word": "augment_606",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 606)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_606",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 606",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 606)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_607",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 607)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_607",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 607",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 607)"
+      }
+    ]
+  },
+  {
+    "word": "candor_608",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 608)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_608",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 608",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 608)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_609",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 609)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_609",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 609",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 609)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_610",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 610)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_610",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 610",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 610)"
+      }
+    ]
+  },
+  {
+    "word": "augment_611",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 611)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_611",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 611",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 611)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_612",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 612)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_612",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 612",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 612)"
+      }
+    ]
+  },
+  {
+    "word": "candor_613",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 613)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_613",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 613",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 613)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_614",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 614)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_614",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 614",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 614)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_615",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 615)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_615",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 615",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 615)"
+      }
+    ]
+  },
+  {
+    "word": "augment_616",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 616)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_616",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 616",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 616)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_617",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 617)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_617",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 617",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 617)"
+      }
+    ]
+  },
+  {
+    "word": "candor_618",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 618)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_618",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 618",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 618)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_619",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 619)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_619",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 619",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 619)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_620",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 620)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_620",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 620",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 620)"
+      }
+    ]
+  },
+  {
+    "word": "augment_621",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 621)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_621",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 621",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 621)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_622",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 622)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_622",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 622",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 622)"
+      }
+    ]
+  },
+  {
+    "word": "candor_623",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 623)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_623",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 623",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 623)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_624",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 624)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_624",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 624",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 624)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_625",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 625)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_625",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 625",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 625)"
+      }
+    ]
+  },
+  {
+    "word": "augment_626",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 626)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_626",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 626",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 626)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_627",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 627)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_627",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 627",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 627)"
+      }
+    ]
+  },
+  {
+    "word": "candor_628",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 628)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_628",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 628",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 628)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_629",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 629)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_629",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 629",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 629)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_630",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 630)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_630",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 630",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 630)"
+      }
+    ]
+  },
+  {
+    "word": "augment_631",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 631)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_631",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 631",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 631)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_632",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 632)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_632",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 632",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 632)"
+      }
+    ]
+  },
+  {
+    "word": "candor_633",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 633)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_633",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 633",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 633)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_634",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 634)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_634",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 634",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 634)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_635",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 635)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_635",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 635",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 635)"
+      }
+    ]
+  },
+  {
+    "word": "augment_636",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 636)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_636",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 636",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 636)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_637",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 637)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_637",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 637",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 637)"
+      }
+    ]
+  },
+  {
+    "word": "candor_638",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 638)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_638",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 638",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 638)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_639",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 639)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_639",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 639",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 639)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_640",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 640)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_640",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 640",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 640)"
+      }
+    ]
+  },
+  {
+    "word": "augment_641",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 641)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_641",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 641",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 641)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_642",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 642)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_642",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 642",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 642)"
+      }
+    ]
+  },
+  {
+    "word": "candor_643",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 643)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_643",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 643",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 643)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_644",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 644)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_644",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 644",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 644)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_645",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 645)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_645",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 645",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 645)"
+      }
+    ]
+  },
+  {
+    "word": "augment_646",
+    "pos": "v.",
+    "kk": "/ɔɡˈmɛnt/",
+    "definition": "增加，提高 (編號 646)",
+    "root": "源自拉丁語 augere（增加）",
+    "derivatives": [
+      {
+        "word": "augmentation_646",
+        "pos": "n.",
+        "meaning": "增加，擴大"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "augment income 646",
+        "meaning": "增加收入",
+        "sentence": "He took a part-time job to augment his income. (Item 646)"
+      }
+    ]
+  },
+  {
+    "word": "benevolent_647",
+    "pos": "adj.",
+    "kk": "/bəˈnɛvələnt/",
+    "definition": "仁慈的，慈善的 (編號 647)",
+    "root": "源自拉丁語 bene（好） + velle（意願）",
+    "derivatives": [
+      {
+        "word": "benevolence_647",
+        "pos": "n.",
+        "meaning": "仁慈"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "benevolent fund 647",
+        "meaning": "慈善基金",
+        "sentence": "The charity is supported by a benevolent fund. (Item 647)"
+      }
+    ]
+  },
+  {
+    "word": "candor_648",
+    "pos": "n.",
+    "kk": "/ˈkændər/",
+    "definition": "坦誠，直率 (編號 648)",
+    "root": "源自拉丁語 candidus（白色的、純潔的）",
+    "derivatives": [
+      {
+        "word": "candid_648",
+        "pos": "adj.",
+        "meaning": "坦誠的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "speak with candor 648",
+        "meaning": "坦誠地講",
+        "sentence": "She spoke with complete candor about her past. (Item 648)"
+      }
+    ]
+  },
+  {
+    "word": "debilitate_649",
+    "pos": "v.",
+    "kk": "/dɪˈbɪlɪteɪt/",
+    "definition": "使衰弱，使疲憊 (編號 649)",
+    "root": "源自拉丁語 debilis（虛弱的）",
+    "derivatives": [
+      {
+        "word": "debilitating_649",
+        "pos": "adj.",
+        "meaning": "令人衰弱的"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "debilitating illness 649",
+        "meaning": "令人衰弱的疾病",
+        "sentence": "He suffered from a debilitating illness. (Item 649)"
+      }
+    ]
+  },
+  {
+    "word": "eclectic_650",
+    "pos": "adj.",
+    "kk": "/ɪˈklɛktɪk/",
+    "definition": "折衷的，綜合性的 (編號 650)",
+    "root": "源自希臘語 eklektikos（選擇的）",
+    "derivatives": [
+      {
+        "word": "eclectically_650",
+        "pos": "adv.",
+        "meaning": "折衷地"
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "eclectic tastes 650",
+        "meaning": "豐富多樣的品味",
+        "sentence": "She has an eclectic taste in music. (Item 650)"
+      }
+    ]
   }
 ]
