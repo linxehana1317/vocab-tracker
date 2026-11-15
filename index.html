@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>單字學習平台</title>
+    <title>單字學習平台 - v26.11.15</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 x=%22.1em%22 font-size=%2290%22 font-weight=%22bold%22>W</text></svg>">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -260,21 +260,13 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.9</span>
+                <span class="version-badge">v26.11.15</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin-bottom:8px; padding-left:4px;">單字級距分類</div>
-        <div class="nav-group" id="levelNavGroup">
-            <div class="nav-item active" onclick="switchLevel('Level 1', 'level1.json', this)">Level 1</div>
-            <div class="nav-item" onclick="switchLevel('Level 2', 'level2.json', this)">Level 2</div>
-            <div class="nav-item" onclick="switchLevel('Level 3', 'level3.json', this)">Level 3</div>
-            <div class="nav-item" onclick="switchLevel('Level 4', 'level4.json', this)">Level 4</div>
-            <div class="nav-item" onclick="switchLevel('Level 5', 'level5.json', this)">Level 5</div>
-            <div class="nav-item" onclick="switchLevel('Level 6', 'level6.json', this)">Level 6</div>
-            <div class="nav-item" onclick="switchLevel('Level 7', 'level7.json', this)">Level 7</div>
-        </div>
+        <div class="nav-group" id="levelNavGroup"></div>
 
         <div style="font-size:12px; font-weight:600; color:var(--muted); margin:16px 0 8px 4px;">測驗區塊</div>
         <div class="nav-group">
@@ -293,21 +285,12 @@
                 <h1 style="margin:0; font-size:1.4rem;" id="currentLevelTitle">Level 1</h1>
                 
                 <select id="subLevelSelect" onchange="filterSubLevel()" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; outline: none; background: #fff;">
-                    <option value="all">全部單字 (1-1000)</option>
-                    <option value="0">第 1 - 100 字</option>
-                    <option value="1">第 101 - 200 字</option>
-                    <option value="2">第 201 - 300 字</option>
-                    <option value="3">第 301 - 400 字</option>
-                    <option value="4">第 401 - 500 字</option>
-                    <option value="5">第 501 - 600 字</option>
-                    <option value="6">第 601 - 700 字</option>
-                    <option value="7">第 701 - 800 字</option>
-                    <option value="8">第 801 - 900 字</option>
-                    <option value="9">第 901 - 1000 字</option>
+                    <option value="all">全部單字</option>
                 </select>
             </div>
 
             <div class="search-box">
+                <!-- 單字狀態篩選選單 -->
                 <select id="statusFilterSelect" class="filter-select" onchange="filterSubLevel()">
                     <option value="all">全部單字</option>
                     <option value="studied">已背誦</option>
@@ -317,7 +300,7 @@
                     <option value="starred">標記單字</option>
                 </select>
 
-                <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字..." oninput="searchWord()">
+                <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字、定義、衍生字、字根、片語或例句..." oninput="searchWord()">
                 <button onclick="searchWord()">搜尋</button>
             </div>
         </div>
@@ -394,11 +377,8 @@
                 <div class="form-group">
                     <label>範圍來源</label>
                     <select id="testSource" onchange="toggleTestSource()">
-                        <option value="date">依日期分類</option>
-                        <option value="level" selected>依範圍分類</option>
-                        <option value="mastered">精熟單字</option>
-                        <option value="wrong">錯誤單字</option>
-                        <option value="starred">標記單字</option>
+                        <option value="level">依照目前等級範圍/次分類</option>
+                        <option value="date">依照指定打卡日期範圍 (YYYYMMDD)</option>
                     </select>
                 </div>
                 <div class="form-group" id="dateRangeGroup" style="display:none;">
@@ -491,7 +471,7 @@
             <input type="text" id="newPos" placeholder="例如: n.">
         </div>
         <div class="form-group">
-            <label>KK音標 (KK)</label>
+            <label>發音標示 (KK／近似 IPA)</label>
             <input type="text" id="newKk" placeholder="例如: /bəˈnænə/">
         </div>
         <div class="form-group">
@@ -503,12 +483,14 @@
             <input type="text" id="newRoot" placeholder="例如: 源自西非語言...">
         </div>
         <div class="form-group">
-            <label>衍伸單字 (格式: 單字|詞性|意思，多個用逗號隔開)</label>
-            <input type="text" id="newDerivatives" placeholder="例如: dangerously|adv.|危險地">
+            <label>衍生單字（每行一筆：單字|詞性|意思）</label>
+            <textarea id="newDerivatives" rows="2" placeholder="例如：
+dangerously|adv.|危險地"></textarea>
         </div>
         <div class="form-group">
-            <label>常用片語與例句 (格式: 片語|意思|例句)</label>
-            <input type="text" id="newPhrases" placeholder="例如: in danger|處於危險中|He is in danger.">
+            <label>常用片語與例句（每行一筆：片語|意思|例句|中文翻譯）</label>
+            <textarea id="newPhrases" rows="3" placeholder="例如：
+in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         </div>
         <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:20px;">
             <button onclick="closeAddWordModal()" class="btn-secondary">取消</button>
@@ -533,7 +515,6 @@
     const vocabRef = db.ref('vocabData');
     const studiedRef = db.ref('studiedWords');
     const statsRef = db.ref('testStats');
-    const wrongStatsRef = db.ref('wrongStats');
     const dayWordsRef = db.ref('dayWords');
     const wrongRef = db.ref('wrongWords');
     const starredRef = db.ref('starredWords');
@@ -543,7 +524,6 @@
     let vocabData = {};
     let studiedWords = {};
     let testStats = {};
-    let wrongStats = {};
     let dayWordsData = {};
     let wrongWords = {};
     let starredWords = {};
@@ -553,7 +533,127 @@
     let activeCardData = null;
     let currentChartRange = 'week';
     let currentTestQuestions = [];
-    let testDistractorPool = [];
+
+    const LEVELS = Array.from({ length: 6 }, (_, i) => ({
+        title: `Level ${i + 1}`,
+        fileName: `level${i + 1}.json`
+    }));
+
+    // Firebase 不允許 . # $ [ ] / 出現在節點名稱中；一般單字維持原 key。
+    function getWordKey(word) {
+        return encodeURIComponent(String(word ?? '')).replace(/\./g, '%2E');
+    }
+
+    function getWordMapValue(map, word) {
+        if (!map || typeof map !== 'object') return undefined;
+        const key = getWordKey(word);
+        return Object.prototype.hasOwnProperty.call(map, key) ? map[key] : map[word];
+    }
+
+    function decodeWordKey(key) {
+        try { return decodeURIComponent(String(key)); }
+        catch (_) { return String(key); }
+    }
+
+    function isValidYYYYMMDD(value) {
+        if (!/^\d{8}$/.test(String(value))) return false;
+        const year = Number(value.slice(0, 4));
+        const month = Number(value.slice(4, 6));
+        const day = Number(value.slice(6, 8));
+        const date = new Date(year, month - 1, day);
+        return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+    }
+
+    function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"']/g, ch => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[ch]));
+    }
+
+    function hasContent(value) {
+        if (Array.isArray(value)) return value.length > 0;
+        if (value && typeof value === 'object') return Object.keys(value).length > 0;
+        return value !== null && value !== undefined && String(value).trim() !== '';
+    }
+
+    function mergeListByKey(oldList, newList, keyName) {
+        const merged = [];
+        const positions = new Map();
+        const add = (item, preferExisting) => {
+            if (!item || typeof item !== 'object') return;
+            const key = String(item[keyName] ?? '').toLowerCase();
+            if (!key) { merged.push(item); return; }
+            if (!positions.has(key)) {
+                positions.set(key, merged.length);
+                merged.push({ ...item });
+            } else {
+                const index = positions.get(key);
+                const existing = merged[index];
+                const combined = { ...item };
+                Object.entries(existing).forEach(([field, value]) => {
+                    if (hasContent(value)) combined[field] = value;
+                });
+                merged[index] = combined;
+            }
+        };
+        (oldList || []).forEach(item => add(item, true));
+        (newList || []).forEach(item => add(item, false));
+        return merged;
+    }
+
+    // oldItem 是既有「範本／自訂資料」；有內容的舊欄位優先，新資料只補空白。
+    function mergeVocabularyItem(newItem, oldItem) {
+        const merged = { ...(newItem || {}), ...(oldItem || {}) };
+        ['word', 'pos', 'kk', 'definition', 'root'].forEach(key => {
+            if (!hasContent(oldItem?.[key])) merged[key] = newItem?.[key] ?? (key === 'root' ? '' : '');
+        });
+        merged.derivatives = mergeListByKey(oldItem?.derivatives, newItem?.derivatives, 'word');
+        merged.phrases = mergeListByKey(oldItem?.phrases, newItem?.phrases, 'phrase');
+        if (!Array.isArray(merged.derivatives)) merged.derivatives = [];
+        if (!Array.isArray(merged.phrases)) merged.phrases = [];
+        return merged;
+    }
+
+    function renderLevelNavigation() {
+        const nav = document.getElementById('levelNavGroup');
+        nav.innerHTML = '';
+        LEVELS.forEach((level, index) => {
+            const item = document.createElement('div');
+            item.className = `nav-item${index === 0 ? ' active' : ''}`;
+            item.textContent = level.title;
+            item.addEventListener('click', () => switchLevel(level.title, level.fileName, item));
+            nav.appendChild(item);
+        });
+    }
+
+    function updateSubLevelOptions() {
+        const select = document.getElementById('subLevelSelect');
+        const previous = select.value;
+        const total = currentLevelData.length;
+        const groupCount = Math.ceil(total / 100);
+        select.innerHTML = '<option value="all">全部單字 (1-' + total + ')</option>';
+        for (let i = 0; i < groupCount; i++) {
+            const first = i * 100 + 1;
+            const last = Math.min((i + 1) * 100, total);
+            const option = document.createElement('option');
+            option.value = String(i);
+            option.textContent = `第 ${first} - ${last} 字`;
+            select.appendChild(option);
+        }
+        if (previous !== 'all' && Number(previous) < groupCount) select.value = previous;
+        else select.value = 'all';
+    }
+
+    function getSearchableText(item) {
+        const values = [item?.word, item?.pos, item?.kk, item?.definition, item?.root];
+        (Array.isArray(item?.derivatives) ? item.derivatives : []).forEach(d => {
+            values.push(d?.word, d?.pos, d?.meaning);
+        });
+        (Array.isArray(item?.phrases) ? item.phrases : []).forEach(p => {
+            values.push(p?.phrase, p?.meaning, p?.sentence, p?.translation);
+        });
+        return values.filter(hasContent).join(' ').toLocaleLowerCase();
+    }
 
     function getTodayYYYYMMDD() {
         const d = new Date();
@@ -566,7 +666,7 @@
     }
 
     async function checkAndInitDatabase() {
-        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'wrongStats', 'dayWords', 'wrongWords', 'starredWords'];
+        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
         for (const nodeName of nodesToEnsure) {
             const snapshot = await db.ref(nodeName).once('value');
             if (!snapshot.exists()) {
@@ -575,52 +675,45 @@
         }
     }
 
-    async function fetchAllLevelsWords() {
-        const files = ['level1.json', 'level2.json', 'level3.json', 'level4.json', 'level5.json', 'level6.json', 'level7.json'];
-        const uniqueMap = new Map();
-        for (const f of files) {
-            try {
-                const res = await fetch(f + '?v=' + new Date().getTime());
-                if (res.ok) {
-                    const data = await res.json();
-                    data.forEach(item => {
-                        if (item && item.word) uniqueMap.set(item.word.toLowerCase(), item);
-                    });
-                }
-            } catch (e) {}
-            const localCustom = JSON.parse(localStorage.getItem('custom_' + f) || '[]');
-            localCustom.forEach(item => {
-                if (item && item.word) uniqueMap.set(item.word.toLowerCase(), item);
-            });
-        }
-        return Array.from(uniqueMap.values());
-    }
-
     async function fetchLevelData(jsonFileName) {
         currentFileName = jsonFileName;
         try {
-            const res = await fetch(jsonFileName + '?v=' + new Date().getTime());
-            if (!res.ok) throw new Error('讀取失敗');
-            let serverData = await res.json();
-            
-            let customKey = 'custom_' + jsonFileName;
-            let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
-            
-            let combined = [...serverData, ...localCustom];
-            
-            // 加上 Map 去重防重複機制
+            const res = await fetch(jsonFileName + '?v=' + Date.now());
+            if (!res.ok) throw new Error(`讀取 ${jsonFileName} 失敗（HTTP ${res.status}）`);
+            const serverData = await res.json();
+            if (!Array.isArray(serverData)) throw new Error(`${jsonFileName} 格式錯誤：最外層必須是 JSON 陣列`);
+
+            const customKey = 'custom_' + jsonFileName;
+            let localCustom = [];
+            try {
+                const saved = JSON.parse(localStorage.getItem(customKey) || '[]');
+                if (Array.isArray(saved)) localCustom = saved;
+            } catch (storageError) {
+                console.warn(`讀取 ${customKey} 失敗，先忽略損壞的自訂資料`, storageError);
+            }
+
             const uniqueMap = new Map();
-            combined.forEach(item => {
-                if (item && item.word) {
-                    uniqueMap.set(item.word.toLowerCase(), item);
+            serverData.forEach(item => {
+                if (item && typeof item.word === 'string' && item.word.trim()) {
+                    const key = item.word.trim().toLowerCase();
+                    uniqueMap.set(key, mergeVocabularyItem(item, null));
                 }
             });
-            currentLevelData = Array.from(uniqueMap.values());
+            // localStorage 中的舊範本／自訂資料優先；只補新版空白欄位，不整筆覆蓋。
+            localCustom.forEach(item => {
+                if (!item || typeof item.word !== 'string' || !item.word.trim()) return;
+                const key = item.word.trim().toLowerCase();
+                const newer = uniqueMap.get(key);
+                uniqueMap.set(key, newer ? mergeVocabularyItem(newer, item) : mergeVocabularyItem(item, null));
+            });
 
+            currentLevelData = Array.from(uniqueMap.values());
+            updateSubLevelOptions();
             filterSubLevel();
         } catch (err) {
             console.error(err);
-            document.getElementById('flashcardGrid').innerHTML = `<div style="color:var(--muted); padding:20px;">無法讀取 ${jsonFileName}。</div>`;
+            const grid = document.getElementById('flashcardGrid');
+            grid.textContent = `無法讀取 ${jsonFileName}。請確認六份 JSON 與 HTML 位於同一個網站目錄，且檔案格式正確。`;
         }
     }
 
@@ -636,6 +729,7 @@
         fetchLevelData(fileName);
     }
 
+    // 結合級距、搜尋框與狀態篩選條件
     function filterSubLevel() {
         const selectedVal = document.getElementById('subLevelSelect').value;
         let baseData = currentLevelData;
@@ -648,28 +742,23 @@
             baseData = currentLevelData.slice(startIndex, endIndex);
         }
 
-        // 2. 狀態選單過濾 (精熟改為答對 >= 3 次)
+        // 2. 狀態選單過濾 (全部, 已背誦, 未背誦, 精熟單字, 錯誤單字, 標記單字)
         const statusFilter = document.getElementById('statusFilterSelect').value;
         if (statusFilter === 'studied') {
-            baseData = baseData.filter(item => studiedWords[item.word] === true);
+            baseData = baseData.filter(item => getWordMapValue(studiedWords, item.word) === true);
         } else if (statusFilter === 'unstudied') {
-            baseData = baseData.filter(item => !studiedWords[item.word]);
+            baseData = baseData.filter(item => !getWordMapValue(studiedWords, item.word));
         } else if (statusFilter === 'mastered') {
-            baseData = baseData.filter(item => (testStats[item.word] || 0) >= 3);
+            baseData = baseData.filter(item => (getWordMapValue(testStats, item.word) || 0) >= 4);
         } else if (statusFilter === 'wrong') {
-            baseData = baseData.filter(item => wrongWords[item.word] === true);
+            baseData = baseData.filter(item => getWordMapValue(wrongWords, item.word) === true);
         } else if (statusFilter === 'starred') {
-            baseData = baseData.filter(item => starredWords[item.word] === true);
+            baseData = baseData.filter(item => getWordMapValue(starredWords, item.word) === true);
         }
 
         // 3. 搜尋關鍵字過濾
-        const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
-        if (keyword) {
-            baseData = baseData.filter(item => 
-                item.word.toLowerCase().includes(keyword) || 
-                item.definition.includes(keyword)
-            );
-        }
+        const keyword = document.getElementById('searchInput').value.trim().toLocaleLowerCase();
+        if (keyword) baseData = baseData.filter(item => getSearchableText(item).includes(keyword));
 
         renderCards(baseData);
     }
@@ -690,30 +779,29 @@
         const grid = document.getElementById('flashcardGrid');
         grid.innerHTML = '';
         if (!Array.isArray(dataList) || dataList.length === 0) {
-            grid.innerHTML = '<div style="color:var(--muted); padding:20px;">此條件下目前無單字。</div>';
+            grid.textContent = '此條件下目前無單字。';
             return;
         }
 
         dataList.forEach(item => {
-            const isStudied = studiedWords[item.word] === true;
-            const correctCount = testStats[item.word] || 0;
-            const isMastered = correctCount >= 3;
-            const isWrong = wrongWords[item.word] === true;
-            const isStarred = starredWords[item.word] === true;
-
+            const isStudied = getWordMapValue(studiedWords, item.word) === true;
+            const correctCount = getWordMapValue(testStats, item.word) || 0;
+            const isMastered = correctCount >= 4;
+            const isWrong = getWordMapValue(wrongWords, item.word) === true;
+            const isStarred = getWordMapValue(starredWords, item.word) === true;
             const card = document.createElement('div');
             card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
             card.onclick = () => openCardDetail(item);
-            card.innerHTML = `
-                <div>
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <div class="flashcard-word">${item.word}</div>
-                        </div>
-                    </div>
-                    <div class="flashcard-meta">${item.pos || ''} | ${item.kk || ''}</div>
-                    <div class="flashcard-def">${item.definition}</div>
-                </div>
-            `;
+            const word = document.createElement('div');
+            word.className = 'flashcard-word';
+            word.textContent = item.word || '';
+            const meta = document.createElement('div');
+            meta.className = 'flashcard-meta';
+            meta.textContent = `${item.pos || ''} | ${item.kk || ''}`;
+            const definition = document.createElement('div');
+            definition.className = 'flashcard-def';
+            definition.textContent = item.definition || '';
+            card.append(word, meta, definition);
             grid.appendChild(card);
         });
     }
@@ -724,6 +812,7 @@
         openCardDetail(item, dateStr);
     }
 
+    // 支援接收自訂日期 (解決取消昨日打卡卻誤扣今日的問題)
     function openCardDetail(item, customDate = null) {
         activeCardData = item;
         document.getElementById('modalWordTitle').innerText = item.word;
@@ -732,37 +821,61 @@
 
         const derivArea = document.getElementById('modalDerivatives');
         derivArea.innerHTML = '';
-        if(item.derivatives && item.derivatives.length > 0) {
-            item.derivatives.forEach(d => {
-                derivArea.innerHTML += `<div><strong>${d.word}</strong> (${d.pos}): ${d.meaning}</div>`;
+        const derivatives = Array.isArray(item.derivatives) ? item.derivatives : [];
+        if (derivatives.length) {
+            derivatives.forEach(d => {
+                const row = document.createElement('div');
+                const strong = document.createElement('strong');
+                strong.textContent = d?.word || '';
+                row.append(strong, document.createTextNode(` (${d?.pos || ''}): ${d?.meaning || ''}`));
+                derivArea.appendChild(row);
             });
-        } else derivArea.innerText = '無';
+        } else derivArea.textContent = '無';
 
-        document.getElementById('modalRoot').innerText = item.root || '無';
+        document.getElementById('modalRoot').textContent = item.root || '無';
 
         const phraseArea = document.getElementById('modalPhrases');
         phraseArea.innerHTML = '';
-        if(item.phrases && item.phrases.length > 0) {
-            item.phrases.forEach(p => {
-                phraseArea.innerHTML += `<div><strong>${p.phrase}</strong> (${p.meaning})<br><span style="color:var(--primary);">${p.sentence}</span></div>`;
+        const phrases = Array.isArray(item.phrases) ? item.phrases : [];
+        if (phrases.length) {
+            phrases.forEach(p => {
+                const block = document.createElement('div');
+                block.style.marginBottom = '10px';
+                const title = document.createElement('strong');
+                title.textContent = p?.phrase || '';
+                const meaning = document.createTextNode(` (${p?.meaning || ''})`);
+                const sentence = document.createElement('div');
+                sentence.style.color = 'var(--primary)';
+                sentence.textContent = p?.sentence || '';
+                block.append(title, meaning, sentence);
+                if (p?.translation) {
+                    const translation = document.createElement('div');
+                    translation.style.color = 'var(--muted)';
+                    translation.textContent = p.translation;
+                    block.appendChild(translation);
+                }
+                phraseArea.appendChild(block);
             });
-        } else phraseArea.innerText = '無';
+        } else phraseArea.textContent = '無';
 
-        const isWrongWord = !!wrongWords[item.word];
+        const isWrongWord = !!getWordMapValue(wrongWords, item.word);
         const wrongBtn = document.getElementById('modalWrongBtn');
         wrongBtn.style.display = isWrongWord ? 'block' : 'none';
 
-        const isStarred = !!starredWords[item.word];
+        const isStarred = !!getWordMapValue(starredWords, item.word);
         const starBtn = document.getElementById('modalStarBtn');
         starBtn.style.opacity = isStarred ? '1' : '0.3';
         starBtn.title = isStarred ? '取消標記單字' : '點擊標記單字';
 
-        document.getElementById('cardCustomDate').value = customDate || getTodayYYYYMMDD();
+        const selectedDate = customDate || getTodayYYYYMMDD();
+        document.getElementById('cardCustomDate').value = selectedDate;
 
-        const isStudied = studiedWords[item.word];
+        const dateWords = dayWordsData[selectedDate] || {};
+        const wordKey = getWordKey(item.word);
+        const isRecordedOnSelectedDate = Object.prototype.hasOwnProperty.call(dateWords, wordKey) || Object.prototype.hasOwnProperty.call(dateWords, item.word);
         const btn = document.getElementById('modalStudiedBtn');
-        btn.innerText = isStudied ? '取消背誦標記' : '標記為背誦';
-        btn.className = isStudied ? 'btn-secondary' : '';
+        btn.innerText = isRecordedOnSelectedDate ? '取消當日背誦紀錄' : '記錄為當日背誦';
+        btn.className = isRecordedOnSelectedDate ? 'btn-secondary' : '';
 
         document.getElementById('cardDetailModal').style.display = 'flex';
     }
@@ -772,13 +885,13 @@
     function toggleStarStatus() {
         if (!activeCardData) return;
         const word = activeCardData.word;
-        const currentStarred = !!starredWords[word];
+        const currentStarred = !!getWordMapValue(starredWords, word);
         const newStarred = !currentStarred;
 
         if (newStarred) {
-            starredRef.child(word).set(true);
+            starredRef.child(getWordKey(word)).set(true);
         } else {
-            starredRef.child(word).remove();
+            starredRef.child(getWordKey(word)).remove();
         }
 
         const starBtn = document.getElementById('modalStarBtn');
@@ -788,8 +901,7 @@
 
     function toggleWrongStatus() {
         if (!activeCardData) return;
-        wrongRef.child(activeCardData.word).remove();
-        wrongStatsRef.child(activeCardData.word).remove();
+        wrongRef.child(getWordKey(activeCardData.word)).remove();
         closeCardModal();
         alert(`已將 "${activeCardData.word}" 從錯誤單字移除！`);
     }
@@ -798,33 +910,45 @@
         if (!activeCardData) return;
         const word = activeCardData.word;
         const targetDate = document.getElementById('cardCustomDate').value.trim() || getTodayYYYYMMDD();
-
-        if (targetDate.length !== 8 || isNaN(targetDate)) {
-            alert('請輸入標準 8 位數日期格式 (如: 20261107)');
+        if (!isValidYYYYMMDD(targetDate)) {
+            alert('請輸入有效日期 (YYYYMMDD)，例如 20261107。');
             return;
         }
 
-        const currentStatus = !!studiedWords[word];
-        const newStatus = !currentStatus;
-
-        studiedRef.child(word).set(newStatus);
-
-        let currentCount = vocabData[targetDate] || 0;
-        if (newStatus) {
-            currentCount++;
-            confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
-            dayWordsRef.child(targetDate).child(word).set(activeCardData);
+        const dateMap = { ...(dayWordsData[targetDate] || {}) };
+        const key = getWordKey(word);
+        const legacyKey = word;
+        const existsOnTargetDate = Object.prototype.hasOwnProperty.call(dateMap, key) || Object.prototype.hasOwnProperty.call(dateMap, legacyKey);
+        if (existsOnTargetDate) {
+            delete dateMap[key];
+            delete dateMap[legacyKey];
         } else {
-            currentCount = Math.max(0, currentCount - 1);
-            dayWordsRef.child(targetDate).child(word).remove();
+            dateMap[key] = activeCardData;
+            confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
         }
-        vocabRef.child(targetDate).set(currentCount);
 
-        closeCardModal();
+        const updates = {};
+        updates[`dayWords/${targetDate}`] = Object.keys(dateMap).length ? dateMap : null;
+        updates[`vocabData/${targetDate}`] = Object.keys(dateMap).length;
 
-        if (document.getElementById('dayDetailModal').style.display === 'flex') {
-            showDayDetails(targetDate);
+        // 全域「已背誦」狀態代表至少有一天存在紀錄，不再跟指定日期的切換混為一談。
+        let existsOnAnotherDate = false;
+        for (const [date, words] of Object.entries(dayWordsData)) {
+            if (date === targetDate || !words || typeof words !== 'object') continue;
+            if (Object.prototype.hasOwnProperty.call(words, key) || Object.prototype.hasOwnProperty.call(words, legacyKey)) {
+                existsOnAnotherDate = true;
+                break;
+            }
         }
+        updates[`studiedWords/${key}`] = (!existsOnTargetDate || existsOnAnotherDate) ? true : null;
+
+        db.ref().update(updates).then(() => {
+            closeCardModal();
+            if (document.getElementById('dayDetailModal').style.display === 'flex') showDayDetails(targetDate);
+        }).catch(err => {
+            console.error(err);
+            alert('背誦紀錄儲存失敗，請確認網路或 Firebase 權限後再試。');
+        });
     }
 
     function openAddWordModal() { document.getElementById('addWordModal').style.display = 'flex'; }
@@ -844,37 +968,38 @@
             return;
         }
 
-        let derivatives = [];
-        if (rawDerivatives) {
-            rawDerivatives.split(',').forEach(item => {
-                const parts = item.split('|');
-                if (parts.length >= 3) {
-                    derivatives.push({ word: parts[0].trim(), pos: parts[1].trim(), meaning: parts[2].trim() });
-                }
-            });
-        }
+        const derivatives = rawDerivatives ? rawDerivatives.split(/\r?\n/).map(line => {
+            const parts = line.split('|').map(x => x.trim());
+            return parts.length >= 3 && parts[0] ? { word: parts[0], pos: parts[1], meaning: parts.slice(2).join('|') } : null;
+        }).filter(Boolean) : [];
 
-        let phrases = [];
-        if (rawPhrases) {
-            rawPhrases.split(',').forEach(item => {
-                const parts = item.split('|');
-                if (parts.length >= 3) {
-                    phrases.push({ phrase: parts[0].trim(), meaning: parts[1].trim(), sentence: parts[2].trim() });
-                }
-            });
-        }
+        const phrases = rawPhrases ? rawPhrases.split(/\r?\n/).map(line => {
+            const parts = line.split('|').map(x => x.trim());
+            return parts.length >= 3 && parts[0] ? {
+                phrase: parts[0], meaning: parts[1], sentence: parts[2], translation: parts.slice(3).join('|')
+            } : null;
+        }).filter(Boolean) : [];
 
         const newObj = { word, pos, kk, definition, root, derivatives, phrases };
-        
-        let customKey = 'custom_' + currentFileName;
-        let localCustom = JSON.parse(localStorage.getItem(customKey) || '[]');
-        localCustom.push(newObj);
+        const customKey = 'custom_' + currentFileName;
+        let localCustom = [];
+        try {
+            const saved = JSON.parse(localStorage.getItem(customKey) || '[]');
+            if (Array.isArray(saved)) localCustom = saved;
+        } catch (_) {}
+
+        const existingIndex = localCustom.findIndex(item => item?.word?.toLowerCase() === word.toLowerCase());
+        if (existingIndex >= 0) localCustom[existingIndex] = mergeVocabularyItem(localCustom[existingIndex], newObj);
+        else localCustom.push(newObj);
         localStorage.setItem(customKey, JSON.stringify(localCustom));
 
-        currentLevelData.push(newObj);
+        const currentIndex = currentLevelData.findIndex(item => item.word.toLowerCase() === word.toLowerCase());
+        if (currentIndex >= 0) currentLevelData[currentIndex] = mergeVocabularyItem(currentLevelData[currentIndex], newObj);
+        else currentLevelData.push(newObj);
+        updateSubLevelOptions();
         filterSubLevel();
         closeAddWordModal();
-        alert(`已成功新增 "${word}" 並永久儲存至此分類！`);
+        alert(`已成功儲存「${word}」！`);
     }
 
     function speakCurrentWord() {
@@ -889,6 +1014,7 @@
     async function init() {
         await checkAndInitDatabase();
 
+        renderLevelNavigation();
         fetchLevelData('level1.json');
         initChart();
 
@@ -908,10 +1034,6 @@
             testStats = snap.val() || {};
             updateStats();
             filterSubLevel();
-        });
-
-        wrongStatsRef.on('value', snap => {
-            wrongStats = snap.val() || {};
         });
 
         dayWordsRef.on('value', snap => {
@@ -963,6 +1085,7 @@
         renderCalendar();
     }
 
+    // 日曆彈窗內移除「已打卡 ✓」，並帶入該日日期給彈出卡片
     function showDayDetails(dateStr) {
         activeSelectedDate = dateStr;
         document.getElementById('dayDetailTitle').innerText = `${formatYYYYMMDDToStandard(dateStr)} 打卡記錄`;
@@ -981,19 +1104,26 @@
             gridContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
             gridContainer.style.gap = '10px';
 
-            for (const [w, itemData] of Object.entries(wordsObj)) {
+            for (const [storedKey, itemData] of Object.entries(wordsObj)) {
+                const w = decodeWordKey(storedKey);
                 let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
                 const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
                 const miniCard = document.createElement('div');
                 miniCard.style.cssText = "background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; cursor: pointer; transition: all 0.2s;";
+                // 傳入 dateStr 讓取消標記時能夠鎖定當天日期
                 miniCard.onclick = () => openCardDetail(item, dateStr);
                 
-                miniCard.innerHTML = `
-                    <div style="font-weight: 700; font-size: 1rem; color: var(--text);">${item.word}</div>
-                    <div style="font-size: 12px; color: var(--muted); margin-top:2px;">${item.pos || ''} ${item.kk || ''}</div>
-                    <div style="font-size: 13px; color: #334155; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.definition}</div>
-                `;
+                const wordLine = document.createElement('div');
+                wordLine.style.cssText = 'font-weight:700;font-size:1rem;color:var(--text);';
+                wordLine.textContent = item.word || '';
+                const metaLine = document.createElement('div');
+                metaLine.style.cssText = 'font-size:12px;color:var(--muted);margin-top:2px;';
+                metaLine.textContent = `${item.pos || ''} ${item.kk || ''}`;
+                const defLine = document.createElement('div');
+                defLine.style.cssText = 'font-size:13px;color:#334155;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;';
+                defLine.textContent = item.definition || '';
+                miniCard.append(wordLine, metaLine, defLine);
                 gridContainer.appendChild(miniCard);
             }
             listDiv.appendChild(gridContainer);
@@ -1013,11 +1143,26 @@
         if (!activeSelectedDate) return;
         if (!confirm(`確定要清空 ${formatYYYYMMDDToStandard(activeSelectedDate)} 的所有背誦標記嗎？`)) return;
 
-        vocabRef.child(activeSelectedDate).remove();
-        dayWordsRef.child(activeSelectedDate).remove();
-
-        closeDayModal();
-        alert('已清空當日紀錄！');
+        const wordsOnDate = dayWordsData[activeSelectedDate] || {};
+        const updates = {};
+        Object.keys(wordsOnDate).forEach(storedKey => {
+            const word = decodeWordKey(storedKey);
+            const key = getWordKey(word);
+            const existsElsewhere = Object.entries(dayWordsData).some(([date, words]) =>
+                date !== activeSelectedDate && words && (Object.prototype.hasOwnProperty.call(words, key) || Object.prototype.hasOwnProperty.call(words, word))
+            );
+            if (!existsElsewhere) updates[`studiedWords/${key}`] = null;
+        });
+        updates[`vocabData/${activeSelectedDate}`] = null;
+        updates[`dayWords/${activeSelectedDate}`] = null;
+        db.ref().update(updates).then(() => {
+            closeDayModal();
+            alert('已清空當日紀錄！');
+        }).catch(err => {
+            console.error(err);
+            alert('清空紀錄失敗，請確認網路或 Firebase 權限。');
+        });
+        return;
     }
 
     function startDayTestFromModal() {
@@ -1057,10 +1202,9 @@
             }
         }
 
-        // 精熟統計同步改成答對 >= 3 次
         let masteredCount = 0;
         for (const [w, c] of Object.entries(testStats)) {
-            if (c >= 3) masteredCount++;
+            if (c >= 4) masteredCount++;
         }
 
         let wrongCount = Object.keys(wrongWords).length;
@@ -1154,14 +1298,12 @@
         document.getElementById('dateRangeGroup').style.display = (source === 'date') ? 'block' : 'none';
     }
 
-    async function startTest() {
+    function startTest() {
         const testType = document.getElementById('testType').value;
         const count = parseInt(document.getElementById('testCount').value, 10);
         const source = document.getElementById('testSource').value;
         
         let pool = [];
-        testDistractorPool = [...currentLevelData];
-
         if (source === 'level') {
             const subVal = document.getElementById('subLevelSelect').value;
             if (subVal === 'all') {
@@ -1170,12 +1312,12 @@
                 const groupIdx = parseInt(subVal, 10);
                 pool = currentLevelData.slice(groupIdx * 100, (groupIdx + 1) * 100);
             }
-        } else if (source === 'date') {
+        } else {
             const startDate = document.getElementById('testStartDateInput').value.trim();
             const endDate = document.getElementById('testEndDateInput').value.trim();
 
-            if (!startDate || !endDate || startDate.length !== 8 || isNaN(startDate) || isNaN(endDate)) {
-                alert('請輸入正確的 8 位數起訖日期 (格式: YYYYMMDD)');
+            if (!isValidYYYYMMDD(startDate) || !isValidYYYYMMDD(endDate) || startDate > endDate) {
+                alert('請輸入有效的起訖日期，格式為 YYYYMMDD，且開始日期不可晚於結束日期。');
                 return;
             }
 
@@ -1183,7 +1325,8 @@
             for (const [dateKey, wordsObj] of Object.entries(dayWordsData)) {
                 if (dateKey >= startDate && dateKey <= endDate) {
                     if (wordsObj && typeof wordsObj === 'object') {
-                        for (const [w, itemData] of Object.entries(wordsObj)) {
+                        for (const [storedKey, itemData] of Object.entries(wordsObj)) {
+                            const w = decodeWordKey(storedKey);
                             collectedWordsMap[w] = itemData;
                         }
                     }
@@ -1192,17 +1335,8 @@
 
             pool = Object.entries(collectedWordsMap).map(([w, itemData]) => {
                 let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
-                return found || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData });
+                return found || ((typeof itemData === 'object' && itemData !== null) ? { derivatives: [], phrases: [], root: '', ...itemData, word: itemData.word || w } : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
             });
-        } else if (source === 'mastered') {
-            pool = currentLevelData.filter(item => (testStats[item.word] || 0) >= 3);
-        } else if (source === 'wrong') {
-            pool = currentLevelData.filter(item => wrongWords[item.word] === true);
-        } else if (source === 'starred') {
-            // 標記單字從全範圍抓取
-            const allWords = await fetchAllLevelsWords();
-            testDistractorPool = allWords;
-            pool = allWords.filter(item => starredWords[item.word] === true);
         }
 
         if (pool.length === 0) {
@@ -1212,32 +1346,33 @@
 
         pool.sort(() => Math.random() - 0.5);
         currentTestQuestions = pool.slice(0, count);
+        if (currentTestQuestions.length < count) {
+            alert(`目前範圍只有 ${currentTestQuestions.length} 個可用單字，將以現有題數開始測驗。`);
+        }
 
         const container = document.getElementById('testContainer');
         container.innerHTML = '';
         document.getElementById('testCardArea').style.display = 'block';
-
-        const distractorSource = testDistractorPool.length >= 4 ? testDistractorPool : currentLevelData;
 
         currentTestQuestions.forEach((q, idx) => {
             let html = `<div style="margin-bottom:20px; padding:15px; border:1px solid var(--border); border-radius:8px;">`;
             html += `<div style="font-weight:600; margin-bottom:10px;">第 ${idx + 1} 題</div>`;
             
             if (testType === 'choice') {
-                html += `<div style="font-size:1.1rem; margin-bottom:10px;">英文: <strong>${q.word}</strong></div>`;
-                let options = [q.definition];
-                while(options.length < 4 && distractorSource.length >= 4) {
-                    let randItem = distractorSource[Math.floor(Math.random() * distractorSource.length)];
-                    if (!options.includes(randItem.definition)) options.push(randItem.definition);
-                }
+                html += `<div style="font-size:1.1rem; margin-bottom:10px;">英文: <strong>${escapeHtml(q.word)}</strong></div>`;
+                const distractors = [...new Set(currentLevelData
+                    .map(item => String(item?.definition || '').trim())
+                    .filter(def => def && def !== q.definition))];
+                distractors.sort(() => Math.random() - 0.5);
+                let options = [q.definition, ...distractors.slice(0, 3)];
                 options.sort(() => Math.random() - 0.5);
 
                 options.forEach(opt => {
-                    html += `<label style="display:block; margin-bottom:6px; cursor:pointer;"><input type="radio" name="q_${idx}" value="${opt === q.definition ? 'correct' : 'wrong'}" data-word="${q.word}"> ${opt}</label>`;
+                    html += `<label style="display:block; margin-bottom:6px; cursor:pointer;"><input type="radio" name="q_${idx}" value="${opt === q.definition ? 'correct' : 'wrong'}"> ${escapeHtml(opt)}</label>`;
                 });
             } else {
-                html += `<div style="font-size:1.1rem; margin-bottom:10px;">中文定義: <strong>${q.definition}</strong></div>`;
-                html += `<input type="text" class="fill-input" data-index="${idx}" data-answer="${q.word}" placeholder="請輸入英文拼寫..." style="padding:6px; width:100%; border:1px solid var(--border); border-radius:6px;">`;
+                html += `<div style="font-size:1.1rem; margin-bottom:10px;">中文定義: <strong>${escapeHtml(q.definition)}</strong></div>`;
+                html += `<input type="text" class="fill-input" data-index="${idx}" data-answer="${escapeHtml(q.word)}" placeholder="請輸入英文拼寫..." style="padding:6px; width:100%; border:1px solid var(--border); border-radius:6px;">`;
             }
             html += `</div>`;
             container.innerHTML += html;
@@ -1248,7 +1383,7 @@
 
     function submitTest(type) {
         let score = 0;
-        let resultsHtml = '';
+        let resultsHtml = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>`;
 
         currentTestQuestions.forEach((q, i) => {
             let isCorrect = false;
@@ -1271,28 +1406,17 @@
 
             if (isCorrect) {
                 score++;
-                let curStats = (testStats[q.word] || 0) + 1;
-                statsRef.child(q.word).set(curStats);
-                // 累計答對 3 次成為精熟單字，並從錯誤單字移除
-                if (curStats >= 3) {
-                    wrongRef.child(q.word).remove();
-                    wrongStatsRef.child(q.word).remove();
-                }
+                let curStats = getWordMapValue(testStats, q.word) || 0;
+                statsRef.child(getWordKey(q.word)).set(curStats + 1);
             } else {
-                let curWrong = (wrongStats[q.word] || 0) + 1;
-                wrongStatsRef.child(q.word).set(curWrong);
-                // 累計答錯 2 次成為錯誤單字，並解除精熟狀態
-                if (curWrong >= 2) {
-                    wrongRef.child(q.word).set(true);
-                    statsRef.child(q.word).set(0);
-                }
+                wrongRef.child(getWordKey(q.word)).set(true);
             }
 
             resultsHtml += `
                 <div style="padding: 12px 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border); background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-color: ${isCorrect ? '#bbf7d0' : '#fecaca'};">
-                    <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${type === 'choice' ? q.word : q.definition} ${isCorrect ? '✅' : '❌'}</div>
-                    <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${userAnsDisplay || '無'}</span></div>
-                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${correctAnsDisplay}</div>` : ''}
+                    <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${escapeHtml(type === 'choice' ? q.word : q.definition)} ${isCorrect ? '✅' : '❌'}</div>
+                    <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${escapeHtml(userAnsDisplay || '無')}</span></div>
+                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${escapeHtml(correctAnsDisplay)}</div>` : ''}
                 </div>
             `;
         });
