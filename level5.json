@@ -39,7 +39,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "abolish a system",
+        "meaning": "廢除制度",
+        "sentence": "The government promised to abolish the outdated system.",
+        "translation": "政府承諾廢除這套過時的制度。"
+      }
+    ]
   },
   {
     "word": "abortion",
@@ -48,25 +55,68 @@
     "definition": "流產；墮胎",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the abortion debate",
+        "meaning": "墮胎議題的辯論",
+        "sentence": "The article examines the abortion debate from several perspectives.",
+        "translation": "這篇文章從不同角度探討墮胎議題的辯論。"
+      }
+    ]
   },
   {
     "word": "abrupt",
     "pos": "adj.",
     "kk": "/əˈbrʌpt/",
     "definition": "突然的；唐突的",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "abruptly",
+        "pos": "adv.",
+        "meaning": "突然地；唐突地"
+      },
+      {
+        "word": "abruptness",
+        "pos": "n.",
+        "meaning": "突然；唐突"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an abrupt change",
+        "meaning": "突然的變化",
+        "sentence": "The sudden announcement brought an abrupt change to their plans.",
+        "translation": "這項突然的公告使他們的計畫出現變化。"
+      }
+    ]
   },
   {
     "word": "absurd",
     "pos": "adj.",
     "kk": "/əˈbsɝd/",
     "definition": "荒謬的；不合理的",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "absurdity",
+        "pos": "n.",
+        "meaning": "荒謬；不合理"
+      },
+      {
+        "word": "absurdly",
+        "pos": "adv.",
+        "meaning": "荒謬地"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an absurd idea",
+        "meaning": "荒謬的想法",
+        "sentence": "Everyone agreed that the proposal was an absurd idea.",
+        "translation": "大家都認為這項提議很荒謬。"
+      }
+    ]
   },
   {
     "word": "abundant",
@@ -86,7 +136,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be abundant in",
+        "meaning": "盛產；富含",
+        "sentence": "The island is abundant in fresh water and tropical plants.",
+        "translation": "這座島嶼盛產淡水與熱帶植物。"
+      }
+    ]
   },
   {
     "word": "abuse",
@@ -106,7 +163,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "abuse of power",
+        "meaning": "濫用權力",
+        "sentence": "The report exposed the official’s abuse of power.",
+        "translation": "這份報告揭露了該官員濫用權力的情況。"
+      }
+    ]
   },
   {
     "word": "accelerate",
@@ -126,7 +190,14 @@
       }
     ],
     "root": "源自拉丁語 accelerare；celer 表示「快速」，引申為加快速度。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "accelerate the process",
+        "meaning": "加快流程",
+        "sentence": "The new software can accelerate the process considerably.",
+        "translation": "新軟體能大幅加快這項流程。"
+      }
+    ]
   },
   {
     "word": "accessible",
@@ -146,7 +217,14 @@
       }
     ],
     "root": "access（接近、使用）＋ -ible（能夠……的），表示能夠接近或使用的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "readily accessible",
+        "meaning": "容易取得的；方便使用的",
+        "sentence": "The information is readily accessible on the school website.",
+        "translation": "這些資訊可在學校網站上輕易取得。"
+      }
+    ]
   },
   {
     "word": "accommodate",
@@ -161,7 +239,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "accommodate the needs of",
+        "meaning": "配合……的需求",
+        "sentence": "The schedule was changed to accommodate the needs of students.",
+        "translation": "課表經過調整，以配合學生的需求。"
+      }
+    ]
   },
   {
     "word": "accommodation",
@@ -176,7 +261,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make an accommodation",
+        "meaning": "作出調整；提供方便",
+        "sentence": "The school made an accommodation for students with special needs.",
+        "translation": "學校為有特殊需求的學生作出了適當安排。"
+      }
+    ]
   },
   {
     "word": "accord",
@@ -207,7 +299,14 @@
     "definition": "會計；會計學",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "account for",
+        "meaning": "解釋；占（比例）",
+        "sentence": "Transportation costs account for a large part of the budget.",
+        "translation": "交通費占了預算的一大部分。"
+      }
+    ]
   },
   {
     "word": "acknowledge",
@@ -222,7 +321,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "acknowledge receipt of",
+        "meaning": "確認收到",
+        "sentence": "Please acknowledge receipt of this email.",
+        "translation": "請確認收到這封電子郵件。"
+      }
+    ]
   },
   {
     "word": "acknowledgement",
@@ -237,7 +343,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in acknowledgement of",
+        "meaning": "為了感謝；作為對……的認可",
+        "sentence": "She received a certificate in acknowledgement of her contribution.",
+        "translation": "她因有所貢獻而獲頒證書，以示肯定。"
+      }
+    ]
   },
   {
     "word": "acquaint",
@@ -268,7 +381,14 @@
     "definition": "取得；獲得物",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the acquisition of",
+        "meaning": "取得；獲得",
+        "sentence": "The acquisition of new skills takes time and practice.",
+        "translation": "新技能的習得需要時間與練習。"
+      }
+    ]
   },
   {
     "word": "activist",
@@ -283,7 +403,14 @@
       }
     ],
     "root": "active（積極的）＋ -ist（從事某種活動的人）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "human rights activist",
+        "meaning": "人權運動者",
+        "sentence": "The human rights activist spoke at the university.",
+        "translation": "這位人權運動者在大學發表演說。"
+      }
+    ]
   },
   {
     "word": "acute",
@@ -298,7 +425,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "acute pain",
+        "meaning": "劇烈疼痛",
+        "sentence": "The patient reported acute pain in his shoulder.",
+        "translation": "病人表示肩膀有劇烈疼痛。"
+      }
+    ]
   },
   {
     "word": "administration",
@@ -318,7 +452,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "under the administration of",
+        "meaning": "在……的管理／執政期間",
+        "sentence": "The policy was introduced under the administration of the new mayor.",
+        "translation": "這項政策是在新市長任內推行的。"
+      }
+    ]
   },
   {
     "word": "administrative",
@@ -333,7 +474,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "administrative duties",
+        "meaning": "行政職務",
+        "sentence": "She is responsible for several administrative duties.",
+        "translation": "她負責多項行政工作。"
+      }
+    ]
   },
   {
     "word": "administrator",
@@ -348,7 +496,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "system administrator",
+        "meaning": "系統管理員",
+        "sentence": "The system administrator helped us solve the login problem.",
+        "translation": "系統管理員協助我們解決登入問題。"
+      }
+    ]
   },
   {
     "word": "adolescent",
@@ -363,7 +518,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "adolescent years",
+        "meaning": "青春期",
+        "sentence": "Many people develop stronger interests during their adolescent years.",
+        "translation": "許多人在青春期逐漸培養出更強烈的興趣。"
+      }
+    ]
   },
   {
     "word": "adore",
@@ -383,7 +545,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "adore someone",
+        "meaning": "非常喜愛某人",
+        "sentence": "Her grandparents adore her and always support her.",
+        "translation": "她的祖父母非常疼愛她，而且總是支持她。"
+      }
+    ]
   },
   {
     "word": "adverse",
@@ -425,7 +594,14 @@
       }
     ],
     "root": "源自拉丁語 advocare，含 ad-（朝向）＋ voc（呼喚），原指被召來提供協助的人。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "advocate for",
+        "meaning": "提倡；支持",
+        "sentence": "The group advocates for equal educational opportunities.",
+        "translation": "這個團體提倡平等的教育機會。"
+      }
+    ]
   },
   {
     "word": "affection",
@@ -445,7 +621,14 @@
       }
     ],
     "root": "affect（影響；感情）＋ -ion（名詞字尾），表示情感或喜愛。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "show affection",
+        "meaning": "表達情感；表達愛意",
+        "sentence": "The dog shows affection by staying close to its owner.",
+        "translation": "這隻狗會待在主人身邊，以表達親近之情。"
+      }
+    ]
   },
   {
     "word": "agenda",
@@ -524,7 +707,14 @@
       }
     ],
     "root": "agri-（田地）＋ culture（耕作、培養），與農業有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "agricultural land",
+        "meaning": "農地",
+        "sentence": "The region has lost much of its agricultural land to development.",
+        "translation": "這個地區有許多農地因開發而消失。"
+      }
+    ]
   },
   {
     "word": "aisle",
@@ -555,7 +745,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "alcoholic beverage",
+        "meaning": "含酒精飲料",
+        "sentence": "The label clearly states that the product is an alcoholic beverage.",
+        "translation": "標籤清楚標示這項產品是含酒精飲料。"
+      }
+    ]
   },
   {
     "word": "alien",
@@ -607,8 +804,15 @@
         "meaning": "過敏的"
       }
     ],
-    "root": "",
-    "phrases": []
+    "root": "源自希臘語 allos（其他）＋ ergon（作用），原指身體對某些物質產生的異常反應。",
+    "phrases": [
+      {
+        "phrase": "an allergy to",
+        "meaning": "對……過敏",
+        "sentence": "He has an allergy to certain kinds of nuts.",
+        "translation": "他對某些種類的堅果過敏。"
+      }
+    ]
   },
   {
     "word": "alliance",
@@ -623,7 +827,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "form an alliance",
+        "meaning": "結成聯盟",
+        "sentence": "The two organizations decided to form an alliance.",
+        "translation": "這兩個組織決定結成聯盟。"
+      }
+    ]
   },
   {
     "word": "allocate",
@@ -638,14 +849,32 @@
       }
     ],
     "root": "loc（位置）＋ -ate（動詞字尾），核心概念為把資源安排到特定位置或用途。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "allocate resources",
+        "meaning": "分配資源",
+        "sentence": "The manager must allocate resources carefully.",
+        "translation": "經理必須謹慎分配資源。"
+      }
+    ]
   },
   {
     "word": "ally",
     "pos": "n./v.",
     "kk": "/ˈælaɪ/",
     "definition": "盟友；使結盟",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "alliance",
+        "pos": "n.",
+        "meaning": "同盟；聯盟"
+      },
+      {
+        "word": "allied",
+        "pos": "adj.",
+        "meaning": "結盟的；相關的"
+      }
+    ],
     "root": "",
     "phrases": [
       {
@@ -663,7 +892,14 @@
     "definition": "在……旁邊；與……並肩；與……同時",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "alongside one another",
+        "meaning": "彼此並肩；一起合作",
+        "sentence": "The two teams worked alongside one another to finish the project.",
+        "translation": "兩個團隊彼此合作，完成了這項專案。"
+      }
+    ]
   },
   {
     "word": "alter",
@@ -678,7 +914,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "alter the course of",
+        "meaning": "改變……的進程",
+        "sentence": "One discovery can alter the course of scientific research.",
+        "translation": "一項發現就可能改變科學研究的進程。"
+      }
+    ]
   },
   {
     "word": "alternate",
@@ -720,7 +963,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "amend the law",
+        "meaning": "修訂法律",
+        "sentence": "Lawmakers voted to amend the law.",
+        "translation": "立法者投票修訂這項法律。"
+      }
+    ]
   },
   {
     "word": "ample",
@@ -756,7 +1006,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "financial analyst",
+        "meaning": "金融分析師",
+        "sentence": "The financial analyst presented a report on the market.",
+        "translation": "這位金融分析師提出了一份市場報告。"
+      }
+    ]
   },
   {
     "word": "anonymous",
@@ -819,7 +1076,14 @@
     "definition": "adj. 古董的；古老的；n. 古董",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "antique shop",
+        "meaning": "古董店",
+        "sentence": "We found a beautiful clock in an antique shop.",
+        "translation": "我們在一家古董店找到一座漂亮的時鐘。"
+      }
+    ]
   },
   {
     "word": "applause",
@@ -856,7 +1120,14 @@
       }
     ],
     "root": "apply（應用）＋ -ance（名詞字尾），指供特定用途使用的器具。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "household appliance",
+        "meaning": "家用電器",
+        "sentence": "Always read the instructions before using a household appliance.",
+        "translation": "使用家用電器前，務必先閱讀說明。"
+      }
+    ]
   },
   {
     "word": "apt",
@@ -903,7 +1174,14 @@
       }
     ],
     "root": "源自希臘語 archi-（主要的）＋ tekton（建造者），原指主要建造者。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "landscape architect",
+        "meaning": "景觀建築師",
+        "sentence": "The landscape architect designed a garden for the public.",
+        "translation": "這位景觀建築師為大眾設計了一座花園。"
+      }
+    ]
   },
   {
     "word": "architecture",
@@ -918,7 +1196,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "modern architecture",
+        "meaning": "現代建築",
+        "sentence": "The city is famous for its modern architecture.",
+        "translation": "這座城市以現代建築聞名。"
+      }
+    ]
   },
   {
     "word": "arena",
@@ -927,7 +1212,14 @@
     "definition": "競技場；活動領域",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the political arena",
+        "meaning": "政治舞台",
+        "sentence": "She has become an influential figure in the political arena.",
+        "translation": "她已成為政治舞台上具有影響力的人物。"
+      }
+    ]
   },
   {
     "word": "arouse",
@@ -996,7 +1288,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "articulate one’s thoughts",
+        "meaning": "清楚表達想法",
+        "sentence": "Students should learn to articulate their thoughts clearly.",
+        "translation": "學生應該學會清楚表達自己的想法。"
+      }
+    ]
   },
   {
     "word": "ass",
@@ -1020,7 +1319,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "assault charges",
+        "meaning": "攻擊罪指控",
+        "sentence": "The suspect is facing assault charges.",
+        "translation": "這名嫌疑人正面臨攻擊罪指控。"
+      }
+    ]
   },
   {
     "word": "assert",
@@ -1067,7 +1373,14 @@
       }
     ],
     "root": "源自拉丁語 assidere（坐在旁邊協助判定），後來引申為評估、估價。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "assess the situation",
+        "meaning": "評估情況",
+        "sentence": "Before making a decision, we need to assess the situation.",
+        "translation": "做決定之前，我們需要先評估情況。"
+      }
+    ]
   },
   {
     "word": "assessment",
@@ -1082,7 +1395,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "under assessment",
+        "meaning": "正在評估中",
+        "sentence": "The proposal is still under assessment.",
+        "translation": "這項提案仍在評估中。"
+      }
+    ]
   },
   {
     "word": "asset",
@@ -1113,7 +1433,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make an assumption",
+        "meaning": "作出假設",
+        "sentence": "Do not make an assumption without checking the facts.",
+        "translation": "未查證事實之前，不要妄下假設。"
+      }
+    ]
   },
   {
     "word": "astonish",
@@ -1133,7 +1460,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "astonish the audience",
+        "meaning": "使觀眾驚訝",
+        "sentence": "The young musician managed to astonish the audience.",
+        "translation": "這位年輕音樂家成功讓觀眾感到驚艷。"
+      }
+    ]
   },
   {
     "word": "astonishment",
@@ -1164,7 +1498,14 @@
     "definition": "田徑運動；體育活動",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "track and field athletics",
+        "meaning": "田徑運動",
+        "sentence": "She won several awards in track and field athletics.",
+        "translation": "她在田徑運動項目中獲得了多項獎項。"
+      }
+    ]
   },
   {
     "word": "attendance",
@@ -1200,7 +1541,14 @@
     "definition": "閣樓；頂樓",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "attic space",
+        "meaning": "閣樓空間",
+        "sentence": "They use the attic space to store old furniture.",
+        "translation": "他們利用閣樓空間存放舊家具。"
+      }
+    ]
   },
   {
     "word": "attorney",
@@ -1209,7 +1557,14 @@
     "definition": "律師；代理人",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "attorney-at-law",
+        "meaning": "律師",
+        "sentence": "The document was reviewed by an experienced attorney-at-law.",
+        "translation": "這份文件由一位資深律師審閱。"
+      }
+    ]
   },
   {
     "word": "attribute",
@@ -1267,7 +1622,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "authorize a payment",
+        "meaning": "批准付款",
+        "sentence": "Only the department head can authorize a payment.",
+        "translation": "只有部門主管能批准付款。"
+      }
+    ]
   },
   {
     "word": "autonomy",
@@ -1379,7 +1741,14 @@
     "definition": "旗幟；橫幅；標語",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "raise a banner",
+        "meaning": "升起旗幟",
+        "sentence": "The students raised a banner to celebrate the school anniversary.",
+        "translation": "學生升起旗幟來慶祝校慶。"
+      }
+    ]
   },
   {
     "word": "barren",
@@ -1388,7 +1757,14 @@
     "definition": "貧瘠的；不結果實的；荒蕪的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "barren land",
+        "meaning": "貧瘠的土地",
+        "sentence": "Few crops can grow on this barren land.",
+        "translation": "這片貧瘠的土地上幾乎種不出作物。"
+      }
+    ]
   },
   {
     "word": "batch",
@@ -1429,7 +1805,14 @@
     "definition": "個人物品；所有物",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "personal belongings",
+        "meaning": "個人物品",
+        "sentence": "Please make sure you have all your personal belongings.",
+        "translation": "請確認你帶齊了所有個人物品。"
+      }
+    ]
   },
   {
     "word": "beloved",
@@ -1438,7 +1821,14 @@
     "definition": "深愛的；心愛的人",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "beloved by many",
+        "meaning": "深受許多人喜愛",
+        "sentence": "The author was beloved by readers around the world.",
+        "translation": "這位作家深受世界各地讀者喜愛。"
+      }
+    ]
   },
   {
     "word": "beneficial",
@@ -1458,7 +1848,14 @@
       }
     ],
     "root": "bene-（好）＋ fic（做、造成）＋ -ial（形容詞字尾），表示帶來好處的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be beneficial to",
+        "meaning": "對……有益",
+        "sentence": "Regular reading is beneficial to language development.",
+        "translation": "定期閱讀有益於語言發展。"
+      }
+    ]
   },
   {
     "word": "betray",
@@ -1478,7 +1875,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "betray someone’s trust",
+        "meaning": "辜負某人的信任",
+        "sentence": "He promised never to betray his friend’s trust.",
+        "translation": "他承諾絕不辜負朋友的信任。"
+      }
+    ]
   },
   {
     "word": "beware",
@@ -1536,7 +1940,14 @@
     "definition": "n. 出價；投標；努力嘗試；v. 出價；投標；努力爭取",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "bid farewell to",
+        "meaning": "向……告別",
+        "sentence": "The students gathered to bid farewell to their teacher.",
+        "translation": "學生們聚在一起向老師道別。"
+      }
+    ]
   },
   {
     "word": "biological",
@@ -1556,7 +1967,14 @@
       }
     ],
     "root": "bio-（生命）＋ -logy（學問、研究）＋ -ical（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "biological diversity",
+        "meaning": "生物多樣性",
+        "sentence": "The national park protects the region’s biological diversity.",
+        "translation": "這座國家公園保護該地區的生物多樣性。"
+      }
+    ]
   },
   {
     "word": "bizarre",
@@ -1647,7 +2065,14 @@
     "definition": "保鑣；隨身警衛",
     "derivatives": [],
     "root": "body（身體、人身）＋ guard（守衛），為複合字。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "personal bodyguard",
+        "meaning": "私人保鑣",
+        "sentence": "The celebrity arrived with a personal bodyguard.",
+        "translation": "這位名人由私人保鑣陪同抵達。"
+      }
+    ]
   },
   {
     "word": "bolt",
@@ -1678,7 +2103,14 @@
     "definition": "獎金，紅利",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "annual bonus",
+        "meaning": "年度獎金",
+        "sentence": "Employees may receive an annual bonus based on performance.",
+        "translation": "員工可能會依照工作表現獲得年度獎金。"
+      }
+    ]
   },
   {
     "word": "boom",
@@ -1687,7 +2119,14 @@
     "definition": "n. 繁榮；激增；隆隆聲；v. 迅速發展；發出轟鳴聲",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "economic boom",
+        "meaning": "經濟繁榮",
+        "sentence": "The town grew rapidly during the economic boom.",
+        "translation": "這座城鎮在經濟繁榮時期迅速發展。"
+      }
+    ]
   },
   {
     "word": "boost",
@@ -1712,7 +2151,14 @@
     "definition": "小亭；攤位；隔間；（投票）票亭",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ticket booth",
+        "meaning": "售票亭",
+        "sentence": "We bought our tickets at the booth near the entrance.",
+        "translation": "我們在入口附近的售票亭買票。"
+      }
+    ]
   },
   {
     "word": "boredom",
@@ -1748,7 +2194,14 @@
     "definition": "n. 跳躍；界限；v. 跳躍；adj. 一定會……的；前往……的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be bound for",
+        "meaning": "前往；開往",
+        "sentence": "The train is bound for the southern coast.",
+        "translation": "這班火車開往南部海岸。"
+      }
+    ]
   },
   {
     "word": "boundary",
@@ -1757,7 +2210,14 @@
     "definition": "邊界，分界線",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cross the boundary",
+        "meaning": "跨越界線",
+        "sentence": "The discussion crossed the boundary between science and ethics.",
+        "translation": "這場討論跨越了科學與倫理之間的界線。"
+      }
+    ]
   },
   {
     "word": "boxer",
@@ -1766,7 +2226,14 @@
     "definition": "拳擊手；拳師犬",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "professional boxer",
+        "meaning": "職業拳擊手",
+        "sentence": "The professional boxer thanked the crowd after the match.",
+        "translation": "這位職業拳擊手在比賽後向觀眾致謝。"
+      }
+    ]
   },
   {
     "word": "breakthrough",
@@ -1791,7 +2258,14 @@
     "definition": "公事包；手提文件箱",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "carry a briefcase",
+        "meaning": "提著公事包",
+        "sentence": "He arrived at the meeting carrying a briefcase.",
+        "translation": "他提著公事包來到會議現場。"
+      }
+    ]
   },
   {
     "word": "bronze",
@@ -1800,7 +2274,14 @@
     "definition": "青銅；青銅色的；銅牌",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "bronze medal",
+        "meaning": "銅牌",
+        "sentence": "Our team won a bronze medal in the competition.",
+        "translation": "我們的隊伍在比賽中贏得銅牌。"
+      }
+    ]
   },
   {
     "word": "browse",
@@ -1837,7 +2318,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "bruise easily",
+        "meaning": "容易瘀青",
+        "sentence": "Her skin bruises easily, so she is careful during sports.",
+        "translation": "她的皮膚容易瘀青，因此運動時會特別小心。"
+      }
+    ]
   },
   {
     "word": "bulk",
@@ -1874,7 +2362,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "bully someone into doing something",
+        "meaning": "逼迫某人做某事",
+        "sentence": "No one should bully a classmate into doing something against their will.",
+        "translation": "任何人都不應逼迫同學做違背意願的事。"
+      }
+    ]
   },
   {
     "word": "bureau",
@@ -1925,7 +2420,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "burial ground",
+        "meaning": "墓地；埋葬地",
+        "sentence": "The ancient burial ground was carefully preserved.",
+        "translation": "這處古代墓地受到妥善保存。"
+      }
+    ]
   },
   {
     "word": "butcher",
@@ -1934,7 +2436,14 @@
     "definition": "n. 屠夫；肉販；v. 屠宰；笨拙地處理；徹底弄砸",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "butcher’s shop",
+        "meaning": "肉舖",
+        "sentence": "The butcher’s shop opens early every morning.",
+        "translation": "這家肉舖每天一大早就營業。"
+      }
+    ]
   },
   {
     "word": "calcium",
@@ -1943,7 +2452,14 @@
     "definition": "鈣",
     "derivatives": [],
     "root": "源自拉丁語 calx，意為「石灰」，元素名稱與石灰質有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "calcium deficiency",
+        "meaning": "缺鈣",
+        "sentence": "A balanced diet can help prevent calcium deficiency.",
+        "translation": "均衡飲食有助於預防缺鈣。"
+      }
+    ]
   },
   {
     "word": "canal",
@@ -1952,7 +2468,14 @@
     "definition": "運河",
     "derivatives": [],
     "root": "源自拉丁語 canalis，意為「水道、管道」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "canal system",
+        "meaning": "運河系統",
+        "sentence": "The old canal system once connected several trading towns.",
+        "translation": "這套舊運河系統曾連接數個貿易城鎮。"
+      }
+    ]
   },
   {
     "word": "canvas",
@@ -1961,7 +2484,14 @@
     "definition": "帆布；畫布",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "canvas bag",
+        "meaning": "帆布袋",
+        "sentence": "She carried her books in a canvas bag.",
+        "translation": "她用帆布袋裝書。"
+      }
+    ]
   },
   {
     "word": "capability",
@@ -1981,7 +2511,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "have the capability to",
+        "meaning": "有能力做……",
+        "sentence": "The device has the capability to store large amounts of data.",
+        "translation": "這台裝置有能力儲存大量資料。"
+      }
+    ]
   },
   {
     "word": "carbon",
@@ -1990,7 +2527,14 @@
     "definition": "碳",
     "derivatives": [],
     "root": "源自拉丁語 carbo，意為「煤、木炭」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "carbon footprint",
+        "meaning": "碳足跡",
+        "sentence": "Taking public transportation can reduce your carbon footprint.",
+        "translation": "搭乘大眾運輸可以減少碳足跡。"
+      }
+    ]
   },
   {
     "word": "carnival",
@@ -1999,7 +2543,14 @@
     "definition": "嘉年華會；狂歡節",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "carnival atmosphere",
+        "meaning": "嘉年華氣氛",
+        "sentence": "Music and colorful decorations created a carnival atmosphere.",
+        "translation": "音樂與繽紛的裝飾營造出嘉年華般的氣氛。"
+      }
+    ]
   },
   {
     "word": "casino",
@@ -2008,7 +2559,14 @@
     "definition": "賭場",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "casino industry",
+        "meaning": "賭場產業",
+        "sentence": "The documentary examines the economic impact of the casino industry.",
+        "translation": "這部紀錄片探討賭場產業對經濟的影響。"
+      }
+    ]
   },
   {
     "word": "cathedral",
@@ -2042,7 +2600,14 @@
     "definition": "小心的，謹慎的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cautious optimism",
+        "meaning": "謹慎的樂觀",
+        "sentence": "The team expressed cautious optimism about the results.",
+        "translation": "團隊對結果表達了審慎的樂觀。"
+      }
+    ]
   },
   {
     "word": "celebrity",
@@ -2062,7 +2627,14 @@
       }
     ],
     "root": "源自拉丁語 celeber（著名的、受人敬重的）＋ -ity（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "celebrity status",
+        "meaning": "名人地位",
+        "sentence": "She never expected the role to bring her celebrity status.",
+        "translation": "她從未料到這個角色會讓她成為名人。"
+      }
+    ]
   },
   {
     "word": "cemetery",
@@ -2080,7 +2652,14 @@
     "definition": "典禮，儀式",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "opening ceremony",
+        "meaning": "開幕典禮",
+        "sentence": "The athletes marched into the stadium during the opening ceremony.",
+        "translation": "運動員在開幕典禮期間列隊走進體育場。"
+      }
+    ]
   },
   {
     "word": "certainty",
@@ -2127,7 +2706,14 @@
       }
     ],
     "root": "源自拉丁語 certus（確定的）＋ facere（使成為），原有「使某事獲得確證」之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "birth certificate",
+        "meaning": "出生證明",
+        "sentence": "You may need a birth certificate to complete the application.",
+        "translation": "完成申請可能需要出生證明。"
+      }
+    ]
   },
   {
     "word": "chaos",
@@ -2178,7 +2764,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "characterize as",
+        "meaning": "將……描述為",
+        "sentence": "Critics characterized the film as a thoughtful drama.",
+        "translation": "影評人將這部電影描述為一部發人深省的劇情片。"
+      }
+    ]
   },
   {
     "word": "chef",
@@ -2187,7 +2780,14 @@
     "definition": "廚師",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "head chef",
+        "meaning": "主廚",
+        "sentence": "The head chef introduced the menu to the guests.",
+        "translation": "主廚向客人介紹菜單。"
+      }
+    ]
   },
   {
     "word": "choir",
@@ -2196,7 +2796,14 @@
     "definition": "唱詩班",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "school choir",
+        "meaning": "學校合唱團",
+        "sentence": "The school choir performed at the annual concert.",
+        "translation": "學校合唱團在年度音樂會中演出。"
+      }
+    ]
   },
   {
     "word": "chord",
@@ -2205,7 +2812,14 @@
     "definition": "和弦；弦；弦線",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "strike a chord with",
+        "meaning": "引起……共鳴",
+        "sentence": "The story struck a chord with young readers.",
+        "translation": "這個故事引起了年輕讀者的共鳴。"
+      }
+    ]
   },
   {
     "word": "chore",
@@ -2214,7 +2828,14 @@
     "definition": "例行工作；家務",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "household chores",
+        "meaning": "家事",
+        "sentence": "The children share the household chores.",
+        "translation": "孩子們分擔家事。"
+      }
+    ]
   },
   {
     "word": "chronic",
@@ -2223,7 +2844,14 @@
     "definition": "慢性的；長期的；習慣性的",
     "derivatives": [],
     "root": "源自希臘語 chronos，意為「時間」，因此 chronic 常指持續很久的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "chronic condition",
+        "meaning": "慢性病況",
+        "sentence": "The clinic provides support for people with chronic conditions.",
+        "translation": "這間診所為患有慢性病況的人提供協助。"
+      }
+    ]
   },
   {
     "word": "chubby",
@@ -2241,7 +2869,14 @@
     "definition": "厚塊；大部分；大量",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a chunk of",
+        "meaning": "一大塊；一部分",
+        "sentence": "A large chunk of the budget was spent on equipment.",
+        "translation": "預算中有很大一部分花在設備上。"
+      }
+    ]
   },
   {
     "word": "circuit",
@@ -2250,7 +2885,14 @@
     "definition": "電路；環線；巡迴路線；巡迴活動",
     "derivatives": [],
     "root": "circum-（周圍）＋ ire（走），原有「走一圈」之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "short circuit",
+        "meaning": "短路",
+        "sentence": "The old cable caused a short circuit.",
+        "translation": "老舊電線造成了短路。"
+      }
+    ]
   },
   {
     "word": "cite",
@@ -2259,7 +2901,14 @@
     "definition": "引用；引述；傳喚",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cite a source",
+        "meaning": "引用資料來源",
+        "sentence": "Writers should cite a source whenever they use outside information.",
+        "translation": "作者使用外部資訊時應該引用資料來源。"
+      }
+    ]
   },
   {
     "word": "citizenship",
@@ -2274,7 +2923,14 @@
       }
     ],
     "root": "citizen（公民）＋ -ship（身分、狀態），表示公民身分。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "citizenship rights",
+        "meaning": "公民權利",
+        "sentence": "The course introduces students to citizenship rights and responsibilities.",
+        "translation": "這門課向學生介紹公民權利與責任。"
+      }
+    ]
   },
   {
     "word": "civic",
@@ -2283,7 +2939,14 @@
     "definition": "公民的；市民的；城市的",
     "derivatives": [],
     "root": "源自拉丁語 civis，意為「公民」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "civic duty",
+        "meaning": "公民義務",
+        "sentence": "Voting is often regarded as an important civic duty.",
+        "translation": "投票通常被視為一項重要的公民義務。"
+      }
+    ]
   },
   {
     "word": "clarity",
@@ -2303,7 +2966,14 @@
       }
     ],
     "root": "clar（清楚、明亮）＋ -ity（名詞字尾），表示清晰、明確。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "clarity of thought",
+        "meaning": "思路清晰",
+        "sentence": "Good notes can improve clarity of thought.",
+        "translation": "良好的筆記能讓思路更加清晰。"
+      }
+    ]
   },
   {
     "word": "clause",
@@ -2312,7 +2982,14 @@
     "definition": "子句；條款",
     "derivatives": [],
     "root": "源自拉丁語 claudere，意為「關閉」，語法上的 clause 是構成句子的封閉單位。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "subordinate clause",
+        "meaning": "從屬子句",
+        "sentence": "A subordinate clause cannot always stand alone as a sentence.",
+        "translation": "從屬子句不一定能獨立成為句子。"
+      }
+    ]
   },
   {
     "word": "cling",
@@ -2348,7 +3025,14 @@
       }
     ],
     "root": "源自希臘語 kline（床），原與病床、臨床照護有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "clinical research",
+        "meaning": "臨床研究",
+        "sentence": "The report summarizes recent clinical research.",
+        "translation": "這份報告整理了近期的臨床研究。"
+      }
+    ]
   },
   {
     "word": "cluster",
@@ -2373,7 +3057,14 @@
     "definition": "古柯鹼",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cocaine addiction",
+        "meaning": "古柯鹼成癮",
+        "sentence": "The documentary explores the social effects of cocaine addiction.",
+        "translation": "這部紀錄片探討古柯鹼成癮造成的社會影響。"
+      }
+    ]
   },
   {
     "word": "coffin",
@@ -2402,7 +3093,14 @@
       }
     ],
     "root": "源自拉丁語 cognoscere（認識、知道），與認知和思考有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cognitive skills",
+        "meaning": "認知能力",
+        "sentence": "Puzzles can provide practice in several cognitive skills.",
+        "translation": "益智遊戲能讓人練習多種認知能力。"
+      }
+    ]
   },
   {
     "word": "coherent",
@@ -2422,7 +3120,14 @@
       }
     ],
     "root": "co-（一起）＋ haer（黏附、連結），引申為連貫一致的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a coherent argument",
+        "meaning": "連貫的論點",
+        "sentence": "The student presented a coherent argument supported by evidence.",
+        "translation": "這名學生提出了有證據支持且連貫的論點。"
+      }
+    ]
   },
   {
     "word": "coincidence",
@@ -2464,7 +3169,14 @@
       }
     ],
     "root": "co-（共同）＋ labor（工作）＋ -ation（名詞字尾），表示合作。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in collaboration with",
+        "meaning": "與……合作",
+        "sentence": "The exhibition was created in collaboration with local artists.",
+        "translation": "這場展覽是與當地藝術家合作完成的。"
+      }
+    ]
   },
   {
     "word": "collective",
@@ -2484,7 +3196,14 @@
       }
     ],
     "root": "collect（收集、聚集）＋ -ive（形容詞字尾），表示集體的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "collective effort",
+        "meaning": "共同努力",
+        "sentence": "The project succeeded through collective effort.",
+        "translation": "這項專案是靠大家共同努力才成功的。"
+      }
+    ]
   },
   {
     "word": "collector",
@@ -2493,7 +3212,14 @@
     "definition": "收藏家；收集者；收款員",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "art collector",
+        "meaning": "藝術品收藏家",
+        "sentence": "The art collector donated several paintings to the museum.",
+        "translation": "這位藝術品收藏家捐贈了數幅畫作給博物館。"
+      }
+    ]
   },
   {
     "word": "colonial",
@@ -2513,7 +3239,14 @@
       }
     ],
     "root": "colony（殖民地）＋ -al（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "colonial rule",
+        "meaning": "殖民統治",
+        "sentence": "The museum displays documents from the period of colonial rule.",
+        "translation": "博物館展示了殖民統治時期的文件。"
+      }
+    ]
   },
   {
     "word": "columnist",
@@ -2528,7 +3261,14 @@
       }
     ],
     "root": "column（專欄）＋ -ist（從事某工作的人）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "newspaper columnist",
+        "meaning": "報紙專欄作家",
+        "sentence": "The newspaper columnist writes about education and culture.",
+        "translation": "這位報紙專欄作家撰寫教育與文化相關文章。"
+      }
+    ]
   },
   {
     "word": "combat",
@@ -2543,7 +3283,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "combat disease",
+        "meaning": "對抗疾病",
+        "sentence": "Researchers around the world are working to combat disease.",
+        "translation": "世界各地的研究人員正努力對抗疾病。"
+      }
+    ]
   },
   {
     "word": "comedian",
@@ -2563,7 +3310,14 @@
       }
     ],
     "root": "comedy（喜劇）＋ -ian（從事相關活動的人）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "stand-up comedian",
+        "meaning": "單口喜劇演員",
+        "sentence": "The stand-up comedian made the audience laugh.",
+        "translation": "這位單口喜劇演員逗得觀眾哈哈大笑。"
+      }
+    ]
   },
   {
     "word": "commentary",
@@ -2583,7 +3337,14 @@
       }
     ],
     "root": "comment（評論）＋ -ary（與……有關的）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "running commentary",
+        "meaning": "連續解說",
+        "sentence": "The guide provided a running commentary during the tour.",
+        "translation": "導覽員在參觀途中持續進行解說。"
+      }
+    ]
   },
   {
     "word": "commentator",
@@ -2592,7 +3353,14 @@
     "definition": "評論員；解說員",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sports commentator",
+        "meaning": "體育評論員",
+        "sentence": "The sports commentator described the final moments of the game.",
+        "translation": "體育評論員描述了比賽最後的時刻。"
+      }
+    ]
   },
   {
     "word": "commission",
@@ -2607,7 +3375,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "commission a portrait",
+        "meaning": "委託繪製肖像",
+        "sentence": "The family commissioned a portrait of their grandparents.",
+        "translation": "這家人委託畫家繪製祖父母的肖像。"
+      }
+    ]
   },
   {
     "word": "commitment",
@@ -2627,7 +3402,14 @@
       }
     ],
     "root": "commit（承諾、投入）＋ -ment（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "commitment to",
+        "meaning": "對……的承諾／投入",
+        "sentence": "Her commitment to education inspired her colleagues.",
+        "translation": "她對教育的投入激勵了同事。"
+      }
+    ]
   },
   {
     "word": "commodity",
@@ -2636,7 +3418,14 @@
     "definition": "商品；日用品；有用之物",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "commodity market",
+        "meaning": "商品市場",
+        "sentence": "Prices in the commodity market can change quickly.",
+        "translation": "商品市場的價格可能迅速變動。"
+      }
+    ]
   },
   {
     "word": "communism",
@@ -2656,7 +3445,14 @@
       }
     ],
     "root": "commun-（共同、共有）＋ -ism（主義），表示共產主義。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the theory of communism",
+        "meaning": "共產主義理論",
+        "sentence": "The class discussed the theory of communism in its historical context.",
+        "translation": "課堂以歷史背景為脈絡討論共產主義理論。"
+      }
+    ]
   },
   {
     "word": "communist",
@@ -2671,7 +3467,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "communist movement",
+        "meaning": "共產主義運動",
+        "sentence": "The book describes the history of the communist movement.",
+        "translation": "這本書描述了共產主義運動的歷史。"
+      }
+    ]
   },
   {
     "word": "commute",
@@ -2686,7 +3489,14 @@
       }
     ],
     "root": "源自拉丁語 commutare，含 com-（共同／完全）＋ mut（改變），有交換、改變之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "commute to work",
+        "meaning": "通勤上班",
+        "sentence": "She commutes to work by train every day.",
+        "translation": "她每天搭火車通勤上班。"
+      }
+    ]
   },
   {
     "word": "commuter",
@@ -2695,7 +3505,14 @@
     "definition": "通勤者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "daily commuter",
+        "meaning": "每日通勤者",
+        "sentence": "The station is crowded with daily commuters in the morning.",
+        "translation": "這座車站早上擠滿了每日通勤者。"
+      }
+    ]
   },
   {
     "word": "compact",
@@ -2704,7 +3521,14 @@
     "definition": "緊密的；小型的；壓縮；契約",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compact design",
+        "meaning": "緊湊的設計",
+        "sentence": "The camera has a compact design and is easy to carry.",
+        "translation": "這台相機採用緊湊設計，方便攜帶。"
+      }
+    ]
   },
   {
     "word": "comparable",
@@ -2724,7 +3548,14 @@
       }
     ],
     "root": "compare（比較）＋ -able（能夠……的），表示可比較的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be comparable to",
+        "meaning": "可與……相比",
+        "sentence": "The quality of this product is comparable to that of the leading brand.",
+        "translation": "這項產品的品質可與領導品牌相比。"
+      }
+    ]
   },
   {
     "word": "compassion",
@@ -2739,16 +3570,41 @@
       }
     ],
     "root": "com-（共同）＋ passion（感受、受苦），字面有「一同感受」之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "show compassion for",
+        "meaning": "對……表現同情／關懷",
+        "sentence": "The volunteers showed compassion for families in need.",
+        "translation": "志工對有需要的家庭表現出關懷。"
+      }
+    ]
   },
   {
     "word": "compassionate",
     "pos": "adj.",
     "kk": "/kəˈmpæʃənət/",
     "definition": "有同情心的；慈悲的",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "compassion",
+        "pos": "n.",
+        "meaning": "同情；憐憫"
+      },
+      {
+        "word": "compassionately",
+        "pos": "adv.",
+        "meaning": "富有同情心地"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compassionate care",
+        "meaning": "充滿關懷的照護",
+        "sentence": "The staff are known for providing compassionate care.",
+        "translation": "這裡的工作人員以提供有溫度的照護而聞名。"
+      }
+    ]
   },
   {
     "word": "compatible",
@@ -2768,7 +3624,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be compatible with",
+        "meaning": "與……相容；適合",
+        "sentence": "This application is compatible with most modern devices.",
+        "translation": "這個應用程式與大多數現代裝置相容。"
+      }
+    ]
   },
   {
     "word": "compel",
@@ -2788,7 +3651,14 @@
       }
     ],
     "root": "源自拉丁語 compellere，含 com-（一起）＋ pell（推、驅使）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compel someone to do something",
+        "meaning": "迫使某人做某事",
+        "sentence": "The evidence compelled the committee to reconsider its decision.",
+        "translation": "這些證據迫使委員會重新考慮決定。"
+      }
+    ]
   },
   {
     "word": "compensate",
@@ -2808,7 +3678,14 @@
       }
     ],
     "root": "源自拉丁語 compensare，含 com-（一起）＋ pens（稱量），引申為補償、平衡。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compensate for",
+        "meaning": "補償；彌補",
+        "sentence": "Extra practice can help compensate for missed lessons.",
+        "translation": "額外練習有助於彌補缺課的內容。"
+      }
+    ]
   },
   {
     "word": "compensation",
@@ -2823,7 +3700,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compensation package",
+        "meaning": "薪酬福利方案",
+        "sentence": "The company offered a competitive compensation package.",
+        "translation": "公司提供具競爭力的薪酬福利方案。"
+      }
+    ]
   },
   {
     "word": "competence",
@@ -2843,7 +3727,14 @@
       }
     ],
     "root": "源自拉丁語 competere，含 com-（共同）＋ petere（追求、努力），後指勝任能力。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "professional competence",
+        "meaning": "專業能力",
+        "sentence": "The position requires professional competence and patience.",
+        "translation": "這個職位需要專業能力與耐心。"
+      }
+    ]
   },
   {
     "word": "competent",
@@ -2858,7 +3749,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be competent at",
+        "meaning": "擅長；有能力做好",
+        "sentence": "She is competent at organizing large events.",
+        "translation": "她很擅長籌辦大型活動。"
+      }
+    ]
   },
   {
     "word": "complexity",
@@ -2873,7 +3771,14 @@
       }
     ],
     "root": "complex（複雜的）＋ -ity（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the complexity of",
+        "meaning": "……的複雜性",
+        "sentence": "The documentary explains the complexity of the issue.",
+        "translation": "這部紀錄片解釋了這個議題的複雜性。"
+      }
+    ]
   },
   {
     "word": "compliance",
@@ -2893,7 +3798,14 @@
       }
     ],
     "root": "comply（遵從）＋ -ance（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in compliance with",
+        "meaning": "遵守；符合",
+        "sentence": "The building was designed in compliance with safety regulations.",
+        "translation": "這棟建築依照安全規範設計。"
+      }
+    ]
   },
   {
     "word": "complication",
@@ -2908,7 +3820,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a serious complication",
+        "meaning": "嚴重的併發症；棘手的複雜情況",
+        "sentence": "The doctor explained that infection could be a serious complication.",
+        "translation": "醫生解釋，感染可能成為嚴重的併發症。"
+      }
+    ]
   },
   {
     "word": "compliment",
@@ -2923,7 +3842,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pay someone a compliment",
+        "meaning": "稱讚某人",
+        "sentence": "He paid his teammate a compliment after the presentation.",
+        "translation": "簡報結束後，他稱讚了隊友。"
+      }
+    ]
   },
   {
     "word": "comply",
@@ -2938,7 +3864,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "comply with",
+        "meaning": "遵守；依從",
+        "sentence": "All visitors must comply with the museum’s rules.",
+        "translation": "所有訪客都必須遵守博物館的規定。"
+      }
+    ]
   },
   {
     "word": "component",
@@ -2947,7 +3880,14 @@
     "definition": "組成部分；零件；成分",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "key component",
+        "meaning": "關鍵組成部分",
+        "sentence": "Trust is a key component of a successful team.",
+        "translation": "信任是成功團隊的重要組成部分。"
+      }
+    ]
   },
   {
     "word": "compound",
@@ -2956,7 +3896,14 @@
     "definition": "化合物；複合的；加重；混合",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compound interest",
+        "meaning": "複利",
+        "sentence": "The savings account pays interest through compound interest.",
+        "translation": "這個儲蓄帳戶以複利方式計息。"
+      }
+    ]
   },
   {
     "word": "comprehend",
@@ -2976,7 +3923,14 @@
       }
     ],
     "root": "com-（完全）＋ prehend（抓住），比喻在理解上「掌握」內容。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "difficult to comprehend",
+        "meaning": "難以理解",
+        "sentence": "The instructions were difficult to comprehend.",
+        "translation": "這些說明很難理解。"
+      }
+    ]
   },
   {
     "word": "comprehension",
@@ -2991,7 +3945,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "reading comprehension",
+        "meaning": "閱讀理解",
+        "sentence": "The exercise is designed to improve reading comprehension.",
+        "translation": "這項練習旨在提升閱讀理解能力。"
+      }
+    ]
   },
   {
     "word": "comprise",
@@ -3000,7 +3961,14 @@
     "definition": "包含；由……組成",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "comprise three parts",
+        "meaning": "由三個部分組成",
+        "sentence": "The course comprises three parts: reading, writing, and discussion.",
+        "translation": "這門課由閱讀、寫作和討論三個部分組成。"
+      }
+    ]
   },
   {
     "word": "compromise",
@@ -3025,7 +3993,14 @@
     "definition": "強制的；義務的；必修的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "compulsory education",
+        "meaning": "義務教育",
+        "sentence": "Compulsory education is provided to children in many countries.",
+        "translation": "許多國家都為兒童提供義務教育。"
+      }
+    ]
   },
   {
     "word": "conceal",
@@ -3040,7 +4015,14 @@
       }
     ],
     "root": "con-（完全）＋ cel（隱藏），表示把事物藏起來。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "conceal the truth",
+        "meaning": "隱瞞真相",
+        "sentence": "The investigation showed that someone had tried to conceal the truth.",
+        "translation": "調查顯示有人試圖隱瞞真相。"
+      }
+    ]
   },
   {
     "word": "concede",
@@ -3055,7 +4037,14 @@
       }
     ],
     "root": "con-（共同／完全）＋ cede（讓步、離開），引申為承認或退讓。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "concede defeat",
+        "meaning": "承認落敗",
+        "sentence": "After a close contest, the candidate finally conceded defeat.",
+        "translation": "經過一場勢均力敵的競爭後，候選人終於承認落敗。"
+      }
+    ]
   },
   {
     "word": "conceive",
@@ -3075,7 +4064,14 @@
       }
     ],
     "root": "con-（共同／完全）＋ ceive/cap（取、抓住），引申為在心中形成想法。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "conceive a plan",
+        "meaning": "構思計畫",
+        "sentence": "The team conceived a plan to improve the library.",
+        "translation": "團隊構思了一項改善圖書館的計畫。"
+      }
+    ]
   },
   {
     "word": "conception",
@@ -3100,7 +4096,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a conception of",
+        "meaning": "對……的觀念／構想",
+        "sentence": "People have different conceptions of success.",
+        "translation": "人們對成功有不同的觀念。"
+      }
+    ]
   },
   {
     "word": "condemn",
@@ -3109,7 +4112,14 @@
     "definition": "譴責，聲討",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "condemn an action",
+        "meaning": "譴責某種行為",
+        "sentence": "The organization condemned the unfair treatment.",
+        "translation": "該組織譴責這種不公平的對待。"
+      }
+    ]
   },
   {
     "word": "conduct",
@@ -3118,7 +4128,14 @@
     "definition": "引導",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "conduct research",
+        "meaning": "進行研究",
+        "sentence": "The students conducted research before writing their report.",
+        "translation": "學生在撰寫報告前先進行了研究。"
+      }
+    ]
   },
   {
     "word": "confession",
@@ -3133,7 +4150,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make a confession",
+        "meaning": "坦承；作出供認",
+        "sentence": "He made a confession after hearing the new evidence.",
+        "translation": "聽到新的證據後，他作出了坦承。"
+      }
+    ]
   },
   {
     "word": "confidential",
@@ -3148,7 +4172,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "confidential information",
+        "meaning": "機密資訊",
+        "sentence": "Employees must protect confidential information.",
+        "translation": "員工必須保護機密資訊。"
+      }
+    ]
   },
   {
     "word": "confine",
@@ -3163,7 +4194,14 @@
       }
     ],
     "root": "con-（一起／限制）＋ fin（界線），表示限制在界線之內。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "confine something to",
+        "meaning": "將……限制在",
+        "sentence": "Please confine your comments to the topic being discussed.",
+        "translation": "請將評論限制在目前討論的主題內。"
+      }
+    ]
   },
   {
     "word": "conform",
@@ -3183,16 +4221,36 @@
       }
     ],
     "root": "con-（一起）＋ form（形狀、形式），表示符合既有形式或規範。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "conform to",
+        "meaning": "遵守；符合",
+        "sentence": "The design must conform to the stated requirements.",
+        "translation": "這項設計必須符合明訂的要求。"
+      }
+    ]
   },
   {
     "word": "confront",
     "pos": "v.",
     "kk": "/kəˈnfrʌnt/",
     "definition": "面對；對抗；使面臨",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "confrontation",
+        "pos": "n.",
+        "meaning": "對抗；衝突"
+      }
+    ],
     "root": "con-（面對）＋ front（前面），表示正面面對。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "confront a problem",
+        "meaning": "正視問題",
+        "sentence": "We need to confront the problem instead of ignoring it.",
+        "translation": "我們必須正視問題，而不是忽視它。"
+      }
+    ]
   },
   {
     "word": "confrontation",
@@ -3201,7 +4259,14 @@
     "definition": "對峙；衝突；面對",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "avoid confrontation",
+        "meaning": "避免對抗／衝突",
+        "sentence": "They changed the subject to avoid confrontation.",
+        "translation": "他們轉換話題以避免衝突。"
+      }
+    ]
   },
   {
     "word": "consecutive",
@@ -3216,7 +4281,14 @@
       }
     ],
     "root": "源自拉丁語 consequi（接著發生、跟隨），表示接連的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "for three consecutive days",
+        "meaning": "連續三天",
+        "sentence": "It rained for three consecutive days.",
+        "translation": "雨連續下了三天。"
+      }
+    ]
   },
   {
     "word": "consensus",
@@ -3225,7 +4297,14 @@
     "definition": "一致意見",
     "derivatives": [],
     "root": "con-（共同）＋ sens（感覺、想法），表示共同意見。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "reach a consensus",
+        "meaning": "達成共識",
+        "sentence": "The group reached a consensus after a long discussion.",
+        "translation": "經過長時間討論後，團體達成了共識。"
+      }
+    ]
   },
   {
     "word": "consent",
@@ -3234,7 +4313,14 @@
     "definition": "同意；准許；同意書",
     "derivatives": [],
     "root": "con-（共同）＋ sent（感覺、想法），引申為意見一致、同意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "give consent",
+        "meaning": "表示同意",
+        "sentence": "A parent must give consent before the student joins the trip.",
+        "translation": "學生參加旅行前，家長必須表示同意。"
+      }
+    ]
   },
   {
     "word": "conservation",
@@ -3254,7 +4340,14 @@
       }
     ],
     "root": "con-（共同／完整）＋ serv（保存、維持）＋ -ation（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "wildlife conservation",
+        "meaning": "野生動物保育",
+        "sentence": "The organization supports wildlife conservation.",
+        "translation": "這個組織支持野生動物保育。"
+      }
+    ]
   },
   {
     "word": "considerate",
@@ -3274,7 +4367,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be considerate of",
+        "meaning": "體諒；顧及",
+        "sentence": "Please be considerate of people who are studying nearby.",
+        "translation": "請體諒附近正在讀書的人。"
+      }
+    ]
   },
   {
     "word": "constitutional",
@@ -3294,7 +4394,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "constitutional rights",
+        "meaning": "憲法權利",
+        "sentence": "The course introduces students to constitutional rights.",
+        "translation": "這門課向學生介紹憲法權利。"
+      }
+    ]
   },
   {
     "word": "constraint",
@@ -3309,7 +4416,14 @@
       }
     ],
     "root": "con-（一起）＋ strain/string（拉緊、束縛），表示限制或約束。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "under time constraints",
+        "meaning": "在時間限制下",
+        "sentence": "The team completed the task under time constraints.",
+        "translation": "團隊在時間限制下完成了任務。"
+      }
+    ]
   },
   {
     "word": "consultation",
@@ -3329,7 +4443,14 @@
       }
     ],
     "root": "consult（諮詢）＋ -ation（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in consultation with",
+        "meaning": "與……協商後",
+        "sentence": "The decision was made in consultation with local residents.",
+        "translation": "這項決定是在與當地居民協商後作出的。"
+      }
+    ]
   },
   {
     "word": "consumption",
@@ -3348,8 +4469,15 @@
         "meaning": "消費者"
       }
     ],
-    "root": "",
-    "phrases": []
+    "root": "con-（完全）＋ sumpt（拿取、使用）＋ -ion（名詞字尾），源自拉丁語 consumere，表示消耗或消費。",
+    "phrases": [
+      {
+        "phrase": "energy consumption",
+        "meaning": "能源消耗",
+        "sentence": "The new system helps reduce energy consumption.",
+        "translation": "新系統有助於降低能源消耗。"
+      }
+    ]
   },
   {
     "word": "contagious",
@@ -3364,7 +4492,14 @@
       }
     ],
     "root": "源自拉丁語 contagio，含 con-（一起）＋ tag/tang（接觸），與接觸傳染有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "highly contagious",
+        "meaning": "傳染性很強的",
+        "sentence": "The doctor explained that the illness was highly contagious.",
+        "translation": "醫生解釋這種疾病的傳染性很強。"
+      }
+    ]
   },
   {
     "word": "contaminate",
@@ -3384,7 +4519,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "contaminate the water supply",
+        "meaning": "污染供水",
+        "sentence": "Chemicals can contaminate the water supply.",
+        "translation": "化學物質可能污染供水。"
+      }
+    ]
   },
   {
     "word": "contemplate",
@@ -3404,7 +4546,14 @@
       }
     ],
     "root": "源自拉丁語 contemplari，意為仔細觀看、沉思。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "contemplate doing something",
+        "meaning": "考慮做某事",
+        "sentence": "She is contemplating studying abroad next year.",
+        "translation": "她正在考慮明年出國留學。"
+      }
+    ]
   },
   {
     "word": "contemporary",
@@ -3413,7 +4562,14 @@
     "definition": "當代的；現代的；同時代的人",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "contemporary art",
+        "meaning": "當代藝術",
+        "sentence": "The gallery displays contemporary art from across Asia.",
+        "translation": "這間藝廊展出來自亞洲各地的當代藝術。"
+      }
+    ]
   },
   {
     "word": "contempt",
@@ -3442,9 +4598,27 @@
     "pos": "v.",
     "kk": "/kəˈntɛnd/",
     "definition": "主張；競爭；奮鬥",
-    "derivatives": [],
-    "root": "",
-    "phrases": []
+    "derivatives": [
+      {
+        "word": "contention",
+        "pos": "n.",
+        "meaning": "爭論；競爭"
+      },
+      {
+        "word": "contender",
+        "pos": "n.",
+        "meaning": "競爭者；爭奪者"
+      }
+    ],
+    "root": "con-（一起）＋ tend（伸展、努力），源自拉丁語 contendere，表示努力爭取或爭辯。",
+    "phrases": [
+      {
+        "phrase": "contend with",
+        "meaning": "處理；應付",
+        "sentence": "Small businesses must contend with rising costs.",
+        "translation": "小型企業必須應付不斷上升的成本。"
+      }
+    ]
   },
   {
     "word": "continental",
@@ -3453,7 +4627,14 @@
     "definition": "大陸的；洲的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "continental breakfast",
+        "meaning": "歐陸式早餐",
+        "sentence": "The hotel offers a continental breakfast to its guests.",
+        "translation": "這間飯店為房客提供歐陸式早餐。"
+      }
+    ]
   },
   {
     "word": "contractor",
@@ -3473,7 +4654,14 @@
       }
     ],
     "root": "contract（合約；收縮）＋ -or（從事某事的人）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "general contractor",
+        "meaning": "總承包商",
+        "sentence": "The general contractor will oversee the renovation.",
+        "translation": "總承包商將負責監督整修工程。"
+      }
+    ]
   },
   {
     "word": "contradiction",
@@ -3493,7 +4681,14 @@
       }
     ],
     "root": "contra-（相反）＋ dict（說）＋ -ion（名詞字尾），表示說法互相矛盾。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a contradiction between",
+        "meaning": "……之間的矛盾",
+        "sentence": "There is a contradiction between the two statements.",
+        "translation": "這兩項陳述之間存在矛盾。"
+      }
+    ]
   },
   {
     "word": "controversial",
@@ -3508,7 +4703,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "controversial issue",
+        "meaning": "有爭議的議題",
+        "sentence": "The school held a discussion about the controversial issue.",
+        "translation": "學校針對這項有爭議的議題舉行討論。"
+      }
+    ]
   },
   {
     "word": "controversy",
@@ -3523,7 +4725,14 @@
       }
     ],
     "root": "contro-（相反）＋ vers（轉向、爭辯），引申為爭議。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "spark controversy",
+        "meaning": "引發爭議",
+        "sentence": "The decision sparked controversy among local residents.",
+        "translation": "這項決定在當地居民之間引發爭議。"
+      }
+    ]
   },
   {
     "word": "conversion",
@@ -3543,7 +4752,14 @@
       }
     ],
     "root": "con-（共同／完全）＋ vers（轉向）＋ -ion（名詞字尾），表示轉變。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "currency conversion",
+        "meaning": "貨幣換算",
+        "sentence": "The website provides a tool for currency conversion.",
+        "translation": "這個網站提供貨幣換算工具。"
+      }
+    ]
   },
   {
     "word": "convert",
@@ -3558,7 +4774,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "convert A into B",
+        "meaning": "將 A 轉變成 B",
+        "sentence": "They plan to convert the old factory into a library.",
+        "translation": "他們計畫將舊工廠改建成圖書館。"
+      }
+    ]
   },
   {
     "word": "convict",
@@ -3573,7 +4796,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "convict someone of a crime",
+        "meaning": "判定某人犯下某罪",
+        "sentence": "The court convicted him of the offense.",
+        "translation": "法院判定他犯下該項罪行。"
+      }
+    ]
   },
   {
     "word": "conviction",
@@ -3593,7 +4823,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a strong conviction",
+        "meaning": "堅定的信念",
+        "sentence": "She holds a strong conviction that education should be accessible to all.",
+        "translation": "她堅信教育應該讓所有人都能取得。"
+      }
+    ]
   },
   {
     "word": "coordinate",
@@ -3613,7 +4850,14 @@
       }
     ],
     "root": "co-（共同）＋ ordin（安排、順序）＋ -ate（動詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "coordinate with",
+        "meaning": "與……協調",
+        "sentence": "Please coordinate with the other group before the event.",
+        "translation": "活動前請先與另一組協調。"
+      }
+    ]
   },
   {
     "word": "copyright",
@@ -3622,7 +4866,14 @@
     "definition": "著作權；版權",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "copyright law",
+        "meaning": "著作權法",
+        "sentence": "Students should understand the basics of copyright law.",
+        "translation": "學生應了解著作權法的基本概念。"
+      }
+    ]
   },
   {
     "word": "core",
@@ -3658,7 +4909,14 @@
       }
     ],
     "root": "源自拉丁語 corpus，意為「身體」，引申為法人團體、公司。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "corporate culture",
+        "meaning": "企業文化",
+        "sentence": "A positive corporate culture can encourage teamwork.",
+        "translation": "正向的企業文化能鼓勵團隊合作。"
+      }
+    ]
   },
   {
     "word": "corporation",
@@ -3673,7 +4931,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "multinational corporation",
+        "meaning": "跨國企業",
+        "sentence": "The multinational corporation operates in several countries.",
+        "translation": "這家跨國企業在好幾個國家營運。"
+      }
+    ]
   },
   {
     "word": "correlation",
@@ -3693,16 +4958,41 @@
       }
     ],
     "root": "co-（共同）＋ relation（關係），表示彼此相關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a correlation between",
+        "meaning": "……之間的相關性",
+        "sentence": "The study found a correlation between sleep and memory.",
+        "translation": "研究發現睡眠與記憶力之間存在相關性。"
+      }
+    ]
   },
   {
     "word": "correspondent",
     "pos": "n.",
     "kk": "/kˌɔrˈəspɑndənt/",
     "definition": "通信者；記者；通訊員",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "correspond",
+        "pos": "v.",
+        "meaning": "通信；相符"
+      },
+      {
+        "word": "correspondence",
+        "pos": "n.",
+        "meaning": "通信；一致；對應"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "foreign correspondent",
+        "meaning": "駐外記者",
+        "sentence": "The foreign correspondent reported from the capital.",
+        "translation": "這位駐外記者從首都發回報導。"
+      }
+    ]
   },
   {
     "word": "corridor",
@@ -3711,7 +5001,14 @@
     "definition": "走廊；通道",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "along the corridor",
+        "meaning": "沿著走廊",
+        "sentence": "Students lined up quietly along the corridor.",
+        "translation": "學生沿著走廊安靜地排隊。"
+      }
+    ]
   },
   {
     "word": "corrupt",
@@ -3730,8 +5027,15 @@
         "meaning": "易受賄賂的；可腐化的"
       }
     ],
-    "root": "",
-    "phrases": []
+    "root": "源自拉丁語 corrumpere，含 cor-（com- 的變體）＋ rupt（破壞），引申為腐敗、使墮落。",
+    "phrases": [
+      {
+        "phrase": "a corrupt official",
+        "meaning": "貪污的官員",
+        "sentence": "The investigation revealed that the official was corrupt.",
+        "translation": "調查揭露這名官員涉及貪腐。"
+      }
+    ]
   },
   {
     "word": "corruption",
@@ -3746,7 +5050,14 @@
       }
     ],
     "root": "源自拉丁語 corrumpere，含 com-（完全）＋ rump（破壞），引申為腐敗、敗壞。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a corruption scandal",
+        "meaning": "貪腐醜聞",
+        "sentence": "The corruption scandal damaged public trust.",
+        "translation": "這起貪腐醜聞損害了公眾信任。"
+      }
+    ]
   },
   {
     "word": "counsel",
@@ -3761,7 +5072,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "seek legal counsel",
+        "meaning": "尋求法律諮詢",
+        "sentence": "The organization decided to seek legal counsel.",
+        "translation": "該組織決定尋求法律諮詢。"
+      }
+    ]
   },
   {
     "word": "counselor",
@@ -3776,7 +5094,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "school counselor",
+        "meaning": "學校輔導老師",
+        "sentence": "The school counselor helped the student plan the next step.",
+        "translation": "學校輔導老師協助學生規劃下一步。"
+      }
+    ]
   },
   {
     "word": "courteous",
@@ -3796,7 +5121,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be courteous to",
+        "meaning": "對……有禮貌",
+        "sentence": "Please be courteous to other visitors.",
+        "translation": "請對其他訪客保持禮貌。"
+      }
+    ]
   },
   {
     "word": "coverage",
@@ -3805,7 +5137,14 @@
     "definition": "報導；涵蓋範圍；保險保障",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "media coverage",
+        "meaning": "媒體報導",
+        "sentence": "The event received extensive media coverage.",
+        "translation": "這項活動受到媒體廣泛報導。"
+      }
+    ]
   },
   {
     "word": "credibility",
@@ -3841,7 +5180,14 @@
     "definition": "小溪；溪流",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "up the creek",
+        "meaning": "陷入困境（口語慣用語，常見完整說法為 up the creek without a paddle）",
+        "sentence": "Without a backup plan, the project team would be up the creek.",
+        "translation": "沒有備用計畫的話，這個專案團隊就會陷入困境。"
+      }
+    ]
   },
   {
     "word": "cripple",
@@ -3850,7 +5196,14 @@
     "definition": "使跛；嚴重損害；行動不便者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cripple an economy",
+        "meaning": "重創經濟",
+        "sentence": "A prolonged crisis could cripple the local economy.",
+        "translation": "長期危機可能重創當地經濟。"
+      }
+    ]
   },
   {
     "word": "criteria",
@@ -3859,7 +5212,14 @@
     "definition": "標準；準則（criterion 的複數）",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "meet the criteria",
+        "meaning": "符合標準",
+        "sentence": "Applicants must meet the criteria listed on the website.",
+        "translation": "申請者必須符合網站列出的標準。"
+      }
+    ]
   },
   {
     "word": "criterion",
@@ -3868,7 +5228,14 @@
     "definition": "標準；準則；判斷依據",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a key criterion",
+        "meaning": "關鍵標準",
+        "sentence": "Reliability is a key criterion when choosing equipment.",
+        "translation": "選擇設備時，可靠性是一項關鍵標準。"
+      }
+    ]
   },
   {
     "word": "crucial",
@@ -3883,7 +5250,14 @@
       }
     ],
     "root": "源自拉丁語 crux，意為「十字架、關鍵點」，引申為關鍵的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "play a crucial role",
+        "meaning": "扮演關鍵角色",
+        "sentence": "Communication plays a crucial role in teamwork.",
+        "translation": "溝通在團隊合作中扮演關鍵角色。"
+      }
+    ]
   },
   {
     "word": "crude",
@@ -3914,7 +5288,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "cruise control",
+        "meaning": "定速巡航",
+        "sentence": "The car is equipped with cruise control.",
+        "translation": "這輛車配備了定速巡航功能。"
+      }
+    ]
   },
   {
     "word": "crystal",
@@ -3934,7 +5315,14 @@
       }
     ],
     "root": "源自希臘語 krystallos，原意為「冰」，後指水晶。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "crystal clear",
+        "meaning": "非常清楚；清澈透明",
+        "sentence": "Her explanation made the instructions crystal clear.",
+        "translation": "她的解釋讓說明變得一清二楚。"
+      }
+    ]
   },
   {
     "word": "cuisine",
@@ -3943,7 +5331,14 @@
     "definition": "烹飪；菜餚；（某地或文化的）料理風格",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "local cuisine",
+        "meaning": "當地料理",
+        "sentence": "Visitors come here to enjoy the local cuisine.",
+        "translation": "遊客來這裡品嚐當地料理。"
+      }
+    ]
   },
   {
     "word": "currency",
@@ -3952,7 +5347,14 @@
     "definition": "貨幣",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "foreign currency",
+        "meaning": "外幣",
+        "sentence": "The bank provides services for exchanging foreign currency.",
+        "translation": "這家銀行提供外幣兌換服務。"
+      }
+    ]
   },
   {
     "word": "curriculum",
@@ -3961,7 +5363,14 @@
     "definition": "課程",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "school curriculum",
+        "meaning": "學校課程",
+        "sentence": "The school revised its curriculum this year.",
+        "translation": "學校今年修訂了課程。"
+      }
+    ]
   },
   {
     "word": "custody",
@@ -3992,7 +5401,14 @@
     "definition": "海關",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "customs duty",
+        "meaning": "關稅",
+        "sentence": "The package may be subject to customs duty.",
+        "translation": "這個包裹可能需要繳納關稅。"
+      }
+    ]
   },
   {
     "word": "deadly",
@@ -4001,7 +5417,14 @@
     "definition": "致命的；極度的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "deadly serious",
+        "meaning": "非常認真；絕非開玩笑",
+        "sentence": "She was deadly serious about finishing the project on time.",
+        "translation": "她對準時完成專案這件事非常認真。"
+      }
+    ]
   },
   {
     "word": "debris",
@@ -4010,7 +5433,14 @@
     "definition": "碎片；殘骸；瓦礫",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a pile of debris",
+        "meaning": "一堆碎片／瓦礫",
+        "sentence": "Workers cleared a pile of debris from the road.",
+        "translation": "工作人員清除了路上的一堆瓦礫。"
+      }
+    ]
   },
   {
     "word": "debut",
@@ -4073,7 +5503,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "deceive someone into doing something",
+        "meaning": "欺騙某人做某事",
+        "sentence": "The advertisement deceived customers into buying an unsuitable product.",
+        "translation": "這則廣告欺騙顧客買下不適合的產品。"
+      }
+    ]
   },
   {
     "word": "decent",
@@ -4115,7 +5552,14 @@
       }
     ],
     "root": "de-（完全）＋ clar（清楚）＋ -ation（名詞字尾），表示正式說明。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "declaration of independence",
+        "meaning": "獨立宣言",
+        "sentence": "The museum displays an early copy of the declaration of independence.",
+        "translation": "博物館展示了一份早期的獨立宣言副本。"
+      }
+    ]
   },
   {
     "word": "decline",
@@ -4124,7 +5568,14 @@
     "definition": "n. 下降；衰退；v. 下降；衰退；婉拒",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a decline in",
+        "meaning": "……的下降",
+        "sentence": "The report noted a decline in the number of visitors.",
+        "translation": "報告指出訪客人數有所下降。"
+      }
+    ]
   },
   {
     "word": "dedicate",
@@ -4144,7 +5595,14 @@
       }
     ],
     "root": "源自拉丁語 dedicare，意為「奉獻、專用」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "dedicate oneself to",
+        "meaning": "致力於；投身於",
+        "sentence": "She decided to dedicate herself to scientific research.",
+        "translation": "她決定投身科學研究。"
+      }
+    ]
   },
   {
     "word": "defendant",
@@ -4164,7 +5622,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the defendant in a case",
+        "meaning": "案件中的被告",
+        "sentence": "The defendant appeared in court with a lawyer.",
+        "translation": "被告在律師陪同下出庭。"
+      }
+    ]
   },
   {
     "word": "deficit",
@@ -4222,7 +5687,14 @@
       }
     ],
     "root": "源自拉丁語 delegare，含 de-（指定）＋ legare（委派、派遣）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "delegate responsibility",
+        "meaning": "委派責任",
+        "sentence": "A good leader knows when to delegate responsibility.",
+        "translation": "優秀的領導者懂得何時委派責任。"
+      }
+    ]
   },
   {
     "word": "delegation",
@@ -4231,7 +5703,14 @@
     "definition": "代表團；委派；授權",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a delegation of officials",
+        "meaning": "官員代表團",
+        "sentence": "A delegation of officials visited the city.",
+        "translation": "一個官員代表團造訪了這座城市。"
+      }
+    ]
   },
   {
     "word": "deliberate",
@@ -4251,7 +5730,14 @@
       }
     ],
     "root": "源自拉丁語 deliberare，與 libra（天秤）相關，帶有仔細衡量、斟酌之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "deliberate on",
+        "meaning": "仔細考慮；商議",
+        "sentence": "The committee will deliberate on the proposal tomorrow.",
+        "translation": "委員會明天將仔細商議這項提案。"
+      }
+    ]
   },
   {
     "word": "democrat",
@@ -4340,7 +5826,14 @@
       }
     ],
     "root": "de-（完整地）＋ pict（畫），表示描繪。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "depict someone as",
+        "meaning": "將某人描繪成",
+        "sentence": "The novel depicts the main character as a brave explorer.",
+        "translation": "這部小說將主角描繪成勇敢的探險家。"
+      }
+    ]
   },
   {
     "word": "deploy",
@@ -4355,7 +5848,14 @@
       }
     ],
     "root": "源自法語 déployer，原有「展開」之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "deploy resources",
+        "meaning": "調度資源",
+        "sentence": "The organization deployed resources to support the affected communities.",
+        "translation": "該組織調度資源以支援受影響的社區。"
+      }
+    ]
   },
   {
     "word": "depress",
@@ -4375,7 +5875,14 @@
       }
     ],
     "root": "de-（向下）＋ press（按、壓），表示使情緒低落或向下壓。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "depress demand",
+        "meaning": "抑制需求",
+        "sentence": "Higher prices may depress demand for the product.",
+        "translation": "較高的價格可能抑制這項產品的需求。"
+      }
+    ]
   },
   {
     "word": "deputy",
@@ -4384,7 +5891,14 @@
     "definition": "副手；代理人；副職",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "deputy director",
+        "meaning": "副主任；副主管",
+        "sentence": "The deputy director led the meeting in her absence.",
+        "translation": "主任不在時，由副主任主持會議。"
+      }
+    ]
   },
   {
     "word": "derive",
@@ -4404,7 +5918,14 @@
       }
     ],
     "root": "源自拉丁語 derivare，含 de-（離開）＋ rivus（水流），原指引水分流。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "derive from",
+        "meaning": "源自；來自",
+        "sentence": "Many English words derive from Latin or Greek.",
+        "translation": "許多英文單字源自拉丁文或希臘文。"
+      }
+    ]
   },
   {
     "word": "descend",
@@ -4424,7 +5945,14 @@
       }
     ],
     "root": "de-（向下）＋ scend（爬、走），表示下降。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "descend from",
+        "meaning": "是……的後裔；源自",
+        "sentence": "These traditions descend from ancient customs.",
+        "translation": "這些傳統源自古代習俗。"
+      }
+    ]
   },
   {
     "word": "descriptive",
@@ -4444,7 +5972,14 @@
       }
     ],
     "root": "describe（描述）＋ -ive（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "descriptive language",
+        "meaning": "描述性語言",
+        "sentence": "The writer uses descriptive language to create a vivid scene.",
+        "translation": "作者運用描述性語言營造生動的場景。"
+      }
+    ]
   },
   {
     "word": "despair",
@@ -4523,14 +6058,32 @@
       }
     ],
     "root": "destruct（破壞）＋ -ive（具有……性質的）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "destructive force",
+        "meaning": "破壞性力量",
+        "sentence": "The storm became a destructive force along the coast.",
+        "translation": "暴風雨成為沿海地區的一股破壞性力量。"
+      }
+    ]
   },
   {
     "word": "devotion",
     "pos": "n.",
     "kk": "/dɪˈvoʊʃən/",
     "definition": "奉獻；投入；熱愛；虔誠",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "devote",
+        "pos": "v.",
+        "meaning": "奉獻；投入"
+      },
+      {
+        "word": "devotional",
+        "pos": "adj.",
+        "meaning": "虔誠的；奉獻性的"
+      }
+    ],
     "root": "",
     "phrases": [
       {
@@ -4559,7 +6112,14 @@
       }
     ],
     "root": "dia-（透過、徹底）＋ gnosis（知識），表示透過分析判定。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "diagnose a problem",
+        "meaning": "找出問題；診斷問題",
+        "sentence": "The technician used a computer to diagnose the problem.",
+        "translation": "技術人員利用電腦找出問題。"
+      }
+    ]
   },
   {
     "word": "diagnosis",
@@ -4574,7 +6134,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an early diagnosis",
+        "meaning": "早期診斷",
+        "sentence": "An early diagnosis can help doctors plan appropriate care.",
+        "translation": "早期診斷有助於醫師規劃適當照護。"
+      }
+    ]
   },
   {
     "word": "dialect",
@@ -4583,7 +6150,14 @@
     "definition": "方言；地方話",
     "derivatives": [],
     "root": "dia-（透過、不同）＋ lect/legein（說），與地方語言差異有關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "regional dialect",
+        "meaning": "地方方言",
+        "sentence": "The speaker used a regional dialect unfamiliar to some listeners.",
+        "translation": "講者使用了一種部分聽眾不熟悉的地方方言。"
+      }
+    ]
   },
   {
     "word": "diameter",
@@ -4592,7 +6166,14 @@
     "definition": "直徑",
     "derivatives": [],
     "root": "dia-（穿過）＋ meter（測量），表示穿過圓心的長度。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the diameter of",
+        "meaning": "……的直徑",
+        "sentence": "The diagram shows the diameter of the circle.",
+        "translation": "這張圖顯示了圓形的直徑。"
+      }
+    ]
   },
   {
     "word": "diaper",
@@ -4601,7 +6182,14 @@
     "definition": "尿布；紙尿褲",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "diaper bag",
+        "meaning": "尿布袋",
+        "sentence": "She packed extra clothes in the diaper bag.",
+        "translation": "她在尿布袋裡放了備用衣物。"
+      }
+    ]
   },
   {
     "word": "digestion",
@@ -4621,7 +6209,14 @@
       }
     ],
     "root": "源自拉丁語 digerere，含 dis-（分開）＋ gerere（帶、處理），引申為分解食物。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "aid digestion",
+        "meaning": "幫助消化",
+        "sentence": "The textbook explains how different organs aid digestion.",
+        "translation": "課本解釋不同器官如何幫助消化。"
+      }
+    ]
   },
   {
     "word": "dilemma",
@@ -4646,7 +6241,14 @@
     "definition": "尺寸；維度；層面；方面",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the third dimension",
+        "meaning": "第三維度",
+        "sentence": "The model represents the object in the third dimension.",
+        "translation": "這個模型以第三維度呈現物體。"
+      }
+    ]
   },
   {
     "word": "diminish",
@@ -4655,7 +6257,14 @@
     "definition": "減少；縮小；降低",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "diminish the risk",
+        "meaning": "降低風險",
+        "sentence": "Careful planning can diminish the risk of mistakes.",
+        "translation": "謹慎規劃能降低犯錯的風險。"
+      }
+    ]
   },
   {
     "word": "diplomatic",
@@ -4691,7 +6300,14 @@
     "definition": "名錄；電話簿；目錄；（電腦）資料夾",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "telephone directory",
+        "meaning": "電話簿",
+        "sentence": "The old telephone directory is kept in the archive.",
+        "translation": "這本舊電話簿被保存於檔案室。"
+      }
+    ]
   },
   {
     "word": "disapprove",
@@ -4706,7 +6322,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "disapprove of",
+        "meaning": "不贊成；反對",
+        "sentence": "Her parents disapprove of the decision.",
+        "translation": "她的父母不贊成這項決定。"
+      }
+    ]
   },
   {
     "word": "disclose",
@@ -4748,7 +6371,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "disconnect from",
+        "meaning": "與……斷開連結",
+        "sentence": "Remember to disconnect from the network before maintenance.",
+        "translation": "維護前記得先中斷網路連線。"
+      }
+    ]
   },
   {
     "word": "discourse",
@@ -4804,9 +6434,27 @@
     "pos": "n.",
     "kk": "/dɪskrˌɪmˈəneɪʃən/",
     "definition": "歧視",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "discriminate",
+        "pos": "v.",
+        "meaning": "區別；歧視"
+      },
+      {
+        "word": "discriminatory",
+        "pos": "adj.",
+        "meaning": "歧視性的"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "discrimination against",
+        "meaning": "對……的歧視",
+        "sentence": "The law aims to prevent discrimination against workers.",
+        "translation": "這項法律旨在防止對勞工的歧視。"
+      }
+    ]
   },
   {
     "word": "disrupt",
@@ -4848,16 +6496,46 @@
       }
     ],
     "root": "dis-（分開）＋ solve（鬆開、解開），表示溶解或解散。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "dissolve into",
+        "meaning": "融入；化為",
+        "sentence": "The clouds dissolved into the evening sky.",
+        "translation": "雲朵逐漸融入傍晚的天空。"
+      }
+    ]
   },
   {
     "word": "distinction",
     "pos": "n.",
     "kk": "/dɪˈstɪŋkʃən/",
     "definition": "區別；差異；卓越；殊榮",
-    "derivatives": [],
+    "derivatives": [
+      {
+        "word": "distinct",
+        "pos": "adj.",
+        "meaning": "明顯不同的；清楚的"
+      },
+      {
+        "word": "distinguish",
+        "pos": "v.",
+        "meaning": "區分；辨別"
+      },
+      {
+        "word": "distinctive",
+        "pos": "adj.",
+        "meaning": "獨特的；有特色的"
+      }
+    ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make a distinction between",
+        "meaning": "區分……之間的差異",
+        "sentence": "It is important to make a distinction between facts and opinions.",
+        "translation": "區分事實與意見之間的差異很重要。"
+      }
+    ]
   },
   {
     "word": "distinctive",
@@ -4926,7 +6604,14 @@
       }
     ],
     "root": "源自拉丁語 docere，意為「教導」，後指教義或學說。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "religious doctrine",
+        "meaning": "宗教教義",
+        "sentence": "The course compares several forms of religious doctrine.",
+        "translation": "這門課比較了幾種宗教教義。"
+      }
+    ]
   },
   {
     "word": "document",
@@ -4935,7 +6620,14 @@
     "definition": "n. 文件；文獻；v. 記錄；證明",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "legal document",
+        "meaning": "法律文件",
+        "sentence": "Please keep a copy of every legal document.",
+        "translation": "請保留每一份法律文件的副本。"
+      }
+    ]
   },
   {
     "word": "documentary",
@@ -4955,7 +6647,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "documentary film",
+        "meaning": "紀錄片",
+        "sentence": "We watched a documentary film about ocean life.",
+        "translation": "我們看了一部關於海洋生物的紀錄片。"
+      }
+    ]
   },
   {
     "word": "domain",
@@ -4980,7 +6679,14 @@
     "definition": "圓頂；穹頂",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "glass dome",
+        "meaning": "玻璃圓頂",
+        "sentence": "The botanical garden is covered by a huge glass dome.",
+        "translation": "這座植物園由巨大的玻璃圓頂覆蓋。"
+      }
+    ]
   },
   {
     "word": "donate",
@@ -5016,7 +6722,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make a donation",
+        "meaning": "捐款；捐贈",
+        "sentence": "Many families made a donation to the community library.",
+        "translation": "許多家庭捐款給社區圖書館。"
+      }
+    ]
   },
   {
     "word": "donor",
@@ -5031,7 +6744,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "blood donor",
+        "meaning": "捐血者",
+        "sentence": "The hospital thanked every blood donor.",
+        "translation": "醫院感謝每一位捐血者。"
+      }
+    ]
   },
   {
     "word": "doorway",
@@ -5040,7 +6760,14 @@
     "definition": "門口；出入口",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "stand in the doorway",
+        "meaning": "站在門口",
+        "sentence": "He stood in the doorway and greeted the visitors.",
+        "translation": "他站在門口迎接訪客。"
+      }
+    ]
   },
   {
     "word": "dough",
@@ -5076,7 +6803,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a dreadful mistake",
+        "meaning": "嚴重的錯誤",
+        "sentence": "Forgetting the deadline was a dreadful mistake.",
+        "translation": "忘記截止日期是個嚴重的錯誤。"
+      }
+    ]
   },
   {
     "word": "driveway",
@@ -5085,7 +6819,14 @@
     "definition": "私人車道；車庫前的車道",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "long driveway",
+        "meaning": "長車道",
+        "sentence": "A line of trees runs along the long driveway.",
+        "translation": "一排樹沿著長車道排列。"
+      }
+    ]
   },
   {
     "word": "drought",
@@ -5121,7 +6862,14 @@
       }
     ],
     "root": "eco-（居所、環境）＋ -logy（學問）＋ -ical（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ecological balance",
+        "meaning": "生態平衡",
+        "sentence": "Protecting forests helps maintain ecological balance.",
+        "translation": "保護森林有助於維持生態平衡。"
+      }
+    ]
   },
   {
     "word": "ecology",
@@ -5136,7 +6884,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the ecology of",
+        "meaning": "……的生態",
+        "sentence": "The research focuses on the ecology of coastal wetlands.",
+        "translation": "這項研究聚焦於沿海濕地的生態。"
+      }
+    ]
   },
   {
     "word": "ecosystem",
@@ -5145,7 +6900,14 @@
     "definition": "生態系統",
     "derivatives": [],
     "root": "eco-（生態環境）＋ system（系統），表示生態系統。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ecosystem services",
+        "meaning": "生態系服務",
+        "sentence": "Forests provide important ecosystem services.",
+        "translation": "森林提供重要的生態系服務。"
+      }
+    ]
   },
   {
     "word": "ego",
@@ -5154,7 +6916,14 @@
     "definition": "自我；自尊心；自負",
     "derivatives": [],
     "root": "源自拉丁語 ego，意為「我」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an ego trip",
+        "meaning": "自我膨脹；自我陶醉",
+        "sentence": "The interview became an ego trip rather than a real discussion.",
+        "translation": "這場訪談變成了自我陶醉，而不是真正的討論。"
+      }
+    ]
   },
   {
     "word": "elaborate",
@@ -5218,7 +6987,14 @@
       }
     ],
     "root": "源自拉丁語 eloqui，意為「說出、表達」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an eloquent speech",
+        "meaning": "精彩有力的演說",
+        "sentence": "She gave an eloquent speech about the value of education.",
+        "translation": "她發表了一場闡述教育價值的精彩演說。"
+      }
+    ]
   },
   {
     "word": "embrace",
@@ -5297,7 +7073,14 @@
     "definition": "支持；背書；代言",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "official endorsement",
+        "meaning": "正式支持；正式背書",
+        "sentence": "The proposal received official endorsement from the committee.",
+        "translation": "這項提案獲得委員會正式支持。"
+      }
+    ]
   },
   {
     "word": "enterprise",
@@ -5306,7 +7089,14 @@
     "definition": "企業；事業；計畫；進取心",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "private enterprise",
+        "meaning": "民營企業；私人企業",
+        "sentence": "The policy encourages private enterprise and innovation.",
+        "translation": "這項政策鼓勵民營企業與創新。"
+      }
+    ]
   },
   {
     "word": "enthusiastic",
@@ -5364,7 +7154,14 @@
     "definition": "實體；存在物；組織",
     "derivatives": [],
     "root": "源自拉丁語 ens（存在的事物）＋ -ity（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "legal entity",
+        "meaning": "法律實體",
+        "sentence": "The organization is registered as a separate legal entity.",
+        "translation": "這個組織登記為獨立的法律實體。"
+      }
+    ]
   },
   {
     "word": "entrepreneur",
@@ -5438,7 +7235,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "envision a future",
+        "meaning": "想像未來",
+        "sentence": "The students were asked to envision a future with cleaner energy.",
+        "translation": "學生受邀想像一個能源更潔淨的未來。"
+      }
+    ]
   },
   {
     "word": "epidemic",
@@ -5480,7 +7284,14 @@
       }
     ],
     "root": "epi-（在……之後／之上）＋ hodos（道路），原指故事中的一段或插曲。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a memorable episode",
+        "meaning": "難忘的一段經歷",
+        "sentence": "The trip included a memorable episode that everyone still talks about.",
+        "translation": "這趟旅行有一段難忘的插曲，至今仍是大家的話題。"
+      }
+    ]
   },
   {
     "word": "equation",
@@ -5495,7 +7306,14 @@
       }
     ],
     "root": "equ-（相等）＋ -ation（名詞字尾），表示使兩邊相等的關係。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "solve an equation",
+        "meaning": "解方程式",
+        "sentence": "Students learned how to solve an equation with two variables.",
+        "translation": "學生學習如何解含有兩個變數的方程式。"
+      }
+    ]
   },
   {
     "word": "equity",
@@ -5515,7 +7333,14 @@
       }
     ],
     "root": "源自拉丁語 aequus，意為「平等、公平」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "equity in education",
+        "meaning": "教育公平",
+        "sentence": "The report focuses on equity in education.",
+        "translation": "這份報告聚焦於教育公平。"
+      }
+    ]
   },
   {
     "word": "equivalent",
@@ -5535,7 +7360,14 @@
       }
     ],
     "root": "equi-（相等）＋ val（價值）＋ -ent（形容詞字尾），表示等值的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "be equivalent to",
+        "meaning": "等同於",
+        "sentence": "One hour of practice is not always equivalent to one hour of focused study.",
+        "translation": "一小時的練習不一定等同於一小時的專注學習。"
+      }
+    ]
   },
   {
     "word": "erect",
@@ -5544,7 +7376,14 @@
     "definition": "豎立；建立；直立的",
     "derivatives": [],
     "root": "源自拉丁語 erigere，意為「豎起、建立」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "erect a building",
+        "meaning": "建造建築物",
+        "sentence": "Workers will erect a new building beside the library.",
+        "translation": "工人將在圖書館旁建造一棟新大樓。"
+      }
+    ]
   },
   {
     "word": "errand",
@@ -5569,7 +7408,14 @@
     "definition": "（火山）爆發；噴發；突然爆發；突然發生",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "erupt in anger",
+        "meaning": "勃然大怒",
+        "sentence": "He nearly erupted in anger when he heard the unfair decision.",
+        "translation": "聽到這項不公平的決定時，他差點勃然大怒。"
+      }
+    ]
   },
   {
     "word": "escalator",
@@ -5578,7 +7424,14 @@
     "definition": "電扶梯；自動扶梯",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "take the escalator",
+        "meaning": "搭乘電扶梯",
+        "sentence": "We took the escalator to the second floor.",
+        "translation": "我們搭電扶梯到二樓。"
+      }
+    ]
   },
   {
     "word": "essence",
@@ -5657,7 +7510,14 @@
     "definition": "倫理；道德準則",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "work ethic",
+        "meaning": "職業道德；工作態度",
+        "sentence": "Her strong work ethic earned the team’s respect.",
+        "translation": "她認真的工作態度贏得了團隊的尊重。"
+      }
+    ]
   },
   {
     "word": "ethical",
@@ -5677,7 +7537,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ethical standards",
+        "meaning": "道德標準",
+        "sentence": "Researchers must follow high ethical standards.",
+        "translation": "研究人員必須遵守高標準的倫理規範。"
+      }
+    ]
   },
   {
     "word": "evolution",
@@ -5692,7 +7559,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the theory of evolution",
+        "meaning": "演化論",
+        "sentence": "The class discussed the theory of evolution.",
+        "translation": "全班討論了演化論。"
+      }
+    ]
   },
   {
     "word": "evolve",
@@ -5712,7 +7586,14 @@
       }
     ],
     "root": "e-（向外）＋ volv（轉動），原有逐漸展開、發展之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "evolve into",
+        "meaning": "逐漸發展成；演變為",
+        "sentence": "The small club evolved into a national organization.",
+        "translation": "這個小型社團逐漸發展成全國性組織。"
+      }
+    ]
   },
   {
     "word": "exaggeration",
@@ -5727,7 +7608,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "without exaggeration",
+        "meaning": "毫不誇張地說",
+        "sentence": "Without exaggeration, it was the best performance of the year.",
+        "translation": "毫不誇張地說，那是今年最精彩的演出。"
+      }
+    ]
   },
   {
     "word": "exceed",
@@ -5774,16 +7662,41 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "exceptional talent",
+        "meaning": "非凡的才能",
+        "sentence": "The young artist showed exceptional talent.",
+        "translation": "這位年輕藝術家展現了非凡的才能。"
+      }
+    ]
   },
   {
     "word": "excessive",
     "pos": "adj.",
     "kk": "/ɪˈksɛsɪv/",
     "definition": "過度的；過量的",
-    "derivatives": [],
-    "root": "",
-    "phrases": []
+    "derivatives": [
+      {
+        "word": "excess",
+        "pos": "n.",
+        "meaning": "過量；超額"
+      },
+      {
+        "word": "excessively",
+        "pos": "adv.",
+        "meaning": "過度地"
+      }
+    ],
+    "root": "ex-（超出）＋ cess（走、移動）＋ -ive（形容詞字尾），源自拉丁語 excedere，表示超過適當程度。",
+    "phrases": [
+      {
+        "phrase": "excessive use of",
+        "meaning": "過度使用",
+        "sentence": "The excessive use of plastic creates environmental problems.",
+        "translation": "過度使用塑膠會造成環境問題。"
+      }
+    ]
   },
   {
     "word": "exclaim",
@@ -5803,7 +7716,14 @@
       }
     ],
     "root": "ex-（向外）＋ claim/clam（喊叫），表示喊出聲來。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "exclaim in surprise",
+        "meaning": "驚訝地喊道",
+        "sentence": "“That’s incredible!” she exclaimed in surprise.",
+        "translation": "她驚訝地喊道：「太不可思議了！」"
+      }
+    ]
   },
   {
     "word": "exclude",
@@ -5839,7 +7759,14 @@
     "definition": "專屬的；獨有的；排外的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "exclusive access",
+        "meaning": "專屬使用權",
+        "sentence": "Members receive exclusive access to the online archive.",
+        "translation": "會員享有線上檔案庫的專屬使用權。"
+      }
+    ]
   },
   {
     "word": "execute",
@@ -5875,7 +7802,14 @@
     "definition": "執行；實施；處決",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "execution of a plan",
+        "meaning": "計畫的執行",
+        "sentence": "The success of the event depended on the execution of the plan.",
+        "translation": "活動的成功取決於計畫的執行。"
+      }
+    ]
   },
   {
     "word": "executive",
@@ -5884,7 +7818,14 @@
     "definition": "主管；行政主管；行政的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "chief executive",
+        "meaning": "執行長",
+        "sentence": "The chief executive answered questions from reporters.",
+        "translation": "執行長回答了記者的提問。"
+      }
+    ]
   },
   {
     "word": "exile",
@@ -5893,7 +7834,14 @@
     "definition": "流放；放逐；流亡者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "live in exile",
+        "meaning": "流亡；遭放逐",
+        "sentence": "The writer was forced to live in exile for several years.",
+        "translation": "這位作家被迫流亡多年。"
+      }
+    ]
   },
   {
     "word": "exotic",
@@ -5930,7 +7878,14 @@
       }
     ],
     "root": "源自拉丁語 expeditio，與 expedire（使準備好、使自由）相關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "scientific expedition",
+        "meaning": "科學考察隊／探險",
+        "sentence": "The scientific expedition collected samples from the island.",
+        "translation": "這支科學考察隊從島上採集樣本。"
+      }
+    ]
   },
   {
     "word": "expertise",
@@ -5966,7 +7921,14 @@
     "definition": "明確的；清楚表達的；直言不諱的；露骨的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "explicit instructions",
+        "meaning": "明確的指示",
+        "sentence": "The teacher gave explicit instructions for the assignment.",
+        "translation": "老師對這份作業給出了明確指示。"
+      }
+    ]
   },
   {
     "word": "exploit",
@@ -6013,7 +7975,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "space exploration",
+        "meaning": "太空探索",
+        "sentence": "Space exploration has changed our understanding of the universe.",
+        "translation": "太空探索改變了我們對宇宙的認識。"
+      }
+    ]
   },
   {
     "word": "extension",
@@ -6028,7 +7997,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "extension cord",
+        "meaning": "延長線",
+        "sentence": "Do not overload an extension cord.",
+        "translation": "不要讓延長線超載。"
+      }
+    ]
   },
   {
     "word": "extensive",
@@ -6064,7 +8040,14 @@
     "definition": "外部；外表；外部的",
     "derivatives": [],
     "root": "源自拉丁語 exter，意為「外部的」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "exterior wall",
+        "meaning": "外牆",
+        "sentence": "The exterior wall was painted white.",
+        "translation": "外牆被漆成白色。"
+      }
+    ]
   },
   {
     "word": "external",
@@ -6073,7 +8056,14 @@
     "definition": "外部的；外來的",
     "derivatives": [],
     "root": "extern（外部）＋ -al（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "external factors",
+        "meaning": "外在因素",
+        "sentence": "External factors can affect the final result.",
+        "translation": "外在因素可能影響最終結果。"
+      }
+    ]
   },
   {
     "word": "extinct",
@@ -6104,7 +8094,14 @@
     "definition": "非凡的；卓越的；異常的；意想不到的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "extraordinary effort",
+        "meaning": "非凡的努力",
+        "sentence": "The team succeeded through extraordinary effort.",
+        "translation": "團隊靠著非凡的努力取得成功。"
+      }
+    ]
   },
   {
     "word": "fabric",
@@ -6140,7 +8137,14 @@
     "definition": "極好的；令人難以置信的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a fabulous view",
+        "meaning": "極美的景色",
+        "sentence": "The hotel room offers a fabulous view of the harbor.",
+        "translation": "這間飯店客房可以欣賞港口的絕美景色。"
+      }
+    ]
   },
   {
     "word": "facilitate",
@@ -6176,7 +8180,14 @@
     "definition": "全體教職員；系；才能；官能",
     "derivatives": [],
     "root": "源自拉丁語 facultas，意為「能力、才能」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "faculty member",
+        "meaning": "教職員；學院成員",
+        "sentence": "Every faculty member was invited to the meeting.",
+        "translation": "每位教職員都受邀參加這場會議。"
+      }
+    ]
   },
   {
     "word": "fascinate",
@@ -6239,7 +8250,14 @@
     "definition": "聯邦的；聯邦政府的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "federal government",
+        "meaning": "聯邦政府",
+        "sentence": "The federal government announced a new education program.",
+        "translation": "聯邦政府宣布了一項新的教育計畫。"
+      }
+    ]
   },
   {
     "word": "fiber",
@@ -6248,7 +8266,14 @@
     "definition": "纖維；纖維質",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "dietary fiber",
+        "meaning": "膳食纖維",
+        "sentence": "Beans and vegetables are good sources of dietary fiber.",
+        "translation": "豆類和蔬菜是良好的膳食纖維來源。"
+      }
+    ]
   },
   {
     "word": "filter",
@@ -6263,7 +8288,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "filter out",
+        "meaning": "過濾掉；篩除",
+        "sentence": "The software can filter out unwanted messages.",
+        "translation": "這套軟體能篩除不需要的訊息。"
+      }
+    ]
   },
   {
     "word": "fiscal",
@@ -6288,7 +8320,14 @@
     "definition": "船隊；車隊；快速的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a fleet of ships",
+        "meaning": "一支船隊",
+        "sentence": "A fleet of ships entered the harbor.",
+        "translation": "一支船隊駛入港口。"
+      }
+    ]
   },
   {
     "word": "flexibility",
@@ -6346,7 +8385,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "fluency in English",
+        "meaning": "英語流利程度",
+        "sentence": "Daily conversation can improve fluency in English.",
+        "translation": "每日對話能提升英語流利程度。"
+      }
+    ]
   },
   {
     "word": "fluid",
@@ -6404,7 +8450,14 @@
     "definition": "n. 格式；版式；編排方式；v. 格式化；編排",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "file format",
+        "meaning": "檔案格式",
+        "sentence": "Please save the document in a common file format.",
+        "translation": "請將文件儲存為常見的檔案格式。"
+      }
+    ]
   },
   {
     "word": "forum",
@@ -6494,7 +8547,14 @@
       }
     ],
     "root": "frag（破裂）＋ -ment（名詞字尾），表示碎片。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a fragment of",
+        "meaning": "……的碎片／片段",
+        "sentence": "The archaeologist found a fragment of an ancient bowl.",
+        "translation": "考古學家發現了一片古代碗器的碎片。"
+      }
+    ]
   },
   {
     "word": "framework",
@@ -6530,7 +8590,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "franchise owner",
+        "meaning": "加盟店店主",
+        "sentence": "The franchise owner manages three local restaurants.",
+        "translation": "這位加盟店店主管理三家當地餐廳。"
+      }
+    ]
   },
   {
     "word": "fraud",
@@ -6577,7 +8644,14 @@
     "definition": "邊境；國境；前沿領域；新領域",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a new frontier",
+        "meaning": "新的領域／前沿",
+        "sentence": "Artificial intelligence represents a new frontier in technology.",
+        "translation": "人工智慧代表科技領域的一個新前沿。"
+      }
+    ]
   },
   {
     "word": "galaxy",
@@ -6586,7 +8660,14 @@
     "definition": "星系；銀河系；一群傑出人物",
     "derivatives": [],
     "root": "源自希臘語 galaxias，意為「乳白色的」，指夜空中的銀河。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "distant galaxy",
+        "meaning": "遙遠的星系",
+        "sentence": "The telescope captured an image of a distant galaxy.",
+        "translation": "這台望遠鏡拍攝到一個遙遠星系的影像。"
+      }
+    ]
   },
   {
     "word": "gasp",
@@ -6611,7 +8692,14 @@
     "definition": "聚會；集會；聚集",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "family gathering",
+        "meaning": "家庭聚會",
+        "sentence": "The whole family came together for a holiday gathering.",
+        "translation": "全家人為了節日聚會相聚。"
+      }
+    ]
   },
   {
     "word": "generate",
@@ -6647,7 +8735,14 @@
     "definition": "發電機；產生器",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "power generator",
+        "meaning": "發電機",
+        "sentence": "The building has a backup power generator.",
+        "translation": "這棟建築備有備用發電機。"
+      }
+    ]
   },
   {
     "word": "genetic",
@@ -6683,7 +8778,14 @@
     "definition": "遺傳學",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "genetic inheritance",
+        "meaning": "遺傳",
+        "sentence": "The course introduces the basics of genetic inheritance.",
+        "translation": "這門課介紹遺傳的基本概念。"
+      }
+    ]
   },
   {
     "word": "genre",
@@ -6692,7 +8794,14 @@
     "definition": "類型；體裁",
     "derivatives": [],
     "root": "源自法語 genre，與拉丁語 genus（種類）同源。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "literary genre",
+        "meaning": "文學類型",
+        "sentence": "Mystery is her favorite literary genre.",
+        "translation": "推理小說是她最喜歡的文學類型。"
+      }
+    ]
   },
   {
     "word": "glare",
@@ -6744,7 +8853,14 @@
     "definition": "極美的；華麗的；非常棒的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a gorgeous view",
+        "meaning": "絕美的景色",
+        "sentence": "We enjoyed a gorgeous view from the mountain.",
+        "translation": "我們從山上欣賞到絕美的景色。"
+      }
+    ]
   },
   {
     "word": "grant",
@@ -6769,7 +8885,14 @@
     "definition": "圖表的；生動的；圖像的",
     "derivatives": [],
     "root": "graph（寫、描繪）＋ -ic（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "graphic design",
+        "meaning": "平面設計",
+        "sentence": "She is studying graphic design at college.",
+        "translation": "她正在大學修讀平面設計。"
+      }
+    ]
   },
   {
     "word": "gravity",
@@ -6805,7 +8928,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "greed for power",
+        "meaning": "對權力的貪欲",
+        "sentence": "The novel explores the dangers of greed for power.",
+        "translation": "這部小說探討對權力的貪欲所帶來的危險。"
+      }
+    ]
   },
   {
     "word": "grieve",
@@ -6841,7 +8971,14 @@
     "definition": "n. 烤架；燒烤；v. 烤；盤問；嚴厲質問",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "gas grill",
+        "meaning": "瓦斯烤爐",
+        "sentence": "They cooked vegetables on the gas grill.",
+        "translation": "他們用瓦斯烤爐烤蔬菜。"
+      }
+    ]
   },
   {
     "word": "grim",
@@ -6882,7 +9019,14 @@
     "definition": "總的；毛重的；令人厭惡的；嚴重的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "gross income",
+        "meaning": "總收入",
+        "sentence": "The form asks applicants to report their gross income.",
+        "translation": "表格要求申請者填寫總收入。"
+      }
+    ]
   },
   {
     "word": "guideline",
@@ -6891,7 +9035,14 @@
     "definition": "指導方針；準則",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "safety guideline",
+        "meaning": "安全指引",
+        "sentence": "Please read each safety guideline before entering the lab.",
+        "translation": "進入實驗室前，請閱讀每一項安全指引。"
+      }
+    ]
   },
   {
     "word": "gut",
@@ -6932,7 +9083,14 @@
     "definition": "拖；拉；運送；大量獲得",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "haul in",
+        "meaning": "拖進；（尤指）捕獲或獲得",
+        "sentence": "The fishermen hauled in a large catch before sunset.",
+        "translation": "漁夫在日落前捕獲了一大批魚。"
+      }
+    ]
   },
   {
     "word": "hazard",
@@ -6979,7 +9137,14 @@
     "definition": "因此；從此以後",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "hence the need for",
+        "meaning": "因此需要……",
+        "sentence": "The old equipment is unreliable, hence the need for an upgrade.",
+        "translation": "舊設備不可靠，因此有升級的必要。"
+      }
+    ]
   },
   {
     "word": "herb",
@@ -6988,7 +9153,14 @@
     "definition": "草本植物；香草；藥草",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "herb garden",
+        "meaning": "香草園",
+        "sentence": "The restaurant grows fresh herbs in its own herb garden.",
+        "translation": "這家餐廳在自家香草園種植新鮮香草。"
+      }
+    ]
   },
   {
     "word": "heritage",
@@ -7029,7 +9201,14 @@
     "definition": "曲棍球；冰上曲棍球",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ice hockey",
+        "meaning": "冰上曲棍球",
+        "sentence": "My cousin plays ice hockey at school.",
+        "translation": "我表弟在學校打冰上曲棍球。"
+      }
+    ]
   },
   {
     "word": "honorable",
@@ -7038,7 +9217,14 @@
     "definition": "值得尊敬的；光榮的；正直的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "honorable mention",
+        "meaning": "榮譽提名",
+        "sentence": "Her project received an honorable mention.",
+        "translation": "她的專題獲得了榮譽提名。"
+      }
+    ]
   },
   {
     "word": "horizontal",
@@ -7063,7 +9249,14 @@
     "definition": "荷爾蒙；激素",
     "derivatives": [],
     "root": "源自希臘語 horman，意為「推動、激起活動」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "hormone levels",
+        "meaning": "荷爾蒙水平",
+        "sentence": "The article explains how hormone levels can change over time.",
+        "translation": "這篇文章解釋荷爾蒙水平如何隨時間改變。"
+      }
+    ]
   },
   {
     "word": "hostage",
@@ -7110,7 +9303,14 @@
     "definition": "敵意；對抗；敵對行為",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "hostility toward",
+        "meaning": "對……的敵意",
+        "sentence": "The speech increased hostility toward the proposal.",
+        "translation": "這場演說加深了人們對該提案的敵意。"
+      }
+    ]
   },
   {
     "word": "housing",
@@ -7119,7 +9319,14 @@
     "definition": "住房；住宅供應；房屋",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "public housing",
+        "meaning": "公共住宅",
+        "sentence": "The city plans to build more public housing.",
+        "translation": "市政府計畫興建更多公共住宅。"
+      }
+    ]
   },
   {
     "word": "howl",
@@ -7128,7 +9335,14 @@
     "definition": "嚎叫，嚎哭",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "howl with laughter",
+        "meaning": "放聲大笑",
+        "sentence": "The audience howled with laughter at the comedian’s joke.",
+        "translation": "觀眾被喜劇演員的笑話逗得放聲大笑。"
+      }
+    ]
   },
   {
     "word": "hypothesis",
@@ -7353,7 +9567,14 @@
     "definition": "包含；合併；組成公司",
     "derivatives": [],
     "root": "in-（進入）＋ corpor（身體）＋ -ate（動詞字尾），原有合併成一體之意。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "incorporate into",
+        "meaning": "將……納入",
+        "sentence": "The teacher incorporated games into the lesson.",
+        "translation": "老師將遊戲融入課程。"
+      }
+    ]
   },
   {
     "word": "index",
@@ -7362,7 +9583,14 @@
     "definition": "索引；指數；指標",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "index finger",
+        "meaning": "食指",
+        "sentence": "He pointed to the map with his index finger.",
+        "translation": "他用食指指著地圖。"
+      }
+    ]
   },
   {
     "word": "indifferent",
@@ -7490,7 +9718,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "infect with",
+        "meaning": "使感染",
+        "sentence": "The report explains how a virus can infect a host.",
+        "translation": "這份報告解釋病毒如何感染宿主。"
+      }
+    ]
   },
   {
     "word": "infinite",
@@ -7575,7 +9810,14 @@
       }
     ],
     "root": "源自拉丁語 hereditare，與 heres（繼承人）相關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "inherit from",
+        "meaning": "從……繼承",
+        "sentence": "She inherited a love of music from her father.",
+        "translation": "她從父親那裡遺傳了對音樂的熱愛。"
+      }
+    ]
   },
   {
     "word": "initiate",
@@ -7665,7 +9907,14 @@
     "definition": "注射；注入",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "an injection of",
+        "meaning": "注入；投入",
+        "sentence": "The project needs an injection of fresh ideas.",
+        "translation": "這項專案需要注入新的想法。"
+      }
+    ]
   },
   {
     "word": "inning",
@@ -7674,7 +9923,14 @@
     "definition": "（棒球）局；一局",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in the first inning",
+        "meaning": "在第一局",
+        "sentence": "The home team scored twice in the first inning.",
+        "translation": "主隊在第一局得了兩分。"
+      }
+    ]
   },
   {
     "word": "innovation",
@@ -7721,7 +9977,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "innovative approach",
+        "meaning": "創新的方法",
+        "sentence": "The company introduced an innovative approach to recycling.",
+        "translation": "這家公司推出了一種創新的回收方法。"
+      }
+    ]
   },
   {
     "word": "inquiry",
@@ -7763,7 +10026,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "drive someone insane",
+        "meaning": "使某人煩躁得受不了；把某人逼瘋（口語誇飾）",
+        "sentence": "The constant noise was beginning to drive her insane.",
+        "translation": "持續不斷的噪音開始讓她煩得受不了了。"
+      }
+    ]
   },
   {
     "word": "insight",
@@ -7805,7 +10075,14 @@
       }
     ],
     "root": "install（安裝、設置）＋ -ation（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "installation of",
+        "meaning": "……的安裝",
+        "sentence": "The installation of the new system will begin tomorrow.",
+        "translation": "新系統將於明天開始安裝。"
+      }
+    ]
   },
   {
     "word": "institute",
@@ -7820,7 +10097,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "research institute",
+        "meaning": "研究機構",
+        "sentence": "She works at a research institute in the city.",
+        "translation": "她在市區的一家研究機構工作。"
+      }
+    ]
   },
   {
     "word": "institution",
@@ -7840,7 +10124,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "institution of higher education",
+        "meaning": "高等教育機構",
+        "sentence": "The university is a respected institution of higher education.",
+        "translation": "這所大學是一所備受尊敬的高等教育機構。"
+      }
+    ]
   },
   {
     "word": "intact",
@@ -7876,7 +10167,14 @@
       }
     ],
     "root": "源自拉丁語 integer，意為「完整的」，引申為整合成完整一體。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "integrate into",
+        "meaning": "融入；整合進",
+        "sentence": "The program helps new students integrate into campus life.",
+        "translation": "這項計畫幫助新生融入校園生活。"
+      }
+    ]
   },
   {
     "word": "integration",
@@ -7885,7 +10183,14 @@
     "definition": "整合；融合；一體化",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "integration of",
+        "meaning": "……的整合",
+        "sentence": "The integration of art and technology is a central theme of the exhibition.",
+        "translation": "藝術與科技的整合是這場展覽的核心主題。"
+      }
+    ]
   },
   {
     "word": "integrity",
@@ -8035,7 +10340,14 @@
     "definition": "間隔；間歇；幕間休息；時間段",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "at regular intervals",
+        "meaning": "每隔固定時間",
+        "sentence": "The lights turn on at regular intervals.",
+        "translation": "燈光每隔固定時間就會亮起。"
+      }
+    ]
   },
   {
     "word": "intervention",
@@ -8077,7 +10389,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "lead investigator",
+        "meaning": "主要調查人員",
+        "sentence": "The lead investigator presented the findings.",
+        "translation": "主要調查人員提出了研究結果。"
+      }
+    ]
   },
   {
     "word": "irony",
@@ -8124,7 +10443,14 @@
       }
     ],
     "root": "journal（日報、日誌）＋ -ism（行業或制度），表示新聞業。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "investigative journalism",
+        "meaning": "調查報導",
+        "sentence": "Investigative journalism can reveal issues that need public attention.",
+        "translation": "調查報導能揭露值得大眾關注的問題。"
+      }
+    ]
   },
   {
     "word": "journalist",
@@ -8139,7 +10465,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "newspaper journalist",
+        "meaning": "報社記者",
+        "sentence": "The newspaper journalist interviewed several residents.",
+        "translation": "這位報社記者採訪了幾位居民。"
+      }
+    ]
   },
   {
     "word": "judicial",
@@ -8175,7 +10508,14 @@
     "definition": "水壺；大壺",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a jug of water",
+        "meaning": "一壺水",
+        "sentence": "Could you bring a jug of water to the table?",
+        "translation": "可以請你拿一壺水到桌上嗎？"
+      }
+    ]
   },
   {
     "word": "jury",
@@ -8254,7 +10594,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "kidnap victim",
+        "meaning": "綁架案受害者",
+        "sentence": "The film tells the story of a kidnap victim who returns home.",
+        "translation": "這部電影講述一名綁架案受害者平安返家的故事。"
+      }
+    ]
   },
   {
     "word": "landlord",
@@ -8279,7 +10626,14 @@
     "definition": "雷射；雷射裝置",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "laser beam",
+        "meaning": "雷射光束",
+        "sentence": "The instrument uses a laser beam to measure distance.",
+        "translation": "這台儀器利用雷射光束測量距離。"
+      }
+    ]
   },
   {
     "word": "lawmaker",
@@ -8288,7 +10642,14 @@
     "definition": "立法者；民意代表",
     "derivatives": [],
     "root": "law（法律）＋ maker（制定者），表示立法者。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "senior lawmaker",
+        "meaning": "資深立法者",
+        "sentence": "A senior lawmaker answered questions after the meeting.",
+        "translation": "一位資深立法者在會議後回答問題。"
+      }
+    ]
   },
   {
     "word": "lawsuit",
@@ -8313,7 +10674,14 @@
     "definition": "層；分層；使分層",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a layer of",
+        "meaning": "一層……",
+        "sentence": "Spread a thin layer of paint over the surface.",
+        "translation": "在表面塗上一層薄薄的油漆。"
+      }
+    ]
   },
   {
     "word": "league",
@@ -8322,7 +10690,14 @@
     "definition": "聯盟；社團；（運動）聯賽；等級",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "major league",
+        "meaning": "大聯盟",
+        "sentence": "He hopes to play in the major league one day.",
+        "translation": "他希望有一天能在大聯盟打球。"
+      }
+    ]
   },
   {
     "word": "legacy",
@@ -8347,7 +10722,14 @@
     "definition": "傳奇的；著名的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "legendary status",
+        "meaning": "傳奇地位",
+        "sentence": "The musician achieved legendary status during her career.",
+        "translation": "這位音樂家在職業生涯中取得了傳奇地位。"
+      }
+    ]
   },
   {
     "word": "legislation",
@@ -8367,7 +10749,14 @@
       }
     ],
     "root": "源自拉丁語 legis（法律）＋ -lation（制定、提出），表示立法或法律。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pass legislation",
+        "meaning": "通過法律",
+        "sentence": "The lawmakers voted to pass new legislation.",
+        "translation": "立法者投票通過了新的法律。"
+      }
+    ]
   },
   {
     "word": "legislative",
@@ -8387,7 +10776,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "legislative branch",
+        "meaning": "立法部門",
+        "sentence": "The legislative branch is responsible for making laws.",
+        "translation": "立法部門負責制定法律。"
+      }
+    ]
   },
   {
     "word": "legitimate",
@@ -8423,7 +10819,14 @@
     "definition": "唯恐；以免",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "lest we forget",
+        "meaning": "以免我們忘記",
+        "sentence": "The monument was built lest we forget the past.",
+        "translation": "這座紀念碑是為了讓我們不要忘記過去而建造的。"
+      }
+    ]
   },
   {
     "word": "liability",
@@ -8485,7 +10888,14 @@
     "definition": "環；圈；循環；使成環",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "close the loop",
+        "meaning": "完成溝通流程",
+        "sentence": "Please send a final update to close the loop.",
+        "translation": "請寄出最後一份更新，讓整個溝通流程圓滿完成。"
+      }
+    ]
   },
   {
     "word": "lounge",
@@ -8494,7 +10904,14 @@
     "definition": "n. 休息室；候機室；v. 懶洋洋地倚坐",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "airport lounge",
+        "meaning": "機場貴賓室",
+        "sentence": "We waited for our flight in the airport lounge.",
+        "translation": "我們在機場貴賓室等候班機。"
+      }
+    ]
   },
   {
     "word": "lump",
@@ -8503,7 +10920,14 @@
     "definition": "塊；腫塊；把……歸為一類",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a lump sum",
+        "meaning": "一筆總額",
+        "sentence": "The scholarship is paid as a lump sum.",
+        "translation": "這筆獎學金以一次性總額發放。"
+      }
+    ]
   },
   {
     "word": "mainstream",
@@ -8561,7 +10985,14 @@
       }
     ],
     "root": "源自拉丁語 mamma，意為「乳房」，因哺乳特徵得名。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "marine mammal",
+        "meaning": "海洋哺乳動物",
+        "sentence": "A dolphin is an intelligent marine mammal.",
+        "translation": "海豚是一種聰明的海洋哺乳動物。"
+      }
+    ]
   },
   {
     "word": "mandate",
@@ -8646,7 +11077,14 @@
     "definition": "大宅；豪宅",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "country mansion",
+        "meaning": "鄉間大宅",
+        "sentence": "The old country mansion has been turned into a museum.",
+        "translation": "這座古老的鄉間大宅已改建成博物館。"
+      }
+    ]
   },
   {
     "word": "marine",
@@ -8683,7 +11121,14 @@
       }
     ],
     "root": "源自拉丁語 masculus，意為「男性的」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "masculine voice",
+        "meaning": "低沉／陽剛的嗓音",
+        "sentence": "The character was written with a deep, masculine voice.",
+        "translation": "這個角色被設定為有著低沉的嗓音。"
+      }
+    ]
   },
   {
     "word": "massage",
@@ -8692,7 +11137,14 @@
     "definition": "按摩；推拿",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "massage therapy",
+        "meaning": "按摩療法",
+        "sentence": "The article introduces the history of massage therapy.",
+        "translation": "這篇文章介紹按摩療法的歷史。"
+      }
+    ]
   },
   {
     "word": "massive",
@@ -8739,7 +11191,14 @@
     "definition": "床墊",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "mattress cover",
+        "meaning": "床墊套",
+        "sentence": "She washed the mattress cover over the weekend.",
+        "translation": "她在週末清洗了床墊套。"
+      }
+    ]
   },
   {
     "word": "meantime",
@@ -8802,7 +11261,14 @@
       }
     ],
     "root": "源自拉丁語 mederi，意為「治療、醫治」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "take medication",
+        "meaning": "服用藥物",
+        "sentence": "The article reminds patients to follow their doctor’s directions when taking medication.",
+        "translation": "這篇文章提醒病人服藥時應遵照醫師指示。"
+      }
+    ]
   },
   {
     "word": "mentor",
@@ -8920,7 +11386,14 @@
       }
     ],
     "root": "migr（移動、遷徙）＋ -ation（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "migration patterns",
+        "meaning": "遷徙模式",
+        "sentence": "Scientists study the migration patterns of birds.",
+        "translation": "科學家研究鳥類的遷徙模式。"
+      }
+    ]
   },
   {
     "word": "milestone",
@@ -9016,7 +11489,14 @@
     "definition": "薄荷；造幣廠；鑄造",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in mint condition",
+        "meaning": "狀態極佳；完好如新",
+        "sentence": "The collector found the book in mint condition.",
+        "translation": "收藏家找到這本保存完好的書。"
+      }
+    ]
   },
   {
     "word": "missionary",
@@ -9025,7 +11505,14 @@
     "definition": "傳教士；傳教的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "missionary work",
+        "meaning": "傳教工作",
+        "sentence": "The history class discussed missionary work in the region.",
+        "translation": "歷史課討論了這個地區的傳教工作。"
+      }
+    ]
   },
   {
     "word": "moan",
@@ -9034,7 +11521,14 @@
     "definition": "呻吟；抱怨",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "moan in frustration",
+        "meaning": "沮喪地抱怨",
+        "sentence": "He moaned in frustration when the computer froze again.",
+        "translation": "電腦再次當機時，他沮喪地抱怨起來。"
+      }
+    ]
   },
   {
     "word": "mock",
@@ -9097,7 +11591,14 @@
       }
     ],
     "root": "mole（大量、質量）＋ -cule（小），指微小粒子。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "water molecule",
+        "meaning": "水分子",
+        "sentence": "Each water molecule contains two hydrogen atoms and one oxygen atom.",
+        "translation": "每個水分子都含有兩個氫原子和一個氧原子。"
+      }
+    ]
   },
   {
     "word": "monopoly",
@@ -9225,7 +11726,14 @@
     "definition": "登上；安裝；逐漸增加；山",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "mount a campaign",
+        "meaning": "發起活動",
+        "sentence": "The students mounted a campaign to improve the school library.",
+        "translation": "學生發起了一場改善學校圖書館的活動。"
+      }
+    ]
   },
   {
     "word": "mumble",
@@ -9234,7 +11742,14 @@
     "definition": "喃喃自語；含糊地說",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "mumble something",
+        "meaning": "含糊地說些什麼",
+        "sentence": "He mumbled something and quickly left the room.",
+        "translation": "他含糊地說了些什麼，隨即離開房間。"
+      }
+    ]
   },
   {
     "word": "municipal",
@@ -9276,7 +11791,14 @@
       }
     ],
     "root": "muscle 源自拉丁語 musculus（小老鼠），因早期認為肌肉形狀像小鼠。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "muscular strength",
+        "meaning": "肌肉力量",
+        "sentence": "The exercise program focuses on balance and muscular strength.",
+        "translation": "這套運動計畫著重於平衡與肌肉力量。"
+      }
+    ]
   },
   {
     "word": "mustard",
@@ -9285,7 +11807,14 @@
     "definition": "芥末；芥菜；芥末醬",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "mustard seed",
+        "meaning": "芥菜籽",
+        "sentence": "The recipe calls for a spoonful of mustard seed.",
+        "translation": "這份食譜需要一匙芥菜籽。"
+      }
+    ]
   },
   {
     "word": "myth",
@@ -9332,7 +11861,14 @@
       }
     ],
     "root": "源自法語 naïf，與拉丁語 nativus（天生的、自然的）相關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a naive assumption",
+        "meaning": "天真的假設",
+        "sentence": "It was a naive assumption that everything would be easy.",
+        "translation": "認為一切都會很容易是一種天真的假設。"
+      }
+    ]
   },
   {
     "word": "narrative",
@@ -9379,7 +11915,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a nasty remark",
+        "meaning": "刻薄的話",
+        "sentence": "She apologized for making a nasty remark.",
+        "translation": "她為自己說了刻薄的話而道歉。"
+      }
+    ]
   },
   {
     "word": "negotiation",
@@ -9469,7 +12012,14 @@
     "definition": "提名；任命；候選資格",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "receive a nomination",
+        "meaning": "獲得提名",
+        "sentence": "The film received a nomination for best picture.",
+        "translation": "這部電影獲得最佳影片提名。"
+      }
+    ]
   },
   {
     "word": "nominee",
@@ -9478,7 +12028,14 @@
     "definition": "被提名者；候選人",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a nominee for",
+        "meaning": "……的提名者",
+        "sentence": "Each nominee for the award gave a short speech.",
+        "translation": "每位獎項提名者都發表了簡短演說。"
+      }
+    ]
   },
   {
     "word": "nonprofit",
@@ -9606,7 +12163,14 @@
     "definition": "adv. 無處；哪裡都不；pron. 不存在的地方",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "nowhere near",
+        "meaning": "遠遠不及；離……很遠",
+        "sentence": "The first draft is nowhere near finished.",
+        "translation": "第一版草稿離完成還差得遠。"
+      }
+    ]
   },
   {
     "word": "nutrient",
@@ -9729,7 +12293,14 @@
       }
     ],
     "root": "observe 源自拉丁語 observare，意為「留意、觀察」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "keen observer",
+        "meaning": "敏銳的觀察者",
+        "sentence": "A keen observer noticed the small change in the painting.",
+        "translation": "一位敏銳的觀察者注意到畫作中的細微變化。"
+      }
+    ]
   },
   {
     "word": "odds",
@@ -9754,7 +12325,14 @@
     "definition": "提供物；供品；祭品；提議",
     "derivatives": [],
     "root": "offer 源自拉丁語 offerre，意為「帶到前面、提供」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "special offering",
+        "meaning": "特別提供的項目",
+        "sentence": "The museum has a special offering for school groups.",
+        "translation": "博物館為學校團體提供特別活動。"
+      }
+    ]
   },
   {
     "word": "olive",
@@ -9844,7 +12422,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in opposition to",
+        "meaning": "反對",
+        "sentence": "Several members spoke in opposition to the proposal.",
+        "translation": "幾位成員發言反對這項提案。"
+      }
+    ]
   },
   {
     "word": "opt",
@@ -9896,7 +12481,14 @@
     "definition": "可選擇的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "optional course",
+        "meaning": "選修課程",
+        "sentence": "Students may choose one optional course each semester.",
+        "translation": "學生每學期可以選修一門課。"
+      }
+    ]
   },
   {
     "word": "orchard",
@@ -9905,7 +12497,14 @@
     "definition": "果園",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "apple orchard",
+        "meaning": "蘋果園",
+        "sentence": "The family owns a small apple orchard.",
+        "translation": "這個家庭擁有一座小蘋果園。"
+      }
+    ]
   },
   {
     "word": "organism",
@@ -9952,7 +12551,14 @@
       }
     ],
     "root": "origin（起源）＋ -al（形容詞字尾）＋ -ity（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "show originality",
+        "meaning": "展現獨創性",
+        "sentence": "The design shows originality and careful planning.",
+        "translation": "這項設計展現了獨創性與周詳規劃。"
+      }
+    ]
   },
   {
     "word": "outfit",
@@ -9993,7 +12599,14 @@
     "definition": "n. 產量；輸出量；成果；v. 輸出",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "annual output",
+        "meaning": "年產量",
+        "sentence": "The factory increased its annual output last year.",
+        "translation": "這家工廠去年提高了年產量。"
+      }
+    ]
   },
   {
     "word": "outsider",
@@ -10018,7 +12631,14 @@
     "definition": "整體的；全面的；總的來說",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the overall effect",
+        "meaning": "整體效果",
+        "sentence": "The overall effect of the changes was positive.",
+        "translation": "這些改變的整體效果是正面的。"
+      }
+    ]
   },
   {
     "word": "overhead",
@@ -10189,7 +12809,14 @@
     "definition": "部分地；在某種程度上；不完全地",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "partly because of",
+        "meaning": "部分原因是",
+        "sentence": "The event was delayed partly because of the weather.",
+        "translation": "活動延遲的部分原因是天氣。"
+      }
+    ]
   },
   {
     "word": "passionate",
@@ -10257,7 +12884,14 @@
     "definition": "n. 專利；專利權；adj. 明顯的；v. 取得……的專利權",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "patent application",
+        "meaning": "專利申請",
+        "sentence": "The inventor submitted a patent application.",
+        "translation": "發明者提交了專利申請。"
+      }
+    ]
   },
   {
     "word": "pathetic",
@@ -10337,7 +12971,14 @@
     "definition": "農民；佃農；鄉下人（有時帶貶義）",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "peasant life",
+        "meaning": "農民生活",
+        "sentence": "The novel describes peasant life in the nineteenth century.",
+        "translation": "這部小說描寫十九世紀的農民生活。"
+      }
+    ]
   },
   {
     "word": "pedal",
@@ -10362,7 +13003,14 @@
     "definition": "n. 行人；adj. 行人的；平凡乏味的",
     "derivatives": [],
     "root": "ped（腳）＋ -estrian（相關字尾），源自拉丁語「步行者」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pedestrian crossing",
+        "meaning": "行人穿越道",
+        "sentence": "Always use the pedestrian crossing when crossing the street.",
+        "translation": "過馬路時務必使用行人穿越道。"
+      }
+    ]
   },
   {
     "word": "penetrate",
@@ -10398,7 +13046,14 @@
     "definition": "n. 退休金；養老金；v. 發給退休金",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pension plan",
+        "meaning": "退休金計畫",
+        "sentence": "The company offers a pension plan to its employees.",
+        "translation": "公司為員工提供退休金計畫。"
+      }
+    ]
   },
   {
     "word": "perceive",
@@ -10445,7 +13100,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "public perception",
+        "meaning": "大眾觀感",
+        "sentence": "The campaign changed public perception of the issue.",
+        "translation": "這場宣傳活動改變了大眾對這個議題的觀感。"
+      }
+    ]
   },
   {
     "word": "performer",
@@ -10454,7 +13116,14 @@
     "definition": "表演者；演出者；執行者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "stage performer",
+        "meaning": "舞台表演者",
+        "sentence": "Every stage performer practiced for weeks.",
+        "translation": "每位舞台表演者都練習了好幾週。"
+      }
+    ]
   },
   {
     "word": "persist",
@@ -10490,7 +13159,14 @@
     "definition": "全體人員；職員；人事部門",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "personnel department",
+        "meaning": "人事部門",
+        "sentence": "Please contact the personnel department for further information.",
+        "translation": "如需更多資訊，請聯絡人事部門。"
+      }
+    ]
   },
   {
     "word": "perspective",
@@ -10526,7 +13202,14 @@
       }
     ],
     "root": "源自拉丁語 pessimus，意為「最差的」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pessimism about",
+        "meaning": "對……的悲觀",
+        "sentence": "There is growing pessimism about the project’s future.",
+        "translation": "人們對這項專案的未來越來越悲觀。"
+      }
+    ]
   },
   {
     "word": "petition",
@@ -10638,7 +13321,14 @@
     "definition": "碼頭；突堤",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "wooden pier",
+        "meaning": "木造碼頭",
+        "sentence": "They walked along the wooden pier at sunset.",
+        "translation": "日落時分，他們沿著木造碼頭散步。"
+      }
+    ]
   },
   {
     "word": "pillar",
@@ -10690,7 +13380,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pirate ship",
+        "meaning": "海盜船",
+        "sentence": "The children built a model pirate ship.",
+        "translation": "孩子們製作了一艘海盜船模型。"
+      }
+    ]
   },
   {
     "word": "pitcher",
@@ -10699,7 +13396,14 @@
     "definition": "投手；水壺",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a pitcher of water",
+        "meaning": "一壺水",
+        "sentence": "A pitcher of water was placed in the center of the table.",
+        "translation": "桌子中央放著一壺水。"
+      }
+    ]
   },
   {
     "word": "placement",
@@ -10708,7 +13412,14 @@
     "definition": "安置；配置；實習安排",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "job placement",
+        "meaning": "就業媒合",
+        "sentence": "The school offers job placement assistance to graduates.",
+        "translation": "學校為畢業生提供就業媒合協助。"
+      }
+    ]
   },
   {
     "word": "plea",
@@ -10717,7 +13428,14 @@
     "definition": "懇求；請求；抗辯",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "enter a plea",
+        "meaning": "作出答辯",
+        "sentence": "The defendant entered a plea in court.",
+        "translation": "被告在法庭上作出答辯。"
+      }
+    ]
   },
   {
     "word": "plead",
@@ -10796,7 +13514,14 @@
       }
     ],
     "root": "源自拉丁語 plus，意為「更多」，表示複數。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "plural form",
+        "meaning": "複數形式",
+        "sentence": "Write the plural form of each noun.",
+        "translation": "寫出每個名詞的複數形式。"
+      }
+    ]
   },
   {
     "word": "poetic",
@@ -10848,7 +13573,14 @@
     "definition": "門廊；陽台",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "front porch",
+        "meaning": "前廊",
+        "sentence": "They sat on the front porch and watched the rain.",
+        "translation": "他們坐在前廊看著下雨。"
+      }
+    ]
   },
   {
     "word": "portfolio",
@@ -10857,7 +13589,14 @@
     "definition": "作品集；投資組合；公事包",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "investment portfolio",
+        "meaning": "投資組合",
+        "sentence": "The report explains how an investment portfolio can be diversified.",
+        "translation": "這份報告解釋投資組合如何分散配置。"
+      }
+    ]
   },
   {
     "word": "practitioner",
@@ -10866,7 +13605,14 @@
     "definition": "從業者；執業者；實踐者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "health-care practitioner",
+        "meaning": "醫療照護從業人員",
+        "sentence": "The health-care practitioner explained the available options.",
+        "translation": "醫療照護從業人員解釋了可行的選項。"
+      }
+    ]
   },
   {
     "word": "precaution",
@@ -10918,7 +13664,14 @@
     "definition": "偏好；喜好；優先選擇",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "have a preference for",
+        "meaning": "偏好",
+        "sentence": "She has a preference for historical novels.",
+        "translation": "她偏好歷史小說。"
+      }
+    ]
   },
   {
     "word": "prejudice",
@@ -10927,7 +13680,14 @@
     "definition": "n. 偏見；成見；v. 使產生偏見；損害",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "prejudice against",
+        "meaning": "對……的偏見",
+        "sentence": "Education can help challenge prejudice against unfamiliar cultures.",
+        "translation": "教育有助於挑戰對陌生文化的偏見。"
+      }
+    ]
   },
   {
     "word": "preliminary",
@@ -10969,7 +13729,14 @@
       }
     ],
     "root": "pre-（在前）＋ mature（成熟），表示尚未成熟就發生的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "premature birth",
+        "meaning": "早產",
+        "sentence": "The article describes some challenges associated with premature birth.",
+        "translation": "這篇文章描述了早產相關的一些挑戰。"
+      }
+    ]
   },
   {
     "word": "premier",
@@ -10978,7 +13745,14 @@
     "definition": "adj. 首要的；頂級的；n. 總理；首相",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the premier of",
+        "meaning": "……的首長／總理",
+        "sentence": "The premier of the province attended the ceremony.",
+        "translation": "該省的首長出席了典禮。"
+      }
+    ]
   },
   {
     "word": "premise",
@@ -11046,7 +13820,14 @@
     "definition": "處方；處方箋；規定；指示",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "prescription medicine",
+        "meaning": "處方藥",
+        "sentence": "The label contains important information about the prescription medicine.",
+        "translation": "標籤上有關於這種處方藥的重要資訊。"
+      }
+    ]
   },
   {
     "word": "presidency",
@@ -11055,7 +13836,14 @@
     "definition": "總統職位；主席職位；任期",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "during the presidency of",
+        "meaning": "在……擔任總統期間",
+        "sentence": "The policy was introduced during the presidency of her predecessor.",
+        "translation": "這項政策是在她的前任總統任內推出的。"
+      }
+    ]
   },
   {
     "word": "presidential",
@@ -11075,7 +13863,14 @@
       }
     ],
     "root": "president（總統、主席）＋ -ial（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "presidential election",
+        "meaning": "總統選舉",
+        "sentence": "The presidential election attracted international attention.",
+        "translation": "這場總統選舉引起國際關注。"
+      }
+    ]
   },
   {
     "word": "presumably",
@@ -11084,7 +13879,14 @@
     "definition": "大概；據推測",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "presumably true",
+        "meaning": "推測為真",
+        "sentence": "The statement is presumably true, but it still needs evidence.",
+        "translation": "這項陳述推測為真，但仍需要證據。"
+      }
+    ]
   },
   {
     "word": "presume",
@@ -11147,7 +13949,14 @@
     "definition": "獵物；捕食；受害者",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "prey on",
+        "meaning": "捕食；利用",
+        "sentence": "Some birds prey on insects in the fields.",
+        "translation": "有些鳥類會捕食田裡的昆蟲。"
+      }
+    ]
   },
   {
     "word": "prior",
@@ -11216,7 +14025,14 @@
       }
     ],
     "root": "product（產物）＋ -ive（形容詞字尾）＋ -ity（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "increase productivity",
+        "meaning": "提高生產力",
+        "sentence": "A clear schedule can help increase productivity.",
+        "translation": "明確的時間表有助於提高生產力。"
+      }
+    ]
   },
   {
     "word": "profile",
@@ -11301,7 +14117,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "prohibit someone from doing something",
+        "meaning": "禁止某人做某事",
+        "sentence": "The rules prohibit visitors from taking photographs here.",
+        "translation": "規定禁止訪客在此拍照。"
+      }
+    ]
   },
   {
     "word": "projection",
@@ -11467,7 +14290,14 @@
       }
     ],
     "root": "prosecute 源自拉丁語 prosequi，意為「追隨、繼續進行」，法律上引申為起訴。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "criminal prosecution",
+        "meaning": "刑事起訴",
+        "sentence": "The case resulted in a criminal prosecution.",
+        "translation": "這起案件最終導致刑事起訴。"
+      }
+    ]
   },
   {
     "word": "prospect",
@@ -11498,7 +14328,14 @@
     "definition": "省；行政區；領域；職責範圍",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "province of",
+        "meaning": "……省",
+        "sentence": "The province of Alberta is known for its natural landscapes.",
+        "translation": "亞伯達省以自然景觀聞名。"
+      }
+    ]
   },
   {
     "word": "provision",
@@ -11561,7 +14398,14 @@
     "definition": "n. 脈搏；脈衝；v. 跳動；搏動",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "take one’s pulse",
+        "meaning": "測量脈搏",
+        "sentence": "The nurse asked permission to take his pulse.",
+        "translation": "護理師徵求同意後測量他的脈搏。"
+      }
+    ]
   },
   {
     "word": "purchase",
@@ -11570,7 +14414,14 @@
     "definition": "購買",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "make a purchase",
+        "meaning": "購買",
+        "sentence": "Customers can make a purchase through the website.",
+        "translation": "顧客可以透過網站購物。"
+      }
+    ]
   },
   {
     "word": "pyramid",
@@ -11579,7 +14430,14 @@
     "definition": "金字塔；角錐體；金字塔形物",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "pyramid scheme",
+        "meaning": "金字塔騙局",
+        "sentence": "The warning explains how to recognize a pyramid scheme.",
+        "translation": "這份警示說明如何辨識金字塔騙局。"
+      }
+    ]
   },
   {
     "word": "qualify",
@@ -11631,7 +14489,14 @@
     "definition": "調查表，問卷",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "fill out a questionnaire",
+        "meaning": "填寫問卷",
+        "sentence": "Participants were asked to fill out a questionnaire.",
+        "translation": "參與者受邀填寫一份問卷。"
+      }
+    ]
   },
   {
     "word": "quiver",
@@ -11640,7 +14505,14 @@
     "definition": "顫抖；顫動；箭袋",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "quiver with excitement",
+        "meaning": "興奮得發抖",
+        "sentence": "The children quivered with excitement before the show.",
+        "translation": "表演開始前，孩子們興奮得發抖。"
+      }
+    ]
   },
   {
     "word": "quota",
@@ -11692,7 +14564,14 @@
     "definition": "架子；支架；折磨",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a rack of clothes",
+        "meaning": "一架衣服",
+        "sentence": "A rack of clothes stood near the fitting rooms.",
+        "translation": "試衣間附近放著一架衣服。"
+      }
+    ]
   },
   {
     "word": "radiation",
@@ -11712,7 +14591,14 @@
       }
     ],
     "root": "radi（光線、放射）＋ -ation（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "radiation exposure",
+        "meaning": "輻射暴露",
+        "sentence": "The report discusses ways to monitor radiation exposure.",
+        "translation": "這份報告討論監測輻射暴露的方法。"
+      }
+    ]
   },
   {
     "word": "radical",
@@ -11748,7 +14634,14 @@
     "definition": "破爛的；衣衫襤褸的；參差不齊的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ragged clothes",
+        "meaning": "破舊的衣服",
+        "sentence": "The character wore ragged clothes in the opening scene.",
+        "translation": "這個角色在開場場景中穿著破舊的衣服。"
+      }
+    ]
   },
   {
     "word": "raid",
@@ -11757,7 +14650,14 @@
     "definition": "突襲；搜查；劫掠",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a raid on",
+        "meaning": "對……的搜查",
+        "sentence": "The newspaper reported a raid on the abandoned building.",
+        "translation": "報紙報導了對那棟廢棄建築的搜查。"
+      }
+    ]
   },
   {
     "word": "rail",
@@ -11766,7 +14666,14 @@
     "definition": "鐵軌；欄杆；扶手；鐵路",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "rail network",
+        "meaning": "鐵路網",
+        "sentence": "The country is expanding its rail network.",
+        "translation": "這個國家正在擴建鐵路網。"
+      }
+    ]
   },
   {
     "word": "rally",
@@ -11791,7 +14698,14 @@
     "definition": "牧場；大農場",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "ranch owner",
+        "meaning": "牧場主人",
+        "sentence": "The ranch owner welcomed visitors from the city.",
+        "translation": "牧場主人歡迎來自城市的訪客。"
+      }
+    ]
   },
   {
     "word": "random",
@@ -11800,7 +14714,14 @@
     "definition": "隨機的；任意的；沒有固定模式的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "at random",
+        "meaning": "隨機地",
+        "sentence": "The computer selected five names at random.",
+        "translation": "電腦隨機選出了五個名字。"
+      }
+    ]
   },
   {
     "word": "ratio",
@@ -11879,7 +14800,14 @@
       }
     ],
     "root": "real（現實的）＋ -ism（主義），表示現實主義。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "social realism",
+        "meaning": "社會寫實主義",
+        "sentence": "The novel is often discussed as an example of social realism.",
+        "translation": "這部小說常被視為社會寫實主義的例子來討論。"
+      }
+    ]
   },
   {
     "word": "realm",
@@ -11904,7 +14832,14 @@
     "definition": "後部；後方的；養育；飼養",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "rear end",
+        "meaning": "後端；車尾",
+        "sentence": "The damage was limited to the rear end of the vehicle.",
+        "translation": "損壞僅限於車輛尾部。"
+      }
+    ]
   },
   {
     "word": "reassure",
@@ -12027,7 +14962,14 @@
       }
     ],
     "root": "源自拉丁語 recitare，意為「大聲讀出、背誦」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "recite from memory",
+        "meaning": "憑記憶背誦",
+        "sentence": "She recited the poem from memory.",
+        "translation": "她憑記憶背誦了這首詩。"
+      }
+    ]
   },
   {
     "word": "recommend",
@@ -12042,7 +14984,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "recommend that",
+        "meaning": "建議……",
+        "sentence": "The teacher recommends that students review their notes regularly.",
+        "translation": "老師建議學生定期複習筆記。"
+      }
+    ]
   },
   {
     "word": "recommendation",
@@ -12127,7 +15076,14 @@
     "definition": "adv. 不管；不顧；無論如何（常用 regardless of）",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "regardless of",
+        "meaning": "不管；無論",
+        "sentence": "Everyone is welcome regardless of age or experience.",
+        "translation": "無論年齡或經驗如何，大家都受到歡迎。"
+      }
+    ]
   },
   {
     "word": "regime",
@@ -12136,7 +15092,14 @@
     "definition": "政權；制度；管理方式",
     "derivatives": [],
     "root": "源自法語 régime，與拉丁語 regere（統治、管理）相關。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "political regime",
+        "meaning": "政治體制；政權",
+        "sentence": "The book examines how the political regime changed over time.",
+        "translation": "這本書探討政治體制如何隨時間改變。"
+      }
+    ]
   },
   {
     "word": "rehearsal",
@@ -12227,7 +15190,14 @@
       }
     ],
     "root": "remove（移除）＋ -al（名詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "removal of",
+        "meaning": "移除；撤除",
+        "sentence": "The removal of the old bridge will begin next month.",
+        "translation": "舊橋的拆除工程將於下個月開始。"
+      }
+    ]
   },
   {
     "word": "render",
@@ -12312,7 +15282,14 @@
     "definition": "共和黨員；共和主義者；共和國的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a republican form of government",
+        "meaning": "共和政體",
+        "sentence": "The constitution established a republican form of government.",
+        "translation": "憲法建立了共和政體。"
+      }
+    ]
   },
   {
     "word": "resemblance",
@@ -12618,7 +15595,14 @@
     "definition": "山脊；隆起處；屋脊",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "mountain ridge",
+        "meaning": "山脊",
+        "sentence": "A narrow path follows the mountain ridge.",
+        "translation": "一條狹窄的小徑沿著山脊延伸。"
+      }
+    ]
   },
   {
     "word": "ridiculous",
@@ -12654,7 +15638,14 @@
     "definition": "步槍",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "rifle through",
+        "meaning": "匆忙翻找；迅速搜尋",
+        "sentence": "He rifled through the drawer to find his passport.",
+        "translation": "他迅速翻找抽屜，想找到護照。"
+      }
+    ]
   },
   {
     "word": "rigid",
@@ -12699,7 +15690,14 @@
     "definition": "暴動；騷亂；鬧事",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a riot broke out",
+        "meaning": "暴動爆發",
+        "sentence": "A riot broke out after the tense match.",
+        "translation": "那場緊張的比賽結束後爆發了暴動。"
+      }
+    ]
   },
   {
     "word": "rip",
@@ -12708,7 +15706,14 @@
     "definition": "撕裂；扯破；裂口",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "rip apart",
+        "meaning": "撕裂；拆散",
+        "sentence": "The strong wind threatened to rip the old flag apart.",
+        "translation": "強風可能會把那面舊旗子撕裂。"
+      }
+    ]
   },
   {
     "word": "risky",
@@ -12798,7 +15803,14 @@
     "definition": "桿；棒；釣竿",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "lightning rod",
+        "meaning": "避雷針",
+        "sentence": "A lightning rod was installed on top of the building.",
+        "translation": "建築物頂端安裝了一支避雷針。"
+      }
+    ]
   },
   {
     "word": "sacred",
@@ -12807,7 +15819,14 @@
     "definition": "神聖的；宗教的；不可侵犯的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sacred ground",
+        "meaning": "神聖之地",
+        "sentence": "The mountain is considered sacred ground by local communities.",
+        "translation": "當地社群認為這座山是神聖之地。"
+      }
+    ]
   },
   {
     "word": "saddle",
@@ -12816,7 +15835,14 @@
     "definition": "馬鞍；使負擔；使承受",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "in the saddle",
+        "meaning": "掌控局勢；處於主導地位",
+        "sentence": "After a difficult start, the new manager was soon back in the saddle.",
+        "translation": "經歷艱難的開局後，新經理很快又重新掌握局面。"
+      }
+    ]
   },
   {
     "word": "saint",
@@ -12836,7 +15862,14 @@
       }
     ],
     "root": "源自拉丁語 sanctus，意為「神聖的」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "saintly patience",
+        "meaning": "極大的耐心",
+        "sentence": "The teacher showed saintly patience with the young students.",
+        "translation": "老師對年輕學生展現了極大的耐心。"
+      }
+    ]
   },
   {
     "word": "salmon",
@@ -12845,7 +15878,14 @@
     "definition": "鮭魚；鮭肉",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "smoked salmon",
+        "meaning": "煙燻鮭魚",
+        "sentence": "The café serves smoked salmon with fresh bread.",
+        "translation": "這家咖啡館供應搭配新鮮麵包的煙燻鮭魚。"
+      }
+    ]
   },
   {
     "word": "salon",
@@ -12854,7 +15894,14 @@
     "definition": "美容院；沙龍；客廳",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "beauty salon",
+        "meaning": "美容沙龍",
+        "sentence": "She made an appointment at a beauty salon.",
+        "translation": "她預約了一家美容沙龍。"
+      }
+    ]
   },
   {
     "word": "sandal",
@@ -12863,7 +15910,14 @@
     "definition": "涼鞋；便鞋",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a pair of sandals",
+        "meaning": "一雙涼鞋",
+        "sentence": "He packed a pair of sandals for the beach.",
+        "translation": "他為海灘行程帶了一雙涼鞋。"
+      }
+    ]
   },
   {
     "word": "scan",
@@ -12872,7 +15926,14 @@
     "definition": "n. 掃描；瀏覽；v. 掃描；仔細查看；快速瀏覽",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "scan through",
+        "meaning": "快速瀏覽",
+        "sentence": "I scanned through the article before class.",
+        "translation": "上課前我快速瀏覽了這篇文章。"
+      }
+    ]
   },
   {
     "word": "scandal",
@@ -12908,7 +15969,14 @@
     "definition": "傷疤",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "scar tissue",
+        "meaning": "疤痕組織",
+        "sentence": "The doctor explained how scar tissue forms.",
+        "translation": "醫師解釋了疤痕組織如何形成。"
+      }
+    ]
   },
   {
     "word": "scenario",
@@ -13009,7 +16077,14 @@
     "definition": "碎片；廢料；廢棄；打架",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "scrap metal",
+        "meaning": "廢金屬",
+        "sentence": "The factory recycles scrap metal.",
+        "translation": "這家工廠回收廢金屬。"
+      }
+    ]
   },
   {
     "word": "script",
@@ -13315,7 +16390,14 @@
     "definition": "一段時間；一場會議；課堂；（議會等）會期",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a session of",
+        "meaning": "一場；一節",
+        "sentence": "The students attended a session of group discussion.",
+        "translation": "學生參加了一場小組討論。"
+      }
+    ]
   },
   {
     "word": "setting",
@@ -13426,7 +16508,14 @@
     "definition": "治安官；郡警長",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "county sheriff",
+        "meaning": "郡警長",
+        "sentence": "The county sheriff gave a public safety announcement.",
+        "translation": "郡警長發布了一則公共安全公告。"
+      }
+    ]
   },
   {
     "word": "shield",
@@ -13515,7 +16604,14 @@
     "definition": "n. 接駁車；往返交通工具；梭子；v. 往返運送",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "space shuttle",
+        "meaning": "太空梭",
+        "sentence": "The museum has a model of a space shuttle.",
+        "translation": "博物館收藏了一架太空梭模型。"
+      }
+    ]
   },
   {
     "word": "sibling",
@@ -13578,7 +16674,14 @@
     "definition": "頭骨；顱骨",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "human skull",
+        "meaning": "人類頭骨",
+        "sentence": "The science exhibit includes a model of a human skull.",
+        "translation": "科學展覽中有一個人類頭骨模型。"
+      }
+    ]
   },
   {
     "word": "slam",
@@ -13587,7 +16690,14 @@
     "definition": "砰地關上；猛擊；嚴厲批評",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "slam the door",
+        "meaning": "用力關門",
+        "sentence": "He was upset and slammed the door behind him.",
+        "translation": "他很生氣，於是用力關上身後的門。"
+      }
+    ]
   },
   {
     "word": "slap",
@@ -13623,7 +16733,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "abolition of slavery",
+        "meaning": "廢除奴隸制度",
+        "sentence": "The class studied the abolition of slavery.",
+        "translation": "全班研讀了廢除奴隸制度的歷史。"
+      }
+    ]
   },
   {
     "word": "slot",
@@ -13670,7 +16787,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "smog alert",
+        "meaning": "空氣霾害警報",
+        "sentence": "The city issued a smog alert on a hot summer day.",
+        "translation": "這座城市在炎熱的夏日發布了霾害警報。"
+      }
+    ]
   },
   {
     "word": "snatch",
@@ -13679,7 +16803,14 @@
     "definition": "n./v. 搶奪；迅速抓取；一小段（時間）",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "snatch victory from the jaws of defeat",
+        "meaning": "在即將落敗時反敗為勝",
+        "sentence": "The team snatched victory from the jaws of defeat in the final minutes.",
+        "translation": "這支隊伍在最後幾分鐘於敗局將定時反敗為勝。"
+      }
+    ]
   },
   {
     "word": "sneak",
@@ -13710,7 +16841,14 @@
     "definition": "n./v. 嗅；聞；吸鼻子；嗤之以鼻",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sniff around",
+        "meaning": "四處嗅聞",
+        "sentence": "The dog sniffed around the garden.",
+        "translation": "狗在花園裡四處嗅聞。"
+      }
+    ]
   },
   {
     "word": "soak",
@@ -13751,7 +16889,14 @@
     "definition": "抽泣，嗚咽地說",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sob quietly",
+        "meaning": "輕聲啜泣",
+        "sentence": "She sat by the window and sobbed quietly.",
+        "translation": "她坐在窗邊輕聲啜泣。"
+      }
+    ]
   },
   {
     "word": "sober",
@@ -13874,7 +17019,14 @@
     "definition": "大學二年級學生；高中二年級學生",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sophomore year",
+        "meaning": "二年級",
+        "sentence": "He plans to study abroad during his sophomore year.",
+        "translation": "他計畫在二年級時出國留學。"
+      }
+    ]
   },
   {
     "word": "souvenir",
@@ -13883,7 +17035,14 @@
     "definition": "紀念品；紀念物",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "souvenir shop",
+        "meaning": "紀念品店",
+        "sentence": "We bought postcards at the souvenir shop.",
+        "translation": "我們在紀念品店買了明信片。"
+      }
+    ]
   },
   {
     "word": "sovereignty",
@@ -13919,7 +17078,14 @@
     "definition": "播種；散播；引起（某種情緒或結果）",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sow the seeds of",
+        "meaning": "播下……的種子",
+        "sentence": "The discussion sowed the seeds of a new idea.",
+        "translation": "這場討論播下了一個新想法的種子。"
+      }
+    ]
   },
   {
     "word": "spacious",
@@ -13983,7 +17149,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "specialist in",
+        "meaning": "……方面的專家",
+        "sentence": "The hospital has a specialist in children’s eye care.",
+        "translation": "這家醫院有一位兒童眼科專家。"
+      }
+    ]
   },
   {
     "word": "specialize",
@@ -14264,7 +17437,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "sponge off",
+        "meaning": "依賴他人供養",
+        "sentence": "He continued to sponge off his relatives instead of finding work.",
+        "translation": "他繼續依賴親戚供養，而不去找工作。"
+      }
+    ]
   },
   {
     "word": "sponsor",
@@ -14364,7 +17544,14 @@
     "definition": "蹲；蹲坐；矮胖的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "squat down",
+        "meaning": "蹲下",
+        "sentence": "She squatted down to examine the tiny flower.",
+        "translation": "她蹲下來仔細觀察那朵小花。"
+      }
+    ]
   },
   {
     "word": "stability",
@@ -14427,7 +17614,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "coffee stain",
+        "meaning": "咖啡漬",
+        "sentence": "There was a coffee stain on the corner of the page.",
+        "translation": "頁面角落有一塊咖啡漬。"
+      }
+    ]
   },
   {
     "word": "stake",
@@ -14711,7 +17905,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "storage space",
+        "meaning": "儲存空間",
+        "sentence": "The new computer has plenty of storage space.",
+        "translation": "這台新電腦有充足的儲存空間。"
+      }
+    ]
   },
   {
     "word": "straighten",
@@ -14747,7 +17948,14 @@
     "definition": "簡單明瞭的；直接的；坦率的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a straightforward answer",
+        "meaning": "直接明瞭的回答",
+        "sentence": "The teacher gave a straightforward answer to the question.",
+        "translation": "老師對這個問題給了直接明瞭的回答。"
+      }
+    ]
   },
   {
     "word": "strain",
@@ -14799,7 +18007,14 @@
     "definition": "帶子；皮帶；用帶子捆綁",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "strap in",
+        "meaning": "繫好安全帶",
+        "sentence": "Please strap in before the ride begins.",
+        "translation": "遊樂設施開始前請繫好安全帶。"
+      }
+    ]
   },
   {
     "word": "strategic",
@@ -14944,7 +18159,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "submit an application",
+        "meaning": "提交申請",
+        "sentence": "You must submit an application before Friday.",
+        "translation": "你必須在星期五前提交申請。"
+      }
+    ]
   },
   {
     "word": "subsequent",
@@ -15040,7 +18262,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "substitute A for B",
+        "meaning": "以 A 代替 B",
+        "sentence": "You can substitute honey for sugar in this recipe.",
+        "translation": "這份食譜可以用蜂蜜代替糖。"
+      }
+    ]
   },
   {
     "word": "subtle",
@@ -15130,7 +18359,14 @@
     "definition": "套房；一套家具；一組相關軟體；套件",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "hotel suite",
+        "meaning": "飯店套房",
+        "sentence": "They booked a hotel suite for the family trip.",
+        "translation": "他們為家庭旅行預訂了一間飯店套房。"
+      }
+    ]
   },
   {
     "word": "superb",
@@ -15139,7 +18375,14 @@
     "definition": "極好的；卓越的；出色的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "superb performance",
+        "meaning": "精彩的演出",
+        "sentence": "The orchestra gave a superb performance.",
+        "translation": "這支管弦樂團帶來了精彩的演出。"
+      }
+    ]
   },
   {
     "word": "superstition",
@@ -15256,7 +18499,14 @@
     "definition": "據說；據稱；一般認為",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "supposedly true",
+        "meaning": "據稱為真",
+        "sentence": "The story is supposedly true, although no one has confirmed it.",
+        "translation": "這個故事據稱是真的，雖然還沒有人證實。"
+      }
+    ]
   },
   {
     "word": "supreme",
@@ -15271,7 +18521,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "Supreme Court",
+        "meaning": "最高法院",
+        "sentence": "The case was eventually reviewed by the Supreme Court.",
+        "translation": "這起案件最後由最高法院審理。"
+      }
+    ]
   },
   {
     "word": "surplus",
@@ -15280,7 +18537,14 @@
     "definition": "n. 剩餘；過剩；adj. 過剩的；多餘的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "budget surplus",
+        "meaning": "預算盈餘",
+        "sentence": "The city used its budget surplus to improve public facilities.",
+        "translation": "市政府利用預算盈餘改善公共設施。"
+      }
+    ]
   },
   {
     "word": "surveillance",
@@ -15392,7 +18656,14 @@
     "definition": "交換；互換；調換",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "swap places",
+        "meaning": "交換位置",
+        "sentence": "The two students swapped places before the photograph.",
+        "translation": "拍照前，兩名學生交換了位置。"
+      }
+    ]
   },
   {
     "word": "symbolic",
@@ -15444,7 +18715,14 @@
     "definition": "症候群；綜合徵",
     "derivatives": [],
     "root": "syn-（一起）＋ drome（跑、進程），表示一組同時出現的症狀。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a rare syndrome",
+        "meaning": "罕見症候群",
+        "sentence": "The documentary introduces a rare syndrome and its history.",
+        "translation": "這部紀錄片介紹了一種罕見症候群及其歷史。"
+      }
+    ]
   },
   {
     "word": "tackle",
@@ -15583,7 +18861,14 @@
       }
     ],
     "root": "termin（界限、終點）＋ -al（形容詞字尾）。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "terminal illness",
+        "meaning": "末期疾病",
+        "sentence": "The novel explores how a family responds to a terminal illness.",
+        "translation": "這部小說探討一個家庭如何面對末期疾病。"
+      }
+    ]
   },
   {
     "word": "terrify",
@@ -15603,7 +18888,14 @@
       }
     ],
     "root": "terr（恐懼）＋ -ify（使成為），表示使害怕。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "terrify someone",
+        "meaning": "使某人害怕",
+        "sentence": "The sudden noise terrified the young child.",
+        "translation": "突如其來的聲響嚇壞了那個小孩。"
+      }
+    ]
   },
   {
     "word": "testify",
@@ -15661,7 +18953,14 @@
     "definition": "偷竊；盜竊；失竊事件",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "identity theft",
+        "meaning": "身分盜用",
+        "sentence": "The website offers advice on protecting personal information from identity theft.",
+        "translation": "這個網站提供保護個人資料、避免身分遭盜用的建議。"
+      }
+    ]
   },
   {
     "word": "theology",
@@ -15697,7 +18996,14 @@
     "definition": "理論的；假設的；純理論上的",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "theoretical framework",
+        "meaning": "理論架構",
+        "sentence": "The researcher used a theoretical framework to organize the study.",
+        "translation": "研究人員使用理論架構來組織這項研究。"
+      }
+    ]
   },
   {
     "word": "therapist",
@@ -15760,7 +19066,14 @@
     "definition": "因此；從而；藉此",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "thereby saving time",
+        "meaning": "從而節省時間",
+        "sentence": "The team simplified the process, thereby saving time.",
+        "translation": "團隊簡化了流程，從而節省時間。"
+      }
+    ]
   },
   {
     "word": "thesis",
@@ -15785,7 +19098,14 @@
     "definition": "大腿",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "thigh muscle",
+        "meaning": "大腿肌肉",
+        "sentence": "The diagram labels the major thigh muscles.",
+        "translation": "這張圖標示了主要的大腿肌肉。"
+      }
+    ]
   },
   {
     "word": "threshold",
@@ -15918,7 +19238,14 @@
     "definition": "n./v. 滴答聲；打勾記號；發出滴答聲；打勾；壁蝨",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "tick a box",
+        "meaning": "在方框打勾",
+        "sentence": "Tick a box to select your preferred time.",
+        "translation": "在方框打勾以選擇你偏好的時間。"
+      }
+    ]
   },
   {
     "word": "tile",
@@ -15943,7 +19270,14 @@
     "definition": "錫；馬口鐵；罐頭（英式用法）；金屬罐",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "tin can",
+        "meaning": "錫罐；馬口鐵罐",
+        "sentence": "The empty tin can was placed in the recycling bin.",
+        "translation": "空錫罐被放進回收桶。"
+      }
+    ]
   },
   {
     "word": "toll",
@@ -15968,7 +19302,14 @@
     "definition": "火把；手電筒",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "torch relay",
+        "meaning": "火炬傳遞",
+        "sentence": "The torch relay passed through several towns.",
+        "translation": "火炬傳遞活動經過了好幾個城鎮。"
+      }
+    ]
   },
   {
     "word": "torment",
@@ -16198,7 +19539,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "transparent plastic",
+        "meaning": "透明塑膠",
+        "sentence": "The folder is made of transparent plastic.",
+        "translation": "這個資料夾是用透明塑膠製成的。"
+      }
+    ]
   },
   {
     "word": "trauma",
@@ -16326,7 +19674,14 @@
       }
     ],
     "root": "tri-（三）＋ -ple（倍、折），表示三倍或三重。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "triple the size",
+        "meaning": "變成三倍大",
+        "sentence": "The new library is almost triple the size of the old one.",
+        "translation": "新圖書館的大小幾乎是舊館的三倍。"
+      }
+    ]
   },
   {
     "word": "trivial",
@@ -16394,7 +19749,14 @@
     "definition": "腫瘤",
     "derivatives": [],
     "root": "源自拉丁語 tumere，意為「腫脹」。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "brain tumor",
+        "meaning": "腦部腫瘤",
+        "sentence": "The article explains how a brain tumor is studied by specialists.",
+        "translation": "這篇文章解釋專家如何研究腦部腫瘤。"
+      }
+    ]
   },
   {
     "word": "tuna",
@@ -16403,7 +19765,14 @@
     "definition": "鮪魚；金槍魚",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "tuna salad",
+        "meaning": "鮪魚沙拉",
+        "sentence": "The café serves tuna salad with fresh vegetables.",
+        "translation": "這家咖啡館供應搭配新鮮蔬菜的鮪魚沙拉。"
+      }
+    ]
   },
   {
     "word": "ultimate",
@@ -16520,7 +19889,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "undertake a task",
+        "meaning": "承擔任務",
+        "sentence": "She agreed to undertake the task with her classmates.",
+        "translation": "她同意和同學一起承擔這項任務。"
+      }
+    ]
   },
   {
     "word": "undo",
@@ -16529,7 +19905,14 @@
     "definition": "撤銷；解開；取消；使恢復原狀",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "undo a mistake",
+        "meaning": "改正錯誤；挽回錯誤",
+        "sentence": "It can be difficult to undo a mistake once the message has been sent.",
+        "translation": "訊息送出後，要改正錯誤可能很困難。"
+      }
+    ]
   },
   {
     "word": "undoubtedly",
@@ -16538,7 +19921,14 @@
     "definition": "無疑地；確實地",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "undoubtedly true",
+        "meaning": "毫無疑問是真實的",
+        "sentence": "Her contribution was undoubtedly important to the project.",
+        "translation": "她的貢獻對這項專案毫無疑問十分重要。"
+      }
+    ]
   },
   {
     "word": "unemployment",
@@ -16553,7 +19943,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "unemployment rate",
+        "meaning": "失業率",
+        "sentence": "The report compares the unemployment rate across regions.",
+        "translation": "這份報告比較了各地區的失業率。"
+      }
+    ]
   },
   {
     "word": "unfold",
@@ -16562,7 +19959,14 @@
     "definition": "展開；打開；逐漸呈現；揭示",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "unfold a map",
+        "meaning": "展開地圖",
+        "sentence": "We stopped by the road to unfold the map.",
+        "translation": "我們在路邊停下來展開地圖。"
+      }
+    ]
   },
   {
     "word": "unlock",
@@ -16603,7 +20007,14 @@
     "definition": "n. 最新消息；更新；v. 更新；使現代化",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "software update",
+        "meaning": "軟體更新",
+        "sentence": "The latest software update fixes several problems.",
+        "translation": "最新的軟體更新修正了幾個問題。"
+      }
+    ]
   },
   {
     "word": "upgrade",
@@ -16709,7 +20120,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a vague idea",
+        "meaning": "模糊的想法",
+        "sentence": "I had only a vague idea of what the project involved.",
+        "translation": "我對這項專案的內容只有模糊的概念。"
+      }
+    ]
   },
   {
     "word": "valid",
@@ -16729,7 +20147,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a valid reason",
+        "meaning": "合理的理由；有效的理由",
+        "sentence": "There must be a valid reason for changing the schedule.",
+        "translation": "更改時間表一定要有合理的理由。"
+      }
+    ]
   },
   {
     "word": "variable",
@@ -16922,7 +20347,14 @@
     "definition": "版本；形式；說法；改編本；譯本",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "the latest version",
+        "meaning": "最新版本",
+        "sentence": "Please download the latest version of the program.",
+        "translation": "請下載這個程式的最新版本。"
+      }
+    ]
   },
   {
     "word": "versus",
@@ -16958,7 +20390,14 @@
       }
     ],
     "root": "vertic/vertex（頂點）＋ -al（形容詞字尾），表示垂直方向的。",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "a vertical line",
+        "meaning": "垂直線",
+        "sentence": "Draw a vertical line through the center of the circle.",
+        "translation": "畫一條垂直線穿過圓心。"
+      }
+    ]
   },
   {
     "word": "veteran",
@@ -16983,7 +20422,14 @@
     "definition": "經由；透過；藉由",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "via email",
+        "meaning": "透過電子郵件",
+        "sentence": "The confirmation will be sent via email.",
+        "translation": "確認通知將透過電子郵件寄送。"
+      }
+    ]
   },
   {
     "word": "viable",
@@ -17047,7 +20493,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "television viewer",
+        "meaning": "電視觀眾",
+        "sentence": "The program attracted millions of television viewers.",
+        "translation": "這個節目吸引了數百萬名電視觀眾。"
+      }
+    ]
   },
   {
     "word": "viewpoint",
@@ -17072,7 +20525,14 @@
     "definition": "醋",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "apple cider vinegar",
+        "meaning": "蘋果醋",
+        "sentence": "The recipe uses apple cider vinegar for its sharp flavor.",
+        "translation": "這份食譜使用蘋果醋增添酸香風味。"
+      }
+    ]
   },
   {
     "word": "virtual",
@@ -17097,7 +20557,14 @@
     "definition": "簽證",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "visa application",
+        "meaning": "簽證申請",
+        "sentence": "She checked the visa application requirements online.",
+        "translation": "她在網路上查詢簽證申請要求。"
+      }
+    ]
   },
   {
     "word": "vocal",
@@ -17139,7 +20606,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "volcanic eruption",
+        "meaning": "火山爆發",
+        "sentence": "The documentary shows how a volcanic eruption changes the landscape.",
+        "translation": "這部紀錄片展示火山爆發如何改變地貌。"
+      }
+    ]
   },
   {
     "word": "vomit",
@@ -17211,7 +20685,14 @@
     "definition": "n. 倉庫；批發倉庫；v. 存放於倉庫",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "warehouse worker",
+        "meaning": "倉庫員工",
+        "sentence": "The warehouse worker checked the delivery list.",
+        "translation": "倉庫員工核對了送貨清單。"
+      }
+    ]
   },
   {
     "word": "warrior",
@@ -17220,7 +20701,14 @@
     "definition": "戰士；武士",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "warrior spirit",
+        "meaning": "勇士精神",
+        "sentence": "The story celebrates the warrior spirit of the ancient legend.",
+        "translation": "這個故事歌頌古老傳說中的勇士精神。"
+      }
+    ]
   },
   {
     "word": "wary",
@@ -17283,7 +20771,14 @@
     "definition": "（用於否定句）絲毫；任何",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "no doubt whatsoever",
+        "meaning": "毫無疑問",
+        "sentence": "There is no doubt whatsoever about the result.",
+        "translation": "這個結果毫無疑問。"
+      }
+    ]
   },
   {
     "word": "wheelchair",
@@ -17292,7 +20787,14 @@
     "definition": "輪椅",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "wheelchair access",
+        "meaning": "輪椅無障礙設施",
+        "sentence": "The building provides wheelchair access at the main entrance.",
+        "translation": "這棟建築在正門設有輪椅無障礙設施。"
+      }
+    ]
   },
   {
     "word": "whereabouts",
@@ -17317,7 +20819,14 @@
     "definition": "然而；反之；鑒於",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "whereas clause",
+        "meaning": "whereas 前言條款",
+        "sentence": "The contract begins with a whereas clause explaining its background.",
+        "translation": "合約以一段說明背景的 whereas 前言條款開頭。"
+      }
+    ]
   },
   {
     "word": "whine",
@@ -17348,7 +20857,14 @@
       }
     ],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "widespread support",
+        "meaning": "廣泛支持",
+        "sentence": "The proposal received widespread support from residents.",
+        "translation": "這項提案獲得居民廣泛支持。"
+      }
+    ]
   },
   {
     "word": "wig",
@@ -17357,7 +20873,14 @@
     "definition": "假髮",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "wear a wig",
+        "meaning": "戴假髮",
+        "sentence": "The actor wore a wig for the historical drama.",
+        "translation": "這位演員為了歷史劇戴上假髮。"
+      }
+    ]
   },
   {
     "word": "wilderness",
@@ -17404,7 +20927,14 @@
     "definition": "擋風玻璃",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "windshield wiper",
+        "meaning": "擋風玻璃雨刷",
+        "sentence": "The windshield wiper needs to be replaced.",
+        "translation": "擋風玻璃雨刷需要更換。"
+      }
+    ]
   },
   {
     "word": "wither",
@@ -17542,7 +21072,14 @@
     "definition": "遊艇；帆船",
     "derivatives": [],
     "root": "",
-    "phrases": []
+    "phrases": [
+      {
+        "phrase": "yacht club",
+        "meaning": "遊艇俱樂部",
+        "sentence": "The yacht club organized a sailing event.",
+        "translation": "遊艇俱樂部舉辦了一場帆船活動。"
+      }
+    ]
   },
   {
     "word": "yield",
