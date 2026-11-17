@@ -85,13 +85,75 @@
             margin-bottom: 24px;
         }
         .search-box { display: flex; gap: 8px; align-items: center; }
+        .search-input-wrap { position: relative; display: flex; align-items: center; }
         .search-input {
-            padding: 8px 16px;
+            padding: 8px 36px 8px 16px;
             border-radius: 20px;
             border: 1px solid var(--border);
             outline: none;
-            width: 200px;
+            width: 240px;
             font-size: 14px;
+        }
+        .search-clear {
+            display: none;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 22px;
+            height: 22px;
+            padding: 0;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #475569;
+            font-size: 17px;
+            line-height: 1;
+        }
+        .search-clear:hover { background: #cbd5e1; color: #1e293b; }
+        .wrong-filter-controls {
+            display: none;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: -10px 0 18px;
+            padding: 10px 12px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 13px;
+        }
+        .wrong-filter-controls select, .wrong-filter-controls input {
+            padding: 7px 10px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--text);
+            font: inherit;
+        }
+        .wrong-filter-note { color: var(--muted); font-size: 12px; }
+        .level-result-section { margin-bottom: 22px; }
+        .level-result-title {
+            margin: 0 0 12px;
+            padding: 8px 12px;
+            border-left: 4px solid var(--primary);
+            background: #eef2ff;
+            border-radius: 6px;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        .level-result-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        #flashcardGrid.is-grouped { display: block; }
+        @media (max-width: 1400px) { .level-result-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) {
+            .header-bar { align-items: flex-start; flex-direction: column; gap: 14px; }
+            .search-box { flex-wrap: wrap; }
+            .search-input { width: min(70vw, 320px); }
+            .level-result-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .main-content { padding: 16px; }
+            .sidebar { width: 190px; padding: 16px 10px; }
+            .level-result-grid { grid-template-columns: 1fr; }
         }
         .filter-select {
             padding: 8px 12px;
@@ -260,7 +322,7 @@
         <div class="logo-area">
             <div class="logo-title">
                 單字庫平台
-                <span class="version-badge">v26.11.15</span>
+                <span class="version-badge">v26.11.17</span>
             </div>
             <span class="sync-status" id="syncStatus">雲端同步中</span>
         </div>
@@ -291,7 +353,7 @@
 
             <div class="search-box">
                 <!-- 單字狀態篩選選單 -->
-                <select id="statusFilterSelect" class="filter-select" onchange="filterSubLevel()">
+                <select id="statusFilterSelect" class="filter-select" onchange="handleStatusFilterChange()">
                     <option value="all">全部單字</option>
                     <option value="studied">已背誦</option>
                     <option value="unstudied">未背誦</option>
@@ -300,9 +362,26 @@
                     <option value="starred">標記單字</option>
                 </select>
 
-                <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字、定義、衍生字、字根、片語或例句..." oninput="searchWord()">
+                <div class="search-input-wrap">
+                    <input type="text" id="searchInput" class="search-input" placeholder="搜尋單字、定義、衍生字、字根、片語或例句..." oninput="searchWord()" onkeydown="if(event.key==='Enter') searchWord()">
+                    <button type="button" id="clearSearchBtn" class="search-clear" onclick="clearSearch()" aria-label="清除搜尋" title="清除搜尋">×</button>
+                </div>
                 <button onclick="searchWord()">搜尋</button>
             </div>
+        </div>
+
+        <div id="wrongFilterControls" class="wrong-filter-controls">
+            <strong>錯誤範圍</strong>
+            <select id="wrongScopeSelect" onchange="handleWrongScopeChange()">
+                <option value="all">所有曾答錯的單字</option>
+                <option value="date">指定日期的測驗錯題</option>
+                <option value="session">指定某次測驗的錯題</option>
+            </select>
+            <input type="date" id="wrongDateInput" onchange="filterSubLevel()" style="display:none;">
+            <select id="wrongSessionSelect" onchange="filterSubLevel()" style="display:none; min-width:240px;">
+                <option value="">選擇某次測驗…</option>
+            </select>
+            <span id="wrongFilterNote" class="wrong-filter-note">不分日期，顯示所有曾答錯的單字。</span>
         </div>
 
         <div class="card">
@@ -432,7 +511,7 @@
         </div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
-            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從錯誤單字移除</button>
+            <button id="modalWrongBtn" onclick="toggleWrongStatus()" class="btn-danger" style="display:none;">從長期錯誤清單移除</button>
 
             <div style="display:flex; gap:8px; align-items:center; margin-left:auto;">
                 <button onclick="speakCurrentWord()" class="btn-secondary">發音</button>
@@ -518,6 +597,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     const dayWordsRef = db.ref('dayWords');
     const wrongRef = db.ref('wrongWords');
     const starredRef = db.ref('starredWords');
+    const testSessionsRef = db.ref('testSessions');
 
     let currentLevelData = [];
     let currentFileName = 'level1.json';
@@ -533,6 +613,12 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     let activeCardData = null;
     let currentChartRange = 'week';
     let currentTestQuestions = [];
+    let testSessions = {};
+    let testHasBeenSubmitted = false;
+    let filterRenderToken = 0;
+    let currentLevelLoadToken = 0;
+    const levelDataCache = new Map();
+    const levelLoadPromises = new Map();
 
     const LEVELS = Array.from({ length: 6 }, (_, i) => ({
         title: `Level ${i + 1}`,
@@ -631,7 +717,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         const previous = select.value;
         const total = currentLevelData.length;
         const groupCount = Math.ceil(total / 100);
-        select.innerHTML = '<option value="all">全部單字 (1-' + total + ')</option>';
+        select.innerHTML = `<option value="all">全部單字（${total}）</option>`;
         for (let i = 0; i < groupCount; i++) {
             const first = i * 100 + 1;
             const last = Math.min((i + 1) * 100, total);
@@ -640,8 +726,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
             option.textContent = `第 ${first} - ${last} 字`;
             select.appendChild(option);
         }
-        if (previous !== 'all' && Number(previous) < groupCount) select.value = previous;
-        else select.value = 'all';
+        select.value = previous !== 'all' && Number(previous) < groupCount ? previous : 'all';
     }
 
     function getSearchableText(item) {
@@ -666,7 +751,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     }
 
     async function checkAndInitDatabase() {
-        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords'];
+        const nodesToEnsure = ['vocabData', 'studiedWords', 'testStats', 'dayWords', 'wrongWords', 'starredWords', 'testSessions'];
         for (const nodeName of nodesToEnsure) {
             const snapshot = await db.ref(nodeName).once('value');
             if (!snapshot.exists()) {
@@ -675,9 +760,11 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         }
     }
 
-    async function fetchLevelData(jsonFileName) {
-        currentFileName = jsonFileName;
-        try {
+    async function loadLevelData(jsonFileName) {
+        if (levelDataCache.has(jsonFileName)) return levelDataCache.get(jsonFileName);
+        if (levelLoadPromises.has(jsonFileName)) return levelLoadPromises.get(jsonFileName);
+
+        const promise = (async () => {
             const res = await fetch(jsonFileName + '?v=' + Date.now());
             if (!res.ok) throw new Error(`讀取 ${jsonFileName} 失敗（HTTP ${res.status}）`);
             const serverData = await res.json();
@@ -699,7 +786,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
                     uniqueMap.set(key, mergeVocabularyItem(item, null));
                 }
             });
-            // localStorage 中的舊範本／自訂資料優先；只補新版空白欄位，不整筆覆蓋。
+            // 使用者既有範本／自訂資料中有內容的欄位優先；新版資料只補空白。
             localCustom.forEach(item => {
                 if (!item || typeof item.word !== 'string' || !item.word.trim()) return;
                 const key = item.word.trim().toLowerCase();
@@ -707,13 +794,45 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
                 uniqueMap.set(key, newer ? mergeVocabularyItem(newer, item) : mergeVocabularyItem(item, null));
             });
 
-            currentLevelData = Array.from(uniqueMap.values());
+            const data = Array.from(uniqueMap.values());
+            levelDataCache.set(jsonFileName, data);
+            return data;
+        })();
+
+        levelLoadPromises.set(jsonFileName, promise);
+        try {
+            return await promise;
+        } catch (error) {
+            levelLoadPromises.delete(jsonFileName);
+            throw error;
+        }
+    }
+
+    async function fetchLevelData(jsonFileName) {
+        currentFileName = jsonFileName;
+        const requestToken = ++currentLevelLoadToken;
+        const cached = levelDataCache.get(jsonFileName);
+        if (cached) {
+            currentLevelData = cached;
             updateSubLevelOptions();
-            filterSubLevel();
+            await filterSubLevel();
+            return;
+        }
+
+        const grid = document.getElementById('flashcardGrid');
+        grid.textContent = '正在載入單字資料…';
+        try {
+            const loaded = await loadLevelData(jsonFileName);
+            if (requestToken !== currentLevelLoadToken) return;
+            currentLevelData = loaded;
+            updateSubLevelOptions();
+            await filterSubLevel();
         } catch (err) {
+            if (requestToken !== currentLevelLoadToken) return;
             console.error(err);
-            const grid = document.getElementById('flashcardGrid');
+            grid.classList.remove('is-grouped');
             grid.textContent = `無法讀取 ${jsonFileName}。請確認六份 JSON 與 HTML 位於同一個網站目錄，且檔案格式正確。`;
+            setSyncStatus('單字資料載入失敗', true);
         }
     }
 
@@ -723,47 +842,208 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
 
         document.getElementById('vocabView').style.display = 'block';
         document.getElementById('testView').style.display = 'none';
-
         document.getElementById('currentLevelTitle').innerText = title;
         document.getElementById('subLevelSelect').value = 'all';
         fetchLevelData(fileName);
     }
 
-    // 結合級距、搜尋框與狀態篩選條件
-    function filterSubLevel() {
-        const selectedVal = document.getElementById('subLevelSelect').value;
-        let baseData = currentLevelData;
+    function isCrossLevelFilterActive() {
+        const keyword = document.getElementById('searchInput').value.trim();
+        const status = document.getElementById('statusFilterSelect').value;
+        return keyword.length > 0 || ['mastered', 'wrong', 'starred'].includes(status);
+    }
 
-        // 1. 級距範圍過濾
-        if (selectedVal !== 'all') {
-            const groupIndex = parseInt(selectedVal, 10);
-            const startIndex = groupIndex * 100;
-            const endIndex = startIndex + 100;
-            baseData = currentLevelData.slice(startIndex, endIndex);
+    function handleStatusFilterChange() {
+        updateWrongFilterControls();
+        filterSubLevel();
+    }
+
+    function handleWrongScopeChange() {
+        updateWrongFilterControls();
+        filterSubLevel();
+    }
+
+    function updateWrongFilterControls() {
+        const controls = document.getElementById('wrongFilterControls');
+        const isWrong = document.getElementById('statusFilterSelect').value === 'wrong';
+        controls.style.display = isWrong ? 'flex' : 'none';
+        if (!isWrong) return;
+
+        const scope = document.getElementById('wrongScopeSelect').value;
+        const dateInput = document.getElementById('wrongDateInput');
+        const sessionSelect = document.getElementById('wrongSessionSelect');
+        dateInput.style.display = scope === 'date' ? 'inline-block' : 'none';
+        sessionSelect.style.display = scope === 'session' ? 'inline-block' : 'none';
+
+        const note = document.getElementById('wrongFilterNote');
+        if (scope === 'all') {
+            note.textContent = '不分日期，顯示所有曾答錯的單字。';
+        } else if (scope === 'date') {
+            note.textContent = '只顯示該日測驗中答錯的單字；僅包含此版本更新後新增的測驗紀錄。';
+        } else {
+            note.textContent = '只顯示選定那次測驗的錯題；舊版測驗沒有保存逐次紀錄。';
+        }
+    }
+
+    function getWrongWordsForScope() {
+        const scope = document.getElementById('wrongScopeSelect').value;
+        const words = new Set();
+        const addSessionWords = session => {
+            const saved = session?.wrongWords;
+            if (Array.isArray(saved)) {
+                saved.forEach(item => { if (item?.word) words.add(String(item.word).toLowerCase()); });
+            } else if (saved && typeof saved === 'object') {
+                Object.values(saved).forEach(item => {
+                    const word = typeof item === 'string' ? item : item?.word;
+                    if (word) words.add(String(word).toLowerCase());
+                });
+            }
+        };
+
+        if (scope === 'all') {
+            Object.entries(wrongWords || {}).forEach(([key, value]) => {
+                if (value) words.add(decodeWordKey(key).toLowerCase());
+            });
+        } else if (scope === 'date') {
+            const date = (document.getElementById('wrongDateInput').value || '').replace(/-/g, '');
+            if (!date) return words;
+            Object.values(testSessions || {}).forEach(session => {
+                if (session?.date === date) addSessionWords(session);
+            });
+        } else if (scope === 'session') {
+            const session = testSessions?.[document.getElementById('wrongSessionSelect').value];
+            if (session) addSessionWords(session);
+        }
+        return words;
+    }
+
+    function renderCards(dataList) {
+        const grid = document.getElementById('flashcardGrid');
+        grid.classList.remove('is-grouped');
+        grid.innerHTML = '';
+        if (!Array.isArray(dataList) || dataList.length === 0) {
+            grid.textContent = '此條件下目前無單字。';
+            return;
+        }
+        dataList.forEach(item => grid.appendChild(createFlashcardElement(item)));
+    }
+
+    function createFlashcardElement(item) {
+        const isStudied = getWordMapValue(studiedWords, item.word) === true;
+        const correctCount = Number(getWordMapValue(testStats, item.word)) || 0;
+        const isMastered = correctCount >= 4;
+        const isWrong = getWordMapValue(wrongWords, item.word) === true;
+        const isStarred = getWordMapValue(starredWords, item.word) === true;
+        const card = document.createElement('div');
+        card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
+        card.onclick = () => openCardDetail(item);
+        const word = document.createElement('div');
+        word.className = 'flashcard-word';
+        word.textContent = item.word || '';
+        const meta = document.createElement('div');
+        meta.className = 'flashcard-meta';
+        meta.textContent = `${item.pos || ''} | ${item.kk || ''}`;
+        const definition = document.createElement('div');
+        definition.className = 'flashcard-def';
+        definition.textContent = item.definition || '';
+        card.append(word, meta, definition);
+        return card;
+    }
+
+    async function filterSubLevel() {
+        const token = ++filterRenderToken;
+        const grid = document.getElementById('flashcardGrid');
+        const statusFilter = document.getElementById('statusFilterSelect').value;
+        const keyword = document.getElementById('searchInput').value.trim().toLocaleLowerCase();
+        const crossLevel = isCrossLevelFilterActive();
+        const subLevelSelect = document.getElementById('subLevelSelect');
+        subLevelSelect.style.display = crossLevel ? 'none' : '';
+        document.getElementById('currentLevelTitle').textContent = crossLevel ? '全級篩選結果' : LEVELS.find(level => level.fileName === currentFileName)?.title || 'Level 1';
+        updateWrongFilterControls();
+
+        if (crossLevel) {
+            grid.classList.add('is-grouped');
+            grid.textContent = '正在載入 Level 1–6…';
+            let allData;
+            try {
+                allData = await Promise.all(LEVELS.map(level => loadLevelData(level.fileName)));
+            } catch (error) {
+                if (token !== filterRenderToken) return;
+                console.error(error);
+                grid.textContent = '無法載入完整六級單字庫。請確認 level1.json 至 level6.json 都與 HTML 放在同一個網站目錄。';
+                setSyncStatus('六級資料載入失敗', true);
+                return;
+            }
+            if (token !== filterRenderToken) return;
+
+            const wrongSet = statusFilter === 'wrong' ? getWrongWordsForScope() : null;
+            let totalResults = 0;
+            grid.innerHTML = '';
+            LEVELS.forEach((level, index) => {
+                let filtered = [...allData[index]];
+                if (statusFilter === 'studied') {
+                    filtered = filtered.filter(item => getWordMapValue(studiedWords, item.word) === true);
+                } else if (statusFilter === 'unstudied') {
+                    filtered = filtered.filter(item => getWordMapValue(studiedWords, item.word) !== true);
+                } else if (statusFilter === 'mastered') {
+                    filtered = filtered.filter(item => (Number(getWordMapValue(testStats, item.word)) || 0) >= 4);
+                } else if (statusFilter === 'wrong') {
+                    filtered = filtered.filter(item => wrongSet.has(String(item.word).toLowerCase()));
+                } else if (statusFilter === 'starred') {
+                    filtered = filtered.filter(item => getWordMapValue(starredWords, item.word) === true);
+                }
+                if (keyword) filtered = filtered.filter(item => getSearchableText(item).includes(keyword));
+                if (!filtered.length) return;
+
+                totalResults += filtered.length;
+                const section = document.createElement('section');
+                section.className = 'level-result-section';
+                const heading = document.createElement('h3');
+                heading.className = 'level-result-title';
+                heading.textContent = `${level.title}（${filtered.length} 個）`;
+                const resultGrid = document.createElement('div');
+                resultGrid.className = 'level-result-grid';
+                filtered.forEach(item => resultGrid.appendChild(createFlashcardElement(item)));
+                section.append(heading, resultGrid);
+                grid.appendChild(section);
+            });
+            if (!totalResults) {
+                grid.textContent = statusFilter === 'wrong' && document.getElementById('wrongScopeSelect').value !== 'all'
+                    ? '此日期／測驗沒有可顯示的錯題。舊版測驗不含逐次錯題紀錄。'
+                    : '六個等級中沒有符合條件的單字。';
+            }
+            return;
         }
 
-        // 2. 狀態選單過濾 (全部, 已背誦, 未背誦, 精熟單字, 錯誤單字, 標記單字)
-        const statusFilter = document.getElementById('statusFilterSelect').value;
+        if (token !== filterRenderToken) return;
+        let baseData = [...currentLevelData];
+        const selectedVal = subLevelSelect.value;
+        if (selectedVal !== 'all') {
+            const groupIndex = Number.parseInt(selectedVal, 10);
+            if (Number.isInteger(groupIndex) && groupIndex >= 0) {
+                baseData = baseData.slice(groupIndex * 100, (groupIndex + 1) * 100);
+            }
+        }
         if (statusFilter === 'studied') {
             baseData = baseData.filter(item => getWordMapValue(studiedWords, item.word) === true);
         } else if (statusFilter === 'unstudied') {
-            baseData = baseData.filter(item => !getWordMapValue(studiedWords, item.word));
-        } else if (statusFilter === 'mastered') {
-            baseData = baseData.filter(item => (getWordMapValue(testStats, item.word) || 0) >= 4);
-        } else if (statusFilter === 'wrong') {
-            baseData = baseData.filter(item => getWordMapValue(wrongWords, item.word) === true);
-        } else if (statusFilter === 'starred') {
-            baseData = baseData.filter(item => getWordMapValue(starredWords, item.word) === true);
+            baseData = baseData.filter(item => getWordMapValue(studiedWords, item.word) !== true);
         }
-
-        // 3. 搜尋關鍵字過濾
-        const keyword = document.getElementById('searchInput').value.trim().toLocaleLowerCase();
         if (keyword) baseData = baseData.filter(item => getSearchableText(item).includes(keyword));
-
         renderCards(baseData);
     }
 
     function searchWord() {
+        const input = document.getElementById('searchInput');
+        const clearButton = document.getElementById('clearSearchBtn');
+        clearButton.style.display = input.value.length ? 'block' : 'none';
+        filterSubLevel();
+    }
+
+    function clearSearch() {
+        const input = document.getElementById('searchInput');
+        input.value = '';
+        document.getElementById('clearSearchBtn').style.display = 'none';
         filterSubLevel();
     }
 
@@ -775,39 +1055,19 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         document.getElementById('testView').style.display = 'block';
     }
 
-    function renderCards(dataList) {
-        const grid = document.getElementById('flashcardGrid');
-        grid.innerHTML = '';
-        if (!Array.isArray(dataList) || dataList.length === 0) {
-            grid.textContent = '此條件下目前無單字。';
-            return;
+    function findVocabularyWord(wordStr) {
+        const target = String(wordStr || '').toLowerCase();
+        const local = currentLevelData.find(item => String(item?.word || '').toLowerCase() === target);
+        if (local) return local;
+        for (const data of levelDataCache.values()) {
+            const found = data.find(item => String(item?.word || '').toLowerCase() === target);
+            if (found) return found;
         }
-
-        dataList.forEach(item => {
-            const isStudied = getWordMapValue(studiedWords, item.word) === true;
-            const correctCount = getWordMapValue(testStats, item.word) || 0;
-            const isMastered = correctCount >= 4;
-            const isWrong = getWordMapValue(wrongWords, item.word) === true;
-            const isStarred = getWordMapValue(starredWords, item.word) === true;
-            const card = document.createElement('div');
-            card.className = `flashcard-item ${isStudied ? 'is-studied' : ''} ${isWrong ? 'is-wrong' : ''} ${isMastered ? 'is-mastered' : ''} ${isStarred ? 'is-starred' : ''}`;
-            card.onclick = () => openCardDetail(item);
-            const word = document.createElement('div');
-            word.className = 'flashcard-word';
-            word.textContent = item.word || '';
-            const meta = document.createElement('div');
-            meta.className = 'flashcard-meta';
-            meta.textContent = `${item.pos || ''} | ${item.kk || ''}`;
-            const definition = document.createElement('div');
-            definition.className = 'flashcard-def';
-            definition.textContent = item.definition || '';
-            card.append(word, meta, definition);
-            grid.appendChild(card);
-        });
+        return null;
     }
 
     function openCardDetailFromDay(wordStr, dateStr = getTodayYYYYMMDD()) {
-        let found = currentLevelData.find(x => x.word.toLowerCase() === wordStr.toLowerCase());
+        let found = findVocabularyWord(wordStr);
         let item = found || { word: wordStr, definition: '舊記錄單字', pos: '', kk: '', derivatives: [], root: '', phrases: [] };
         openCardDetail(item, dateStr);
     }
@@ -861,6 +1121,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         const isWrongWord = !!getWordMapValue(wrongWords, item.word);
         const wrongBtn = document.getElementById('modalWrongBtn');
         wrongBtn.style.display = isWrongWord ? 'block' : 'none';
+        wrongBtn.title = '只會移除長期錯誤清單；單次測驗歷史紀錄會保留。';
 
         const isStarred = !!getWordMapValue(starredWords, item.word);
         const starBtn = document.getElementById('modalStarBtn');
@@ -885,25 +1146,38 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     function toggleStarStatus() {
         if (!activeCardData) return;
         const word = activeCardData.word;
+        const key = getWordKey(word);
         const currentStarred = !!getWordMapValue(starredWords, word);
         const newStarred = !currentStarred;
-
-        if (newStarred) {
-            starredRef.child(getWordKey(word)).set(true);
-        } else {
-            starredRef.child(getWordKey(word)).remove();
-        }
-
         const starBtn = document.getElementById('modalStarBtn');
-        starBtn.style.opacity = newStarred ? '1' : '0.3';
-        starBtn.title = newStarred ? '取消標記單字' : '點擊標記單字';
+        starBtn.disabled = true;
+
+        const action = newStarred ? starredRef.child(key).set(true) : starredRef.child(key).remove();
+        action.then(() => {
+            if (newStarred) starredWords[key] = true;
+            else delete starredWords[key];
+            starBtn.style.opacity = newStarred ? '1' : '0.3';
+            starBtn.title = newStarred ? '取消標記單字' : '點擊標記單字';
+            filterSubLevel();
+        }).catch(error => {
+            console.error(error);
+            alert('標記單字儲存失敗，請檢查雲端連線或 Firebase 權限。');
+        }).finally(() => { starBtn.disabled = false; });
     }
 
     function toggleWrongStatus() {
         if (!activeCardData) return;
-        wrongRef.child(getWordKey(activeCardData.word)).remove();
-        closeCardModal();
-        alert(`已將 "${activeCardData.word}" 從錯誤單字移除！`);
+        const word = activeCardData.word;
+        wrongRef.child(getWordKey(word)).remove().then(() => {
+            delete wrongWords[getWordKey(word)];
+            delete wrongWords[word];
+            closeCardModal();
+            filterSubLevel();
+            alert(`已將「${word}」從長期錯誤清單移除；單次測驗歷史紀錄仍會保留。`);
+        }).catch(error => {
+            console.error(error);
+            alert('移除錯誤紀錄失敗，請檢查雲端連線或 Firebase 權限。');
+        });
     }
 
     function toggleCardStudied() {
@@ -996,6 +1270,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         const currentIndex = currentLevelData.findIndex(item => item.word.toLowerCase() === word.toLowerCase());
         if (currentIndex >= 0) currentLevelData[currentIndex] = mergeVocabularyItem(currentLevelData[currentIndex], newObj);
         else currentLevelData.push(newObj);
+        levelDataCache.set(currentFileName, currentLevelData);
         updateSubLevelOptions();
         filterSubLevel();
         closeAddWordModal();
@@ -1011,46 +1286,90 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         }
     }
 
+    function setSyncStatus(message, isError = false) {
+        const el = document.getElementById('syncStatus');
+        el.textContent = message;
+        el.style.color = isError ? '#dc2626' : '#059669';
+    }
+
+    function populateWrongSessionOptions() {
+        const select = document.getElementById('wrongSessionSelect');
+        const previous = select.value;
+        const sessions = Object.entries(testSessions || {}).sort((a, b) =>
+            (Number(b[1]?.timestamp) || 0) - (Number(a[1]?.timestamp) || 0)
+        );
+        select.innerHTML = '<option value="">選擇某次測驗…</option>';
+        sessions.forEach(([key, session]) => {
+            const option = document.createElement('option');
+            option.value = key;
+            const date = session?.date ? formatYYYYMMDDToStandard(session.date) : '日期未知';
+            const time = session?.timestamp ? new Date(session.timestamp).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '';
+            const type = session?.type === 'choice' ? '選擇題' : '填空題';
+            const wrongCount = Number(session?.wrongCount) || Object.keys(session?.wrongWords || {}).length;
+            option.textContent = `${date} ${time} ${type}・${wrongCount} 題錯誤`;
+            select.appendChild(option);
+        });
+        if (previous && sessions.some(([key]) => key === previous)) select.value = previous;
+        else if (sessions.length) select.value = sessions[0][0];
+    }
+
     async function init() {
-        await checkAndInitDatabase();
+        try {
+            await checkAndInitDatabase();
+            renderLevelNavigation();
+            const today = getTodayYYYYMMDD();
+            document.getElementById('wrongDateInput').value = `${today.slice(0,4)}-${today.slice(4,6)}-${today.slice(6,8)}`;
+            await fetchLevelData('level1.json');
+            initChart();
 
-        renderLevelNavigation();
-        fetchLevelData('level1.json');
-        initChart();
+            vocabRef.on('value', snap => {
+                vocabData = snap.val() || {};
+                renderCalendar();
+                updateStats();
+                updateChart();
+                setSyncStatus('雲端同步正常');
+            }, error => {
+                console.error(error);
+                setSyncStatus('雲端同步失敗', true);
+            });
 
-        vocabRef.on('value', snap => {
-            vocabData = snap.val() || {};
-            renderCalendar();
-            updateStats();
-            updateChart();
-        });
+            studiedRef.on('value', snap => {
+                studiedWords = snap.val() || {};
+                filterSubLevel();
+            }, error => { console.error(error); setSyncStatus('背誦紀錄同步失敗', true); });
 
-        studiedRef.on('value', snap => {
-            studiedWords = snap.val() || {};
-            filterSubLevel();
-        });
+            statsRef.on('value', snap => {
+                testStats = snap.val() || {};
+                updateStats();
+                filterSubLevel();
+            }, error => { console.error(error); setSyncStatus('測驗統計同步失敗', true); });
 
-        statsRef.on('value', snap => {
-            testStats = snap.val() || {};
-            updateStats();
-            filterSubLevel();
-        });
+            dayWordsRef.on('value', snap => {
+                dayWordsData = snap.val() || {};
+            }, error => { console.error(error); setSyncStatus('每日紀錄同步失敗', true); });
 
-        dayWordsRef.on('value', snap => {
-            dayWordsData = snap.val() || {};
-        });
+            wrongRef.on('value', snap => {
+                wrongWords = snap.val() || {};
+                updateStats();
+                filterSubLevel();
+            }, error => { console.error(error); setSyncStatus('錯題紀錄同步失敗', true); });
 
-        wrongRef.on('value', snap => {
-            wrongWords = snap.val() || {};
-            updateStats();
-            filterSubLevel();
-        });
+            starredRef.on('value', snap => {
+                starredWords = snap.val() || {};
+                updateStats();
+                filterSubLevel();
+            }, error => { console.error(error); setSyncStatus('標記紀錄同步失敗', true); });
 
-        starredRef.on('value', snap => {
-            starredWords = snap.val() || {};
-            updateStats();
-            filterSubLevel();
-        });
+            testSessionsRef.on('value', snap => {
+                testSessions = snap.val() || {};
+                populateWrongSessionOptions();
+                filterSubLevel();
+            }, error => { console.error(error); setSyncStatus('測驗歷史同步失敗', true); });
+        } catch (error) {
+            console.error(error);
+            setSyncStatus('雲端初始化失敗', true);
+            alert('雲端資料庫初始化失敗。請確認網路連線與 Firebase 權限設定。');
+        }
     }
 
     function renderCalendar() {
@@ -1059,24 +1378,34 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
         const y = currentDate.getFullYear(), m = currentDate.getMonth();
         document.getElementById('calendarTitle').innerText = `${y}年 ${m + 1}月`;
 
-        ['日','一','二','三','四','五','六'].forEach(w => {
-            grid.innerHTML += `<div class="calendar-day-header">${w}</div>`;
+        ['日','一','二','三','四','五','六'].forEach(day => {
+            const heading = document.createElement('div');
+            heading.className = 'calendar-day-header';
+            heading.textContent = day;
+            grid.appendChild(heading);
         });
 
         const firstDay = new Date(y, m, 1).getDay();
         const days = new Date(y, m + 1, 0).getDate();
+        for (let i = 0; i < firstDay; i++) grid.appendChild(document.createElement('div'));
 
-        for(let i = 0; i < firstDay; i++) grid.innerHTML += `<div></div>`;
-
-        for(let d = 1; d <= days; d++) {
+        for (let d = 1; d <= days; d++) {
             const dateStr8 = `${y}${String(m + 1).padStart(2, '0')}${String(d).padStart(2, '0')}`;
-            const val = vocabData[dateStr8];
-            grid.innerHTML += `
-                <div class="calendar-day ${val ? 'has-data' : ''}" onclick="showDayDetails('${dateStr8}')">
-                    <span>${d}</span>
-                    ${val ? `<div class="count-badge">+${val}</div>` : ''}
-                </div>
-            `;
+            const rawVal = vocabData?.[dateStr8];
+            const val = typeof rawVal === 'number' && Number.isFinite(rawVal) ? rawVal : 0;
+            const dayCell = document.createElement('div');
+            dayCell.className = `calendar-day ${val > 0 ? 'has-data' : ''}`;
+            dayCell.addEventListener('click', () => showDayDetails(dateStr8));
+            const dayNumber = document.createElement('span');
+            dayNumber.textContent = String(d);
+            dayCell.appendChild(dayNumber);
+            if (val > 0) {
+                const badge = document.createElement('div');
+                badge.className = 'count-badge';
+                badge.textContent = `+${val}`;
+                dayCell.appendChild(badge);
+            }
+            grid.appendChild(dayCell);
         }
     }
 
@@ -1106,7 +1435,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
 
             for (const [storedKey, itemData] of Object.entries(wordsObj)) {
                 const w = decodeWordKey(storedKey);
-                let foundFull = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                let foundFull = findVocabularyWord(w);
                 const item = foundFull || ((typeof itemData === 'object' && itemData !== null) ? itemData : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
 
                 const miniCard = document.createElement('div');
@@ -1187,28 +1516,24 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     }
 
     function updateStats() {
-        let todayStr8 = getTodayYYYYMMDD();
-        let todayCount = vocabData[todayStr8] || 0;
+        const todayStr8 = getTodayYYYYMMDD();
+        const todayCount = Number(vocabData[todayStr8]) || 0;
         let monthCount = 0;
         let yearCount = 0;
+        const now = new Date();
+        const currentYearStr = String(now.getFullYear());
+        const currentMonthPrefix = `${currentYearStr}${String(now.getMonth() + 1).padStart(2, '0')}`;
 
-        const currentYearStr = String(new Date().getFullYear());
-        const currentMonthPrefix = `${currentYearStr}${String(new Date().getMonth() + 1).padStart(2, '0')}`;
-
-        for (const [dateStr, val] of Object.entries(vocabData)) {
-            if (typeof val === 'number') {
+        for (const [dateStr, val] of Object.entries(vocabData || {})) {
+            if (typeof val === 'number' && Number.isFinite(val)) {
                 if (dateStr.startsWith(currentYearStr)) yearCount += val;
                 if (dateStr.startsWith(currentMonthPrefix)) monthCount += val;
             }
         }
 
-        let masteredCount = 0;
-        for (const [w, c] of Object.entries(testStats)) {
-            if (c >= 4) masteredCount++;
-        }
-
-        let wrongCount = Object.keys(wrongWords).length;
-        let starredCount = Object.keys(starredWords).length;
+        const masteredCount = Object.values(testStats || {}).filter(value => Number(value) >= 4).length;
+        const wrongCount = Object.values(wrongWords || {}).filter(Boolean).length;
+        const starredCount = Object.values(starredWords || {}).filter(Boolean).length;
 
         document.getElementById('statToday').innerText = todayCount;
         document.getElementById('statMonth').innerText = monthCount;
@@ -1299,6 +1624,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     }
 
     function startTest() {
+        testHasBeenSubmitted = false;
         const testType = document.getElementById('testType').value;
         const count = parseInt(document.getElementById('testCount').value, 10);
         const source = document.getElementById('testSource').value;
@@ -1334,7 +1660,7 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
             }
 
             pool = Object.entries(collectedWordsMap).map(([w, itemData]) => {
-                let found = currentLevelData.find(x => x.word.toLowerCase() === w.toLowerCase());
+                let found = findVocabularyWord(w);
                 return found || ((typeof itemData === 'object' && itemData !== null) ? { derivatives: [], phrases: [], root: '', ...itemData, word: itemData.word || w } : { word: w, definition: itemData, pos: '', kk: '', derivatives: [], root: '', phrases: [] });
             });
         }
@@ -1382,53 +1708,78 @@ in danger|處於危險中|He is in danger.|他處於危險之中。"></textarea>
     }
 
     function submitTest(type) {
+        if (testHasBeenSubmitted) return;
+        testHasBeenSubmitted = true;
         let score = 0;
-        let resultsHtml = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>`;
+        const updates = {};
+        const sessionWrongWords = {};
+        let resultsHtml = '';
 
         currentTestQuestions.forEach((q, i) => {
             let isCorrect = false;
-            let userAnsDisplay = "";
-            let correctAnsDisplay = (type === 'choice') ? q.definition : q.word;
+            let userAnsDisplay = '';
+            const correctAnsDisplay = type === 'choice' ? q.definition : q.word;
 
             if (type === 'choice') {
                 const selected = document.querySelector(`input[name="q_${i}"]:checked`);
-                userAnsDisplay = selected ? selected.parentNode.textContent.trim() : "未作答";
-                if (selected && selected.value === 'correct') {
-                    isCorrect = true;
-                }
+                userAnsDisplay = selected ? selected.parentNode.textContent.trim() : '未作答';
+                isCorrect = !!selected && selected.value === 'correct';
             } else {
                 const input = document.querySelector(`input[data-index="${i}"]`);
-                userAnsDisplay = input ? input.value.trim() : "";
-                if (userAnsDisplay.toLowerCase() === q.word.toLowerCase()) {
-                    isCorrect = true;
-                }
+                userAnsDisplay = input ? input.value.trim() : '';
+                isCorrect = userAnsDisplay.toLowerCase() === String(q.word || '').toLowerCase();
             }
 
+            const wordKey = getWordKey(q.word);
             if (isCorrect) {
                 score++;
-                let curStats = getWordMapValue(testStats, q.word) || 0;
-                statsRef.child(getWordKey(q.word)).set(curStats + 1);
+                const curStats = Number(getWordMapValue(testStats, q.word)) || 0;
+                updates[`testStats/${wordKey}`] = curStats + 1;
             } else {
-                wrongRef.child(getWordKey(q.word)).set(true);
+                updates[`wrongWords/${wordKey}`] = true;
+                sessionWrongWords[wordKey] = { word: q.word, definition: q.definition || '' };
             }
 
             resultsHtml += `
-                <div style="padding: 12px 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid var(--border); background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-color: ${isCorrect ? '#bbf7d0' : '#fecaca'};">
-                    <div style="font-weight: 700; margin-bottom: 4px;">第 ${i + 1} 題：${escapeHtml(type === 'choice' ? q.word : q.definition)} ${isCorrect ? '✅' : '❌'}</div>
-                    <div style="font-size: 14px; color: var(--muted);">你的回答：<span style="color: ${isCorrect ? '#166534' : '#991b1b'}; font-weight: 600;">${escapeHtml(userAnsDisplay || '無')}</span></div>
-                    ${!isCorrect ? `<div style="font-size: 14px; color: #166534; margin-top: 2px; font-weight: 600;">正確答案：${escapeHtml(correctAnsDisplay)}</div>` : ''}
+                <div style="padding:12px 16px;margin-bottom:12px;border-radius:8px;border:1px solid var(--border);background:${isCorrect ? '#f0fdf4' : '#fef2f2'};border-color:${isCorrect ? '#bbf7d0' : '#fecaca'};">
+                    <div style="font-weight:700;margin-bottom:4px;">第 ${i + 1} 題：${escapeHtml(type === 'choice' ? q.word : q.definition)} ${isCorrect ? '✅' : '❌'}</div>
+                    <div style="font-size:14px;color:var(--muted);">你的回答：<span style="color:${isCorrect ? '#166534' : '#991b1b'};font-weight:600;">${escapeHtml(userAnsDisplay || '無')}</span></div>
+                    ${!isCorrect ? `<div style="font-size:14px;color:#166534;margin-top:2px;font-weight:600;">正確答案：${escapeHtml(correctAnsDisplay)}</div>` : ''}
                 </div>
             `;
         });
 
-        const finalScoreHtml = `<div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 20px;">總得分：${score} / ${currentTestQuestions.length}</div>`;
-        const container = document.getElementById('testContainer');
-        container.innerHTML = `<h2 style="color:var(--primary); margin-bottom:16px;">測驗結果與詳解</h2>` + finalScoreHtml + resultsHtml + `<button onclick="startTest()" style="margin-top: 16px;">再考一次</button>`;
+        const now = new Date();
+        const sessionDate = getTodayYYYYMMDD();
+        const sessionRef = testSessionsRef.push();
+        const sourceLabel = document.getElementById('testSource').value === 'level'
+            ? (LEVELS.find(level => level.fileName === currentFileName)?.title || '目前等級')
+            : `${document.getElementById('testStartDateInput').value}–${document.getElementById('testEndDateInput').value}`;
+        updates[`testSessions/${sessionRef.key}`] = {
+            date: sessionDate,
+            timestamp: now.getTime(),
+            type,
+            questionCount: currentTestQuestions.length,
+            wrongCount: Object.keys(sessionWrongWords).length,
+            source: sourceLabel,
+            wrongWords: sessionWrongWords
+        };
 
-        if (score === currentTestQuestions.length) {
-            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
-        }
+        db.ref().update(updates).then(() => {
+            setSyncStatus('測驗紀錄已同步');
+        }).catch(error => {
+            console.error(error);
+            setSyncStatus('測驗紀錄同步失敗', true);
+            alert('測驗結果已顯示，但雲端測驗紀錄儲存失敗。請檢查 Firebase 權限。');
+        });
+
+        const finalScoreHtml = `<div style="font-size:1.2rem;font-weight:bold;margin-bottom:20px;">總得分：${score} / ${currentTestQuestions.length}</div>`;
+        const container = document.getElementById('testContainer');
+        container.innerHTML = `<h2 style="color:var(--primary);margin-bottom:16px;">測驗結果與詳解</h2>` + finalScoreHtml + resultsHtml + `<button onclick="startTest()" style="margin-top:16px;">再考一次</button>`;
+        if (score === currentTestQuestions.length) confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
     }
+
+
 
     window.onload = init;
 </script>
